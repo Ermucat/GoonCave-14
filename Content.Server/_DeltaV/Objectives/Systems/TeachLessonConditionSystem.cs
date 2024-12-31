@@ -4,6 +4,9 @@ using Content.Server.Objectives.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 
+using Content.Server.Shuttles.Systems;
+
+
 namespace Content.Server.DeltaV.Objectives.Systems;
 
 /// <summary>
@@ -13,6 +16,7 @@ public sealed class TeachLessonConditionSystem : EntitySystem
 {
     [Dependency] private readonly CodeConditionSystem _codeCondition = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
 
     public override void Initialize()
     {
@@ -40,6 +44,11 @@ public sealed class TeachLessonConditionSystem : EntitySystem
             if (targetObjective.Target != mindId)
                 continue;
 
+            _codeCondition.SetCompleted(uid);
+
+            // evac has left without the target, greentext since the target is afk in space with a full oxygen tank and coordinates off.
+            if (_emergencyShuttle.ShuttlesLeft)
+                continue;
             _codeCondition.SetCompleted(uid);
         }
     }
