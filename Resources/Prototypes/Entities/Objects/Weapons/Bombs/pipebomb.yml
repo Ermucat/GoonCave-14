@@ -1,15 +1,16 @@
 - type: entity
-  parent: GrenadeBase
+  parent: [GrenadeBase, FoodboxPizza]
   id: PipeBomb
   name: pipe bomb
   description: An improvised explosive made from pipes and wire.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Bombs/pipebomb.rsi
+    sprite: Objects/Consumable/Food/Baked/pizza.rsi
     layers:
-    - state: base
+    - state: box-open
       map: ["enum.TriggerVisualLayers.Base"]
-    - state: wires
+    - state: box
+    - state: box-bomb-overlay
   - type: OnUseTimerTrigger # todo: make it activate through welder/lighter/fire instead
     delay: 5
     examinable: false
