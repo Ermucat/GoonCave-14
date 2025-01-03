@@ -1,0 +1,27 @@
+﻿- type: entity
+  name: Breacher Cleaver
+  parent: [BaseItem]
+  id: BreacherCleaver
+  description:
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 0.50
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: MeleeRequiresWield
+  - type: Item
+    size: Ginormous
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
