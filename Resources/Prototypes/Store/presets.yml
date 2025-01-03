@@ -15,6 +15,7 @@
     - UplinkAllies
     - UplinkWearables
     - UplinkJob
+    - UplinkSpecies # Harmony Caegory
     - UplinkPointless
     currencyWhitelist:
     - Telecrystal

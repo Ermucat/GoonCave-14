@@ -1,0 +1,5 @@
+﻿# Traitor Uplink
+- type: storeCategory
+  id: UplinkSpecies
+  name: store-category-species
+  priority: 10

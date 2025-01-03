@@ -32,3 +32,20 @@
 # Wearables
 # Pointless
 # Job Specific
+# Species
+- type: listing
+  id: uplinkCleaverharmony
+  name: uplink-breacher-cleaver-name
+  description: uplink-breacher-cleaver-desc
+  productEntity: BreacherCleaver
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkSpecies
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Reptilian
