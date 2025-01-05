@@ -1,0 +1,43 @@
+﻿- type: reagent
+  id: XenoBasher+
+  name: reagent-name-xeno-basherplus
+  parent: BaseAlcohol
+  group: Narcotics
+  desc: reagent-desc-xeno-basherplus
+  physicalDesc: reagent-physical-desc-fizzy-and-creamy
+  flavor: xenobasher
+  color: "#4d6600"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/xenobasher.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 2
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.1
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 1.0
+        type: Remove
+    Narcotic:
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.45
+        sprintSpeedModifier: 1.45
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -0.6
+            Toxin: -0.6
+            Airloss: -0.6
+            Brute: -0.6
+  fizziness: 0.15

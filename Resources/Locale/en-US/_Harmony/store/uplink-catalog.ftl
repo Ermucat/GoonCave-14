@@ -6,3 +6,6 @@ uplink-smuggler-satchel-desc = A satchel that can fit under station tiles.
 
 uplink-breacher-cleaver-name = Breacher Cleaver
 uplink-breacher-cleaver-desc = An advanced reptilian weapon, provided to the syndicate on the condition they would only provide this to reptilian operatives.
+
+uplink-xeno-basher-name = Xeno-Basher+
+uplink-xeno-basher-desc = Brewed from red sugar and plantlife from a dwarven mining colony, this drink will give you the advantage you need.

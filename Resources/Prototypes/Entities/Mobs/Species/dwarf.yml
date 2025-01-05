@@ -52,7 +52,7 @@
   - type: Speech
     speechSounds: Bass
   - type: HumanoidAppearance
-    species: Human
+    species: Dwarf
     hideLayersOnEquip:
     - Hair
     - Snout
