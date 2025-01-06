@@ -1,0 +1,10 @@
+﻿- type: polymorph
+  id: SlimeMorphGeras
+  configuration:
+    entity: MobSlimesSyndicateGeras
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Drop
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true

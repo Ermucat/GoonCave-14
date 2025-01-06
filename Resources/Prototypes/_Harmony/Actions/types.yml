@@ -1,0 +1,17 @@
+﻿- type: entity
+  id: ActionMorphGeras
+  name: Syndicate Geras
+  description: Allows you to transform into a more powerful, albeit smaller version of yourself
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ConfirmableAction
+    popup: gera-transformation-popup
+  - type: InstantAction
+    itemIconStyle: BigAction
+    useDelay: 10 # prevent spam
+    priority: -20
+    icon:
+      sprite: Mobs/Aliens/slimes.rsi
+      state: blue_adult_slime
+    event: !type:PolymorphActionEvent
+      protoId: SlimeMorphGeras

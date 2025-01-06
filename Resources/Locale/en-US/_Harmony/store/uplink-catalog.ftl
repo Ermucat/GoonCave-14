@@ -9,3 +9,6 @@ uplink-breacher-cleaver-desc = An advanced reptilian weapon, provided to the syn
 
 uplink-xeno-basher-name = Xeno-Basher+
 uplink-xeno-basher-desc = Brewed from red sugar and plantlife from a dwarven mining colony, this drink will give you the advantage you need.
+
+uplink-geras-name = Remote Geras Genetic Sequencer
+uplink-geras-desc = Remotely changes your DNA to unlock your full potential, to morph into a powerful geras.

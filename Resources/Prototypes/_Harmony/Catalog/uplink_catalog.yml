@@ -38,9 +38,6 @@
   name: uplink-breacher-cleaver-name
   description: uplink-breacher-cleaver-desc
   productEntity: BreacherCleaver
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 8
   cost:
     Telecrystal: 14
   categories:
@@ -55,9 +52,6 @@
   name: uplink-xeno-basher-name
   description: uplink-xeno-basher-desc
   productEntity: DrinkXenoBasher+
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2
   cost:
     Telecrystal: 4
   categories:
@@ -66,3 +60,19 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf
+
+- type: listing
+  id: uplinkGeras
+  name: uplink-geras-name
+  description: uplink-geras-desc
+  productAction: ActionMorphGeras
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkSpecies
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - SlimePerson
+
+
