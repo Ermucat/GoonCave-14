@@ -1,5 +1,5 @@
 - type: entity
-  parent: [GrenadeBase]
+  parent: [GrenadeBase, FoodboxPizza]
   id: PipeBomb
   name: pipe bomb
   description: An improvised explosive made from pipes and wire.
