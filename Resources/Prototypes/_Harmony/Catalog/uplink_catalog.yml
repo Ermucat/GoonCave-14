@@ -75,4 +75,30 @@
     whitelist:
     - SlimePerson
 
+- type: listing
+  id: uplinkBikerSkull
+  name: uplink-biker-skull-name
+  description: uplink-biker-skull-desc
+  productEntity: BikerSkull
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkSpecies
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Skeleton
 
+- type: listing
+  id: uplinkSkelenade
+  name: uplink-skull-nade-name
+  description: uplink-skull-skull-desc
+  productEntity: SkeletonNade
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkSpecies
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Skeleton

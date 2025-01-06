@@ -12,3 +12,9 @@ uplink-xeno-basher-desc = Brewed from red sugar and plantlife from a dwarven min
 
 uplink-geras-name = Remote Geras Genetic Sequencer
 uplink-geras-desc = Remotely changes your DNA to unlock your full potential, to morph into a powerful geras.
+
+uplink-biker-skull-name = Bikers Skull
+uplink-biker-skull-desc = From a time long past, passed along through generations, add milk and join your ancestors in the ancient art of biking.
+
+uplink-skull-nade-name = Call of the biker
+uplink-skull-skull-desc = A gang of bikers, ready to strike at your command. Throw this baby anywhere and watch the power of the bike.

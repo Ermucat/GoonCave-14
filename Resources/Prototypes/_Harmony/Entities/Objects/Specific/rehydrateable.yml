@@ -1,0 +1,22 @@
+﻿- type: entity
+  parent: MonkeyCube
+  id: BikerSkull
+  name: Biker Skull
+  description: Call the biker.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/bone_helmet.rsi
+    state: icon
+  - type: Reactive
+    reactions:
+    - reagents: [Milk]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:AddToSolutionReaction
+        solution: cube
+  - type: Rehydratable
+    catalyst: Milk
+    possibleSpawns:
+    - MobSkeletonBikerAINeutral
