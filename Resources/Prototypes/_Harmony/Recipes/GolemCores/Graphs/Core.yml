@@ -16,7 +16,7 @@
     entity: GolemCoreAdamantium
     edges:
 
-    - to: PlasmaCore
+    - to: SteelCore
       steps:
       - material: Steel
         amount: 10
