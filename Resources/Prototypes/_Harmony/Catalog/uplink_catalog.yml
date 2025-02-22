@@ -22,6 +22,11 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkX4Bundle
@@ -32,7 +37,11 @@
     Telecrystal: 14
   categories:
   - UplinkExplosives
-# Ammo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 # Ammo
 # Chemicals
 # Deception
