@@ -9,6 +9,30 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
+
+- type: listing
+  id: UplinkX4
+  name: uplink-X4-name
+  description: uplink-X4-desc
+  productEntity: X4
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkX4Bundle
+  name: uplink-X4-bundle-name
+  description: uplink-X4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateX4tBundle
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkExplosives
+# Ammo
 # Ammo
 # Chemicals
 # Deception
