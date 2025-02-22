@@ -1,0 +1,16 @@
+﻿- type: reagent
+  id: MagillitisSerum
+  name: reagent-name-magillitis
+  group: Narcotics
+  desc: reagent-desc-magillitis
+  physicalDesc: reagent-physical-desc-vibrant
+  color: "#c0cfc4"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:Polymorph
+        prototype: GorillaRampagingPolymorph
+        conditions:
+        - !type:ReagentThreshold
+          min: 5

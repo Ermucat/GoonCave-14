@@ -1131,6 +1131,13 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  # Harmony Start
+  - type: Vocal
+    sounds:
+      Male: Gorilla
+      Female: Gorilla
+      Unsexed: Gorilla
+  # Harmony End
 
 - type: entity
   name: kangaroo

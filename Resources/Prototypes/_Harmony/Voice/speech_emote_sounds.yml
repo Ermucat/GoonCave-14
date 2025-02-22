@@ -1,0 +1,6 @@
+﻿- type: emoteSounds
+  id: Gorilla
+  sound:
+    collection: Gorilla
+    params:
+      variation: 0.075

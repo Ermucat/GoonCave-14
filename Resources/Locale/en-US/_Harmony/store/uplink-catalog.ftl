@@ -15,3 +15,6 @@ uplink-cluster-weh-desc = Scatters 10 lizard plushies in a circle after a short 
 
 uplink-hyposhell-name = Box of hyposhells
 uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that can hold 7u of any chemical.
+
+uplink-magillitis-name = Magillitis Serum
+uplink-magillitis-desc = A syringe containing the Magillitis Serum, a dangerous genetic compund that rapidly expands your DNA, turning you into a very powerful gorilla.
