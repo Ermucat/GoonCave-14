@@ -22,3 +22,10 @@
         Blunt: 30
         Structural: 70
   - type: MonkeyAccent
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      120: 0.7
+      260: 0.3
