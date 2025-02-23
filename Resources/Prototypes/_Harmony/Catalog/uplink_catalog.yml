@@ -101,7 +101,7 @@
   productEntity: MagillitisInjector
   icon: { sprite: _Harmony/Interface/Uplink/Serum.rsi, state: GorillaRampage}
   cost:
-    Telecrystal: 14
+    Telecrystal: 12
   categories:
   - UplinkJob
   conditions:

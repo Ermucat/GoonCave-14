@@ -19,7 +19,7 @@
       collection: Punch
     damage:
       types:
-        Blunt: 40
+        Blunt: 35
         Structural: 80
   - type: MonkeyAccent
   - type: MovementSpeedModifier
@@ -28,4 +28,4 @@
   - type: SlowOnDamage
     speedModifierThresholds:
       130: 0.90
-      260: 0.75
+      260: 0.70
