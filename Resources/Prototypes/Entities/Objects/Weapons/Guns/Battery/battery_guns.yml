@@ -439,7 +439,8 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50  # Harmony Change - Reverts to Pre-Buff
+    # fireCost: 50
+    fireCost: 100  # Harmony Change - Reverts to Pre-Buff
   - type: Tag
     tags:
     - Taser
@@ -468,7 +469,7 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     #fireCost: 50
-    firecost: 100  # Harmony Change - Reverts to Pre-Buff
+    fireCost: 100  # Harmony Change - Reverts to Pre-Buff
   - type: GuideHelp
     guides:
     - Security
