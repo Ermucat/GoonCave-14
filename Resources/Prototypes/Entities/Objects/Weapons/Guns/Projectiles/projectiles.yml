@@ -229,7 +229,8 @@
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 33
+    #damage: 33
+    damage: 30  # Harmony Change - Reverts to Pre-Buff
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

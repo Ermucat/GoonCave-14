@@ -434,12 +434,12 @@
     price: 100
   - type: Gun
     fireRate: 2
-    projectileSpeed: 35 # any higher and this causes issues in lag
+    #projectileSpeed: 35 # any higher and this causes issues in lag
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 50
+    fireCost: 50  # Harmony Change - Reverts to Pre-Buff
   - type: Tag
     tags:
     - Taser
@@ -467,7 +467,8 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
+    #fireCost: 50
+    firecost: 100  # Harmony Change - Reverts to Pre-Buff
   - type: GuideHelp
     guides:
     - Security
@@ -494,7 +495,8 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4.5
+    #fireRate: 4.5
+    fireRate: 4 # Harmony Change - Reverts to Pre-Buff
     availableModes:
       - SemiAuto
       - FullAuto
@@ -502,7 +504,8 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 25
+    #fireCost: 25
+    fireCost: 33 # Harmony Change - Reverts to Pre-Buff
   - type: MagazineVisuals
     magState: mag
     steps: 5
