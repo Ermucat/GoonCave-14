@@ -20,3 +20,13 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltBrigmedHarmonyEntityTable
+
+- type: entity
+  id: SnakesfangScabberdFilled
+  parent: SnakesfangSheath
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - Snakesfang

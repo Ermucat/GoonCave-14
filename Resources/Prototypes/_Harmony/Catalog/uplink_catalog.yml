@@ -1,4 +1,14 @@
 # Guns
+- type: listing
+  id: UplinkSnakesFang
+  name: uplink-snakesfang-name
+  description: uplink-snakesfang-desc
+  productEntity: SnakesfangScabberdFilled
+  icon: { sprite: _Harmony/Objects/Weapons/Melee/Snakesfang.rsi, state: icon }
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
 # Explosives
 - type: listing
   id: UplinkPizzaBomb

@@ -60,3 +60,36 @@
           - Bottle
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+
+# Sheaths
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+  id: SnakesfangSheath
+  name: snakesfang scabbard
+  description: Can hold scimitars.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Belt/snakesfangsheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Harmony/Clothing/Belt/snakesfangsheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - Snakesfang
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - Snakesfang
+  - type: Appearance

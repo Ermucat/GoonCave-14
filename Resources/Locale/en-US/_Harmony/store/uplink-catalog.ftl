@@ -15,3 +15,6 @@ uplink-cluster-weh-desc = Scatters 10 lizard plushies in a circle after a short 
 
 uplink-hyposhell-name = Box of hyposhells
 uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that can hold 7u of any chemical.
+
+uplink-snakesfang-name = Snakesfang
+uplink-snakesfang-desc = The snakesfang is a fork-tipped scimitar with a sharp edge and sharper bite. This sword cannot fit in your bag, but it does come with a scabbard you can attach to your belt.

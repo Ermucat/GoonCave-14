@@ -1,0 +1,21 @@
+﻿- type: entity
+  name: snakesfang
+  parent: [ BaseSword, BaseSyndicateContraband ]
+  id: Snakesfang
+  description: A uniquely curved, black and red sword. Extra-edgy and cutting-edge.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Weapons/Melee/Snakesfang.rsi
+  - type: MeleeWeapon
+    attackRate: 1.2
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Harmony/Objects/Weapons/Melee/Snakesfang.rsi
+    size: Ginormous
+  - type: Tag
+    tags:
+    - Snakesfang

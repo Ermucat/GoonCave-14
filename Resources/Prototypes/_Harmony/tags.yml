@@ -7,3 +7,7 @@
 # Tag used for escape pod landing.
 - type: Tag
   id: DockPod
+
+# Used for Snakesfang Scabbard
+- type: Tag
+  id: Snakesfang
