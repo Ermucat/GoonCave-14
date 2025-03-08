@@ -63,7 +63,7 @@
 
 # Sheaths
 - type: entity
-  parent: [ClothingBeltBase, ClothingSlotBase, BaseCommandContraband]
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseSyndicateContraband]
   id: SnakesfangSheath
   name: snakesfang scabbard
   description: Can hold scimitars.
