@@ -41,7 +41,7 @@
     range: 20
     energyConsumption: 50000
   - type: OnUseTimerTrigger
-    delay: 10
+    delay: 60
     delayOptions: [60, 90, 180, 240, 300]
     initialBeepDelay: 0
     beepSound: /Audio/Machines/timer.ogg
@@ -107,7 +107,7 @@
     fillPrototype: VisitorClownSpawner
     capacity: 15
   - type: OnUseTimerTrigger
-    delay: 10
+    delay: 60
     delayOptions: [60, 90, 180, 240, 300]
     initialBeepDelay: 0
     beepSound: /Audio/Items/bikehorn.ogg
