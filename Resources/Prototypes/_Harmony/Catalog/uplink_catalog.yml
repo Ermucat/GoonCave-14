@@ -9,6 +9,7 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
+
 - type: listing
   id: UplinkEMPBomb
   name: uplink-EMP-bomb-name
