@@ -130,3 +130,5 @@
     guides:
     - Defusal
   - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
