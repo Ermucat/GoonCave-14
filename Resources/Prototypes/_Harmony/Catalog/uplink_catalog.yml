@@ -9,6 +9,15 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
+- type: listing
+  id: UplinkEMPBomb
+  name: uplink-EMP-bomb-name
+  description: uplink-EMP-bomb-desc
+  productEntity: EMPBomb
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
 # Ammo
 # Chemicals
 # Deception

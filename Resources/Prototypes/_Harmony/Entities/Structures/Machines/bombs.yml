@@ -1,0 +1,131 @@
+﻿- type: entity
+  parent: BaseStructureDynamic
+  id: EMPBomb
+  description: Wont turn you into chunks of meat, still doesnt mean you should stand near it.
+  name: EMP bomb
+  components:
+  - type: Sprite
+    sprite: _Harmony/Structures/Machines/bomb.rsi
+    layers:
+    - state: emp-bomb
+    - state: emp-bomb-active
+      visible: false
+      map: [ "primed" ]
+    - state: emp-bomb-wires
+      visible: false
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.DefusableVisuals.Active:
+        primed:
+          True: { visible: true }
+          False: { visible: false }
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: WiresVisuals
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Wires
+    layoutId: Defusable
+    alwaysRandomize: true
+  - type: Defusable
+  - type: Rotatable
+  - type: DeleteOnTrigger
+  - type: EmpOnTrigger
+    range: 20
+    energyConsumption: 50000
+  - type: OnUseTimerTrigger
+    delay: 10
+    delayOptions: [60, 90, 180, 240, 300]
+    initialBeepDelay: 0
+    beepSound: /Audio/Machines/timer.ogg
+  - type: Anchorable
+    delay: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: WiresPanel
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - Defusal
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: Clownbomb
+  description: Circus in a bottle.
+  name: clown bomb
+  components:
+  - type: Sprite
+    sprite: _Harmony/Structures/Machines/bomb.rsi
+    layers:
+    - state: clown-bomb
+    - state: clown-bomb-active
+      visible: false
+      map: [ "primed" ]
+    - state: clown-bomb-wires
+      visible: false
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.DefusableVisuals.Active:
+        primed:
+          True: { visible: true }
+          False: { visible: false }
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: WiresVisuals
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Wires
+    layoutId: Defusable
+    alwaysRandomize: true
+  - type: Defusable
+  - type: Rotatable
+  - type: DeleteOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: VisitorClownSpawner
+    capacity: 15
+  - type: OnUseTimerTrigger
+    delay: 10
+    delayOptions: [60, 90, 180, 240, 300]
+    initialBeepDelay: 0
+    beepSound: /Audio/Items/bikehorn.ogg
+  - type: Anchorable
+    delay: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: WiresPanel
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - Defusal
