@@ -7,10 +7,10 @@
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Melee/Snakesfang.rsi
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 1.3
     damage:
       types:
-        Slash: 20
+        Slash: 18
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
