@@ -9,7 +9,7 @@
     shoes: ClothingShoesWizard
     id: WizardPDA
     ears: ClothingHeadsetAltCommand
-    #afbelt: ClothingBeltWand
+    #afbelt: ClothingBeltWand - Harmony Change
     # pocket1: TODO: Include wizard teleport scroll
     pocket2: WizardsGrimoire
 
