@@ -7,3 +7,23 @@
 # Tag used for escape pod landing.
 - type: Tag
   id: DockPod
+
+# Tag used for wand belt
+- type: Tag
+  id: Polymorphwand
+
+# Tag used for wand belt
+- type: Tag
+  id: Deathwand
+
+# Tag used for wand belt
+- type: Tag
+  id: Fireballwand
+
+# Tag used for wand belt
+- type: Tag
+  id: Animatewand
+
+# Tag used for wand belt
+- type: Tag
+  id: Doorwand

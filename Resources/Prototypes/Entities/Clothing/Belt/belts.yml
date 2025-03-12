@@ -716,3 +716,29 @@
     whitelist:
       tags:
       - WizardWand
+  # Harmony Start
+  - type: ItemMapper
+    mapLayers:
+      polymorph:
+        whitelist:
+          tags:
+            - Polymorphwand
+      deathwand:
+        whitelist:
+          tags:
+            - Deathwand
+      fireballwand:
+        whitelist:
+          tags:
+            - Fireballwand
+      animation:
+        whitelist:
+          tags:
+            - Animatewand
+      door:
+        whitelist:
+          tags:
+            - Doorwand
+    sprite: _Harmony/Clothing/Belt/beltoverlay.rsi
+  - type: Appearance
+  # Harmony End

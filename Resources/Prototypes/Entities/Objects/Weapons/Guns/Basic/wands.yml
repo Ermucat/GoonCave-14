@@ -14,6 +14,12 @@
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltCarp
     capacity: 5
+    # Harmony Start
+  - type: Tag
+    tags:
+    - Polymorphwand
+    - WizardWand
+    # Harmony End
 
 - type: entity
   name: wand of carp polymorph
@@ -56,6 +62,10 @@
     proto: ProjectileFireball
     capacity: 5
     count: 5
+  - type: Tag
+    tags:
+    - Fireballwand
+    - WizardWand
 
 - type: entity
   name: wand of the locker
@@ -111,6 +121,10 @@
     proto: BulletInstakillMagic
     capacity: 3
     count: 3
+  - type: Tag
+    tags:
+    - Deathwand
+    - WizardWand
 
 - type: entity
   name: wand of entrance
@@ -130,6 +144,12 @@
     proto: ProjectilePolyboltDoor
     capacity: 10
     count: 10
+  # Harmony Start
+  - type: Tag
+    tags:
+    - Doorwand
+    - WizardWand
+  # Harmony End
 
 - type: entity
   name: wand of cluwning

@@ -37,3 +37,9 @@
     proto: ProjectilePolyboltDoor
     capacity: 10
     count: 10
+  # Harmony Start
+  - type: Tag
+    tags:
+    - Animatewand
+    - WizardWand
+  # Harmony end
