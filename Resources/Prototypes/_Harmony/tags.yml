@@ -22,8 +22,4 @@
 
 # Tag used for wand belt
 - type: Tag
-  id: Animatewand
-
-# Tag used for wand belt
-- type: Tag
   id: Doorwand

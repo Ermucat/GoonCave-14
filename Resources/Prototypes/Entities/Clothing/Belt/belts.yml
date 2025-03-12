@@ -731,10 +731,6 @@
         whitelist:
           tags:
             - Fireballwand
-      animation:
-        whitelist:
-          tags:
-            - Animatewand
       door:
         whitelist:
           tags:
