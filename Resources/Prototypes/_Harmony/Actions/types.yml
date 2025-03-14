@@ -10,3 +10,17 @@
       state: icon
     itemIconStyle: NoItem
     event: !type:ToggleActionEvent {}
+
+- type: entity
+  id: DividingGoose
+  name: Divide
+  description: Divde your cells.
+  components:
+  - type: InstantAction
+    useDelay: 15
+    itemIconStyle: BigAction
+    icon:
+      sprite: Mobs/Animals/goose.rsi
+      state: goose
+    event: !type:InstantSpawnSpellEvent
+      prototype: MobDividingGoose

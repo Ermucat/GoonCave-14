@@ -1109,6 +1109,21 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  # Harmony Start
+  - type: Speech
+    speechVerb: Goosespeak
+    speechSounds: Goose
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Puller
+    needsHands: false
+  - type: Vocal
+    sounds:
+      Male: goose
+      Female: goose
+      Unsexed: goose
+  # Harmony End
 
 - type: entity
   name: gorilla

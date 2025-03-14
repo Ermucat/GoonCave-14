@@ -1,0 +1,8 @@
+﻿- type: speechSounds
+  id: Goose
+  saySound:
+    path: /Audio/Animals/goose_honk.ogg
+  askSound:
+    path: /Audio/Animals/goose_honk.ogg
+  exclaimSound:
+    path: /Audio/Animals/goose_honk.ogg

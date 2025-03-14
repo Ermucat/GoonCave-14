@@ -1,0 +1,15 @@
+﻿- type: entity
+  name: dividing goose
+  parent: MobGoose
+  id: MobDividingGoose
+  components:
+  - type: ActionGrant
+    actions:
+      - DividingGoose
+  - type: GhostRole
+    name: ghost-role-information-dividing-goose-name
+    description: ghost-role-information-dividing-goose-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

@@ -1,0 +1,42 @@
+﻿# species
+- type: emoteSounds
+  id: goose
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Animals/goose_honk.ogg
+    Laugh:
+      path: /Audio/Animals/goose_honk.ogg
+    Sneeze:
+      path: /Audio/Animals/goose_honk.ogg
+    Cough:
+      path: /Audio/Animals/goose_honk.ogg
+    CatMeow:
+      path: /Audio/Animals/goose_honk.ogg
+    CatHisses:
+      path: /Audio/Animals/goose_honk.ogg
+    MonkeyScreeches:
+      path: /Audio/Animals/goose_honk.ogg
+    RobotBeep:
+      path: /Audio/Animals/goose_honk.ogg
+    Yawn:
+      path: /Audio/Animals/goose_honk.ogg
+    Snore:
+      path: /Audio/Animals/goose_honk.ogg
+    Honk:
+      path: /Audio/Animals/goose_honk.ogg
+    Sigh:
+      path: /Audio/Animals/goose_honk.ogg
+    Crying:
+      path: /Audio/Animals/goose_honk.ogg
+    Whistle:
+      path: /Audio/Animals/goose_honk.ogg
+    Weh:
+      path: /Audio/Animals/goose_honk.ogg
+    Hew:
+      path: /Audio/Animals/goose_honk.ogg
+    Gasp:
+      path: /Audio/Animals/goose_honk.ogg
+    DefaultDeathgasp:
+      path: /Audio/Animals/goose_honk.ogg
