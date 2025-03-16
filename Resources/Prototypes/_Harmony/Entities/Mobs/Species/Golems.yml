@@ -211,17 +211,18 @@
   parent: [MobGolemPerson, MobBloodstream]
   abstract: true
   components:
-    - type: Sprite
-      color: "#ffff00"
-      colorHex: "#ffff00"
-    - type: Slippery
-      paralyzeTime: 2.0
-      launchForwardsMultiplier: 6.0
-    - type: Speech
-      speechSounds: Clown
-      speechVerb:   DefaultExclamation
-    - type: Bloodstream
-      bloodReagent: SpaceLube
+  - type: Sprite
+    color: "#ffff00"
+    colorHex: "#ffff00"
+  - type: Speech
+    speechSounds: Clown
+    speechVerb:   DefaultExclamation
+  - type: Bloodstream
+    bloodReagent: SpaceLube
+  - type: StepTrigger
+    requiredTriggeredSpeed: -1
+    StepOn: true
+  - type: Slippery
 
 - type: entity
   id: BasePlasteelGolem
