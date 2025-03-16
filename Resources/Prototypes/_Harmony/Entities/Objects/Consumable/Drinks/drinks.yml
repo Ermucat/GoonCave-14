@@ -34,7 +34,7 @@
 - type: entity
   parent: DrinkGlass
   id: DrinkXenoBasher+
-  suffix: Xeno Basher +
+  suffix: xeno basher +
   components:
   - type: SolutionContainerManager
     solutions:

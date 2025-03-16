@@ -16,11 +16,11 @@ uplink-geras-desc = Remotely changes your DNA to unlock your full potential, to 
 uplink-biker-skull-name = Bikers Skull
 uplink-biker-skull-desc = From a time long past, passed along through generations, add milk and join your ancestors in the ancient art of biking.
 
-uplink-skull-nade-name = Call of the biker
+uplink-skull-nade-name = Call of the Biker
 uplink-skull-skull-desc = A gang of bikers, ready to strike at your command. Throw this baby anywhere and watch the power of the bike.
 
 uplink-skull-bloody-eye-name = Bloody Eye
-uplink-skull-bloody-eye-desc = An illegal substance that takes 2 months to manufactor, enhances perception and speed for quick movement.
+uplink-skull-bloody-eye-desc = A powerful stimulant which takes 2 months to manufacture, make it count.
 
 uplink-pizza-bomb-name = Nefarious Pizza bomb
 uplink-pizza-bomb-desc = This tech, first pioneered by terrorists, now is used by the syndicate for eliminating high value targets

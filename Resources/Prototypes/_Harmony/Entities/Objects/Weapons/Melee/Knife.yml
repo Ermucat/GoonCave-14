@@ -2,7 +2,7 @@
   name: breacher cleaver
   parent: [BaseItem]
   id: BreacherCleaver
-  description:
+  description: Massive, heavy, and utterly impractical. This sharpened chunk of steel is too big and too heavy to be called a sword.
   components:
   - type: Sharp
   - type: Execution
