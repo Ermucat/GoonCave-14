@@ -18,3 +18,6 @@ uplink-biker-skull-desc = From a time long past, passed along through generation
 
 uplink-skull-nade-name = Call of the biker
 uplink-skull-skull-desc = A gang of bikers, ready to strike at your command. Throw this baby anywhere and watch the power of the bike.
+
+uplink-skull-bloody-eye-name = Bloody Eye
+uplink-skull-bloody-eye-desc = An illegal substance that takes 2 months to manufactor, enhances perception and speed for quick movement.

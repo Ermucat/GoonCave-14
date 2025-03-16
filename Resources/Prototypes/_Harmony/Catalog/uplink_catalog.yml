@@ -102,3 +102,17 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Skeleton
+
+- type: listing
+  id: uplinkbloodyeye
+  name: uplink-skull-bloody-eye-name
+  description: uplink-skull-bloody-eye-desc
+  productEntity: BloodyEyeInjector
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkSpecies
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Human

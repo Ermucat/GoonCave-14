@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Bloody eye sprites made by Ermucat",
+  "states": [
+    {
+      "name": "bloodyeye-full"
+    },
+    {
+      "name": "bloodyeye-empty"
+    }
+  ]
+}

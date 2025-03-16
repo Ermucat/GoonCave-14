@@ -1,0 +1,33 @@
+﻿- type: entity
+  name: Bloody Eye
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: A rare liquid produced by the syndicate
+  id: BloodyEyeInjector
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Specific/Chemistry/Hypopen.rsi
+    layers:
+    - state: bloodyeye-empty
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    sprite: _Harmony/Objects/Specific/Chemistry/Hypopen.rsi
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: BloodyEye
+          Quantity: 5
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 2.5
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: bloodyeye-empty
+  - type: StaticPrice
+    price: 30000

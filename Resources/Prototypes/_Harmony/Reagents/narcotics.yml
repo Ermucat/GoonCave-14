@@ -30,9 +30,6 @@
         type: Remove
     Narcotic:
       effects:
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.45
-        sprintSpeedModifier: 1.45
       - !type:HealthChange
         damage:
           groups:
@@ -41,3 +38,24 @@
             Airloss: -0.6
             Brute: -0.6
   fizziness: 0.15
+
+- type: reagent
+  id: BloodyEye
+  name: reagent-name-bloody-eye
+  group: Narcotics
+  desc: reagent-desc-bloody-eye
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#ab2d1f"
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 2.5
+        walkSpeedModifier: 1.5
+        sprintSpeedModifier: 1.5
+        StatusLifetime: 90
+  fizziness: 0.15
+
