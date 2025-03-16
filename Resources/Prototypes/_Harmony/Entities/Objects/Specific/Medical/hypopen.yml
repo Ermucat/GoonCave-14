@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: Bloody Eye
+  name: bloody eye
   parent: [BaseItem, BaseSyndicateContraband]
   description: A rare liquid produced by the syndicate
   id: BloodyEyeInjector

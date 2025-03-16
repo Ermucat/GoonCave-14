@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: MonkeyCube
   id: BikerSkull
-  name: Biker Skull
+  name: biker skull
   description: Call the biker.
   components:
   - type: Item

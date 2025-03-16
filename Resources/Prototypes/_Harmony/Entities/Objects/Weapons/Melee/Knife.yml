@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: Breacher Cleaver
+  name: breacher cleaver
   parent: [BaseItem]
   id: BreacherCleaver
   description:
