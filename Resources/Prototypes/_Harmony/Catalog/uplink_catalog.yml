@@ -101,7 +101,7 @@
   description: uplink-breacher-cleaver-desc
   productEntity: BreacherCleaver
   cost:
-    Telecrystal: 14
+    Telecrystal: 15
   categories:
   - UplinkSpecies
   conditions:
@@ -157,7 +157,7 @@
   description: uplink-skull-skull-desc
   productEntity: SkeletonNade
   cost:
-    Telecrystal: 12
+    Telecrystal: 14
   categories:
   - UplinkSpecies
   conditions:
@@ -171,7 +171,7 @@
   description: uplink-skull-bloody-eye-desc
   productEntity: BloodyEyeInjector
   cost:
-    Telecrystal: 3
+    Telecrystal: 5
   categories:
   - UplinkSpecies
   conditions:
