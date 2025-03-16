@@ -56,6 +56,5 @@
           min: 2.5
         walkSpeedModifier: 1.5
         sprintSpeedModifier: 1.5
-        StatusLifetime: 90
   fizziness: 0.15
 

@@ -14,10 +14,6 @@
   - type: ScatteringGrenade
     fillPrototype: MobSkeletonBikerHostile
     capacity: 10
-    grenadeTriggerIntervalMax: 0
-    grenadeTriggerIntervalMin: 0
-    baseTriggerDelay: 60
-    randomSpread: true
     velocity: 3
   - type: DamageOnLand
     damage:
