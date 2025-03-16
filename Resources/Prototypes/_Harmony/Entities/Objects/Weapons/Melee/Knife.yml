@@ -22,6 +22,7 @@
   - type: Wieldable
   - type: MeleeRequiresWield
   - type: Item
+    sprite: _Harmony/Objects/Weapons/Melee/BreacherCleaver.rsi
     size: Ginormous
   - type: IgniteOnMeleeHit
-    fireStacks: 2
+    fireStacks: 1.5

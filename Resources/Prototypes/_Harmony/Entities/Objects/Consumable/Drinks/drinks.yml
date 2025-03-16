@@ -45,3 +45,20 @@
           Quantity: 30
   - type: Icon
     sprite: Objects/Consumable/Drinks/xenobasher.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkXenoBasher+
+  suffix: Xeno Basher +
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: StarsetSarsaparilla
+          Quantity: 30
+  - type: Icon
+    sprite: _Harmony/Objects/Consumable/Drinks/starset-sarsaparilla.rsi
+    state: icon

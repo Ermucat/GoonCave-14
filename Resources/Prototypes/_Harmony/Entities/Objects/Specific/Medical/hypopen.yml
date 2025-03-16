@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: _Harmony/Objects/Specific/Chemistry/Hypopen.rsi
     layers:
-    - state: bloodyeye-empty
+    - state: bloodyeye-full
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: Item
     sprite: _Harmony/Objects/Specific/Chemistry/Hypopen.rsi
