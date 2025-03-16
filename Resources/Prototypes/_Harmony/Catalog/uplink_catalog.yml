@@ -171,7 +171,7 @@
   description: uplink-skull-bloody-eye-desc
   productEntity: BloodyEyeInjector
   cost:
-    Telecrystal: 5
+    Telecrystal: 6
   categories:
   - UplinkSpecies
   conditions:
