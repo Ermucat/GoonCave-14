@@ -10,6 +10,7 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
+  - ThreeCandles
   - Lighter
   - CigPackGreen
   - CigPackRed
@@ -18,6 +19,7 @@
   - CigarCase
   - CigarGold
   - ClothingNeckLGBTPin
+  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
   - ClothingNeckBisexualPin
@@ -26,6 +28,8 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckOmnisexualPin
+  - ClothingNeckGenderqueerPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
@@ -56,6 +60,10 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  - TowelStripedOrange # Harmony
+  - PlushieVox
+#deltav specific trinkets
+  - TapeRecorder
 
 - type: loadoutGroup
   id: Glasses
@@ -153,6 +161,7 @@
   minLimit: 0
   loadouts:
   - HoPHead
+  - HoPBeretHarmony # Harmony
 
 - type: loadoutGroup
   id: HoPJumpsuit
@@ -644,6 +653,7 @@
   loadouts:
   - CargoTechnicianHead
   - CargoTechnicianBandanaHarmony # Harmony
+  - SeniorTechnicianBeretHarmony # Harmony change: adds senior tech beret to loadout group
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -651,6 +661,14 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+# start of harmony change: adds new outfits to loadout
+  - CargoPantsHarmony
+  - CargoverallsHarmony
+  - CargoOfficeSlacksJumpsuitHarmony
+  - CargoOfficeSkirtJumpskirtHarmony
+  - SeniorTechnicianJumpsuitHarmony
+  - SeniorTechnicianJumpskirtHarmony
+# end of harmony change
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -703,7 +721,8 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerHead
-  - ChiefEngineerBeret
+#  - ChiefEngineerBeret
+  - CEBeretHarmony # Harmony Change
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -746,6 +765,7 @@
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
+  minLimit: 0
   loadouts:
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
@@ -838,7 +858,8 @@
   name: loadout-group-research-director-head
   minLimit: 0
   loadouts:
-  - ResearchDirectorBeret
+#  - ResearchDirectorBeret
+  - RDBeretHarmony # Harmony Change
 
 - type: loadoutGroup
   id: ResearchDirectorNeck
@@ -957,6 +978,7 @@
   - HeadofSecurityHead
   - HeadofSecurityBeret
   - HoSWidebrimHarmony # Harmony
+  - HoSSoftHarmony # Harmony
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -964,11 +986,16 @@
   loadouts:
   - HeadofSecurityJumpsuit
   - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
+  - JumpsuitHoSBlueHarmony # Harmony
+  - JumpsuitHoSGrey # Harmony
+  - JumpsuitHoSTurtleNeckHarmony # Harmony
+  - JumpskirtHoSTurtleNeckHarmony # Harmony
+# - HeadofSecurityTurtleneck
+# - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityAssaultSuit # Harmony
+  - HeadofSecurityAssaultSkirt # Harmony
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
-  - JumpsuitHoSBlue # Harmony
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1019,6 +1046,7 @@
   - TrooperHat
   - SecurityBandanaHarmony # Harmony
   - SecurityBlueCapHarmony # Harmony
+  - SeniorOfficerBeretHarmony # Harmony
   - SecurityBlueBeretHarmony # Harmony
 
 - type: loadoutGroup
@@ -1190,6 +1218,7 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
+  - WorkadaySuit # Harmony
   - SeniorPhysicianJumpsuit
   - SeniorPhysicianJumpskirt
   - MedicalBlueScrubs
@@ -1218,6 +1247,7 @@
   name: loadout-group-medical-doctor-shoes
   loadouts:
   - WhiteShoes
+  - BlackShoes # Harmony
   - MedicalWinterBoots
 
 - type: loadoutGroup
