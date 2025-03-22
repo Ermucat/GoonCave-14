@@ -15,3 +15,9 @@ uplink-cluster-weh-desc = Scatters 10 lizard plushies in a circle after a short 
 
 uplink-hyposhell-name = Box of hyposhells
 uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that can hold 7u of any chemical.
+
+uplink-X4-name = X-4
+uplink-X4-desc = The cousin of the infamous C-4, uses experimental explosives to better pierce through structures.
+
+uplink-X4-bundle-name = X-4 Bundle
+uplink-X4-bundle-desc = A bag containing 4 X-4s, perfect for going all in on sabotage.
