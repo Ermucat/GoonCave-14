@@ -24,8 +24,8 @@
     - Timer
   - type: Explosive
     explosionType: DemolitionCharge
-    totalIntensity: 70
-    intensitySlope: 4
-    maxIntensity: 75
+    totalIntensity: 60
+    intensitySlope: 5
+    maxIntensity: 30
     canCreateVacuum: false
   - type: ExplodeOnTrigger
