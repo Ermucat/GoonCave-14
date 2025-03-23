@@ -203,7 +203,6 @@
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
 
-
 - type: entity
   id: StationEfficiencyCircuitBoard
   parent: BaseElectronics

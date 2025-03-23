@@ -101,7 +101,7 @@
     CrewServerObjective: 0.5
     ClownmaskObjective: 1
     GoldentoolboxObjective: 1
-    CommsboardObjective:
+    CommsboardObjective: 1
     # Harmony End
 
 - type: weightedRandom
