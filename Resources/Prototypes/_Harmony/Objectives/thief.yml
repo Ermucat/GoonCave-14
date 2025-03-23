@@ -101,6 +101,8 @@
   parent: BaseThiefStealObjective
   id: ClownmaskObjective
   components:
+  - type: NotJobRequirement
+    job: Clown
   - type: StealCondition
     stealGroup: Clownmask
   - type: Objective
