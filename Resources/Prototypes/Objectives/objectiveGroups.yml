@@ -67,6 +67,10 @@
     MailStealCollectionObjective: 1                     #cargo
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2                     #only for moth
+    # Harmony Start
+    InsulstealObjective: 1                              # Tider only
+    ShoestealObjective: 1
+    # Harmony End
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem
@@ -87,6 +91,18 @@
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
     ClothingNeckClownmedalStealObjective: 0.5
+    # Harmony Start
+    MedtekObjective: 1.5
+    LogprobeObjective: 1
+    AccessconfigObjective: 1
+    LawboardNTDefaultObjective: 0.5
+    LawboardCrewsimovObjective: 0.5
+    HOPIDObjective: 0.75
+    CrewServerObjective: 0.5
+    ClownmaskObjective: 1
+    GoldentoolboxObjective: 1
+    CommsboardObjective:
+    # Harmony End
 
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure

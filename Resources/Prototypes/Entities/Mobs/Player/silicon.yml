@@ -134,6 +134,10 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: Crewsimov
+  # Harmony start
+  - type: StealTarget
+    stealGroup: Crewsimov
+  # Harmony End
 
 - type: entity
   id: CorporateCircuitBoard
@@ -158,6 +162,10 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: NTDefault
+  # Harmony start
+  - type: StealTarget
+    stealGroup: NTDefault
+  # Harmony End
 
 - type: entity
   id: CommandmentCircuitBoard
@@ -194,6 +202,7 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
+
 
 - type: entity
   id: StationEfficiencyCircuitBoard

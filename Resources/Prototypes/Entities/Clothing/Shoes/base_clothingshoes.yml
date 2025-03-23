@@ -24,6 +24,10 @@
     - ClothMade
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  # Harmony start
+  - type: StealTarget
+    stealGroup: Shoes
+  # Harmony End
 
 - type: entity
   abstract: true

@@ -275,6 +275,10 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerComms
+    # Harmony start
+    - type: StealTarget
+      stealGroup: Commsboard
+    # Harmony End
 
 - type: entity
   parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]

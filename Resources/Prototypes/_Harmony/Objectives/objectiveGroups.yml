@@ -1,0 +1,85 @@
+# Theif
+- type: stealTargetGroup
+  id: Crewsimov
+  name: steal-target-groups-lawboard-crewsimov
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+
+- type: stealTargetGroup
+  id: NTDefault
+  name: steal-target-groups-lawboard-NTDefault
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+
+
+- type: stealTargetGroup
+  id: Accessconfig
+  name: steal-target-groups-Aconfig
+  sprite:
+    sprite: Objects/Tools/access_configurator.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: Insul
+  name: steal-target-groups-insul
+  sprite:
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: Medtek
+  name: steal-target-groups-medtek
+  sprite:
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-med
+
+- type: stealTargetGroup
+  id: Logprobe
+  name: steal-target-groups-logprobe
+  sprite:
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-log
+
+- type: stealTargetGroup
+  id: HOPID
+  name: steal-target-groups-hopid
+  sprite:
+    sprite: Objects/Misc/id_cards.rsi
+    state: silver
+
+- type: stealTargetGroup
+  id: Shoes
+  name: steal-target-groups-shoe
+  sprite:
+    sprite: Clothing/Shoes/color.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: CMS
+  name: steal-target-groups-cms
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: generic
+
+- type: stealTargetGroup
+  id: Clownmask
+  name: steal-target-groups-clownmask
+  sprite:
+    sprite: Clothing/Mask/clown.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: Commsboard
+  name: steal-target-groups-commsboard
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_command
+
+- type: stealTargetGroup
+  id: Goldtoolbox
+  name: steal-target-groups-goldbox
+  sprite:
+    sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+    state: icon

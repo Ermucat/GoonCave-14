@@ -93,6 +93,11 @@
     - type: GuideHelp
       guides:
       - Forensics
+    # Harmony start
+    - type: StealTarget
+      stealGroup: logprobe
+    # Harmony End
+
 
 - type: entity
   parent: BaseItem
@@ -135,6 +140,11 @@
         sprite: Objects/Specific/Medical/healthanalyzer.rsi
         state: icon
     - type: MedTekCartridge
+    # Harmony start
+    - type: StealTarget
+      stealGroup: medtek
+    # Harmony End
+
 
 - type: entity
   parent: BaseItem

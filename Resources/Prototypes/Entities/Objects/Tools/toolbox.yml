@@ -143,6 +143,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+  # Harmony start
+  - type: StealTarget
+    stealGroup: Goldtoolbox
+  # Harmony End
 
 - type: entity
   id: ToolboxThief

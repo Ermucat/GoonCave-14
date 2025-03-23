@@ -73,6 +73,10 @@
     - type: ContainerContainer
       containers:
         AccessOverrider-privilegedId: !type:ContainerSlot
+    # Harmony start
+    - type: StealTarget
+      stealGroup: Accessconfig
+  # Harmony End
 
 - type: entity
   parent: AccessConfigurator

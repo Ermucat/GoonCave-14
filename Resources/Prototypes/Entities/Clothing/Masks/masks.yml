@@ -203,6 +203,10 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  # Harmony start
+  - type: StealTarget
+    stealGroup: Clownmask
+  # Harmony End
 
 - type: entity
   parent: ClothingMaskClownBase

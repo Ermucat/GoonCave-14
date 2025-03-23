@@ -340,6 +340,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  # Harmony start
+  - type: StealTarget
+    stealGroup: Insul
+  # Harmony End
 
 # Budget Insulated Gloves
 - type: entity

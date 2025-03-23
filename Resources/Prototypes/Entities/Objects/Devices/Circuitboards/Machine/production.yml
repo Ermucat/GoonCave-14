@@ -514,6 +514,10 @@
       stackRequirements:
         Steel: 1
         Cable: 2
+  # Harmony start
+    - type: StealTarget
+      stealGroup: CMS
+  # Harmony End
 
 - type: entity
   id: CryoPodMachineCircuitboard

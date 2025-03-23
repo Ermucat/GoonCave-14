@@ -381,6 +381,10 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfPersonnel
+  # Harmony start
+  - type: StealTarget
+    stealGroup: HOPID
+  # Harmony End
 
 - type: entity
   parent: IDCardStandard
