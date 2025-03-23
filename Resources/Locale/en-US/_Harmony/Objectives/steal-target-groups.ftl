@@ -21,5 +21,3 @@ steal-target-groups-clownmask = clown mask
 steal-target-groups-goldbox = golden toolbox
 
 steal-target-groups-commsboard = communication console board
-
-steal-target-group-medfab = medical fabricator board
