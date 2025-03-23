@@ -102,6 +102,7 @@
     ClownmaskObjective: 1
     GoldentoolboxObjective: 1
     CommsboardObjective: 1
+    HOSFlaskObjective: 1
     # Harmony End
 
 - type: weightedRandom

@@ -54,6 +54,10 @@
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Consumable/Drinks/hosflask.rsi
+  # Harmony start
+  - type: StealTarget
+    stealGroup: HOSFlask
+  # Harmony End
 
 - type: entity
   parent: FlaskBase

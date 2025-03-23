@@ -83,3 +83,10 @@
   sprite:
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: HOSFlask
+  name: steal-target-groups-hosflask
+  sprite:
+    sprite: _Harmony/Objects/Consumable/Drinks/hosflask.rsi
+    state: icon

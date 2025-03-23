@@ -125,3 +125,12 @@
     stealGroup: Commsboard
   - type: Objective
     difficulty: 1
+
+- type: entity
+  parent: BaseThiefStealObjective
+  id: HOSFlaskObjective
+  components:
+  - type: StealCondition
+    stealGroup: HOSFlask
+  - type: Objective
+    difficulty: 1.5
