@@ -17,5 +17,5 @@
     layers:
     - state: bananium
   - type: StunOnCollide
-    stunAmount: 1.5
-    knockdownAmount: 1.5
+    stunAmount: 2
+    knockdownAmount: 2

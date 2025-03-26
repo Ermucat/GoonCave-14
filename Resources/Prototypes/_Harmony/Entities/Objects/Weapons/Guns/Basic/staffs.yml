@@ -11,10 +11,11 @@
   - type: Item
     heldPrefix: slipping
   - type: Gun
+    fireRate: 0.5
     projectileSpeed: 15
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileBanana
-    capacity: 10
-    count: 10
+    capacity: 8
+    count: 8
