@@ -1,0 +1,21 @@
+﻿- type: entity
+  id: ProjectileBanana
+  name: BURGNANA BLAST
+  description: slip
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Holy: 1
+    soundHit:
+      path: "/Audio/Effects/slip.ogg"
+  - type: Sprite
+    sprite: Objects/Materials/materials.rsi
+    layers:
+    - state: bananium
+  - type: StunOnCollide
+    stunAmount: 1.5
+    knockdownAmount: 1.5

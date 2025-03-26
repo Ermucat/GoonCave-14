@@ -1,0 +1,20 @@
+﻿- type: entity
+  name: staff of slipping
+  parent: WeaponStaffBase
+  id: WeaponStaffSlipping
+  description: For when you need a get-away route.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Weapons/Guns/Basic/staves.rsi
+    layers:
+    - state: slipping
+  - type: Item
+    heldPrefix: slipping
+  - type: Gun
+    projectileSpeed: 15
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileBanana
+    capacity: 10
+    count: 10
