@@ -118,6 +118,12 @@
         components:
         - Hands # no use giving a mouse a storage implant, but a monkey is another story...
     - type: Storage
+      # Harmony Start
+      storageInsertSound:
+        path: /Audio/_Harmony/Misc/skin-peeling.ogg
+      storageRemoveSound:
+        path: /Audio/_Harmony/Misc/skin-peeling.ogg
+      # Harmony End
       grid:
       - 0,0,2,2
     - type: ContainerContainer
