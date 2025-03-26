@@ -8,7 +8,7 @@
   description: spellbook-staff-slipping-desc
   productEntity: WeaponStaffSlipping
   cost:
-    WizCoin: 1
+    WizCoin: 2
   categories:
   - SpellbookEquipment
   conditions:
