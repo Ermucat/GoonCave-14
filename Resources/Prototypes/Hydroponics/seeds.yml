@@ -212,6 +212,7 @@
     - lemoon
     - lime
     - orange
+    - combustibleLemon # Harmony change - boom boom
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6

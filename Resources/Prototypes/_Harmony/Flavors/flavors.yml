@@ -2,3 +2,8 @@
   id: themojave
   flavorType: Complex
   description: flavor-complex-themojave
+
+- type: flavor
+  id: explosive
+  flavorType: Base
+  description: flavor-complex-explosive

@@ -1,0 +1,42 @@
+﻿# Todo, make lemon explosion scale on potency, through a chemical reaction or dreaded C#
+- type: entity
+  name: combustible lemon
+  description: Grenade that creates a small but devastating explosion.
+  parent: [GrenadeBase, FoodLemon]
+  id: Firelemon
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Specific/Hydroponics/Firelemon.rsi
+    layers:
+    - state: produce
+      map: [ "enum.TriggerVisualLayers.Base" ]
+  - type: ExplodeOnTrigger
+  - type: FlavorProfile
+    flavors:
+    - explosive
+    - sour
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 9
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Thermite
+          Quantity: 6
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 7.5
+    intensitySlope: 7.5
+    totalIntensity: 20
+    canCreateVacuum: false
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    delay: 6
+    beepInterval: 1
+  - type: Produce
+    seedId: ambrosiaHorribilis

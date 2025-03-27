@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: SeedBase
+  name: packet of combustible lemon seeds
+  description: A very sensitive lemon filled with volatile juices, watch where you throw this things
+  id: LemonCombustibleSeeds
+  components:
+  - type: Seed
+    seedId: combustibleLemon
+  - type: Sprite
+    sprite: _Harmony/Objects/Specific/Hydroponics/Firelemon.rsi
