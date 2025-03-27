@@ -1,0 +1,6 @@
+﻿- type: foodSequenceElement
+  id: CombustibleLemon
+  name: ood-sequence-content-combustible-lemon
+  sprites:
+  - sprite: _Harmony/Objects/Specific/Hydroponics/Firelemon.rsi
+    state: produce

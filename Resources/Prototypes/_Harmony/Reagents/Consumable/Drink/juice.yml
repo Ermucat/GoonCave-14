@@ -1,0 +1,14 @@
+﻿- type: reagent
+  id: JuiceCombustibleLemon
+  name: reagent-name-juice-combustible-lemon
+  parent: BaseJuice
+  desc: reagent-dsec-juice-combustible-lemon
+  physicalDesc: reagent-physical-desc-citric
+  flavor: explosive
+  color: "#ff2f00"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/lemonjuiceglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

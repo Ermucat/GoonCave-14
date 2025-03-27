@@ -40,3 +40,12 @@
     beepInterval: 1
   - type: Produce
     seedId: ambrosiaHorribilis
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceLemon
+        Quantity: 10
+  - type: FoodSequenceElement
+    entries:
+      Burger: CombustibleLemon
+      Taco: CombustibleLemon

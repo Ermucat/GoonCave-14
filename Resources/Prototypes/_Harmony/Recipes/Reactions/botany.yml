@@ -1,0 +1,16 @@
+﻿- type: reaction
+  id: CombustibleExplosion
+  impact: High
+  priority: 20
+  reactants:
+    JuiceCombustibleLemon:
+      amount: 1
+    Nutriment:
+      amount: 1
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: Default
+    maxIntensity: 75
+    intensityPerUnit: 0.25 # 50+50 reagent for maximum explosion
+    intensitySlope: 3
+    maxTotalIntensity: 75
