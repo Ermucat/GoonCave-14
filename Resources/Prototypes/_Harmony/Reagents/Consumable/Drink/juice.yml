@@ -7,7 +7,7 @@
   flavor: explosive
   color: "#ff2f00"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/lemonjuiceglass.rsi
+    sprite: _Harmony/Objects/Consumable/Drinks/firelemonjuiceglass.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
