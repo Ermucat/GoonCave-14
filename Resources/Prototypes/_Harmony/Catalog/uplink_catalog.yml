@@ -92,7 +92,7 @@
   description: uplink-breacher-cleaver-desc
   productEntity: BreacherCleaver
   cost:
-    Telecrystal: 15
+    Telecrystal: 14
   categories:
   - UplinkSpecies
   conditions:
