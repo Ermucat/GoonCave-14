@@ -22,7 +22,7 @@
   id: AccessconfigObjective
   components:
   - type: NotJobRequirement
-    job: Engineer
+    job: StationEngineer
   - type: StealCondition
     stealGroup: Accessconfig
     verifyMapExistence: true
@@ -34,7 +34,7 @@
   id: InsulstealObjective
   components:
   - type: RoleRequirement
-    Roles: Passenger
+    roles: Passenger
   - type: StealCondition
     stealGroup: Insul
     minCollectionSize: 3
@@ -49,7 +49,7 @@
   id: MedtekObjective
   components:
   - type: NotJobRequirement
-    job: Doctor
+    job: MedicalDoctor
   - type: StealCondition
     stealGroup: Medtek
   - type: Objective

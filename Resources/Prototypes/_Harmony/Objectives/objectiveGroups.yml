@@ -29,14 +29,14 @@
     state: icon
 
 - type: stealTargetGroup
-  id: Medtek
+  id: medtek
   name: steal-target-groups-medtek
   sprite:
     sprite: Objects/Devices/cartridge.rsi
     state: cart-med
 
 - type: stealTargetGroup
-  id: Logprobe
+  id: logprobe
   name: steal-target-groups-logprobe
   sprite:
     sprite: Objects/Devices/cartridge.rsi
