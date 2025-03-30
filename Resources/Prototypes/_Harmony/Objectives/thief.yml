@@ -34,7 +34,8 @@
   id: InsulstealObjective
   components:
   - type: RoleRequirement
-    roles: Passenger
+    roles:
+    - Passenger
   - type: StealCondition
     stealGroup: Insul
     minCollectionSize: 3
