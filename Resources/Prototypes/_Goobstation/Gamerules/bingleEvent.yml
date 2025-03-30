@@ -4,8 +4,6 @@
   components:
   - type: StationEvent
     startAnnouncement: bingle-station-announcement
-    startAudio:
-     path: /Audio/Announcements/attention.ogg#
     duration: 50
     minimumPlayers: 15
   - type: RandomSpawnRule

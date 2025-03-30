@@ -12,9 +12,6 @@
     blacklist:
       tags:
       - Catwalk
-    triggerGroups:
-      types:
-      - Chasm
   - type: Transform
     anchored: true
   - type: Physics

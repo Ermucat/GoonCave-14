@@ -57,7 +57,6 @@
     baseSprintSpeed : 4
   - type: StaminaDamageOnHit # from stunbaton
     damage: 15
-    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: Damageable
     damageContainer: Biological
