@@ -33,9 +33,8 @@
   parent: BaseThiefStealCollectionObjective
   id: InsulstealObjective
   components:
-  - type: RoleRequirement
-    roles:
-    - Passenger
+  - type: NotJobRequirement
+    job: StationEngineer
   - type: StealCondition
     stealGroup: Insul
     minCollectionSize: 3
