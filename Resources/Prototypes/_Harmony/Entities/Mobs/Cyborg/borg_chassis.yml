@@ -1,0 +1,66 @@
+﻿
+- type: entity
+  id: BorgChassisSecurity
+  parent: [BaseBorgChassisNT, ShowSecurityIcons]
+  name: security borg
+  description: expensive
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      250: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: BorgTransponder
+    sprite:
+      sprite: _Harmony/Mobs/Silicon/Chassis.rsi
+      state: bloodhound
+    name: cyborg
+  - type: Sprite
+    sprite: _Harmony/Mobs/Silicon/Chassis.rsi
+    layers:
+    - state: bloodhound
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: bloodhound_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: bloodhound_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 3
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleSecurity
+    hasMindState: bloodhound_e
+    noMindState: bloodhound_e_r
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+  - type: InteractionPopup
+    interactSuccessString: petting-success-syndicate-cyborg
+    interactFailureString: petting-failure-syndicate-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: SiliconLawProvider
+    laws: RobocopLawset
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Security

@@ -9,3 +9,27 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: OrwellianLawset
+
+- type: entity
+  id: PlayerBorgSecurityBattery
+  parent: BorgChassisSecurity
+  suffix: Battery, Module, Ghostrole
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleStunBaton
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+  - type: GhostRole
+    name: ghost-role-information-security-borg-name
+    description: ghost-role-information-security-borg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
