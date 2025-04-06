@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: borg stun baton
+  name: borg-prod
   parent: Stunbaton
   id: BorgStunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is generally frowner upon.
@@ -12,11 +12,6 @@
     autoRechargeRate: 10
     autoRechargePause: true
     autoRechargePauseTime: 5
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 1
 
 - type: entity
   parent: HoloprojectorBorg
@@ -36,3 +31,69 @@
     - SecBeltEquip
   - type: StaticPrice
     price: 50
+
+- type: entity
+  name: flash
+  parent: Flash
+  suffix: borg
+  id: Borgflash
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 5
+
+- type: entity
+  id: WantedPad
+  parent: [ BaseItem, BaseSecurityContraband ]
+  name: wanted pad
+  description: allows you to remotely access the criminal records system
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/camera_bug.rsi
+      layers:
+        - state: camera_bug
+    - type: Item
+    - type: ActivatableUI
+      requireActiveHand: false
+      inHandsOnly: true
+      key: enum.CriminalRecordsConsoleKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.CriminalRecordsConsoleKey.Key:
+          type: CriminalRecordsConsoleBoundUserInterface
+    - type: CriminalRecordsConsole
+
+- type: entity
+  id: WeaponNetLauncher
+  parent: BaseItem
+  name: Net Launcher
+  description: launching dem' nets
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+      layers:
+        - state: icon
+          map: [ "enum.GunVisualLayers.Base" ]
+    - type: Item
+      sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+      size: Normal
+    - type: Gun
+      fireRate: 0.2
+      selectedMode: SemiAuto
+      #angleDecay: 45
+      #minAngle: 44
+      #maxAngle: 45
+      availableModes:
+        - SemiAuto
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+    - type: AmmoCounter
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 5
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/m41_reload
+    - type: BasicEntityAmmoProvider
+      proto: SecurityBola
+      capacity: 1
+      count: 1
+    - type: UseDelay
+      delay: 1

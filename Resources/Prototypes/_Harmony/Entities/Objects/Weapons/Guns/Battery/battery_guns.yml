@@ -1,18 +1,4 @@
-﻿- type: entity
-  name: borg disabler
-  parent: WeaponDisabler
-  id: WeaponDisablerBorg
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
-  components:
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 5
-    autoRechargePause: true
-    autoRechargePauseTime: 5
-
+﻿
 - type: entity
   name: borg laser rifle
   parent: WeaponLaserCarbine

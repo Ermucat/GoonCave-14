@@ -10,7 +10,7 @@
 - type: entity
   id: BorgModuleStunBaton
   parent: [ BaseBorgModuleSecurity, BaseProviderBorgModule ]
-  name: criminal apprehension module
+  name: security assistance module
   components:
   - type: Sprite
     layers:
@@ -18,9 +18,11 @@
     - state: icon-bomb
   - type: ItemBorgModule
     items:
-    - BorgStunbaton
-    - WeaponDisablerBorg
+    - RiotShield
+    - Borgflash
     - HoloprojectorSecurityBorg
+    - WantedPad
+    - WeaponNetLauncher
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Melee/stunbaton.rsi, state: stunbaton_off }
 
@@ -36,5 +38,6 @@
   - type: ItemBorgModule
     items:
     - WeaponLaserCarbineBorg
+    - BorgStunbaton
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi, state: base }
