@@ -402,7 +402,6 @@
     - SecurityWeaponsStatic
     - HarmonySecurityEquipmentStatic # Harmony
     - HarmonySecurityAmmoStatic # Harmony
-    - HarmonySecurityBorgModules # Harmony
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
