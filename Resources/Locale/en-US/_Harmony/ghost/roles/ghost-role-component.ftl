@@ -2,4 +2,4 @@
 ghost-role-information-Poquito-description = The chef's goon, here to help with their evil schemes.
 
 ghost-role-information-security-borg-name = Security borg
-ghost-role-information-security-borg-description = uphold the law, catch criminals
+ghost-role-information-security-borg-description = Uphold the law, catch criminals
