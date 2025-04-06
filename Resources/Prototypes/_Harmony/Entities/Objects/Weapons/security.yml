@@ -2,7 +2,7 @@
   name: borg stun baton
   parent: Stunbaton
   id: BorgStunbaton
-  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  description: A stun baton for incapacitating people with. Actively harming with this is generally frowner upon.
   components:
   - type: Battery
     maxCharge: 500
