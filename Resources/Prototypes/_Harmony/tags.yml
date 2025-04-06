@@ -7,7 +7,3 @@
 # Tag used for escape pod landing.
 - type: Tag
   id: DockPod
-
-# Tag used for security borg
-- type: Tag
-  id: BorgModuleSecurity

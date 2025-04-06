@@ -1,5 +1,0 @@
-﻿- type: stack
-  id: Zipties
-  name: zipties
-  spawn: Zipties
-  maxCount: 10

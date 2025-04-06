@@ -7,13 +7,3 @@
   cost: 2399
   category: cargoproduct-category-name-armory
   group: market
-
-- type: cargoProduct
-  id: ArmoryBorg
-  icon:
-    sprite: _Harmony/Mobs/Silicon/Chassis.rsi
-    state: bloodhound
-  product: PlayerBorgSecurityBattery
-  cost: 25000
-  category: cargoproduct-category-name-armory
-  group: market
