@@ -1,0 +1,21 @@
+﻿- type: entity
+  name: borg disabler
+  parent: WeaponDisabler
+  id: WeaponDisablerBorg
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+    autoRechargePause: true
+    autoRechargePauseTime: 5
+
+- type: entity
+  name: borg laser rifle
+  parent: WeaponLaserCarbine
+  id: WeaponLaserCarbineBorg
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50

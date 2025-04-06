@@ -63,6 +63,12 @@
   - SecurityBola
 
 - type: latheRecipePack
+  id: HarmonySecurityBorgModules
+  recipes:
+  - BorgModuleStunBaton
+  - BorgModuleLaserBeam
+
+- type: latheRecipePack
   id: HarmonySecurityAmmoStatic
   recipes:
   - StripperClip

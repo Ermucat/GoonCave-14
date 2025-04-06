@@ -1,0 +1,33 @@
+﻿- type: entity
+  name: borg stun baton
+  parent: Stunbaton
+  id: BorgStunbaton
+  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  components:
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+    autoRechargePause: true
+    autoRechargePauseTime: 5
+
+- type: entity
+  parent: HoloprojectorBorg
+  id: HoloprojectorSecurityBorg
+  name: borg holobarrier projector
+  description: Creates a solid but fragile holographic barrier.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignSecurity
+    chargeUse: 120
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/security.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+    - SecBeltEquip
+  - type: StaticPrice
+    price: 50
