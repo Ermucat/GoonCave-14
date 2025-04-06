@@ -2,7 +2,7 @@
   id: BorgChassisSecurity
   parent: [BaseBorgChassisNT, ShowSecurityIcons]
   name: security borg
-  description: HOS's best friend
+  description: HOS' best friend
   components:
   - type: MobThresholds
     thresholds:
