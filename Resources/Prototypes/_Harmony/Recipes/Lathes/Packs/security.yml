@@ -1,5 +1,0 @@
-﻿- type: latheRecipePack
-  id: HarmonySecurityBorgModules
-  recipes:
-  - BorgModuleStunBaton
-  - BorgModuleLaserBeam

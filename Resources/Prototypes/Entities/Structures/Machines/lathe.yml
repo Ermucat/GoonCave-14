@@ -317,11 +317,6 @@
     - BorgModules
     - MechParts
     - MechEquipment
-  # Harmony Start
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - HarmonySecurityBorgModules
-  # Harmony End
   - type: MaterialStorage
     whitelist:
       tags:
@@ -402,7 +397,6 @@
     - SecurityWeaponsStatic
     - HarmonySecurityEquipmentStatic # Harmony
     - HarmonySecurityAmmoStatic # Harmony
-    - HarmonySecurityBorgModules # Harmony
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
