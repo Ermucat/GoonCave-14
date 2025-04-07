@@ -90,7 +90,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 5
       rechargeSound:
-        path: /Audio/Weapons/Guns/MagIn/m41_reload
+        path: /Audio/Weapons/Guns/MagIn/m41_reload.ogg
     - type: BasicEntityAmmoProvider
       proto: SecurityBola
       capacity: 1
