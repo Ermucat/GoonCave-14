@@ -42,6 +42,7 @@
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     - id: WizardSpawn
+    - id: BingleSpawn
 
 - type: entity
   id: BaseStationEvent
