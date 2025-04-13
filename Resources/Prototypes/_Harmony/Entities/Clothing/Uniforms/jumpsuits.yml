@@ -43,7 +43,7 @@
     sprite: _Harmony/Clothing/Uniforms/Jumpsuit/hos_turtle.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitWardenBlueHarmony
   name: warden's blue suit
   description: A fashionable blue suit designed for the warden. Be careful though, it won't hide the bloodstains from the prisoners you've been abusing.
@@ -54,7 +54,7 @@
     sprite: _Harmony/Clothing/Uniforms/Jumpsuit/warden_blue.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitDetectiveBlueHarmony
   name: detective's blue suit
   description: For when the time calls for you to find the clues, which happen to be blue.
@@ -74,3 +74,58 @@
     sprite: _Harmony/Clothing/Uniforms/Jumpsuit/hopmesskit.rsi
   - type: Clothing
     sprite: _Harmony/Clothing/Uniforms/Jumpsuit/hopmesskit.rsi
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformJumpsuitWorkaday
+  name: workaday suit
+  description: A suit to show just how much you don't care.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/workaday.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/workaday.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoOfficeSlacksHarmony
+  name: cargo office slacks
+  description: For those who'd rather push pencils than crates.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/cargo_slacks.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/cargo_slacks.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoverallsHarmony
+  name: cargoveralls
+  description: Happy yellow overalls to give that warehouse feel.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/cargo_overalls.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/cargo_overalls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSeniorTechnicianHarmony
+  name: senior technician jumpsuit
+  description: For the veteran freight movers, you've earned it.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/senior_technician.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/senior_technician.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCargoPantsHarmony
+  name: cargo pants
+  description: When collecting bounties, you need the extra pocket space.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/cargo_pants.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Uniforms/Jumpsuit/cargo_pants.rsi

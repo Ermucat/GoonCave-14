@@ -28,15 +28,6 @@
         - NukeOpsUplink
 
 # Deception
-- type: listing
-  id: UplinkSmugglerSatchel
-  name: uplink-smuggler-satchel-name
-  description: uplink-smuggler-satchel-desc
-  productEntity: ClothingSatchelSmugglers
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkDeception
 
 - type: listing
   id: UplinkSyndicateIDHarmony
@@ -70,7 +61,30 @@
       - NukeOpsUplink
 
 # Wearables
+- type: listing
+  id: UplinkMantisGloves
+  name: mantis-gloves-uplink-name
+  description: mantis-gloves-uplink-desc
+  icon: { sprite: /Textures/_Harmony/Clothing/Hands/Gloves/mantis_activated.rsi, state: icon }
+  productEntity: ClothingHandsGlovesMantis
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWearables
 # Pointless
+- type: listing
+  id: UplinkClusterWeh
+  name: uplink-cluster-weh-name
+  description: uplink-cluster-weh-desc
+  productEntity: ClusterWeh
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkPointless
+
 # Job Specific
 - type: listing
   id: UplinkSyringeGunHarmony
@@ -84,5 +98,19 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+   whitelist:
+   - Chemist
+
+  id: UplinkHypoShell
+  name: uplink-hyposhell-name
+  description: uplink-hyposhell-desc
+  productEntity: BoxShellHypo
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
     whitelist:
-    - Chemist
+    - Bartender
+    - Zookeeper
