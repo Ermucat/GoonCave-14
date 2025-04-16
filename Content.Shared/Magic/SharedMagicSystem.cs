@@ -31,6 +31,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
+
 namespace Content.Shared.Magic;
 
 // TODO: Move BeforeCast & Prerequirements (like Wizard clothes) to action comp
