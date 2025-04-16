@@ -31,7 +31,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
-
 namespace Content.Shared.Magic;
 
 // TODO: Move BeforeCast & Prerequirements (like Wizard clothes) to action comp
@@ -75,6 +74,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<WorldSpawnSpellEvent>(OnWorldSpawn);
         SubscribeLocalEvent<ProjectileSpellEvent>(OnProjectileSpell);
         SubscribeLocalEvent<ChangeComponentsSpellEvent>(OnChangeComponentsSpell);
+        SubscribeLocalEvent<ClothesChangeSpellEvent>(OnChangeClothesSpell); // Harmony Change
         SubscribeLocalEvent<SmiteSpellEvent>(OnSmiteSpell);
         SubscribeLocalEvent<KnockSpellEvent>(OnKnockSpell);
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);
@@ -402,7 +402,18 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _body.GibBody(ev.Target, true, body);
     }
+    // Harmony Start
+    public virtual void OnChangeClothesSpell(ClothesChangeSpellEvent ev)
+    {
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
 
+        ev.Handled = true;
+        Speak(ev);
+        AddComponents(ev.Target, ev.ToAdd);
+        RemoveComponents(ev.Target, ev.ToRemove);
+    }
+    // Harmony End
     // End Touch Spells
     #endregion
     #region Knock Spells

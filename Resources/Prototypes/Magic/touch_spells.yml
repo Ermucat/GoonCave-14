@@ -56,7 +56,7 @@
 - type: entity
   id: ActionSlippery
   name: Slippery Slope
-  description: Make someone slippery.
+  description: Make someone slippery.t
   components:
   - type: EntityTargetAction
     useDelay: 60

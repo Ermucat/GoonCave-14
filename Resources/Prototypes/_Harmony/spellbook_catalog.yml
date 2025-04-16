@@ -1,0 +1,12 @@
+﻿- type: listing
+  id: SpellbookBananaTouch
+  name: spellbook-clown-name
+  description: spellbook-clown-desc
+  productAction: ActionBananTouch
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

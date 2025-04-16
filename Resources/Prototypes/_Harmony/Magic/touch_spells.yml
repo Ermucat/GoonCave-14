@@ -1,0 +1,26 @@
+﻿
+- type: entity
+  id: ActionBananTouch
+  name: Banana Touch
+  description: Make someone slippery.
+  components:
+  - type: EntityTargetAction
+    useDelay: 60
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/slip.ogg
+    icon:
+      sprite: Clothing/Mask/clown.rsi
+      state: icon
+    event: !type:ClothesChangeSpellEvent
+      speech: action-speech-spell-slip
+      loadout: ClownGear
+      toAdd:
+      - type: Clumsy
+  - type: Magic
+    requiresClothes: true

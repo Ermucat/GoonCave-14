@@ -6,6 +6,7 @@ using Content.Shared.Magic.Events;
 using Content.Shared.Mind;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Content.Server.Administration.Commands; // Harmony Change
 
 namespace Content.Server.Magic;
 
@@ -56,4 +57,14 @@ public sealed class MagicSystem : SharedMagicSystem
         if (!_gameTicker.IsGameRuleActive<SurvivorRuleComponent>())
             _gameTicker.StartGameRule(survivorRule);
     }
+
+    // Harmony start
+    public override void OnChangeClothesSpell(ClothesChangeSpellEvent ev)
+    {
+        base.OnChangeClothesSpell(ev);
+
+        SetOutfitCommand.SetOutfit(ev.Target, ev.Loadout, EntityManager);
+
+    }
+    // Harmony end
 }
