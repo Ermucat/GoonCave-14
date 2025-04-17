@@ -59,9 +59,9 @@ public sealed class MagicSystem : SharedMagicSystem
     }
 
     // Harmony start
-    public override void OnChangeClothesSpell(ClothesChangeSpellEvent ev)
+    public override void OnTransformSpell(Shared._Harmony.Magic.Events.TransformSpellEvent ev)
     {
-        base.OnChangeClothesSpell(ev);
+        base.OnTransformSpell(ev);
 
         SetOutfitCommand.SetOutfit(ev.Target, ev.Loadout, EntityManager);
 

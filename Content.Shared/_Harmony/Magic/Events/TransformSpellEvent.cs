@@ -1,14 +1,14 @@
 ﻿using Content.Shared.Actions;
+using Content.Shared.Magic;
 using Robust.Shared.Prototypes;
 
+namespace Content.Shared._Harmony.Magic.Events;
 
-namespace Content.Shared.Magic.Events;
-
-public sealed partial class ClothesChangeSpellEvent : EntityTargetActionEvent, ISpeakSpell
+public sealed partial class TransformSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {
     // TODO: Make part of gib method
     /// <summary>
-    /// Should this smite delete all parts/mechanisms gibbed except for the brain?
+    /// Transforms an entities clothes and components
     /// </summary>
     [DataField]
     public string Loadout;

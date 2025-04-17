@@ -17,7 +17,7 @@
     icon:
       sprite: Clothing/Mask/clown.rsi
       state: icon
-    event: !type:ClothesChangeSpellEvent
+    event: !type:TransformSpellEvent
       speech: action-speech-spell-clown
       loadout: ClownGear
       toAdd:

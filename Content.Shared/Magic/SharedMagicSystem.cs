@@ -1,3 +1,4 @@
+using Content.Shared._Harmony.Magic.Events; // Harmony Change
 using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -75,7 +76,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<WorldSpawnSpellEvent>(OnWorldSpawn);
         SubscribeLocalEvent<ProjectileSpellEvent>(OnProjectileSpell);
         SubscribeLocalEvent<ChangeComponentsSpellEvent>(OnChangeComponentsSpell);
-        SubscribeLocalEvent<ClothesChangeSpellEvent>(OnChangeClothesSpell); // Harmony Change
+        SubscribeLocalEvent<_Harmony.Magic.Events.TransformSpellEvent>(OnTransformSpell); // Harmony Change
         SubscribeLocalEvent<SmiteSpellEvent>(OnSmiteSpell);
         SubscribeLocalEvent<KnockSpellEvent>(OnKnockSpell);
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);
@@ -404,7 +405,7 @@ public abstract class SharedMagicSystem : EntitySystem
         _body.GibBody(ev.Target, true, body);
     }
     // Harmony Start
-    public virtual void OnChangeClothesSpell(ClothesChangeSpellEvent ev)
+    public virtual void OnTransformSpell(TransformSpellEvent ev)
     {
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
