@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 // Harmony Start
 using Content.Server.Administration.Commands;
 using Content.Shared._Harmony.Magic.Events;
+// Harmony End
 
 namespace Content.Server.Magic;
 
