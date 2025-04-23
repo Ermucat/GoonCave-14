@@ -6,7 +6,6 @@ namespace Content.Shared._Harmony.Magic.Events;
 
 public sealed partial class TransformSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {
-    // TODO: Make part of gib method
     /// <summary>
     /// Transforms an entities clothes and components
     /// </summary>

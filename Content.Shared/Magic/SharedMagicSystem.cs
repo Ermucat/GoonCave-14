@@ -76,7 +76,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<WorldSpawnSpellEvent>(OnWorldSpawn);
         SubscribeLocalEvent<ProjectileSpellEvent>(OnProjectileSpell);
         SubscribeLocalEvent<ChangeComponentsSpellEvent>(OnChangeComponentsSpell);
-        SubscribeLocalEvent<_Harmony.Magic.Events.TransformSpellEvent>(OnTransformSpell); // Harmony Change
+        SubscribeLocalEvent<TransformSpellEvent>(OnTransformSpell); // Harmony Change
         SubscribeLocalEvent<SmiteSpellEvent>(OnSmiteSpell);
         SubscribeLocalEvent<KnockSpellEvent>(OnKnockSpell);
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);

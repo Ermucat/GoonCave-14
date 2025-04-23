@@ -6,7 +6,9 @@ using Content.Shared.Magic.Events;
 using Content.Shared.Mind;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Content.Server.Administration.Commands; // Harmony Change
+// Harmony Start
+using Content.Server.Administration.Commands;
+using Content.Shared._Harmony.Magic.Events;
 
 namespace Content.Server.Magic;
 
@@ -59,7 +61,7 @@ public sealed class MagicSystem : SharedMagicSystem
     }
 
     // Harmony start
-    public override void OnTransformSpell(Shared._Harmony.Magic.Events.TransformSpellEvent ev)
+    public override void OnTransformSpell(TransformSpellEvent ev)
     {
         base.OnTransformSpell(ev);
 
