@@ -11,14 +11,16 @@
     AviationCocktail: 5
 
 - type: reaction
-  id: EspressoMartini
+  id: StarsetSarsaparilla
   reactants:
-    BlackRussian:
-      amount: 1
-    Coffee:
+    SolDry:
+      amount: 2
+    Cola:
+      amount: 2
+    JuiceLemon:
       amount: 1
   products:
-    EspressoMartini: 2
+    StarsetSarsaparilla: 5
 
 - type: reaction
   id: SunsetSoda

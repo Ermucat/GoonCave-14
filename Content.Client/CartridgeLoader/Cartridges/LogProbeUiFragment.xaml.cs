@@ -13,15 +13,24 @@ namespace Content.Client.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class LogProbeUiFragment : BoxContainer
 {
+    /// <summary>
+    /// Action invoked when the print button gets pressed.
+    /// </summary>
+    public Action? OnPrintPressed;
+
     public LogProbeUiFragment()
     {
         RobustXamlLoader.Load(this);
+
+        PrintButton.OnPressed += _ => OnPrintPressed?.Invoke();
     }
+
 
     // DeltaV begin - Update to handle both types of data
     public void UpdateState(LogProbeUiState state)
     {
-        ProbedDeviceContainer.RemoveAllChildren();
+        EntityName.Text = name;
+        PrintButton.Disabled = string.IsNullOrEmpty(name);
 
         if (state.NanoChatData != null)
         {
@@ -126,6 +135,9 @@ public sealed partial class LogProbeUiFragment : BoxContainer
     {
         //Reverse the list so the oldest entries appear at the bottom
         logs.Reverse();
+
+        ProbedDeviceContainer.RemoveAllChildren();
+
 
         var count =  1;
         foreach (var log in logs)

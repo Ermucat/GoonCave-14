@@ -210,7 +210,7 @@ public sealed partial class EmergencyShuttleSystem
             }
 
             // Don't dock them. If you do end up doing this then stagger launch.
-            _shuttle.FTLToDock(uid, shuttle, centcomm.Entity.Value, hyperspaceTime: TransitTime);
+            _shuttle.FTLToDock(uid, shuttle, centcomm.Entity.Value, hyperspaceTime: TransitTime, priorityTag: "DockPod"); // Harmony - Add priorityTag
             RemCompDeferred<EscapePodComponent>(uid);
         }
 
@@ -372,7 +372,7 @@ public sealed partial class EmergencyShuttleSystem
     {
         if (EarlyLaunchAuthorized || !EmergencyShuttleArrived || _consoleAccumulator <= _authorizeTime) return false;
 
-        _logger.Add(LogType.EmergencyShuttle, LogImpact.Extreme, $"Emergency shuttle launch authorized");
+        _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle launch authorized");
         _consoleAccumulator = _authorizeTime;
         EarlyLaunchAuthorized = true;
         RaiseLocalEvent(new EmergencyShuttleAuthorizedEvent());
