@@ -140,7 +140,6 @@
   # Harmony Start - Changes laser from hitscan to projectile
     #- type: HitscanBatteryAmmoProvider
     #proto: RedMediumLaser
-
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaser
   # Harmony End
@@ -167,12 +166,12 @@
       shader: unshaded
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-    # Harmony Start - Changes laser from hitscan to projectile
+  # Harmony Start - Changes laser from hitscan to projectile
     #- type: HitscanBatteryAmmoProvider
     #proto: RedLaser
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSmall
-    # Harmony End
+  # Harmony End
     fireCost: 62.5
   - type: Battery
     maxCharge: 500
@@ -574,12 +573,12 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    # Harmony Start - Changes laser from hitscan to projectile
+  # Harmony Start - Changes laser from hitscan to projectile
     #- type: HitscanBatteryAmmoProvider
     #proto: RedMediumLaser
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaser
-    # Harmony End
+  # Harmony End
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -624,12 +623,12 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  # Harmony Start
     #- type: HitscanBatteryAmmoProvider
     #proto: RedMedium Laser
-    # Harmony Start
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaser
-    # Harmony End
+  # Harmony End
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
