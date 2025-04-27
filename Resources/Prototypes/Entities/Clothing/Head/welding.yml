@@ -23,6 +23,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: ReducedVision
 
 - type: entity
   parent: WeldingMaskBase
