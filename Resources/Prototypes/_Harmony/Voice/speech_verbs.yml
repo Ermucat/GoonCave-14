@@ -1,5 +1,0 @@
-﻿- type: speechVerb
-  id: Goosespeak
-  name: chat-speech-verb-name-goose
-  speechVerbStrings:
-  - chat-speech-verb-goose

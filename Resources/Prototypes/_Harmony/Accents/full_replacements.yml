@@ -1,0 +1,6 @@
+﻿- type: accent
+  id: goose
+  fullReplacements:
+  - accent-words-goose-1
+  - accent-words-goose-2
+  - accent-words-goose-3

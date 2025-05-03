@@ -1111,8 +1111,9 @@
     - Passive
   # Harmony Start
   - type: Speech
-    speechVerb: Goosespeak
     speechSounds: Goose
+  - type: ReplacementAccent
+    accent: goose
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
