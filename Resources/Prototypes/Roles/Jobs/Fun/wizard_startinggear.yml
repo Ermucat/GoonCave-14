@@ -8,7 +8,6 @@
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
     id: WizardPDA
-    ears: ClothingHeadsetAltCommand
     #belt: ClothingBeltWand - Harmony Change
     ears: ClothingHeadsetAltWizard
     pocket1: WizardTeleportScroll
