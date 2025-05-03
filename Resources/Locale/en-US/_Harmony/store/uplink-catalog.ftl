@@ -1,9 +1,6 @@
 uplink-syndicate-id-name = Syndicate ID card
 uplink-syndicate-id-desc = A sleek black-and-red ID card with embossed Syndicate logo and syndicate access. Does not possess any Nanotrasen access. Limited to one ID per agent.
 
-uplink-smuggler-satchel-name = Smuggler's Satchel
-uplink-smuggler-satchel-desc = A satchel that can fit under station tiles.
-
 uplink-pizza-bomb-name = Nefarious Pizza bomb
 uplink-pizza-bomb-desc = This tech, first pioneered by terrorists, now is used by the syndicate for eliminating high value targets
 
@@ -18,3 +15,6 @@ uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that ca
 
 uplink-magillitis-name = Magillitis Serum
 uplink-magillitis-desc = A syringe containing the Magillitis Serum, a dangerous genetic compund that rapidly expands your DNA, turning you into a very powerful gorilla.
+
+uplink-defib-name = Interdyne Defibrillator
+uplink-defib-desc = A compact defibrillator. It can be used to revive your fellow comrades, or as an effective melee weapon! You should probably throw away your acidifier if you expect to use this.

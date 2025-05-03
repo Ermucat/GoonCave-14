@@ -81,10 +81,8 @@
     - ActionViewLaws
   - type: EmagSiliconLaw
     stunTime: 5
-# - type: SiliconLawProvider
-#   laws: Crewsimov
   - type: SiliconLawProvider
-    laws: CrewsimovBorgLawset #Harmony Lawset to add law 0 to follow AI orders
+    laws: Crewsimov
   - type: IonStormTarget
   - type: Inventory
     templateId: borg
@@ -115,6 +113,7 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
+    openingTool: Prying
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -157,6 +156,8 @@
   - type: Vocal
     sounds:
       Unsexed: UnisexSilicon
+    screamAction: null
+  - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -236,6 +237,8 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - SiliconEmotes
+    - Unimplantable
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -283,7 +286,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -291,6 +294,8 @@
     enabled: false
     groups:
     - AllAccess
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
@@ -326,6 +331,8 @@
   - type: MovementAlwaysTouching
   - type: Speech
     speechSounds: SyndieBorg
+    allowedEmotes:
+    - Laugh
   - type: Vocal
     sounds:
       Unsexed: UnisexSiliconSyndicate
