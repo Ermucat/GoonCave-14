@@ -14,7 +14,7 @@ public sealed partial class SprayPainterComponent : Component
     public TimeSpan AirlockSprayTime = TimeSpan.FromSeconds(3);
 
     [DataField]
-    public TimeSpan PipeSprayTime = TimeSpan.FromSeconds(0); // Harmony Change - Pipe speed go bye bye 1 -> 0
+    public TimeSpan PipeSprayTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// Pipe color chosen to spray with.
