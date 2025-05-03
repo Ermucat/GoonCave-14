@@ -2,7 +2,7 @@
   parent: WeaponStaffBase
   id: WeaponStaffSlipping
   name: staff of slipping
-  description: For when you need a get-away route.
+  description:
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Guns/Basic/staves.rsi

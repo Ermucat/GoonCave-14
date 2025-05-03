@@ -2,7 +2,7 @@
   parent: BaseBullet
   id: ProjectileBanana
   categories: [ HideSpawnMenu ]
-  name: BURGNANA BLAST
+  name: slippery banana
   description: slip
   components:
   - type: Projectile
