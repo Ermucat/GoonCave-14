@@ -1,7 +1,7 @@
 ﻿- type: entity
-  name: staff of slipping
   parent: WeaponStaffBase
   id: WeaponStaffSlipping
+  name: staff of slipping
   description: For when you need a get-away route.
   components:
   - type: Sprite
