@@ -1,9 +1,9 @@
 ﻿- type: entity
+  parent: BaseBullet
   id: ProjectileBanana
+  categories: [ HideSpawnMenu ]
   name: BURGNANA BLAST
   description: slip
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     deleteOnCollide: false
