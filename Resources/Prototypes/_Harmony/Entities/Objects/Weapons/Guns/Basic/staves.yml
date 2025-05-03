@@ -2,7 +2,7 @@
   parent: WeaponStaffBase
   id: WeaponStaffSlipping
   name: staff of slipping
-  description:
+  description: unlock your inner clown
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Guns/Basic/staves.rsi
