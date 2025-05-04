@@ -30,7 +30,7 @@
     count: 3
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Hivebot
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
