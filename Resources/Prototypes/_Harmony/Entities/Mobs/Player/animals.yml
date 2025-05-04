@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: Rampaging Gorilla
+  name: rampaging gorilla
   parent: MobGorilla
   id: MobGorillaRampaging
   description: A gorilla that has gone wild. Run!
