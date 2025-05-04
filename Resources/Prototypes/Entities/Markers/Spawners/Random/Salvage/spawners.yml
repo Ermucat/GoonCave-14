@@ -408,7 +408,7 @@
   table: !type:GroupSelector
     children:
     - id: MobCarpSalvage
-      weight: 70
+      weight: 70 # Harmony Change - Makes room for hivebot, 80 -> 70
     - id: MobCarpSalvage
       weight: 15
       amount: !type:RangeNumberSelector
