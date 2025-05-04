@@ -1,0 +1,10 @@
+﻿- type: npcFaction
+  id: Hivebot
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - AllHostile

@@ -30,7 +30,7 @@
     count: 3
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Hivebot
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
@@ -69,3 +69,15 @@
         volume: 1
   - type: ExplodeOnTrigger
   - type: DeleteOnTrigger
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.80
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
