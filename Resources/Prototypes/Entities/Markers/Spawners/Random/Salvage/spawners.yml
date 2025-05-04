@@ -416,6 +416,8 @@
     # Harmony Start - adds hivebot to space magenet derbi
     - id: MobHiveBotSalvage
       weight: 10
+      amount: !type:RangeNumberSelector
+        range: 1, 2, 3
     # Harmony End
     - !type:AllSelector
       weight: 5
