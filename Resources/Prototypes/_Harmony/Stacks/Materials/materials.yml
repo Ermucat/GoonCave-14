@@ -1,0 +1,6 @@
+﻿- type: stack
+  id: AncientScrap
+  name: ancient scrap
+  icon: { sprite: _Harmony/Objects/Materials/Ancient_Scrap.rsi, state: Ancient_Scrap }
+  spawn: MaterialAncientScrap1
+  maxCount: 30

@@ -81,3 +81,5 @@
         - MobMask
         layer:
         - MobLayer
+  - type: SpawnOnTrigger
+    proto: MaterialAncientScrap1

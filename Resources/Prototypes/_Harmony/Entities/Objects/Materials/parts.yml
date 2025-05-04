@@ -1,0 +1,27 @@
+﻿- type: entity
+  parent: PartBase
+  id: MaterialAncientScrap
+  name: ancient scrap
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Materials/Ancient_Scrap.rsi
+    state: Ancient_Scrap
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 1500
+  - type: Appearance
+  - type: Stack
+    count: 30
+    stackType: AncientScrap
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: MaterialAncientScrap
+  id: MaterialAncientScrap1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
