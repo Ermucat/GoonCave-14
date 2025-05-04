@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b , and modified by BoskiYourk for use in Harmony",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/153130e45750f20f9bb3772b5f66963d269f7f3f",
   "states": [
     {
       "name": "hivebot",
