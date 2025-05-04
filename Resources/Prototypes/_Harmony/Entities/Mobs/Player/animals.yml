@@ -1,7 +1,7 @@
 ﻿- type: entity
-  name: Rampaging Gorilla
   parent: MobGorilla
   id: MobGorillaRampaging
+  name: rampaging gorilla
   description: A gorilla that has gone wild. Run!
   components:
   - type: Sprite
