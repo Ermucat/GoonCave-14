@@ -1,0 +1,71 @@
+﻿- type: entity
+  id: MobHiveBotSalvage
+  parent: BaseMobAsteroid
+  name: hivebot
+  description: A worn automaton seperated from its hivemind, left with one final directive of destruction.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Mobs/Silicon/hivebot.rsi
+    state: hivebot
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1
+    baseSprintSpeed : 1.5
+  - type: Damageable
+    damageContainer: Silicon
+  - type: Gun
+    burstCooldown: 1.5
+    selectedMode: Burst
+    projectileSpeed: 15
+    availableModes:
+    - Burst
+    soundGunshot: null
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Gunshots/rifle.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletKineticHiveBot
+    capacity: 3
+    count: 3
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        6
+      AggroVisionRadius: !type:Single
+        3
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:TimerStartBehavior
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 5
+    intensitySlope: 5
+    maxIntensity: 5
+  - type: AmbientSound
+    sound:
+      path: /Audio/Machines/spinning.ogg
+    range: 10
+  - type: OnUseTimerTrigger
+    delay: 5
+    examinable: false
+    initialBeepDelay: 0
+    beepSound:
+      path: /Audio/Machines/quickbeep.ogg
+      params:
+        volume: 1
+  - type: ExplodeOnTrigger
+  - type: DeleteOnTrigger

@@ -100,3 +100,19 @@
       types:
         Heat: 10
         Radiation: 6
+
+- type: entity
+  name: hivebot bullet
+  id: BulletKineticHiveBot
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: shard
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 15
+        Pierce: 5
