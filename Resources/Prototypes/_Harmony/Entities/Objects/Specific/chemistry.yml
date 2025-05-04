@@ -1,8 +1,8 @@
 ﻿- type: entity
-  name: magillitis injector
   parent: [BaseSyndicateContraband, BaseSyringe]
   id: MagillitisInjector
-  description: A syringe containing a dangerous genetic compound
+  name: magillitis injector
+  description: A syringe containing a dangerous genetic compound.
   components:
   - type: SolutionContainerManager
     solutions:
