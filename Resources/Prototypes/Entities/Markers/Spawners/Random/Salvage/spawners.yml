@@ -412,7 +412,7 @@
     - id: MobCarpSalvage
       weight: 15
       amount: !type:RangeNumberSelector
-        range: 1, 2
+        range: 1, 3
     # Harmony Start - adds hivebot to space magenet derbi
     - id: MobHiveBotSalvage
       weight: 10
