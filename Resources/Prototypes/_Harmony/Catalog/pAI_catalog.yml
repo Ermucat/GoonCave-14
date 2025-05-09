@@ -1,8 +1,8 @@
 ﻿- type: listing
-  id: PAIDisablerBolt
+  id: PAISmokeCompartment
   name: pai-smoke-name
   description: pai-smoke-desc
-  productAction: pAIActionCameras
+  productAction: pAIActionSmoke
   cost:
     SiliconMemory: 20
   categories:
