@@ -2,7 +2,7 @@
   id: PAISmokeCompartment
   name: pai-smoke-name
   description: pai-smoke-desc
-  productAction: pAIActionSmoke
+  productAction: ActionPAISmoke
   cost:
     SiliconMemory: 20
   categories:
