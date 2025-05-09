@@ -1,0 +1,16 @@
+﻿- type: listing
+  id: PAIDisablerBolt
+  name: pai-smoke-name
+  description: pai-smoke-desc
+  productAction: pAIActionCameras
+  cost:
+    SiliconMemory: 20
+  categories:
+  - PAIHacked
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - HackedPAI

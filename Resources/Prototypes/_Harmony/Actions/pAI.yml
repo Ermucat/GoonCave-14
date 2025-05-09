@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: pAIActionCameras
+  name: Smoke
+  description: activates hidden smoke bomb
+  components:
+  - type: InstantAction
+    useDelay: 120
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Actions/smokeaction.rsi,  state: smokeaction }
+    itemIconStyle: NoItem
+    event: !type:InstantSpawnSpellEvent
+      prototype: Smoke
