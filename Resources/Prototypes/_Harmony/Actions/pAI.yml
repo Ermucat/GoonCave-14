@@ -1,5 +1,5 @@
 ﻿- type: entity
-  id: pAIActionSmoke
+  id: ActionPAISmoke
   name: Smoke compartment
   description: Activates a hidden smoke bomb
   components:
