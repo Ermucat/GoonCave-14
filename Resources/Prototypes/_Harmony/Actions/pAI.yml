@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: pAIActionSmoke
-  name: Smoke Compartment
-  description: activates hidden smoke bomb
+  name: Smoke compartment
+  description: Activates a hidden smoke bomb
   components:
   - type: InstantAction
     useDelay: 120
