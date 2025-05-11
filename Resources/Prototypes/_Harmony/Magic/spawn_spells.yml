@@ -12,7 +12,7 @@
     event: !type:InstantSpawnSpellEvent
       prototype: MobPitbullWizard
       posData: !type:TargetInFront
-      speech: action-speech-spell-forcewall
+      speech: action-speech-spell-pitbull
   - type: ActionUpgrade
     effectedLevels:
       2: ActionPitbullSmashedSummon
