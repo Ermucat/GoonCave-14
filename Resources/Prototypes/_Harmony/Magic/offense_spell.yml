@@ -1,0 +1,15 @@
+﻿- type: entity
+  id: ActionPitbullSummon
+  name: summon pitbull
+  description: Summons three pitbulls.
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Harmony/Mobs/Animals/pitbull.rsi
+      state: pitbull
+    event: !type:InstantSpawnSpellEvent
+      prototype: MobPitbullWizard
+      posData: !type:TargetInFront
+      speech: action-speech-spell-forcewall

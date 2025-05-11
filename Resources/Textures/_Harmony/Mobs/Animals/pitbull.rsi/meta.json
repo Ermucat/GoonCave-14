@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/vgstation-coders/vgstation13/pull/26428/commits/b7770d9b7916490508c3b254ca5111a9fcef161d",
+  "states": [
+    {
+      "name": "pitbull",
+      "directions": 4
+    },
+    {
+      "name": "pitbull_dead"
+    }
+  ]
+}

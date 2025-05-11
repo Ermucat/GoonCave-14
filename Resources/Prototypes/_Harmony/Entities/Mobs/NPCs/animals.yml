@@ -1,0 +1,41 @@
+﻿- type: entity
+  name: pitbull
+  parent: MobCorgiNarsi
+  id: MobPitbull
+  description: great with kids.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Harmony/Mobs/Animals/pitbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pitbull
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pitbull
+      Critical:
+        Base: pitbull_dead
+      Dead:
+        Base: pitbull_dead
+  - type: Bloodstream
+    bloodReagent: Blood
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Scale
+  - type: Temperature
+    heatDamageThreshold: 325
+
+- type: entity
+  name: pitbull
+  parent: MobPitbull
+  id: MobPitbullWizard
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Wizard

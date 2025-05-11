@@ -1,0 +1,12 @@
+﻿- type: listing
+  id: SpellbookPitbull
+  name: spellbook-pitbull-name
+  description: spellbook-pitbull-desc
+  productAction: ActionPitbullSummon
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
