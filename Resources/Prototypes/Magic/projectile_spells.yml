@@ -20,8 +20,8 @@
       speech: action-speech-spell-fireball
   - type: ActionUpgrade
     effectedLevels:
-      2: ActionFireballII
-      3: ActionFireballIII
+      2: ActionPitbullSmashedSummon
+      3: ActionPitbullSmashedSummon
 
 - type: entity
   id: ActionFireballII

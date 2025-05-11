@@ -30,12 +30,70 @@
     damageModifierSet: Scale
   - type: Temperature
     heatDamageThreshold: 325
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
+        Slash: 10
 
 - type: entity
   name: pitbull
   parent: MobPitbull
+  suffix: AI, Wizard
   id: MobPitbullWizard
   components:
   - type: NpcFactionMember
     factions:
     - Wizard
+
+- type: entity
+  name: toadline pitbull
+  parent: MobPitbullWizard
+  id: MobSmashedPitbullWizard
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: toadline_pitbull
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: toadline_pitbull
+      Critical:
+        Base: toadline_pitbull_dead
+      Dead:
+        Base: toadline_pitbull_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Critical
+      125: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 5
+        Slash: 5
