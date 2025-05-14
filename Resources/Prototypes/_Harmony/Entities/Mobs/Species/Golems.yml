@@ -221,7 +221,7 @@
     bloodReagent: SpaceLube
   - type: StepTrigger
     requiredTriggeredSpeed: -1
-    StepOn: true
+    stepOn: true
   - type: Slippery
 
 - type: entity
