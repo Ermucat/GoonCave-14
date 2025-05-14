@@ -7,6 +7,10 @@
 - type: Tag
   id: AnomCore
 
+# Tag used for energy weapon's energy cartridges.
+- type: Tag
+  id: EnergyCartridge
+
 # Tag used for escape pod landing.
 - type: Tag
   id: DockPod
