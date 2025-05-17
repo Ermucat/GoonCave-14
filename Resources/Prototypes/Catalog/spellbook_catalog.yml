@@ -32,7 +32,7 @@
   description: spellbook-smite-desc
   productAction: ActionSmite
   cost:
-    WizCoin: 5
+    WizCoin: 6
   categories:
   - SpellbookOffensive
   conditions:
