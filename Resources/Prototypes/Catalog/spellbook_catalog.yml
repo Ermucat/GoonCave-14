@@ -32,7 +32,7 @@
   description: spellbook-smite-desc
   productAction: ActionSmite
   cost:
-    WizCoin: 6
+    WizCoin: 6 # Harmony change 3 -> 6
   categories:
   - SpellbookOffensive
   conditions:
