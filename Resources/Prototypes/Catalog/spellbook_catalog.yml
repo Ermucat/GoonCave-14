@@ -32,12 +32,12 @@
   description: spellbook-smite-desc
   productAction: ActionSmite
   cost:
-    WizCoin: 3
+    WizCoin: 5
   categories:
   - SpellbookOffensive
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 0 # Harmony change 1 -> 0
+    stock: 1
 
 - type: listing
   id: SpellbookCluwne
