@@ -30,3 +30,4 @@
     event: !type:InstantSpawnSpellEvent
       prototype: MobSmashedPitbullWizard
       posData: !type:TargetInFront
+      speech: action-speech-spell-pitbull
