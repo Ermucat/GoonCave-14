@@ -8,6 +8,6 @@
     - to: clowngoblin
       steps:
       - tag: ClownShoes
-        doAfter: 1
+        doAfter: 2
   - node: clowngoblin
     entity: MobClownGoblinClown
