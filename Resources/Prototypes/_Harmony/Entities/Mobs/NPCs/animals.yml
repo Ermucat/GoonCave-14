@@ -63,6 +63,11 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClownFast
+      params:
+        variation: 0.17
   - type: Tag
     tags:
     - FootstepSound
+  - type: Bloodstream
+    bloodMaxVolume: 15
+    bloodReagent: Laughter
