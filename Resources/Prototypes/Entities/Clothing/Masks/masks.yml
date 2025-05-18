@@ -210,10 +210,8 @@
   # Harmony Start
   - type: FactionClothing
     faction: Clown
-  - type: Construction
-    graph: ClownGoblinGraph
-    node: clownmask
-  # Harmony End
+ # Harmony End
+
 - type: entity
   parent: ClothingMaskClownBase
   id: ClothingMaskClown
@@ -226,6 +224,11 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  # Harmony Start
+  - type: Construction
+    graph: ClownGoblinGraph
+    node: clownmask
+  # Harmony End
 
 - type: entity
   parent: ClothingMaskClown

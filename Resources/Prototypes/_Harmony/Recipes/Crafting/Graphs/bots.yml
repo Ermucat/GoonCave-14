@@ -3,7 +3,7 @@
   start: clownmask
   graph:
   - node: clownmask
-    entity: Clownmask
+    entity: ClothingMaskClown
     edges:
     - to: clowngoblin
       steps:
