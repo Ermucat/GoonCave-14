@@ -24,6 +24,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
+    - id: ClownGoblinSpawn # Harmony Change - adds clown goblin vent critter
 
 - type: entityTable
   id: BasicAntagEventsTable

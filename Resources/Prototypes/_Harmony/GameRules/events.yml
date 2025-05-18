@@ -1,0 +1,17 @@
+﻿- type: entity
+  id: ClownGoblinSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcemaents/attention.ogg
+    earliestStart: 20
+    minimumPlayers: 20
+    weight: 1.5
+    duration: 10 # DeltaV: was 60, used as a delay now
+  - type: VentCrittersRule
+    min: 5
+    max: 6
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownGoblin

@@ -1,0 +1,63 @@
+﻿- type: entity
+  name: clown goblin
+  parent: SimpleMobBase
+  id: MobClownGoblin
+  description: Squeak!
+  components:
+  - type: Body
+    prototype: Mouse
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Harmony/Mobs/Animals/clowngoblin.rsi
+    layers:
+    - map: ["movement"]
+      state: clowngoblin
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: clowngoblin-moving
+    noMovementLayers:
+      movement:
+        state: clowngoblin
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Critical
+      50: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 5
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: GhostRole
+    description: ghost-role-information-angry-slimes-description
+    rules: ghost-role-information-angry-slimes-rules
+    mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
