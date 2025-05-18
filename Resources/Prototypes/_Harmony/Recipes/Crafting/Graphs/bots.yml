@@ -1,0 +1,14 @@
+﻿- type: constructionGraph
+  id: ClownGoblinGraph
+  start: clownmask
+  graph:
+  - node: clownmask
+    entity: Clownmask
+    edges:
+    - to: clowngoblin
+      steps:
+      - tag: ClownShoes
+        doAfter: 1
+
+  - node: clowngoblin
+    entity: MobClownGoblinClown

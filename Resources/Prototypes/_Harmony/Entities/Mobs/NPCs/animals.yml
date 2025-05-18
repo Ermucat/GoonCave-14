@@ -2,7 +2,7 @@
   name: clown goblin
   parent: SimpleMobBase
   id: MobClownGoblin
-  description: Squeak!
+  description: honk honk!
   components:
   - type: Body
     prototype: Mouse
@@ -49,6 +49,7 @@
     damage:
       types:
         Slash: 5
+    altDisarm: false
   - type: NpcFactionMember
     factions:
       - SimpleHostile
@@ -71,3 +72,19 @@
   - type: Bloodstream
     bloodMaxVolume: 15
     bloodReagent: Laughter
+  - type: ReplacementAccent
+    accent: xeno
+  - type: Construction
+    graph: ClownGoblinGraph
+    node: clowngoblin
+
+
+- type: entity
+  name: clown goblin
+  parent: MobClownGoblin
+  id: MobClownGoblinClown
+  description: honk honk!
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Clown

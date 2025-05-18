@@ -1,0 +1,14 @@
+﻿- type: npcFaction
+  id: Clown
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Passive
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - Dragon
+  - Xeno
+  - AllHostile
+  - Wizard
+  - Xenoborg
