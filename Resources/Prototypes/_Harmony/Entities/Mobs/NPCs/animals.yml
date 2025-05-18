@@ -80,13 +80,13 @@
     node: clowngoblin
 
 
-- type: entity
-  name: clown goblin
-  parent: MobClownGoblin
-  id: MobClownGoblinClown
-  description: honk honk!
-  suffix: Clown
-  components:
-    - type: NpcFactionMember
-      factions:
-        - Clown
+  - type: entity
+    name: clown goblin
+    parent: MobClownGoblin
+    id: MobClownGoblinClown
+    description: honk honk!
+    suffix: Clown
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Clown
