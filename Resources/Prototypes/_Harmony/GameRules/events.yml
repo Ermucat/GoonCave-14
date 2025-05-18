@@ -9,7 +9,7 @@
     earliestStart: 20
     minimumPlayers: 20
     weight: 1.5
-    duration: 10 # DeltaV: was 60, used as a delay now
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     min: 5
     max: 6

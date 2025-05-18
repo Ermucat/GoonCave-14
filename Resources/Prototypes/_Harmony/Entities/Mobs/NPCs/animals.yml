@@ -39,7 +39,6 @@
       25: Critical
       50: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
     baseSprintSpeed : 5
   - type: CombatMode
   - type: MeleeWeapon
@@ -49,7 +48,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 5
+        Slash: 5
   - type: NpcFactionMember
     factions:
       - SimpleHostile
