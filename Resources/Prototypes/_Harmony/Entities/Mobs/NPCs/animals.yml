@@ -55,8 +55,9 @@
     factions:
       - SimpleHostile
   - type: GhostRole
-    description: ghost-role-information-angry-slimes-description
-    rules: ghost-role-information-angry-slimes-rules
+    name: ghost-role-information-clowngoblin-name
+    description: ghost-role-information-clowngoblin-description
+    rules: ghost-role-information-clowngoblin-rules
     mindRoles:
       - MindRoleGhostRoleTeamAntagonist
   - type: HTN
@@ -87,6 +88,8 @@
   description: honk honk!
   suffix: Clown
   components:
-    - type: NpcFactionMember
-      factions:
-        - Clown
+  - type: NpcFactionMember
+    factions:
+      - Clown
+  - type: GhostRole
+    rules: ghost-role-information-freeagent-rules
