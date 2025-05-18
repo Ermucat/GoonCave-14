@@ -60,3 +60,8 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+      params:
+        variation: 0.17
