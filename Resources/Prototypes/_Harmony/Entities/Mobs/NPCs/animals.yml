@@ -62,6 +62,7 @@
       task: SimpleHostileCompound
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepClown
-      params:
-        variation: 0.17
+      collection: FootstepClownFast
+  - type: Tag
+    tags:
+    - FootstepSound
