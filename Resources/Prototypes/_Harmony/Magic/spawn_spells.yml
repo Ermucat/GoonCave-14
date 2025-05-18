@@ -12,11 +12,10 @@
     event: !type:InstantSpawnSpellEvent
       prototype: MobPitbullWizard
       posData: !type:TargetInFront
+      speech: action-speech-spell-pitbull
   - type: ActionUpgrade
     effectedLevels:
       2: ActionPitbullSmashedSummon
-  - type: SpeakOnAction
-    sentence: action-speech-spell-pitbull
 
 - type: entity
   id: ActionPitbullSmashedSummon
@@ -31,5 +30,4 @@
     event: !type:InstantSpawnSpellEvent
       prototype: MobSmashedPitbullWizard
       posData: !type:TargetInFront
-  - type: SpeakOnAction
-    sentence: action-speech-spell-pitbull
+      speech: action-speech-spell-pitbull
