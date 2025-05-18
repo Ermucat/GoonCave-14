@@ -3,6 +3,7 @@
   parent: SimpleMobBase
   id: MobClownGoblin
   description: honk honk!
+  suffix: Hostile
   components:
   - type: Body
     prototype: Mouse
@@ -84,6 +85,7 @@
   parent: MobClownGoblin
   id: MobClownGoblinClown
   description: honk honk!
+  suffix: Clown
   components:
     - type: NpcFactionMember
       factions:
