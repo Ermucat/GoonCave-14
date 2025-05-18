@@ -9,6 +9,5 @@
       steps:
       - tag: ClownShoes
         doAfter: 1
-
   - node: clowngoblin
     entity: MobClownGoblinClown
