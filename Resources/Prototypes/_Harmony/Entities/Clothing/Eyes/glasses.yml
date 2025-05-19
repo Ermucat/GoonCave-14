@@ -1,0 +1,32 @@
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband]
+  id: ClothingEyesGlassesBrigmedicHarmony
+  name: brigmedic visor
+  description: A unique pair of visors made by the Cybersun branch of the Syndicate, then stolen and upgraded by Nanotrasen for their brigmedics.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Eyes/Glasses/brigmedicvisor.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Eyes/Glasses/brigmedicvisor.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: [ClothingEyesBase, ShowMedicalIcons]
+  id: ClothingEyesGlassesMedical
+  name: medical analysis goggles
+  description: Goggles that can scan the chemical composition of a solution and have the health scanning capabilities of a medical hud.
+  components:
+    - type: Sprite
+      sprite: _Harmony/Clothing/Eyes/Glasses/cmo.rsi
+    - type: Clothing
+      sprite: _Harmony/Clothing/Eyes/Glasses/cmo.rsi
+    - type: SolutionScanner
+    - type: IdentityBlocker
+      coverage: EYES
