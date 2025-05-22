@@ -1,7 +1,7 @@
 ﻿- type: entity
-  name: pitbull
   parent: MobCorgiNarsi
   id: MobPitbull
+  name: pitbull
   description: great with kids.
   components:
   - type: Sprite
@@ -62,9 +62,9 @@
     - Wizard
 
 - type: entity
-  name: toadline pitbull
   parent: MobPitbullWizard
   id: MobSmashedPitbullWizard
+  name: toadline pitbull
   components:
   - type: Sprite
     drawdepth: SmallMobs
