@@ -494,6 +494,7 @@
   # Harmony Start - changes name and description
   name: head of security's assault suit # Changed from, "head of security's hardsuit"
   description: A huge, looming, armored space suit. The biggest and the baddest. # Changed from, "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
+  # Harmony End
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
