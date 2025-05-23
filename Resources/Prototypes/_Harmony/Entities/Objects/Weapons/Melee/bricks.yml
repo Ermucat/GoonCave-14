@@ -1,0 +1,64 @@
+﻿- type: entity
+  parent: [BaseSyndicateContraband, BaseItem]
+  id: brickweapon
+  name: brick
+  description: BRIC
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Weapons/Melee/brick.rsi
+    state: brick
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.80
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/_Harmony/Weapons/brick.ogg
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+  - type: Item
+    sprite: _Harmony/Objects/Weapons/Melee/brick.rsi
+    size: Small
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Harmony/Weapons/brick.ogg
+
+- type: entity
+  parent: [brickweapon, BaseSyndicateContraband]
+  id: syndicatebrick
+  name: syndicate brick
+  description: evil brick
+  components:
+  - type: Sprite
+    state: syndicatebrick
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
+        Structural: 30
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+       - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+       - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Damageable
