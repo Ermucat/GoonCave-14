@@ -2,7 +2,7 @@
   parent: MobCorgiNarsi
   id: MobPitbull
   name: pitbull
-  description: great with kids.
+  description: Great with kids.
   components:
   - type: Sprite
     drawdepth: Mobs
