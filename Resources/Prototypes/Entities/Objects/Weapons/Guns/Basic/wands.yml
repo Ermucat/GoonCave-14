@@ -121,10 +121,12 @@
     proto: BulletInstakillMagic
     capacity: 3
     count: 3
+  # Harmony start
   - type: Tag
     tags:
     - Deathwand
     - WizardWand
+  # Harmony end
 
 - type: entity
   name: wand of entrance
