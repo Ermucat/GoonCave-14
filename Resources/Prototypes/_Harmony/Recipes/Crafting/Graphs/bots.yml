@@ -1,5 +1,6 @@
 ﻿- type: constructionGraph
   id: ClownGoblinGraph
+  name: recipes-clown-goblin-name
   start: clownmask
   graph:
   - node: clownmask
