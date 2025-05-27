@@ -59,6 +59,8 @@
   - type: NpcFactionMember
     factions:
     - Wizard
+  - type: TimedDespawn
+    lifetime: 90
 
 - type: entity
   parent: MobPitbullWizard
