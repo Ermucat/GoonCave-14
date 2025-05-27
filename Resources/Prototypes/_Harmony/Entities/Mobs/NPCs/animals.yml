@@ -52,10 +52,9 @@
     baseSprintSpeed: 4
 
 - type: entity
-  name: pitbull
   parent: MobPitbull
-  suffix: AI, Wizard
   id: MobPitbullWizard
+  suffix: AI, Wizard
   components:
   - type: NpcFactionMember
     factions:
