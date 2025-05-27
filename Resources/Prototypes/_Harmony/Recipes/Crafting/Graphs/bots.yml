@@ -1,6 +1,5 @@
 ﻿- type: constructionGraph
   id: ClownGoblinGraph
-  name: recipes-clown-goblin-name
   start: clownmask
   graph:
   - node: clownmask
@@ -10,5 +9,6 @@
       steps:
       - tag: ClownShoes
         doAfter: 2
+
   - node: clowngoblin
     entity: MobClownGoblinClown
