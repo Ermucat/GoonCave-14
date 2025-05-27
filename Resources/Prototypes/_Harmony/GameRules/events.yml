@@ -2,6 +2,7 @@
   parent: BaseWizardRule
   id: RaginMages
   components:
+  - type: RaginMagesRule
   - type: GameRule
     minPlayers: 25 # Harmony specific change. 10 -> 25
   - type: AntagSelection
@@ -23,6 +24,7 @@
       startingGear: WizardBlueGear
       # TODO: WizardComp as needed
       components:
+      - type: RaginMages  # Harmony addition - wizards have a WizardComponent now
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -33,3 +35,4 @@
         nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
+

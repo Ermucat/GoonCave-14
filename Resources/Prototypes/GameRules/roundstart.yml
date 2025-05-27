@@ -302,6 +302,7 @@
       startingGear: WizardBlueGear
       # TODO: WizardComp as needed
       components:
+      - type: RaginMages
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -312,6 +313,7 @@
         nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
+  - type: RaginMagesRule
 
 - type: entity
   id: Zombie
