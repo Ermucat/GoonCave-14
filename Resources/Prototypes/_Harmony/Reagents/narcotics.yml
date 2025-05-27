@@ -18,4 +18,4 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 5
+            Poison: 2.5
