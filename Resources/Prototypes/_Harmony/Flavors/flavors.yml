@@ -7,3 +7,8 @@
   id: explosive
   flavorType: Base
   description: flavor-complex-explosive
+
+- type: flavor
+  id: regret
+  flavorType: Complex
+  description: flavor-complex-regret
