@@ -25,3 +25,18 @@
   supportedMaps: DeathMatchPROMODMapPool
   rules:
     - DeathMatchPROMOD
+
+- type: gamePreset
+  id: RaginMages
+  alias:
+  - Ragin' Mages
+  name: wizard-title
+  description: wizard-description
+  showInVote: false
+  rules:
+  - RaginMages
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation

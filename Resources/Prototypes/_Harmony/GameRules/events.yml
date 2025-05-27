@@ -1,0 +1,35 @@
+﻿- type: entity
+  parent: BaseWizardRule
+  id: RaginMages
+  components:
+  - type: GameRule
+    minPlayers: 25 # Harmony specific change. 10 -> 25
+  - type: AntagSelection
+    agentName: wizard-round-end-name
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Wizard ]
+      min: 3
+      max: 4
+      spawnerPrototype: SpawnPointGhostWizard
+      PlayerRatio: 1
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: wizard-role-greeting
+        color: Turquoise
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      startingGear: WizardBlueGear
+      # TODO: WizardComp as needed
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+        nameFormat: name-format-wizard
+      mindRoles:
+      - MindRoleWizard
