@@ -1,5 +1,5 @@
 ﻿- type: reagent
-  id: Glorpshit
+  id: GlorpExtract
   name: reagent-name-glorp-extract
   group: Narcotics
   desc: reagent-desc-glorp-extract
@@ -13,7 +13,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 20
+        time: 10
         refresh: false
       - !type:HealthChange
         damage:
