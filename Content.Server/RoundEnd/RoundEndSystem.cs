@@ -372,9 +372,6 @@ namespace Content.Server.RoundEnd
         public static RoundEndSystemChangedEvent Default { get; } = new();
     }
 
-
-
-
     public enum RoundEndBehavior : byte
     {
         /// <summary>
