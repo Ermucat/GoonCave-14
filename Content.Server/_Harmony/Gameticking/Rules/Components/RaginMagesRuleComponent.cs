@@ -40,18 +40,4 @@ public sealed partial class RaginMagesRuleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan EvacShuttleTime = TimeSpan.FromMinutes(3);
-
-    /// <summary>
-    /// Holds the delayed server time for when a sleeper agent event should be triggered after the shuttle is recalled.
-    /// Zero when not currently awaiting a time.
-    /// </summary>
-    [DataField]
-    public TimeSpan SleeperTime = TimeSpan.Zero;
-
-    /// <summary>
-    /// Becomes true after the wizard dies.
-    /// Determines if the shuttle being recalled should schedule a sleeper agent event to keep round pace going.
-    /// </summary>
-    [DataField]
-    public bool AwaitingPossibleRecall = false;
 }
