@@ -8,18 +8,18 @@
     },
     "states": [
         {
-          "name": "pitbull",
-          "directions": 4
+            "name": "pitbull",
+            "directions": 4
         },
         {
-          "name": "pitbull_dead"
+            "name": "pitbull_dead"
         },
         {
-         "name": "toadline_pitbull",
-         "directions": 4
+           "name": "toadline_pitbull",
+           "directions": 4
         },
         {
-         "name": "toadline_pitbull_dead"
+           "name": "toadline_pitbull_dead"
         }
-      ]
+    ]
 }
