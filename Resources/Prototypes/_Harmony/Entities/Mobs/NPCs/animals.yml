@@ -79,6 +79,7 @@
   - type: Construction
     graph: ClownGoblinGraph
     node: clowngoblin
+    deconstructionTarget: clowngoblin
 
 
 - type: entity
