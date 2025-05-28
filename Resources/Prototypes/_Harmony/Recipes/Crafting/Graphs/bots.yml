@@ -8,6 +8,7 @@
     - to: clowngoblin
       steps:
       - tag: ClownShoes
+        name: construction-graph-tag-clown-shoes
         doAfter: 2
 
   - node: clowngoblin
