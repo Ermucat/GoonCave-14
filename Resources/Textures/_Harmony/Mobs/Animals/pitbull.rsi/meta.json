@@ -1,25 +1,25 @@
 {
-  "version": 1,
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/vgstation-coders/vgstation13/pull/26428/commits/b7770d9b7916490508c3b254ca5111a9fcef161d and https://github.com/vgstation-coders/vgstation13/pull/36792/commits/2245b6b597d3dde54fec28bdc44a4e4d78d41953",
-  "states": [
-    {
-      "name": "pitbull",
-      "directions": 4
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/vgstation-coders/vgstation13/pull/26428/commits/b7770d9b7916490508c3b254ca5111a9fcef161d and https://github.com/vgstation-coders/vgstation13/pull/36792/commits/2245b6b597d3dde54fec28bdc44a4e4d78d41953",
+    "size": {
+      "x": 32,
+      "y": 32
     },
-    {
-      "name": "pitbull_dead"
-    },
-    {
-     "name": "toadline_pitbull",
-     "directions": 4
-    },
-    {
-     "name": "toadline_pitbull_dead"
-    }
-  ]
+    "states": [
+      {
+        "name": "pitbull",
+        "directions": 4
+      },
+      {
+        "name": "pitbull_dead"
+      },
+      {
+       "name": "toadline_pitbull",
+       "directions": 4
+      },
+      {
+       "name": "toadline_pitbull_dead"
+      }
+    ]
 }
