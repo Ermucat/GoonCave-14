@@ -243,6 +243,7 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
+    deconstructionTarget: start # Harmony Change
 
 - type: entity
   parent: [ClothingMaskClown, BaseSecurityContraband]
