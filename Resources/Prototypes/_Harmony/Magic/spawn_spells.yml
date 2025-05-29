@@ -16,6 +16,8 @@
   - type: ActionUpgrade
     effectedLevels:
       2: ActionPitbullSmashedSummon
+  - type: SpeakOnAction
+    sentence: action-speech-spell-pitbull
 
 - type: entity
   id: ActionPitbullSmashedSummon
@@ -31,3 +33,5 @@
       prototype: MobSmashedPitbullWizard
       posData: !type:TargetInFront
       speech: action-speech-spell-pitbull
+  - type: SpeakOnAction
+    sentence: action-speech-spell-pitbull
