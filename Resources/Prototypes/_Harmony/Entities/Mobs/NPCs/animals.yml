@@ -1,8 +1,8 @@
 ﻿- type: entity
-  name: pitbull
   parent: MobCorgiNarsi
   id: MobPitbull
-  description: great with kids.
+  name: pitbull
+  description: Great with kids.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -52,10 +52,9 @@
     baseSprintSpeed: 4
 
 - type: entity
-  name: pitbull
   parent: MobPitbull
-  suffix: AI, Wizard
   id: MobPitbullWizard
+  suffix: AI, Wizard
   components:
   - type: NpcFactionMember
     factions:
@@ -64,9 +63,9 @@
     lifetime: 90
 
 - type: entity
-  name: toadline pitbull
   parent: MobPitbullWizard
   id: MobSmashedPitbullWizard
+  name: toadline pitbull
   components:
   - type: Sprite
     drawdepth: SmallMobs
