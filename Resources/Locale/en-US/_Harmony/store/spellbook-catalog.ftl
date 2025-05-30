@@ -8,6 +8,9 @@ spellbook-lesser-fireball-wand-desc = Powerful wand capable of shooting fireball
 
 spellbook-healing-staff-name = Healing Staff
 spellbook-healing-staff-desc = An altruistic staff that can heal the injured.
+
+spellbook-magus-name = Magus Armor
+spellbook-magus-desc = A powerful set of armor providing you protection from the elements and crew, comes in two colors! Does not let you cast spells that require hat and robes.
 # Event
 
 

@@ -60,4 +60,25 @@
     blacklist:
       tags:
       - WizardSpellbook
+
+- type: listing
+  id: SpellbookMagusSuit
+  name: spellbook-magus-name
+  description: spellbook-magus-desc
+  productEntity: ClothingBackpackWizardMagusBundle
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/magusblue.rsi, state: icon }
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - RaginMagesSpellbook
+    blacklist:
+      tags:
+      - WizardSpellbook
 # Event

@@ -1,0 +1,14 @@
+﻿- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackWizardMagusBundle
+  name: magus bundle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHelmetWizardHelm
+        - !type:GroupSelector
+          children:
+          - id: ClothingOuterArmorMagusblue
+          - id: ClothingOuterArmorMagusred

@@ -7,8 +7,8 @@
     minPlayers: 25 # Harmony specific change. 10 -> 25
   - type: AntagObjectives
     objectives:
-      - RaginMageSurviveObjective
-      - RaginMageDestructionObjective
+    - WizardSurviveObjective
+    - RaginMageDestructionObjective
   - type: AntagSelection
     #agentName: wizard-round-end-name
     selectionTime: PrePlayerSpawn
