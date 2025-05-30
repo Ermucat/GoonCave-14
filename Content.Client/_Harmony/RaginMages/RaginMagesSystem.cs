@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Client._Harmony.RaginMages;
 
 /// <summary>
-/// Used for the client to get status icons from other revs.
+/// Used for the client to get status icons for other wizards.
 /// </summary>
 public sealed class RaginMagesSystem : SharedRaginMagesSystem
 {
