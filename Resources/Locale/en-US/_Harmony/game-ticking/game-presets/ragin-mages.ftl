@@ -2,3 +2,9 @@
 wizard-no-more-threat-announcement = Based on our scans from our long-range sensors, the magical threat is now eliminated. Shuttle is already called.
 
 ragin-mages-title = Ragin' Mages
+
+ragin-maes-role-greeting =
+        Peace negotiations between Nanotransen and the Space Wizards Federation have collapsed, you and a team of wizards have been sent to convince Nanotransen to "reevaluate"
+        Cause as much destruction and chaos as you can and make sure not to die
+
+ragin-mage-name = Ragin' Mage

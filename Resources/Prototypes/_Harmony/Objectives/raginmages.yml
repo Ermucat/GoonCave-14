@@ -1,0 +1,23 @@
+﻿
+- type: entity
+  parent: WizardSurviveObjective
+  id: RaginMageSurviveObjective
+  name: Survive
+  description: The Space Wizards Federation want you to live!
+  components:
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - MindRoleRaginMage
+
+
+- type: entity
+  parent: WizardDemonstrateObjective
+  id: RaginMageDestructionObjective
+  name: Destruction
+  description: work with your team to teach the station a lesson they wont soon forget.
+  components:
+  - type: RoleRequirement
+    roles:
+      mindRoles:
+      - MindRoleRaginMage

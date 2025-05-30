@@ -1,0 +1,12 @@
+﻿# Ragin Mage
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleRaginMage
+  name: Ragin Mage Role
+  components:
+  - type: MindRole
+    roleType: TeamAntagonist
+    antagPrototype: RaginMage
+    exclusiveAntag: true
+    subtype: role-subtype-wizard
+  - type: WizardRole

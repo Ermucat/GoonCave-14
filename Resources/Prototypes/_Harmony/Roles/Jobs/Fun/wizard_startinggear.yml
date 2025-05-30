@@ -1,0 +1,13 @@
+﻿- type: startingGear
+  id: RaginMagesBlueGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    head: ClothingHeadHatWizard
+    back: ClothingBackpack
+    outerClothing: ClothingOuterWizard
+    shoes: ClothingShoesWizard
+    id: WizardPDA
+    ears: ClothingHeadsetAltWizard
+    belt: ClothingBeltWand
+    pocket1: WizardTeleportScroll
+    pocket2: WizardsGrimoireRaginMages
