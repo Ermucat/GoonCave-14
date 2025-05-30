@@ -1,0 +1,12 @@
+﻿- type: entity
+  name: wand of lesser fireball
+  parent: WeaponWandFireball
+  id: WeaponWandLesserFireball
+  description: Great big balls of fire!
+  components:
+  - type: Gun
+    fireRate: 0.50
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileLesserFireball
+    capacity: 10
+    count: 10

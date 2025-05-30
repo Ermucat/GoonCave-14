@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: ProjectileLesserFireball
+  name: fireball
+  parent: ProjectileFireball
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 15
+    intensitySlope: 3
+    totalIntensity: 6
+    maxTileBreak: 00

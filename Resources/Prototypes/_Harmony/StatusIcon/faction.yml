@@ -1,0 +1,11 @@
+﻿- type: factionIcon
+  id: RaginMagesFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - RaginMages
+  icon:
+    sprite: /Textures/_Harmony/Interface/Misc/antag_icons.rsi
+    state: wizard

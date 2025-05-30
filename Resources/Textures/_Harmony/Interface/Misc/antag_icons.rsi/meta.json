@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by Aurorablade at https://github.com/ParadiseSS13/Paradise/commit/c590958f2db97987d66f646bd3f062c778a444a8",
+    "size": {
+      "x": 10,
+      "y": 10
+    },
+    "states": [
+      {
+        "name": "wizard"
+      }
+    ]
+  }

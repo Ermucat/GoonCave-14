@@ -1,0 +1,9 @@
+﻿- type: entity
+  id: WizardsGrimoireRaginMages
+  name: wizards grimoire
+  suffix: Ragin Mages
+  parent: [ WizardsGrimoire, StorePresetSpellbook ]
+  components:
+  - type: Tag
+    tags:
+    - RaginMagesSpellbook

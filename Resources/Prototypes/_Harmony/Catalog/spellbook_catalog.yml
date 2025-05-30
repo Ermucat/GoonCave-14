@@ -1,0 +1,43 @@
+﻿# Offensive
+- type: listing
+  id: SpellbookLesserFireball
+  name: spellbook-lesser-fireball-name
+  description: spellbook-fireball-desc
+  productAction: ActionLesserFireball
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - RaginMagesSpellbook
+    blacklist:
+      tags:
+      - WizardSpellbook
+# Defensive
+# Utility
+# Equipment
+- type: listing
+  id: SpellbookLesserFireballWand
+  name: spellbook-lesser-fireball-wand-name
+  description: spellbook-lesser-fireball-wand-desc
+  productEntity: WeaponWandLesserFireball
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - RaginMagesSpellbook
+    blacklist:
+      tags:
+      - WizardSpellbook
+# Event
