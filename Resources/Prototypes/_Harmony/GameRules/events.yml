@@ -24,7 +24,7 @@
       startingGear: WizardBlueGear
       # TODO: WizardComp as needed
       components:
-      - type: RaginMages  # Harmony addition - wizards have a WizardComponent now
+      - type: RaginMages
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -35,4 +35,5 @@
         nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
+
 
