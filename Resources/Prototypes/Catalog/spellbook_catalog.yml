@@ -205,6 +205,12 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  # Harmony Start
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - RaginMagesSpellbook
+  # Harmony End
 
 # Equipment
 - type: listing

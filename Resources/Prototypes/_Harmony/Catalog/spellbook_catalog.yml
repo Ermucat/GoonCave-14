@@ -27,6 +27,26 @@
   description: spellbook-lesser-fireball-wand-desc
   productEntity: WeaponWandLesserFireball
   cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - RaginMagesSpellbook
+    blacklist:
+      tags:
+      - WizardSpellbook
+
+- type: listing
+  id: SpellbookHealingStaff
+  name: spellbook-healing-staff-name
+  description: spellbook-healing-staff-desc
+  productEntity: WeaponStaffHealing
+  cost:
     WizCoin: 2
   categories:
   - SpellbookEquipment
