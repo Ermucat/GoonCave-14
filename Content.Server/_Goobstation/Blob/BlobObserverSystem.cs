@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server._Goobstation.Blob.Components;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server._Goobstation.GameeTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
@@ -13,7 +13,9 @@ using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mind;
+using Content.Server.Mind;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.CPUJob.JobQueues.Queues;
@@ -96,7 +98,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
     private void SendBlobBriefing(EntityUid mind)
     {
-        if (_mindSystem.TryGetSession(mind, out var session))
+        if (_playerManager.TryGetSessionByEntity(mind, out var session))
         {
             _chatManager.DispatchServerMessage(session, Loc.GetString("blob-role-greeting"));
         }
@@ -134,7 +136,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
         if (!isNewMind)
         {
-            var name = mind.Session?.Name ?? "???";
+            var name = _playerManager.LocalSession?.Name ?? "???";
             _mindSystem.WipeMind(mindId, mind);
             mindId = _mindSystem.CreateMind(args.UserId, $"Blob Player ({name})");
             mind = Comp<MindComponent>(mindId);

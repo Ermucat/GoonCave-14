@@ -1,27 +1,31 @@
-﻿using System.Diagnostics.CodeAnalysis;
+
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+//using Content.Goobstation.Common.Blob;
+using Content.Server._Goobstation.GameeTicking.Rules.Components;
+using Content.Server._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Server._Goobstation.Blob;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
-using Content.Server._Goobstation.Blob;
-using Content.Server._Goobstation.Blob.Components;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
+using Content.Shared.Mind;
 using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Server._Goobstation.GameeTicking;
 
-public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
+public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 {
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
@@ -31,8 +35,8 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly ObjectivesSystem _objectivesSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
-    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Announcements/outbreak5.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -49,7 +53,7 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 continue;
 
             GameTicker.EndGameRule(uid, gameRule);
-            Log.Error("blob is active!!! remove!");
+            Log.Warning("blob is active!!! remove!");
             break;
         }
     }
@@ -132,7 +136,7 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-detect"),
                     stationName,
                     true,
-                    BlobDetectAudio,
+                    blobRuleComp.DetectedAudio,
                     Color.Red);
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
@@ -154,7 +158,7 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
                 else
@@ -164,7 +168,7 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical-NoNukeCode"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
 
@@ -211,7 +215,7 @@ public sealed partial class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         foreach (var (mindId, mind) in blob.Blobs)
         {
             var name = mind.CharacterName;
-            _mindSystem.TryGetSession(mindId, out var session);
+            _playerManager.TryGetSessionById(mind.UserId, out var session);
             var username = session?.Name;
 
             var objectives = mind.Objectives.ToArray();

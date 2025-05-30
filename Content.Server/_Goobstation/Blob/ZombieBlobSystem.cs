@@ -20,11 +20,13 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Tag;
 using Content.Shared.Zombies;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Server.Player;
 
 namespace Content.Server._Goobstation.Blob;
 
@@ -40,6 +42,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private const int ClimbingCollisionGroup = (int) (CollisionGroup.BlobImpassable);
 
@@ -145,8 +148,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
                     PrototypeId = "Blob"
                 });
             }*/
-
-            if (_mind.TryGetSession(mindComp.Mind, out var session))
+            if (_playerManager.TryGetSessionById(mindComp.Mind, out var session))
             {
                 _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
                 _audio.PlayGlobal(component.GreetSoundNotification, session);
