@@ -94,9 +94,53 @@
     shoes: ClothingShoesBootsJack
     pocket1: MagazinePistol
     pocket2: MagazinePistol
-  inhand: 
+  inhand:
     - WeaponPistolMk58
 #  storage: # can't put starting gear in backpack. works for nukies, not for DM.
 #    back:
 #      - MagazinePistol
 #      - MagazinePistol
+
+- type: entity
+  parent: BaseWizardRule
+  id: RaginMages
+  components:
+  - type: RaginMagesRule
+  - type: GameRule
+    minPlayers: 25 # Harmony specific change. 10 -> 25
+  - type: AntagObjectives
+    objectives:
+    - WizardSurviveObjective
+    - RaginMageDestructionObjective
+  - type: AntagSelection
+    #agentName: wizard-round-end-name
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ RaginMage ]
+      min: 3
+      max: 4
+      spawnerPrototype: SpawnPointGhostWizard
+      playerRatio: 1
+      roleLoadout:
+      - RoleSurvivalExtended
+      briefing:
+        text: ragin-maes-role-greeting
+        color: Purple
+        # TODO: Need Wizard Start sound
+        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+      startingGear: RaginMagesBlueGear
+      # TODO: WizardComp as needed
+      components:
+      - type: RaginMages
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - NamesWizardFirst
+        - NamesWizardLast
+        nameFormat: name-format-wizard
+      mindRoles:
+      - MindRoleRaginMage
+
+
