@@ -41,7 +41,6 @@ public sealed class RepulseAttractSystem : EntitySystem
 
         TryRepulseAttract(ent, args.User);
     }
-
     private void OnRepulseAttractAction(Entity<RepulseAttractComponent> ent, ref RepulseAttractActionEvent args)
     {
         if (args.Handled)
