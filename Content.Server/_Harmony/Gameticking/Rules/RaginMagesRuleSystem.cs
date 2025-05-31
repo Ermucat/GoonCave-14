@@ -6,13 +6,21 @@ using System.Linq;
 using Content.Shared.Mobs.Components;
 using Content.Server.RoundEnd;
 using Robust.Shared.Timing;
+using Content.Server.Antag;
+using Content.Shared.GameTicking.Components;
+using Content.Server.GameTicking;
+using Content.Server.Chat.Systems;
+using Timer = Robust.Shared.Timing.Timer;
+using Robust.Shared.Random;
 
 namespace Content.Server._Harmony.GameTicking.Rules;
 
 public sealed class RaginMagesRuleSystem : GameRuleSystem<RaginMagesRuleComponent>
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -21,6 +29,37 @@ public sealed class RaginMagesRuleSystem : GameRuleSystem<RaginMagesRuleComponen
         SubscribeLocalEvent<RaginMagesComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<RaginMagesComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
+
+
+    protected override void Started(EntityUid uid, RaginMagesRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    {
+
+        var message = Loc.GetString(component.Message);
+        var title = Loc.GetString(component.Title);
+        var color = component.Color;
+        var sound = component.Sound;
+        var cooldown = TimeSpan.FromSeconds(component.Cooldown);
+        Timer.Spawn(cooldown,
+            () =>
+            {
+                _chat.DispatchGlobalAnnouncement(message, title, true, sound, color);
+            }
+        );
+    }
+
+    protected override void AppendRoundEndText(EntityUid uid, RaginMagesRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
+    {
+
+        args.AddLine(Loc.GetString("raginmages-list-start"));
+
+        var antags =_antag.GetAntagIdentifiers(uid);
+
+        foreach (var (_, sessionData, name) in antags)
+        {
+            args.AddLine(Loc.GetString("raginmages-list-name-user", ("name", name), ("user", sessionData.UserName)));
+        }
+    }
+
 
     private void OnComponentRemove(EntityUid uid, RaginMagesComponent component, ComponentRemove args)
     {

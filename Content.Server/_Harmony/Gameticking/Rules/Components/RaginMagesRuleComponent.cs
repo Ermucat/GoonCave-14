@@ -1,10 +1,5 @@
-﻿using Content.Server.GameTicking.Rules;
-using Content.Server.RoundEnd;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Content.Server.RoundEnd;
+using Robust.Shared.Audio;
 
 namespace Content.Server._Harmony.GameTicking.Rules.Components;
 
@@ -34,6 +29,27 @@ public sealed partial class RaginMagesRuleComponent : Component
     /// </summary>
     [DataField]
     public string RoundEndTextAnnouncement = "wizard-no-more-threat-announcement";
+
+    /// <summary>
+    /// Text for wizard annoucement
+    /// </summary>
+    [DataField]
+    public LocId Message = "raginmages-war-annoucement";
+
+    [DataField]
+    public LocId Title = "raginmages-war-title";
+
+    [DataField]
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/war.ogg");
+
+    [DataField]
+    public Color Color = Color.Purple;
+
+    /// <summary>
+    /// Time used for annoucement countdown
+    /// <summary>
+    [DataField]
+    public float Cooldown = 120; // 2 Minues
 
     /// <summary>
     /// Time until the emergency shuttle arrives after the wizard dies.
