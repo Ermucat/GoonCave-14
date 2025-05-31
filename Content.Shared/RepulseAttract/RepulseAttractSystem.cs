@@ -9,7 +9,7 @@ using Robust.Shared.Physics.Components;
 using System.Numerics;
 using Content.Shared.RepulseAttract.Events;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Stunnable;
+using Content.Shared.Stunnable; // Harmony Change - used for _stun system
 
 namespace Content.Shared.RepulseAttract;
 
@@ -20,7 +20,7 @@ public sealed class RepulseAttractSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedTransformSystem _xForm = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!; // Harmony Change - used for stunning targets
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<EntityUid> _entSet = new();
