@@ -281,7 +281,6 @@
   name: Wizard Role
   components:
   - type: MindRole
-    roleType: TeamAntagonist
     antagPrototype: Wizard
     exclusiveAntag: true
     subtype: role-subtype-wizard
