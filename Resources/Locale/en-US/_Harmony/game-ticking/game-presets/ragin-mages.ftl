@@ -13,5 +13,5 @@ ragin-mage-name = Ragin' Mage
 raginmages-list-start = The [color=purple]mages[/color] were:
 raginmages-list-name-user = - [color=turquoise]{$name}[/color] ([color=gray]{$user}[/color])
 
-raginmages-war-annoucement = Your employers have refused to copoperate with our demands. As such we are sending an assault sqaud to your shuttle, we are sorry for any inconviences they might cause.
+raginmages-war-annoucement = Your employers have refused to copoperate with our demands. As such we are sending an assault sqaud to your station, we are sorry for any inconviences they might cause.
 raginmages-war-title = The Space Wizards Federation
