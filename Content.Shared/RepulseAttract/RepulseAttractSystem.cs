@@ -9,6 +9,7 @@ using Robust.Shared.Physics.Components;
 using System.Numerics;
 using Content.Shared.RepulseAttract.Events;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Stunnable;
 
 namespace Content.Shared.RepulseAttract;
 
@@ -19,6 +20,7 @@ public sealed class RepulseAttractSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedTransformSystem _xForm = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<EntityUid> _entSet = new();
@@ -44,18 +46,18 @@ public sealed class RepulseAttractSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        
+
         var position = _xForm.GetMapCoordinates(args.Performer);
-        args.Handled = TryRepulseAttract(position, args.Performer, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Whitelist, ent.Comp.CollisionMask);
+        args.Handled = TryRepulseAttract(position, args.Performer, ent.Comp.Speed, ent.Comp.Range,  ent.Comp.Stun, ent.Comp.DoStun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.comp.stun and ent.comp.stunnable
     }
 
     public bool TryRepulseAttract(Entity<RepulseAttractComponent> ent, EntityUid user)
     {
         var position = _xForm.GetMapCoordinates(ent.Owner);
-        return TryRepulseAttract(position, user, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Whitelist, ent.Comp.CollisionMask);
+        return TryRepulseAttract(position, user, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Stun, ent.Comp.DoStun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.Comp.Stun and Ent.Comp.Stunnable
     }
 
-    public bool TryRepulseAttract(MapCoordinates position, EntityUid? user, float speed, float range, EntityWhitelist? whitelist = null, CollisionGroup layer = CollisionGroup.SingularityLayer)
+    public bool TryRepulseAttract(MapCoordinates position, EntityUid? user, float speed, float range, TimeSpan stun, bool stunnable  ,EntityWhitelist? whitelist = null, CollisionGroup layer = CollisionGroup.SingularityLayer) // Harmony Change - adds Timespan stun and bool stunnable
     {
         _entSet.Clear();
         var epicenter = position.Position;
@@ -83,6 +85,11 @@ public sealed class RepulseAttractSystem : EntitySystem
             var throwDirection = speed < 0 ? -direction : direction.Normalized() * (range - direction.Length());
 
             _throw.TryThrow(target, throwDirection, Math.Abs(speed), user, recoil: false, compensateFriction: true);
+            // Harmony Start - adds stun to RepulseAttract
+            if (stunnable == true)
+            _stun.TryParalyze(target, stun, refresh: false);
+            // Harmony End - adds stun to RepulseAttract
+
         }
 
         return true;

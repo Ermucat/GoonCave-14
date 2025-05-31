@@ -28,6 +28,21 @@ public sealed partial class SharedRepulseAttractOnTriggerComponent : Component
     [DataField]
     public EntityWhitelist? Whitelist;
 
+    // Harmony Start - adds stunnable and stun component for SharedRepulseAtrractOnTriggerSystem
+    /// <summary>
+    ///     How close do the entities need to be?
+    /// </summary>
+    [DataField]
+    public bool DoStun = false;
+
+
+    /// <summary>
+    ///     How close do the entities need to be?
+    /// </summary>
+    [DataField]
+    public TimeSpan Stun = TimeSpan.FromSeconds(2);
+    // Harmony End
+
     /// <summary>
     /// What collision layers should be excluded?
     /// The default excludes ghost mobs, revenants, the AI camera etc.

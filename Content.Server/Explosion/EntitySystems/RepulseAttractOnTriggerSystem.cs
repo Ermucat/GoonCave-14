@@ -24,6 +24,6 @@ public sealed class RepulseAttractOnTriggerSystem : SharedRepulseAttractOnTrigge
             return;
 
         var position = _transform.GetMapCoordinates(ent);
-        _repulse.TryRepulseAttract(position, args.User, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Whitelist, ent.Comp.CollisionMask);
+        _repulse.TryRepulseAttract(position, args.User, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Stun, ent.Comp.DoStun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.comp.Stun and ent.comp.stunnable
     }
 }

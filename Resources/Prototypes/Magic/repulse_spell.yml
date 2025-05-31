@@ -6,12 +6,16 @@
   - type: RepulseAttract
     speed: 10
     range: 5
+    # Harmony Start - adds stun to Repulse spell
+    doStun: true
+    stun: 2
+    # Harmony End
     whitelist:
       components:
       - MobMover
       - Item
   - type: InstantAction
-    useDelay: 40
+    useDelay: 25 # Harmmony Change - 40 secs -> 25 secs
     raiseOnAction: true
     itemIconStyle: BigAction
     icon:
