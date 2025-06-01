@@ -12,4 +12,4 @@
     event: !type:SpawnInHandSpellEvent
       prototype: WeaponSniperMagic
       sound:
-        path: /Audio/Weapons/Guns/MagIn/m41_reload.ogg
+        path: /Audio/Magic/staff_healing.ogg
