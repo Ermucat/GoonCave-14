@@ -4,7 +4,7 @@
   description: Summons a rifle with one round in it
   components:
   - type: InstantAction
-    useDelay: 3.5
+    useDelay: 2.5
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Weapons/Guns/Snipers/musket.rsi
