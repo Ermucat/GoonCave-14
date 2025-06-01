@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Harmony.Magic.Events;
 
-public sealed partial class TransformSpellEvent : EntityTargetActionEvent, ISpeakSpell
+public sealed partial class TransformSpellEvent : EntityTargetActionEvent
 {
     /// <summary>
     /// Transforms an entities clothes and components

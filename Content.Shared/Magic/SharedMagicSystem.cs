@@ -399,7 +399,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
         AddComponents(ev.Target, ev.ToAdd);
         RemoveComponents(ev.Target, ev.ToRemove);
     }
