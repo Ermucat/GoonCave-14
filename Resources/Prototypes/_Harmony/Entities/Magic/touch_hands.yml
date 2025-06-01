@@ -1,0 +1,21 @@
+﻿- type: entity
+  id: BananaTouch
+  parent: [ BaseItem, BaseMagicalContraband ]
+  name: banana touch
+  description: Brings inanimate objects to life!
+  components:
+  #- type: LimitedCharges
+   # maxCharges: 1
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/banana_touch.rsi
+    layers:
+    - state: banana_touch
+  - type: ActionOnInteract
+    requiresCharge: true
+    actions:
+    - ActionBananaTouch
+  - type: Item
+    size: Ginormous
+  - type: Tag
+    tags:
+    - WizardWand

@@ -1,6 +1,5 @@
-﻿
-- type: entity
-  id: ActionBananTouch
+﻿- type: entity
+  id: ActionBananaTouch
   name: Banana Touch
   description: Make someone slippery.
   components:
@@ -13,14 +12,13 @@
     canTargetSelf: false
     interactOnMiss: false
     sound: !type:SoundPathSpecifier
-      path: /Audio/Items/bikehorn.ogg
+      path: /Audio/Items/airhorn.ogg
     icon:
       sprite: Clothing/Mask/clown.rsi
       state: icon
     event: !type:TransformSpellEvent
-      speech: action-speech-spell-clown
       loadout: ClownGear
       toAdd:
       - type: Clumsy
-  - type: Magic
-    requiresClothes: true
+  - type: SpeakOnAction
+    sentence: action-speech-spell-clown

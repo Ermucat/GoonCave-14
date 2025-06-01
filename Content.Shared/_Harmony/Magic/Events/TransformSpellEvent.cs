@@ -22,4 +22,7 @@ public sealed partial class TransformSpellEvent : EntityTargetActionEvent
 
     [DataField]
     public string? Speech { get; private set; }
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(5);
 }

@@ -399,8 +399,11 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
+
         AddComponents(ev.Target, ev.ToAdd);
         RemoveComponents(ev.Target, ev.ToRemove);
+
+        _stun.TryParalyze(ev.Target, ev.StunTime, true);
     }
     // Harmony End
     // End Touch Spells
