@@ -6,10 +6,10 @@
   - type: InstantAction
     useDelay: 2
     itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/brokenbikehorn.ogg
     icon:
       sprite: Objects/Weapons/Guns/Snipers/musket.rsi
       state: base
     event: !type:SpawnInHandSpellEvent
       prototype: WeaponSniperMagic
-      sound:
-        path: /Audio/Magic/staff_healing.ogg

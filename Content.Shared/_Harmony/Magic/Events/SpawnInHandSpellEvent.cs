@@ -10,10 +10,4 @@ public sealed partial class SpawnInHandSpellEvent : InstantActionEvent
     /// </summary>
     [DataField(required: true)]
     public string Prototype;
-
-    /// <summary>
-    /// Sound that will play globally when cast
-    /// </summary>
-    [DataField]
-    public SoundSpecifier Sound;
 }
