@@ -64,9 +64,12 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+    color: purple
   - type: Gun
     fireRate: 1.25
   - type: BallisticAmmoProvider
     capacity: 1
+    proto: CartridgeMagicRifle
+
 
 

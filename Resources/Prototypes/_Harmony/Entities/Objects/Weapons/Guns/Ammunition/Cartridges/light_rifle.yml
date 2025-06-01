@@ -1,0 +1,8 @@
+﻿- type: entity
+  id: CartridgeMagicRifle
+  name: cartridge (.30 magic)
+  parent: BaseCartridgeLightRifle
+  description: A magical cartridge used for magical things
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLightMagic
