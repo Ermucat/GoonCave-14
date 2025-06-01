@@ -163,6 +163,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var Prototype = Spawn( ToSpawn,spawncoords);
 
         _hands.PickupOrDrop(ev.Performer, Prototype);
+        _audio.PlayPvs(ev.Sound, ev.Performer);
     }
     // Harmony End
 

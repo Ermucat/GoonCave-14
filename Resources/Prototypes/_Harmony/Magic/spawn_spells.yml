@@ -4,12 +4,12 @@
   description: Summons a rifle with one round in it
   components:
   - type: InstantAction
-    useDelay: 2.5
+    useDelay: 2
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Weapons/Guns/Snipers/musket.rsi
       state: base
     event: !type:SpawnInHandSpellEvent
       prototype: WeaponSniperMagic
-  - type: SpeakOnAction
-    sentence: action-speech-spell-lesser-gun
+      sound:
+        path: /Audio/Weapons/Guns/MagIn/m41_reload.ogg
