@@ -142,6 +142,7 @@ public abstract class SharedMagicSystem : EntitySystem
             SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster);
         }
 
+        args.Handled = true;
     }
 
     // Harmony Start

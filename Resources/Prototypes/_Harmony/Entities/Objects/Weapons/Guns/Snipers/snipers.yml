@@ -58,7 +58,7 @@
 
 - type: entity
   name: Enchanted Rifle
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMagicalContraband]
+  parent: [BaseWeaponSniper, BaseMagicalContraband]
   id: WeaponSniperMagic
   description: A magical rifle capable of firing magical bullets.
   components:
