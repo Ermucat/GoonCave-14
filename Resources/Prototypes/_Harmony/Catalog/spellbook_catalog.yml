@@ -1,0 +1,17 @@
+﻿# Offensive
+- type: listing
+  id: SpellbookLesserGun
+  name: spellbook-lesser-gun-name
+  description: spellbook-lesser-gun-desc
+  productAction: ActionLesserSummonGun
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+# Defensive
+# Utility
+# Equipment
+# Event

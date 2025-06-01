@@ -55,3 +55,18 @@
   - type: Appearance
   - type: StaticPrice
     price: 400
+
+- type: entity
+  name: Enchanted Rifle
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMagicalContraband]
+  id: WeaponSniperMagic
+  description: A magical rifle capable of firing magical bullets.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Snipers/musket.rsi
+  - type: Gun
+    fireRate: 1.25
+  - type: BallisticAmmoProvider
+    capacity: 1
+
+

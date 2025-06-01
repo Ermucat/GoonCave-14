@@ -6,6 +6,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared._Harmony.Magic.Events; // Harmony Change - adds for InstantSpawnSpellEvent
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
@@ -81,6 +82,8 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
+
+        SubscribeLocalEvent<SpawnInHandSpellEvent>(OnSpawnInHandSpellEvent); // Harmony Change - adds local event OnSpellSpellEvent
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -139,8 +142,28 @@ public abstract class SharedMagicSystem : EntitySystem
             SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster);
         }
 
-        args.Handled = true;
     }
+
+    // Harmony Start
+    /// <summary>
+    /// Spawns item in hand of caster.
+    /// <summary></summary>>
+    private void OnSpawnInHandSpellEvent(SpawnInHandSpellEvent ev)
+    {
+        if (!_net.IsServer || ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        ev.Handled = true;
+
+        var coords= Transform(ev.Performer);
+        var spawncoords = coords.Coordinates;
+
+        var ToSpawn = ev.Prototype;
+        var Prototype = Spawn( ToSpawn,spawncoords);
+
+        _hands.PickupOrDrop(ev.Performer, Prototype);
+    }
+    // Harmony End
 
         /// <summary>
     ///     Gets spawn positions listed on <see cref="InstantSpawnSpellEvent"/>
