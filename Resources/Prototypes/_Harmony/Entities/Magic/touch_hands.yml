@@ -4,14 +4,12 @@
   name: banana touch
   description: Brings inanimate objects to life!
   components:
-  #- type: LimitedCharges
-   # maxCharges: 1
   - type: Sprite
     sprite: _Harmony/Objects/Magic/banana_touch.rsi
     layers:
     - state: banana_touch
   - type: ActionOnInteract
-    requiresCharge: true
+    deleteEntity: true
     actions:
     - ActionBananaTouch
   - type: Item
@@ -19,3 +17,18 @@
   - type: Tag
     tags:
     - WizardWand
+
+- type: entity
+  id: BananaTouchInfinite
+  parent: BananaTouch
+  name: banana touch
+  description: Brings inanimate objects to life!
+  suffix: 1000 Charges
+  components:
+  - type: LimitedCharges
+    maxCharges: 1000
+  - type: ActionOnInteract
+    deleteEntity: false
+    requiresCharge: true
+    actions:
+    - ActionBananaTouch

@@ -102,6 +102,15 @@ public sealed class ActionOnInteractSystem : EntitySystem
 
                 _actions.PerformAction(args.User, null, entActId, entAct, entAct.Event, _timing.CurTime, false);
                 args.Handled = true;
+
+
+                // Harmony End
+                if (component.DeleteEntity == true)
+                {
+                    EntityManager.DeleteEntity(uid);
+                }
+                // Harmony Start
+
                 return;
             }
         }
@@ -155,6 +164,13 @@ public sealed class ActionOnInteractSystem : EntitySystem
 
         _actions.PerformAction(args.User, null, actId, act, act.Event, _timing.CurTime, false);
         args.Handled = true;
+
+        // Harmony End
+        if (component.DeleteEntity == true)
+        {
+            EntityManager.DeleteEntity(uid);
+        }
+        // Harmony Start
     }
 
     private List<(EntityUid Id, T Comp)> GetValidActions<T>(List<EntityUid>? actions, bool canReach = true) where T : BaseActionComponent

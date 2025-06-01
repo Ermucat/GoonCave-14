@@ -25,4 +25,6 @@ public sealed partial class ActionOnInteractComponent : Component
     [DataField] public List<EntityUid>? ActionEntities;
 
     [DataField] public bool RequiresCharge;
+
+    [DataField] public bool DeleteEntity; // Harmony Change
 }
