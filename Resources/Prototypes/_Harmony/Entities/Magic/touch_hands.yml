@@ -14,21 +14,26 @@
     - ActionBananaTouch
   - type: Item
     size: Ginormous
-  - type: Tag
-    tags:
-    - WizardWand
+  - type: DeleteOnDrop
+  - type: Unremoveable
 
 - type: entity
   id: BananaTouchInfinite
-  parent: BananaTouch
+  parent: [ BaseItem, BaseMagicalContraband ]
   name: banana touch
   description: Brings inanimate objects to life!
   suffix: 1000 Charges
   components:
   - type: LimitedCharges
     maxCharges: 1000
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/banana_touch.rsi
+    layers:
+    - state: banana_touch
   - type: ActionOnInteract
-    deleteEntity: false
-    requiresCharge: true
+    deleteEntity: true
     actions:
     - ActionBananaTouch
+  - type: Item
+    size: Ginormous
+  - type: DeleteOnDrop
