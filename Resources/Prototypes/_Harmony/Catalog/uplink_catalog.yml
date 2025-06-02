@@ -62,7 +62,7 @@
   id: UplinkX4Bundle
   name: uplink-X4-bundle-name
   description: uplink-X4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateX4tBundle
+  productEntity: ClothingBackpackDuffelSyndicateX4Bundle
   cost:
     Telecrystal: 14
   categories:
