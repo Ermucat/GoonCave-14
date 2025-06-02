@@ -1,6 +1,6 @@
 ﻿- type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateX4tBundle
+  id: ClothingBackpackDuffelSyndicateX4Bundle
   name: syndicate X-4 bundle
   description: "Contains a lot of X-4 charges."
   components:
