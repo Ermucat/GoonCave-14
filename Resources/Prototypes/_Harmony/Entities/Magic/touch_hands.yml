@@ -2,7 +2,8 @@
   id: BananaTouch
   parent: [ BaseItem, BaseMagicalContraband ]
   name: banana touch
-  description: Brings inanimate objects to life!
+  description: honk honk!
+  suffix: Magic Hand
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Magic/banana_touch.rsi
@@ -18,22 +19,46 @@
   - type: Unremoveable
 
 - type: entity
-  id: BananaTouchInfinite
-  parent: [ BaseItem, BaseMagicalContraband ]
-  name: banana touch
-  description: Brings inanimate objects to life!
-  suffix: 1000 Charges
+  id: CluwneCurse
+  parent: BananaTouch
+  name: cluwne curse
+  description: henk henk!
   components:
-  - type: LimitedCharges
-    maxCharges: 1000
   - type: Sprite
-    sprite: _Harmony/Objects/Magic/banana_touch.rsi
+    sprite: _Harmony/Objects/Magic/cluwne_curse.rsi
     layers:
-    - state: banana_touch
+    - state: cluwne_curse
   - type: ActionOnInteract
     deleteEntity: true
     actions:
-    - ActionBananaTouch
-  - type: Item
-    size: Ginormous
-  - type: DeleteOnDrop
+    - ActionCluwne
+
+- type: entity
+  id: Smite
+  parent: BananaTouch
+  name: smite
+  description: disentigrates foes.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/smite_touch.rsi
+    layers:
+    - state: smite
+  - type: ActionOnInteract
+    deleteEntity: true
+    actions:
+    - ActionSmite
+
+- type: entity
+  id: SlipperySlope
+  parent: BananaTouch
+  name: slippery slope
+  description: disentigrates foes.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/slippery_slope.rsi
+    layers:
+    - state: slippery_slope
+  - type: ActionOnInteract
+    deleteEntity: true
+    actions:
+    - ActionSlippery

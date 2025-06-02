@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from ParadiseStation at commit https://github.com/ParadiseSS13/Paradise/pull/4925/commits/52e6df894eb19d1f13dda011d702880d58299f85",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cluwne_curse"
+    }
+  ]
+}

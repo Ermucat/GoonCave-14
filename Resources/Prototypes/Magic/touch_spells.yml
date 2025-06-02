@@ -20,7 +20,7 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-smite
   - type: Magic
-    requiresClothes: true
+    #requiresClothes: true - Harmony Change
 
 # For the Snail
 - type: entity
@@ -53,7 +53,7 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-cluwne
   - type: Magic
-    requiresClothes: true
+    #requiresClothes: true # Harmony Change - disables for touch spells.
 
 - type: entity
   id: ActionSlippery
@@ -81,4 +81,4 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-slip
   - type: Magic
-    requiresClothes: true
+    #requiresClothes: true

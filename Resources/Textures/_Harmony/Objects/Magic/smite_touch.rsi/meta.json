@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from ParadiseStation at commit https://github.com/ParadiseSS13/Paradise/pull/1802/files#diff-42d72126f7ca1e0e5677d82f0771f2976d21f9d01d72e999ea6562c3ae912684",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "smite"
+    }
+  ]
+}
