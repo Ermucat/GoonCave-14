@@ -13,6 +13,12 @@ uplink-cluster-weh-desc = Scatters 10 lizard plushies in a circle after a short 
 uplink-hyposhell-name = Box of hyposhells
 uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that can hold 7u of any chemical.
 
+uplink-X4-name = X-4
+uplink-X4-desc = The cousin of the infamous C-4, uses experimental explosives to better pierce through structures.
+
+uplink-X4-bundle-name = X-4 Bundle
+uplink-X4-bundle-desc = A bag containing 4 X-4s, perfect for going all in on sabotage.
+
 uplink-defib-name = Interdyne Defibrillator
 uplink-defib-desc = A compact defibrillator. It can be used to revive your fellow comrades, or as an effective melee weapon! You should probably throw away your acidifier if you expect to use this.
 
@@ -21,3 +27,6 @@ uplink-shotgun-drum-pellet-desc = Shotgun drum with eight pellet shells. Compati
 
 uplink-shotgun-drum-slug-name = Shotgun Magazine (.50 slug)
 uplink-shotgun-drum-slug-desc = Shotgun drum with eight slug shells. Compatible with the Bulldog.
+
+uplink-hushpup-name = Hushpup
+uplink-hushpup-desc = Contains a Hushpup, a powerful silenced shotgun with a low magazine capacity, as well as a spare box of buckshot. Uses .50 shotgun ammo.
