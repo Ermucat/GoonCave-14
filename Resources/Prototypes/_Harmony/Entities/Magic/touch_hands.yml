@@ -16,6 +16,11 @@
   - type: Item
     size: Ginormous
   - type: Unremoveable
+  - type: PointLight
+    radius: 1.5
+    energy: 6
+    color: "#d1ca04"
+    castShadows: false
 
 - type: entity
   id: CluwneCurse
@@ -31,6 +36,8 @@
     deleteEntity: true
     actions:
     - ActionCluwne
+  - type: PointLight
+    color: "#17d90d"
 
 - type: entity
   id: Smite
@@ -46,6 +53,8 @@
     deleteEntity: true
     actions:
     - ActionSmite
+  - type: PointLight
+    color: "#eb3a34"
 
 - type: entity
   id: SlipperySlope
@@ -61,3 +70,5 @@
     deleteEntity: true
     actions:
     - ActionSlippery
+  - type: PointLight
+    color: "#349beb"
