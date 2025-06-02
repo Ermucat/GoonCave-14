@@ -1,8 +1,8 @@
 ﻿- type: entity
-  name: composition X-4
-  description: A new prototype of explosive, meant to rival a popular tool for saboteurs, C4.
   parent: C4
   id: X4
+  name: composition X-4
+  description: A new prototype of explosive, meant to rival a popular tool for saboteurs, C4.
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Weapons/Bombs/X-4.rsi
