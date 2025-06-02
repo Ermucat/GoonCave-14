@@ -162,7 +162,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var ToSpawn = ev.Prototype;
         var Prototype = Spawn( ToSpawn,spawncoords);
 
-        _hands.PickupOrDrop(ev.Performer, Prototype);
+        _hands.TryForcePickupAnyHand(ev.Performer, Prototype);
     }
     // Harmony End
 
