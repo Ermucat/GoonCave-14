@@ -7,7 +7,7 @@
     useDelay: 2
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/Items/brokenbikehorn.ogg
+      path: /Audio/Weapons/Guns/MagIn/m41_reload.ogg
     icon:
       sprite: Objects/Weapons/Guns/Snipers/musket.rsi
       state: base
