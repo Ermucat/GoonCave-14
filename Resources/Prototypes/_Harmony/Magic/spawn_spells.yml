@@ -14,8 +14,4 @@
     event: !type:SpawnInHandSpellEvent
       prototype: WeaponSniperMagic
   - type: SpeakOnAction
-    sentence:
-  Original file line number	Diff line number	Diff line change
-  @@ -0,0 +1 @@
-  action-speech-spell-lesser-gun
-ne
+    sentence:   action-speech-spell-lesser-gun
