@@ -1,0 +1,23 @@
+﻿- type: entity
+  name: energized fireaxe
+  parent: [ BaseSyndicateContraband, FireAxe ]
+  id: FireAxeEnergized
+  description: Energy seems to be coming off it.
+  components:
+  - type: UseDelay
+    delay: 15
+  - type: UseDelayOnMeleeHit
+  - type: MeleeThrowOnHit
+    stunTime: 3.5
+    distance: 5
+    speed: 15
+    activateOnThrown: false
+  - type: Wieldable
+    useDelayOnWield: false
+    wieldSound: /Audio/Machines/airlock_electrify_on.ogg
+    unwieldSound: /Audio/Machines/airlock_electrify_off.ogg
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 15
+        Structural: 40

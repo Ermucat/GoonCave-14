@@ -21,3 +21,6 @@ uplink-shotgun-drum-pellet-desc = Shotgun drum with eight pellet shells. Compati
 
 uplink-shotgun-drum-slug-name = Shotgun Magazine (.50 slug)
 uplink-shotgun-drum-slug-desc = Shotgun drum with eight slug shells. Compatible with the Bulldog.
+
+uplink-energized-axe-name = Energized fireaxe
+uplink-energized-axe-desc = A fire axe with a massive energy charge built into it. Upon striking someone while charged it will throw them backwards while stunning them briefly, but will take some time to charge up again.

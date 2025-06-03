@@ -150,3 +150,18 @@
     - Bartender
     - Zookeeper
 
+- type: listing
+  id: UplinkEnergizedAxe
+  name: uplink-energized-axe-name
+  description: uplink-energized-axe-desc
+  productEntity: FireAxeEnergized
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - AtmosphericTechnician
+  - !type:ListingLimitedStockCondition
+    stock: 1
