@@ -24,3 +24,7 @@ uplink-shotgun-drum-slug-desc = Shotgun drum with eight slug shells. Compatible 
 
 uplink-energized-axe-name = Energized fireaxe
 uplink-energized-axe-desc = A fire axe with a massive energy charge built into it. Upon striking someone while charged it will throw them backwards while stunning them briefly, but will take some time to charge up again.
+
+uplink-hushpup-name = Hushpup
+uplink-hushpup-desc = Contains a Hushpup, a powerful silenced shotgun with a low magazine capacity, as well as a spare box of buckshot. Uses .50 shotgun ammo.
+
