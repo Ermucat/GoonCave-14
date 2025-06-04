@@ -226,12 +226,6 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
             return false;
         }
 
-        if (HasComp<MindShieldComponent>(target))
-        {
-            errorMessage = "blood-brother-convert-failed-shielded";
-            return false;
-        }
-
         if (!_mobStateSystem.IsAlive(target))
         {
             errorMessage = "blood-brother-convert-failed-dead";
@@ -254,6 +248,12 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
         if (profile.AntagPreferences.Contains(entity.Comp.RequiredAntagPreference.Value) != true)
         {
             errorMessage = "blood-brother-convert-failed-preference";
+            return false;
+        }
+
+        if (HasComp<MindShieldComponent>(target))
+        {
+            errorMessage = "blood-brother-convert-failed-shielded";
             return false;
         }
 
