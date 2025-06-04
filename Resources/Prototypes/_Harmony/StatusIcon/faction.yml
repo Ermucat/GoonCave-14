@@ -1,6 +1,18 @@
-﻿- type: factionIcon
+- type: factionIcon
   id: RaginMagesFaction
   isShaded: true
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - BloodBrother
+  icon:
+    sprite: /Textures/_Harmony/Interface/Misc/job_icons.rsi
+    state: BloodBrother
+
+﻿- type: factionIcon
+  id: RaginMagesFaction
+    isShaded: true
   priority: 11
   showTo:
     components:

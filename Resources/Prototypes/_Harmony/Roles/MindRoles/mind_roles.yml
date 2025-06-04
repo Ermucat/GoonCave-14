@@ -1,4 +1,4 @@
-﻿# Ragin Mage
+
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleRaginMage
@@ -10,3 +10,15 @@
     exclusiveAntag: true
     subtype: role-subtype-wizard
   - type: WizardRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBloodBrother
+  name: Blood Brother Role
+  components:
+  - type: BloodBrotherRole
+  - type: MindRole
+    antagPrototype: BloodBrother
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+    subtype: role-subtype-blood-brother
