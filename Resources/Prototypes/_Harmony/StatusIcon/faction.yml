@@ -10,9 +10,9 @@
     sprite: /Textures/_Harmony/Interface/Misc/job_icons.rsi
     state: BloodBrother
 
-﻿- type: factionIcon
+- type: factionIcon
   id: RaginMagesFaction
-    isShaded: true
+  isShaded: true
   priority: 11
   showTo:
     components:
