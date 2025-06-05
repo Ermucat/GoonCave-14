@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using Content.Server._Harmony.GameTicking.Rules.Components;
 using Content.Server._Harmony.Roles;
 using Content.Server.Administration.Logs;
@@ -226,12 +227,6 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
             return false;
         }
 
-        if (!_mobStateSystem.IsAlive(target))
-        {
-            errorMessage = "blood-brother-convert-failed-dead";
-            return false;
-        }
-
         if (targetMind.UserId == null)
         {
             errorMessage = "blood-brother-convert-failed-no-mind";
@@ -239,15 +234,22 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
         }
 
         // Check antag preference
-        if (entity.Comp.RequiredAntagPreference == null ||
-            !_preferencesManager.TryGetCachedPreferences(targetMind.UserId.Value, out var preferences))
-            return true;
-
-        var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
-
-        if (profile.AntagPreferences.Contains(entity.Comp.RequiredAntagPreference.Value) != true)
+        if (entity.Comp.RequiredAntagPreference != null &&
+            _preferencesManager.TryGetCachedPreferences(targetMind.UserId.Value, out var preferences))
         {
-            errorMessage = "blood-brother-convert-failed-preference";
+
+            var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
+
+            if (profile.AntagPreferences.Contains(entity.Comp.RequiredAntagPreference!.Value) != true)
+            {
+                errorMessage = "blood-brother-convert-failed-preference";
+                return false;
+            }
+        }
+
+        if (!_mobStateSystem.IsAlive(target))
+        {
+            errorMessage = "blood-brother-convert-failed-dead";
             return false;
         }
 
