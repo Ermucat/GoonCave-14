@@ -9,7 +9,8 @@
     - Revolutionary
     - AllHostile
     - Blob # Goobstation - Blob
-     - Wizard
+    - Wizard
+    - BloodBrother # Harmony
 
 - type: npcFaction
   id: NanoTrasen
@@ -24,6 +25,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Mouse
@@ -63,6 +65,7 @@
   - Blob # Goobstation - Blob
   - Wizard
   - Xenoborg
+  - BloodBrother # Harmony
 
 
 - type: npcFaction
@@ -98,6 +101,7 @@
   - Wizard
   - Dragon
   - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Zombie
@@ -114,6 +118,7 @@
   - Wizard
   - Dragon
   - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Revolutionary
@@ -145,6 +150,7 @@
   - Revolutionary
   - Wizard
   - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Wizard
@@ -162,6 +168,7 @@
   - Revolutionary
   - AllHostile
   - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Xenoborg
@@ -172,6 +179,7 @@
   - Zombie
   - Revolutionary
   - Wizard
+   - BloodBrother # Harmony
   - Xeno # rivalry
   # cause they are hostile to them
   - SimpleHostile 
