@@ -27,9 +27,9 @@
           radius: 0.2
         density: 100
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   - type: MobState
   - type: Deathgasp
   - type: MobStateActions
@@ -44,8 +44,8 @@
       100: Critical
       200: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 5
+    baseWalkSpeed : 3
+    baseSprintSpeed : 3
   - type: Respirator
     damage:
       types:
@@ -74,10 +74,13 @@
   - type: Devourer
     foodPreference: Humanoid
     shouldStoreDevoured: true
+    structureDevourTime: 1.5
     healRate: 7.5
     whitelist:
       components:
       - MobState
+      - Item
+      - Bot
   - type: Morph
   - type: ChameleonProjector
     whitelist:
@@ -85,16 +88,17 @@
         - Anchorable
         - Item
       tags:
-        - Bot # for funny bot moments
+        - Bot
     blacklist:
       components:
-        - ChameleonDisguise # no becoming kleiner
-        - MindContainer # no
-        - Pda # PDAs currently make you invisible /!\
+        - ChameleonDisguiser
+        - MindContainer
+        - Pda
     disguiseProto: ChameleonDisguise
-  - type: ActionGrant
-    actions:
-    - ActionMorph
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatDragon
+      amount: 2
 
 - type: entity
   id: ActionMorphReplicate
@@ -124,3 +128,12 @@
       sprite: _Harmony/Mobs/Animals/morph.rsi
       state: morph
     event: !type:MorphEvent
+
+- type: entity
+  id: ActionUnmorph
+  name: UnMorph
+  description: Attempt to break a structure with your jaws or swallow a creature.
+  components:
+  - type: InstantAction
+    icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
+    event: !type:UnMorphEvent

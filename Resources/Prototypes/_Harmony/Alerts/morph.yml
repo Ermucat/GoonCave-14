@@ -1,0 +1,23 @@
+﻿- type: alert
+  id: Biomass
+  icons:
+  - sprite: /Textures/_harmony/Interface/Alerts/biomass_counter.rsi
+    state: biomass
+  alertViewEntity: AlertMorphSpriteView
+  name: alerts-revenant-essence-name
+  description: alerts-revenant-essence-desc
+
+- type: entity
+  id: AlertMorphSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Interface/Alerts/essence_counter.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.MorphVisualLayers.Digit1" ]
+      offset: 0, 0.05
+    - map: [ "enum.MorphVisualLayers.Digit2" ]
+      offset: 0, 0.05
+    - map: [ "enum.MorphVisualLayers.Digit3" ]
+      offset: 0, 0.05

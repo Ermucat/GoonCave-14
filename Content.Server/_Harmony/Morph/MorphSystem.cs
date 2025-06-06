@@ -41,6 +41,7 @@ public sealed partial class MorphSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chamleon = default!;
+    [Dependency] private readonly AlertsSystem _alerts = default!;
 
     public override void Initialize()
     {
@@ -48,26 +49,28 @@ public sealed partial class MorphSystem : EntitySystem
 
         SubscribeLocalEvent<MorphComponent, DevourDoAfterEvent>(OnMorphDevour);
         SubscribeLocalEvent<MorphComponent, MorphReplicateEvent>(OnMorphReplicate);
-        SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MorphComponent, ReplicateDoAfterEvent>(OnMorphReplicateDoAfter);
-        SubscribeLocalEvent<MorphComponent, MorphEvent>(OnMorph);
+        SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
+        SubscribeLocalEvent<ChameleonProjectorComponent, UnMorphEvent>(TryUnMorph);
     }
-
 
     private void OnMapInit(EntityUid uid, MorphComponent component, MapInitEvent args)
     {
-        _action.AddAction(uid, ref component.Action, component.MorphAction);
+        _action.AddAction(uid, MorphComponent.Morph);
+        _action.AddAction(uid, MorphComponent.MorphReplicate);
     }
 
-    public void ChangeBiomassAmount(FixedPoint2 amount,EntityUid uid, MorphComponent? component = null)
+    public void ChangeBiomassAmount(FixedPoint2 amount, EntityUid uid, MorphComponent? component = null)
     {
         if (component != null)
-        component.Biomass += amount;
-        //Dirty(uid, component);
-    }
+        {
+            component.Biomass += amount;
+            _alerts.ShowAlert(uid, component.BiomassAlert);
+        }
 
+    }
 
     public void OnMorphDevour(EntityUid uid , MorphComponent component, DevourDoAfterEvent arg)
     {
@@ -85,16 +88,10 @@ public sealed partial class MorphSystem : EntitySystem
             if (amount != null)
             ChangeBiomassAmount(amount.Amount , uid, component);
         }
-
-
     }
 
     public void OnMorphReplicate(EntityUid uid , MorphComponent component, MorphReplicateEvent arg)
     {
-
-        if (!TryUseAbility(uid, component, component.ReplicateCost))
-            return;
-
         var doafterArgs = new DoAfterArgs(EntityManager, arg.Performer, component.ReplicationDelay, new ReplicateDoAfterEvent(), uid, used: uid)
         {
             BreakOnDamage = true,
@@ -102,13 +99,9 @@ public sealed partial class MorphSystem : EntitySystem
             MovementThreshold = 0.5f,
         };
 
-
         _doAfterSystem.TryStartDoAfter(doafterArgs);
 
-
         arg.Handled = true;
-
-
     }
 
     public void OnMorphReplicateDoAfter(EntityUid uid , MorphComponent component, ReplicateDoAfterEvent arg)
@@ -116,17 +109,26 @@ public sealed partial class MorphSystem : EntitySystem
         if (arg.Handled || arg.Cancelled)
             return;
 
-
         TryUseAbility(uid, component, component.ReplicateCost);
 
         var MorphCoords = Transform(arg.User);
         var MorphCoords2 = MorphCoords.Coordinates;
 
-        Spawn(component.MorphPrototype, MorphCoords2);
 
 
         arg.Handled = true;
 
+
+        if (TryUseAbility(uid, component, component.ReplicateCost))
+        {
+            Spawn(component.MorphPrototype, MorphCoords2);
+        }
+        else
+        {
+           string text = "you fail to reproduce, not enough biomass!";
+
+           _popupSystem.PopupEntity(text, uid, arg.User, PopupType.Small);
+        }
 
     }
 
@@ -138,31 +140,29 @@ public sealed partial class MorphSystem : EntitySystem
             return false;
         }
 
-
         ChangeBiomassAmount(-abilityCost, uid, component);
 
         return true;
     }
 
-    public void OnMorph(EntityUid uid, MorphComponent component, MorphEvent arg)
+    public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
     {
-        var MorphDoAfter = new DoAfterArgs(EntityManager, arg.Performer, component.ReplicationDelay, new MorphDoAfterEvent(), uid, used: uid)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            MovementThreshold = 0.5f,
-        };
+        _chamleon.TryDisguise(ent, arg.Performer, arg.Target); ;
 
-        _doAfterSystem.TryStartDoAfter(MorphDoAfter);
+        string Unmorph = "ActionUnmorph";
 
-
-        arg.Handled = true;
-
+        _action.AddAction(ent, Unmorph);
 
     }
 
-    public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
+    public void TryUnMorph(Entity<ChameleonProjectorComponent> ent, ref UnMorphEvent arg)
     {
-        _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
+        _chamleon.RevealProjector(ent);
+
+        // This is very messy, but it works
+        _action.AddAction(ent, MorphComponent.MorphCombatMode);
+        _action.AddAction(ent, MorphComponent.MorphDevour);
+        _action.AddAction(ent, MorphComponent.MorphReplicate);
+        _action.AddAction(ent, MorphComponent.Morph);
     }
 }

@@ -1,5 +1,8 @@
-﻿using Content.Shared.FixedPoint;
+﻿using Content.Shared.Alert;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Harmony.Morph;
 
@@ -10,10 +13,6 @@ public sealed partial class MorphComponent : Component
     [DataField]
     public float Amount = 10;
 
-    /// <summary>
-    /// The total amount of Essence the revenant has. Functions
-    /// as health and is regenerated.
-    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public FixedPoint2 Biomass;
@@ -22,7 +21,7 @@ public sealed partial class MorphComponent : Component
     public float ReplicateCost = 10;
 
     [DataField]
-    public float ReplicationDelay = 10f;
+    public float ReplicationDelay = 2.5f;
 
     [DataField]
     public float MorphDelay = 2.5f;
@@ -30,8 +29,31 @@ public sealed partial class MorphComponent : Component
     [DataField]
     public string MorphPrototype = "MobMorph";
 
-    [DataField]
-    public string MorphAction = "ActionMorphReplicate";
+
 
     [DataField] public EntityUid? Action;
+
+    [DataField]
+    public ProtoId<AlertPrototype> BiomassAlert = "Biomass";
+
+    [NetSerializable, Serializable]
+    public enum MorphVisualLayers : byte
+    {
+        Digit1,
+        Digit2,
+        Digit3
+    }
+
+    // Morph Actions
+    [DataField]
+    public static string MorphReplicate = "ActionMorphReplicate";
+
+    [DataField]
+    public static string Morph = "ActionMorph";
+
+    [DataField]
+    public static string MorphCombatMode = "ActionCombatModeToggle";
+
+    [DataField]
+    public static string MorphDevour = "ActionDevour";
 }

@@ -12,12 +12,12 @@ public sealed partial class MorphEvent : EntityTargetActionEvent
 {
 }
 
+public sealed partial class UnMorphEvent : InstantActionEvent
+{
+}
+
 [Serializable, NetSerializable]
 public sealed partial class ReplicateDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
-[Serializable, NetSerializable]
-public sealed partial class MorphDoAfterEvent : SimpleDoAfterEvent
-{
-}
