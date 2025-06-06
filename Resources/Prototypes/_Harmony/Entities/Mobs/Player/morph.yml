@@ -72,7 +72,7 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Devourer
-    foodPreference: Humanoid
+    foodPreference: All
     shouldStoreDevoured: true
     structureDevourTime: 1.5
     healRate: 7.5
