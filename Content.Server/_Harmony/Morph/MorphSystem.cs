@@ -47,7 +47,6 @@ public sealed partial class MorphSystem : EntitySystem
             component.Biomass += amount;
             _alerts.ShowAlert(uid, component.BiomassAlert);
         }
-
     }
 
     public void OnMorphDevour(EntityUid uid , MorphComponent component, DevourDoAfterEvent arg)
@@ -57,9 +56,7 @@ public sealed partial class MorphSystem : EntitySystem
 
         if (!TryComp<BiomassComponent>(arg.Target, out var amount))
         {
-            string text = "creature has no biomass!";
-
-            _popupSystem.PopupEntity(text, uid, arg.User, PopupType.Small);
+            _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass-target"), uid, arg.User, PopupType.Medium);
         }
         else
         {
@@ -71,9 +68,7 @@ public sealed partial class MorphSystem : EntitySystem
     {
         if (component.Biomass <= component.ReplicateCost)
         {
-            string text = "you fail to reproduce, not enough biomass!";
-
-            _popupSystem.PopupEntity(text, uid, arg.Performer, PopupType.Small);
+            _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass"), uid, arg.Performer, PopupType.Medium);
 
             return;
         }
@@ -141,4 +136,5 @@ public sealed partial class MorphSystem : EntitySystem
         _action.AddAction(ent, MorphComponent.MorphReplicate);
         _action.AddAction(ent, MorphComponent.Morph);
     }
+
 }

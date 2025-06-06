@@ -94,11 +94,23 @@
         - ChameleonDisguiser
         - MindContainer
         - Pda
+        - NukeDisk
     disguiseProto: ChameleonDisguise
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
       amount: 2
+  - type: TypingIndicator
+    proto: slime
+  - type: Prying # Open door from xeno.yml.
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Morph
 
 - type: entity
   id: ActionMorphReplicate

@@ -1,6 +1,5 @@
 using Content.Client.Alerts;
 using Content.Shared._Harmony.Morph;
-using Content.Shared.Revenant;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Harmony.Morph;
