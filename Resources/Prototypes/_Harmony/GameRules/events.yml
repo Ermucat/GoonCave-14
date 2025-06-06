@@ -11,5 +11,5 @@
     announcementSound: /Audio/Announcements/attention.ogg
     meteorVelocity: 45
     meteors:
-      MobCarpDragon: 10
+      MobCarp: 10
       MobCarpRainbow: 1
