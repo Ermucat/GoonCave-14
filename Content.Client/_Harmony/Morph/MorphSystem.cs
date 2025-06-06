@@ -19,8 +19,8 @@ public sealed class MorphSystem : EntitySystem
 
     private void OnUpdateAlert(Entity<MorphComponent> ent, ref UpdateAlertSpriteEvent args)
     {
-        if (args.Alert.ID != ent.Comp.BiomassAlert)
-            return;
+       // if (args.Alert.ID != ent.Comp.BiomassAlert)
+          //  return;
 
         var biomass = Math.Clamp(ent.Comp.Biomass.Int(), 0, 999);
         _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), MorphComponent.MorphVisualLayers.Digit1, $"{(biomass / 100) % 10}");

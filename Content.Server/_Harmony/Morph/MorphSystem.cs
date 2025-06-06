@@ -62,6 +62,8 @@ public sealed partial class MorphSystem : EntitySystem
         else
         {
                 ChangeBiomassAmount(amount.Amount , uid, component);
+                Dirty(uid, component);
+
                 _alerts.ShowAlert(uid, component.BiomassAlert);
         }
     }

@@ -5,8 +5,6 @@
   description: Squeak!
   components:
   - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
     allowMovement: true
     name: ghost-role-information-morph-name
     description: ghost-role-information-morph-description
@@ -67,8 +65,8 @@
     wideAnimation: WeaponArcPunch
     damage:
       types:
-        Blunt: 10
-        Structural: 20
+        Blunt: 20
+        Structural: 30
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Devourer
@@ -87,8 +85,6 @@
       components:
         - Anchorable
         - Item
-      tags:
-        - Bot
     blacklist:
       components:
         - ChameleonDisguiser
@@ -111,6 +107,8 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Morph
+  - type: ReplacementAccent
+    accent: slimes
 
 - type: entity
   id: ActionMorphReplicate
