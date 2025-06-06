@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: BaseStationEventShortDelay
+  id: CarpMigration
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    minimumPlayers: 15
+    weight: 10
+  - type: MeteorSwarm
+    announcement: station-event-carp-migration-start-announcement
+    announcementSound: /Audio/Announcements/attention.ogg
+    meteorVelocity: 60
+    meteors:
+      MobDragonCarp: 10
+      MobCarpRainbow: 1
