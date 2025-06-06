@@ -22,13 +22,16 @@ public sealed partial class MorphComponent : Component
     public float ReplicateCost = 10;
 
     [DataField]
-    public float ReplicationDelay = 2f;
+    public float ReplicationDelay = 10f;
+
+    [DataField]
+    public float MorphDelay = 2.5f;
 
     [DataField]
     public string MorphPrototype = "MobMorph";
 
     [DataField]
-    public string MorphAction = "ActionMorph";
+    public string MorphAction = "ActionMorphReplicate";
 
     [DataField] public EntityUid? Action;
 }

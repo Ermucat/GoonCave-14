@@ -28,6 +28,10 @@ using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Content.Shared._Harmony.Morph;
 using Content.Server.Popups;
+using Content.Shared.Polymorph.Systems;
+using Content.Shared.Coordinates;
+using Content.Shared.Polymorph.Components;
+using Robust.Shared.Map;
 
 namespace Content.Server._Harmony.Morph;
 
@@ -36,18 +40,19 @@ public sealed partial class MorphSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly SharedChameleonProjectorSystem _chamleon = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MorphComponent, DevourDoAfterEvent>(OnMorphDevour);
-
         SubscribeLocalEvent<MorphComponent, MorphReplicateEvent>(OnMorphReplicate);
-
         SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MorphComponent, ReplicateDoAfterEvent>(OnMorphReplicateDoAfter);
+        SubscribeLocalEvent<MorphComponent, MorphEvent>(OnMorph);
 
-
+        SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
     }
 
 
@@ -60,31 +65,32 @@ public sealed partial class MorphSystem : EntitySystem
     {
         if (component != null)
         component.Biomass += amount;
-        if (component != null)
-            Dirty(uid, component);
+        //Dirty(uid, component);
     }
 
 
     public void OnMorphDevour(EntityUid uid , MorphComponent component, DevourDoAfterEvent arg)
     {
-        var Biomass = typeof(BiomassComponent);
+        if (arg.Handled || arg.Cancelled)
+            return;
 
-
-        if (TryComp<BiomassComponent>(arg.Target, out var amount))
+        if (!TryComp<BiomassComponent>(arg.Target, out var amount))
         {
-            string text = "fuck you bitch";
+            string text = "creature has no biomass!";
 
             _popupSystem.PopupEntity(text, uid, arg.User, PopupType.Small);
         }
+        else
+        {
+            if (amount != null)
+            ChangeBiomassAmount(amount.Amount , uid, component);
+        }
 
-        if (amount != null)
-        ChangeBiomassAmount(amount.Amount , uid, component);
+
     }
 
     public void OnMorphReplicate(EntityUid uid , MorphComponent component, MorphReplicateEvent arg)
     {
-        if (arg.Handled)
-            return;
 
         if (!TryUseAbility(uid, component, component.ReplicateCost))
             return;
@@ -99,14 +105,36 @@ public sealed partial class MorphSystem : EntitySystem
 
         _doAfterSystem.TryStartDoAfter(doafterArgs);
 
-        Spawn(component.MorphPrototype);
+
+        arg.Handled = true;
+
+
+    }
+
+    public void OnMorphReplicateDoAfter(EntityUid uid , MorphComponent component, ReplicateDoAfterEvent arg)
+    {
+        if (arg.Handled || arg.Cancelled)
+            return;
+
+
+        TryUseAbility(uid, component, component.ReplicateCost);
+
+        var MorphCoords = Transform(arg.User);
+        var MorphCoords2 = MorphCoords.Coordinates;
+
+        Spawn(component.MorphPrototype, MorphCoords2);
+
+
+        arg.Handled = true;
+
+
     }
 
     private bool TryUseAbility(EntityUid uid, MorphComponent component, FixedPoint2 abilityCost)
     {
         if (component.Biomass <= abilityCost)
         {
-            _popupSystem.PopupEntity(Loc.GetString("revenant-not-enough-essence"), uid, uid);
+            _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass"), uid, uid);
             return false;
         }
 
@@ -114,5 +142,27 @@ public sealed partial class MorphSystem : EntitySystem
         ChangeBiomassAmount(-abilityCost, uid, component);
 
         return true;
+    }
+
+    public void OnMorph(EntityUid uid, MorphComponent component, MorphEvent arg)
+    {
+        var MorphDoAfter = new DoAfterArgs(EntityManager, arg.Performer, component.ReplicationDelay, new MorphDoAfterEvent(), uid, used: uid)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            MovementThreshold = 0.5f,
+        };
+
+        _doAfterSystem.TryStartDoAfter(MorphDoAfter);
+
+
+        arg.Handled = true;
+
+
+    }
+
+    public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
+    {
+        _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
     }
 }

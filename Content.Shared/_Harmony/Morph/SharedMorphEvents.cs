@@ -4,12 +4,20 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Harmony.Morph;
 
-//[Serializable, NetSerializable]
 public sealed partial class MorphReplicateEvent : InstantActionEvent
+{
+}
+
+public sealed partial class MorphEvent : EntityTargetActionEvent
 {
 }
 
 [Serializable, NetSerializable]
 public sealed partial class ReplicateDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class MorphDoAfterEvent : SimpleDoAfterEvent
 {
 }

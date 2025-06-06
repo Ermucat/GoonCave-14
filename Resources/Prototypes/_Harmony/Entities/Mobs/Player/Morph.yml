@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: mouse
+  name: morph
   parent: SimpleMobBase
   id: MobMorph
   description: Squeak!
@@ -8,8 +8,8 @@
     makeSentient: true
     allowSpeech: true
     allowMovement: true
-    name: ghost-role-information-mouse-name
-    description: ghost-role-information-mouse-description
+    name: ghost-role-information-morph-name
+    description: ghost-role-information-morph-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
@@ -59,10 +59,12 @@
         Blunt: 0.1
   - type: CombatMode
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
-      path: /Audio/Effects/bite.ogg
+      path: /Audio/Effects/metal_thud2.ogg
     angle: 0
-    animation: WeaponArcBite
+    animation: WeaponArcPunch
+    wideAnimation: WeaponArcPunch
     damage:
       types:
         Blunt: 10
@@ -72,18 +74,53 @@
   - type: Devourer
     foodPreference: Humanoid
     shouldStoreDevoured: true
-    chemical: Ichor
     healRate: 7.5
     whitelist:
       components:
       - MobState
   - type: Morph
+  - type: ChameleonProjector
+    whitelist:
+      components:
+        - Anchorable
+        - Item
+      tags:
+        - Bot # for funny bot moments
+    blacklist:
+      components:
+        - ChameleonDisguise # no becoming kleiner
+        - MindContainer # no
+        - Pda # PDAs currently make you invisible /!\
+    disguiseProto: ChameleonDisguise
+  - type: ActionGrant
+    actions:
+    - ActionMorph
 
 - type: entity
-  id: ActionMorph
+  id: ActionMorphReplicate
   name: Replicate
   description: Attempt to break a structure with your jaws or swallow a creature.
   components:
   - type: InstantAction
     icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
     event: !type:MorphReplicateEvent
+
+- type: entity
+  id: ActionMorph
+  name: Morph
+  description: Attempt to break a structure with your jaws or swallow a creature.
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Anchorable
+      - Item
+      tags:
+      - Bot
+    canTargetSelf: false
+    interactOnMiss: false
+    icon:
+      sprite: _Harmony/Mobs/Animals/morph.rsi
+      state: morph
+    event: !type:MorphEvent
