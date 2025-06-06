@@ -46,6 +46,7 @@ public sealed partial class MorphSystem : EntitySystem
         if (component != null)
         {
             component.Biomass += amount;
+            Dirty(uid, component);
             _alerts.ShowAlert(uid, component.BiomassAlert);
         }
     }
@@ -62,9 +63,6 @@ public sealed partial class MorphSystem : EntitySystem
         else
         {
                 ChangeBiomassAmount(amount.Amount , uid, component);
-                Dirty(uid, component);
-
-                _alerts.ShowAlert(uid, component.BiomassAlert);
         }
     }
 

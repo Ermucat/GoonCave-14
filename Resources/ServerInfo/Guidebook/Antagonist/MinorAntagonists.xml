@@ -61,6 +61,24 @@
   - If a period of five minutes passes since your spawn or since the last time a rift was charging, [bold]you'll disappear.[/bold]
   - Dragons who have the maximum of 3 fully charged rifts will [bold]never disappear[/bold], but they are still mortal.
 
+  # Morph
+  <Box>
+    <GuideEntityEmbed Entity="MobMorph" Caption="Morph ^"/>
+    <GuideEntityEmbed Entity="MobMorph" Caption=""/>
+    <GuideEntityEmbed Entity="ImmovableRodClown" Caption=""/>
+    <GuideEntityEmbed Entity="MobMorph" Caption=""/>
+  </Box>
+  <Box>
+    [color=#999999][italic]A scene of morphs eating a delicious clown[/italic][/color]
+  </Box>
+
+  Morphs are interdimensional terrors, traveling to your station to expand and conquer
+  - Morphs gain biomass by eating other creatures such as mice, monkeys, and crew.
+  - Morphs can use biomass to divide, creating a copy of themselves
+  - Morphs can eat anything, allowing you to eat valuable gear and weapons if you get the chance
+  - Morphs can disguise as items to trick prey into letting their guard down
+  - Morphs are highly resistent to all damage types except [color=#e6a009]heat[/color]
+
   # Slimes and Spiders
 
   <Box>

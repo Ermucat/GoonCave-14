@@ -2,7 +2,6 @@
   name: morph
   parent: SimpleMobBase
   id: MobMorph
-  description: Squeak!
   components:
   - type: GhostRole
     allowMovement: true
@@ -14,8 +13,10 @@
   - type: GhostTakeoverAvailable
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Harmony/Mobs/Animals/morph.rsi
-    state: morph
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: morph
+      sprite: _Harmony/Mobs/Animals/morph.rsi
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -29,6 +30,12 @@
         layer:
         - MobLayer
   - type: MobState
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: morph
+      Dead:
+        Base: morph_dead
   - type: Deathgasp
   - type: MobStateActions
     actions:
@@ -39,7 +46,6 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
       200: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
@@ -109,11 +115,14 @@
     speechSounds: Morph
   - type: ReplacementAccent
     accent: slimes
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Morph
 
 - type: entity
   id: ActionMorphReplicate
   name: Replicate
-  description: Attempt to break a structure with your jaws or swallow a creature.
+  description: Copies your cells to create replica of yourself, costs 50 biomass.
   components:
   - type: InstantAction
     icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
@@ -122,7 +131,7 @@
 - type: entity
   id: ActionMorph
   name: Morph
-  description: Attempt to break a structure with your jaws or swallow a creature.
+  description: Warps you to become the item.
   components:
   - type: EntityTargetAction
     itemIconStyle: BigAction
@@ -142,7 +151,7 @@
 - type: entity
   id: ActionUnmorph
   name: UnMorph
-  description: Attempt to break a structure with your jaws or swallow a creature.
+  description: Go back to your orignal form
   components:
   - type: InstantAction
     icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
