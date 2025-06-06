@@ -38,6 +38,7 @@ public sealed partial class MorphSystem : EntitySystem
     {
         _action.AddAction(uid, MorphComponent.Morph);
         _action.AddAction(uid, MorphComponent.MorphReplicate);
+        _alerts.ShowAlert(uid, component.BiomassAlert);
     }
 
     public void ChangeBiomassAmount(FixedPoint2 amount, EntityUid uid, MorphComponent? component = null)
@@ -61,6 +62,7 @@ public sealed partial class MorphSystem : EntitySystem
         else
         {
                 ChangeBiomassAmount(amount.Amount , uid, component);
+                _alerts.ShowAlert(uid, component.BiomassAlert);
         }
     }
 
@@ -89,31 +91,15 @@ public sealed partial class MorphSystem : EntitySystem
         if (arg.Handled || arg.Cancelled)
             return;
 
-        TryUseAbility(uid, component, component.ReplicateCost);
-
         var UserCoords = Transform(arg.User);
         var MorphSpawnCoords = UserCoords.Coordinates;
 
 
         arg.Handled = true;
 
-        if (TryUseAbility(uid, component, component.ReplicateCost))
-        {
-            Spawn(component.MorphPrototype, MorphSpawnCoords);
-        }
-    }
+        ChangeBiomassAmount(-(component.ReplicateCost), uid, component);
 
-    private bool TryUseAbility(EntityUid uid, MorphComponent component, FixedPoint2 abilityCost)
-    {
-        if (component.Biomass <= abilityCost)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("morph-no-biomass"), uid, uid);
-            return false;
-        }
-
-        ChangeBiomassAmount(-abilityCost, uid, component);
-
-        return true;
+        Spawn(component.MorphPrototype, MorphSpawnCoords);
     }
 
     public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)

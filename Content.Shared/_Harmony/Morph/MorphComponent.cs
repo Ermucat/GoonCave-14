@@ -18,7 +18,7 @@ public sealed partial class MorphComponent : Component
     public FixedPoint2 Biomass;
 
     [DataField]
-    public float ReplicateCost = 50;
+    public float ReplicateCost = 45;
 
     [DataField]
     public float ReplicationDelay = 2.5f;
