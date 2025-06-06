@@ -9,7 +9,7 @@
   - type: MeteorSwarm
     announcement: station-event-carp-migration-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
-    meteorVelocity: 60
+    meteorVelocity: 45
     meteors:
-      MobDragonCarp: 10
+      MobCarpDragon: 10
       MobCarpRainbow: 1
