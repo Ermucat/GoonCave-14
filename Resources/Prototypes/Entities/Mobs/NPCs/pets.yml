@@ -36,6 +36,10 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalIan
+  # Harmony Start
+  - type: Biomass
+    amount: 100
+  # Harmony Start
 
 - type: entity
   name: Old Ian

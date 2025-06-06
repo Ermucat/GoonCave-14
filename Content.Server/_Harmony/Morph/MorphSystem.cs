@@ -1,37 +1,15 @@
-using System.Numerics;
 using Content.Server._Harmony.Morph.Components;
 using Content.Server.Actions;
-using Content.Server.Devour;
-using Content.Server.GameTicking;
-using Content.Server.Store.Systems;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.Devour;
 using Content.Shared.DoAfter;
-using Content.Shared.Examine;
-using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
-using Content.Shared.Interaction;
-using Content.Shared.Maps;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Revenant;
-using Content.Shared.Revenant.Components;
-using Content.Shared.StatusEffect;
-using Content.Shared.Store.Components;
-using Content.Shared.Stunnable;
-using Content.Shared.Tag;
-using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
-using Content.Shared.Popups;
-using Robust.Shared.Random;
 using Content.Shared._Harmony.Morph;
 using Content.Server.Popups;
 using Content.Shared.Polymorph.Systems;
-using Content.Shared.Coordinates;
 using Content.Shared.Polymorph.Components;
-using Robust.Shared.Map;
+
 
 namespace Content.Server._Harmony.Morph;
 
@@ -85,13 +63,20 @@ public sealed partial class MorphSystem : EntitySystem
         }
         else
         {
-            if (amount != null)
-            ChangeBiomassAmount(amount.Amount , uid, component);
+                ChangeBiomassAmount(amount.Amount , uid, component);
         }
     }
 
     public void OnMorphReplicate(EntityUid uid , MorphComponent component, MorphReplicateEvent arg)
     {
+        if (component.Biomass <= component.ReplicateCost)
+        {
+            string text = "you fail to reproduce, not enough biomass!";
+
+            _popupSystem.PopupEntity(text, uid, arg.Performer, PopupType.Small);
+
+            return;
+        }
         var doafterArgs = new DoAfterArgs(EntityManager, arg.Performer, component.ReplicationDelay, new ReplicateDoAfterEvent(), uid, used: uid)
         {
             BreakOnDamage = true,
@@ -111,25 +96,16 @@ public sealed partial class MorphSystem : EntitySystem
 
         TryUseAbility(uid, component, component.ReplicateCost);
 
-        var MorphCoords = Transform(arg.User);
-        var MorphCoords2 = MorphCoords.Coordinates;
-
+        var UserCoords = Transform(arg.User);
+        var MorphSpawnCoords = UserCoords.Coordinates;
 
 
         arg.Handled = true;
 
-
         if (TryUseAbility(uid, component, component.ReplicateCost))
         {
-            Spawn(component.MorphPrototype, MorphCoords2);
+            Spawn(component.MorphPrototype, MorphSpawnCoords);
         }
-        else
-        {
-           string text = "you fail to reproduce, not enough biomass!";
-
-           _popupSystem.PopupEntity(text, uid, arg.User, PopupType.Small);
-        }
-
     }
 
     private bool TryUseAbility(EntityUid uid, MorphComponent component, FixedPoint2 abilityCost)
@@ -147,7 +123,7 @@ public sealed partial class MorphSystem : EntitySystem
 
     public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
     {
-        _chamleon.TryDisguise(ent, arg.Performer, arg.Target); ;
+        _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
 
         string Unmorph = "ActionUnmorph";
 

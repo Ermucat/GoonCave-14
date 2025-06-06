@@ -85,6 +85,10 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    # Harmony Start
+    - type: Biomass
+      amount: 25
+    # Harmony Start
 
 - type: entity
   parent: BaseMobCarp

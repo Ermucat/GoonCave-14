@@ -214,6 +214,10 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  # Harmony Start
+  - type: Biomass
+    amount: 50
+  # Harmony End
 
 - type: entity
   save: false

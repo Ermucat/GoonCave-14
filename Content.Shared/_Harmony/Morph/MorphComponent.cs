@@ -18,20 +18,13 @@ public sealed partial class MorphComponent : Component
     public FixedPoint2 Biomass;
 
     [DataField]
-    public float ReplicateCost = 10;
+    public float ReplicateCost = 50;
 
     [DataField]
     public float ReplicationDelay = 2.5f;
 
     [DataField]
-    public float MorphDelay = 2.5f;
-
-    [DataField]
     public string MorphPrototype = "MobMorph";
-
-
-
-    [DataField] public EntityUid? Action;
 
     [DataField]
     public ProtoId<AlertPrototype> BiomassAlert = "Biomass";

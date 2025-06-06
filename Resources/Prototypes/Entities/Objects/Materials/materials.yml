@@ -299,6 +299,10 @@
   - type: GuideHelp
     guides:
     - Cloning
+  # Harmony Start
+  - type: Biomass
+    amount: 5
+  # Harmony Start
 
 - type: entity
   parent: MaterialBiomass

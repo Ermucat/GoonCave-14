@@ -45,8 +45,10 @@
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes # Harmony
+  # Harmony Start
   - type: Biomass
-    amount: 100
+    amount: 10
+  # Harmony End
 
 - type: entity
   save: false

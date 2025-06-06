@@ -1411,6 +1411,10 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+  # Harmony Start
+  - type: Biomass
+    amount: 25
+  # Harmony Start
 
 
 
@@ -1861,6 +1865,10 @@
   - type: EmitSoundOnLand
     sound:
       collection: WeakHit
+  # Harmony NOTE - adds biomnass for morph
+  - type: Biomass
+    amount: 5
+
 # End of Harmony Change
 
 - type: entity
