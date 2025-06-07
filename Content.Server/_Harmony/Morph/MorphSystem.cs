@@ -36,7 +36,7 @@ public sealed partial class MorphSystem : EntitySystem
         SubscribeLocalEvent<MorphComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
-        SubscribeLocalEvent<ChameleonProjectorComponent, UnMorphEvent>(TryUnMorph);
+        SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
 
         SubscribeLocalEvent<ChameleonDisguiseComponent, UnMorphEvent>(OnDisguiseShutdown);
     }
@@ -124,9 +124,9 @@ public sealed partial class MorphSystem : EntitySystem
 
     }
 
-    public void TryUnMorph(Entity<ChameleonProjectorComponent> ent, ref UnMorphEvent arg)
+    public void TryUnMorph(Entity<ChameleonDisguisedComponent> ent, ref UnMorphEvent arg)
     {
-        _chamleon.RevealProjector(ent);
+        _chamleon.TryReveal(ent!);
 
         // This is very messy, but it works
         _action.AddAction(ent, MorphComponent.MorphCombatMode);
@@ -134,7 +134,6 @@ public sealed partial class MorphSystem : EntitySystem
         _action.AddAction(ent, MorphComponent.MorphReplicate);
         _action.AddAction(ent, MorphComponent.Morph);
     }
-
 
     private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref UnMorphEvent args)
     {

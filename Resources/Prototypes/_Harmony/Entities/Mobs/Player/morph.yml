@@ -80,6 +80,7 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Devourer
+    soundStructureDevour: /Audio/Effects/sizzle.ogg
     foodPreference: All
     shouldStoreDevoured: true
     structureDevourTime: 1.5
@@ -166,3 +167,14 @@
   - type: InstantAction
     icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
     event: !type:UnMorphEvent
+
+
+- type: entity
+  id: ClownDummy
+  parent: MarkerBase
+  name: yummy clown
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: clown

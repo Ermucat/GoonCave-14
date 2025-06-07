@@ -65,7 +65,7 @@
   <Box>
     <GuideEntityEmbed Entity="MobMorph" Caption="Morph ^"/>
     <GuideEntityEmbed Entity="MobMorph" Caption=""/>
-    <GuideEntityEmbed Entity="ImmovableRodClown" Caption=""/>
+    <GuideEntityEmbed Entity="ClownDummy" Caption=""/>
     <GuideEntityEmbed Entity="MobMorph" Caption=""/>
   </Box>
   <Box>
