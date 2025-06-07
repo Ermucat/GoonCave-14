@@ -7,9 +7,9 @@
     allowMovement: true
     name: ghost-role-information-morph-name
     description: ghost-role-information-morph-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-rules-team-antagonist
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleTeamAntagonist
   - type: GhostTakeoverAvailable
   - type: Sprite
     drawdepth: SmallMobs
