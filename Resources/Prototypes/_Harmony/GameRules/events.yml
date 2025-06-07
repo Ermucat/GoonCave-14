@@ -3,6 +3,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
+    announcement: station-event-morph-announcement
     earliestStart: 20
     minimumPlayers: 20
     weight: 5

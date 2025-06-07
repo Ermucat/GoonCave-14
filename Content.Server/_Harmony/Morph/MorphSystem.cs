@@ -1,3 +1,4 @@
+using System.Collections;
 using Content.Server._Harmony.Morph.Components;
 using Content.Server.Actions;
 using Content.Shared.Alert;
@@ -9,7 +10,8 @@ using Content.Shared._Harmony.Morph;
 using Content.Server.Popups;
 using Content.Shared.Polymorph.Systems;
 using Content.Shared.Polymorph.Components;
-
+using Content.Server.GameTicking;
+using Content.Server.Antag;
 
 namespace Content.Server._Harmony.Morph;
 
@@ -20,6 +22,7 @@ public sealed partial class MorphSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly SharedChameleonProjectorSystem _chamleon = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     public override void Initialize()
     {
@@ -32,6 +35,8 @@ public sealed partial class MorphSystem : EntitySystem
 
         SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
         SubscribeLocalEvent<ChameleonProjectorComponent, UnMorphEvent>(TryUnMorph);
+
+        SubscribeLocalEvent<ChameleonDisguiseComponent, UnMorphEvent>(OnDisguiseShutdown);
     }
 
     private void OnMapInit(EntityUid uid, MorphComponent component, MapInitEvent args)
@@ -81,7 +86,11 @@ public sealed partial class MorphSystem : EntitySystem
             MovementThreshold = 0.5f,
         };
 
+
+
         _doAfterSystem.TryStartDoAfter(doafterArgs);
+
+        _popupSystem.PopupEntity(Loc.GetString("morph-reproduce-start"), uid, arg.Performer, PopupType.Medium);
 
         arg.Handled = true;
     }
@@ -123,4 +132,13 @@ public sealed partial class MorphSystem : EntitySystem
         _action.AddAction(ent, MorphComponent.Morph);
     }
 
+
+    private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref UnMorphEvent args)
+    {
+        _action.AddAction(ent, MorphComponent.MorphCombatMode);
+        _action.AddAction(ent, MorphComponent.MorphDevour);
+        _action.AddAction(ent, MorphComponent.MorphReplicate);
+        _action.AddAction(ent, MorphComponent.Morph);
+    }
 }
+

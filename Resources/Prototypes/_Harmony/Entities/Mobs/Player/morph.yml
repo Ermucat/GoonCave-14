@@ -3,6 +3,10 @@
   parent: SimpleMobBase
   id: MobMorph
   components:
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
   - type: GhostRole
     allowMovement: true
     name: ghost-role-information-morph-name
@@ -48,8 +52,8 @@
       0: Alive
       200: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 3
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 4
   - type: Respirator
     damage:
       types:
@@ -88,7 +92,7 @@
   - type: Morph
   - type: ChameleonProjector
     whitelist:
-      components:
+    components:
         - Anchorable
         - Item
     blacklist:
@@ -104,10 +108,10 @@
       amount: 2
   - type: TypingIndicator
     proto: slime
-  - type: Prying # Open door from xeno.yml.
+  - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 1.5
+    speedModifier: 3
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: Speech
@@ -144,8 +148,8 @@
     canTargetSelf: false
     interactOnMiss: false
     icon:
-      sprite: _Harmony/Mobs/Animals/morph.rsi
-      state: morph
+      sprite: Objects/Consumable/Drinks/mug_one.rsi
+      state: icon-0
     event: !type:MorphEvent
 
 - type: entity
