@@ -12,6 +12,7 @@ using Content.Shared.Polymorph.Systems;
 using Content.Shared.Polymorph.Components;
 using Content.Server.GameTicking;
 using Content.Server.Antag;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Harmony.Morph;
 
@@ -23,6 +24,7 @@ public sealed partial class MorphSystem : EntitySystem
     [Dependency] private readonly SharedChameleonProjectorSystem _chamleon = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -109,6 +111,7 @@ public sealed partial class MorphSystem : EntitySystem
         ChangeBiomassAmount(-(component.ReplicateCost), uid, component);
 
         Spawn(component.MorphPrototype, MorphSpawnCoords);
+        _audio.PlayPvs(component.ReplicateSound, uid, null);
     }
 
     public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)

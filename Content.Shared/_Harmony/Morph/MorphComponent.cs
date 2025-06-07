@@ -3,6 +3,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._Harmony.Morph;
 
@@ -10,9 +11,6 @@ namespace Content.Shared._Harmony.Morph;
 [AutoGenerateComponentState]
 public sealed partial class MorphComponent : Component
 {
-    [DataField]
-    public float Amount = 10;
-
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public FixedPoint2 Biomass;
@@ -21,7 +19,7 @@ public sealed partial class MorphComponent : Component
     public float ReplicateCost = 45;
 
     [DataField]
-    public float ReplicationDelay = 2.5f;
+    public float ReplicationDelay = 5f;
 
     [DataField]
     public string MorphPrototype = "MobMorph";
@@ -49,4 +47,8 @@ public sealed partial class MorphComponent : Component
 
     [DataField]
     public static string MorphDevour = "ActionDevour";
+
+    // Morph Sounds
+    [DataField]
+    public SoundSpecifier ReplicateSound = new SoundPathSpecifier("/Audio/_Harmony/Misc/Mutate.ogg");
 }
