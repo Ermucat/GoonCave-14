@@ -43,6 +43,10 @@
     noRot: false
   - type: Pullable
   - type: DamageExaminable
+  # Harmony Start
+  - type: Biomass
+    amount: 1
+  # Harmony Start
 
 - type: entity
   name: "storage item"

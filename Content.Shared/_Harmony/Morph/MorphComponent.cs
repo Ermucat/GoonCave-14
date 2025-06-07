@@ -22,6 +22,10 @@ public sealed partial class MorphComponent : Component
     public float ReplicationDelay = 5f;
 
     [DataField]
+    public static int Children;
+
+
+    [DataField]
     public string MorphPrototype = "MobMorph";
 
     [DataField]

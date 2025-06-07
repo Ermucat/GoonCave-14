@@ -4,6 +4,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._Harmony.Morph;
 
+/// <summary>
+/// Handles setting the morphs biomass UI
+/// </summary>
 public sealed class MorphSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;

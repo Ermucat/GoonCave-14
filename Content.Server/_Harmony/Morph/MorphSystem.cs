@@ -13,6 +13,10 @@ using Content.Shared.Polymorph.Components;
 using Content.Server.GameTicking;
 using Content.Server.Antag;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Examine;
+using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Roles;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Server._Harmony.Morph;
 
@@ -25,6 +29,7 @@ public sealed partial class MorphSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {
@@ -39,6 +44,8 @@ public sealed partial class MorphSystem : EntitySystem
         SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
 
         SubscribeLocalEvent<ChameleonDisguiseComponent, UnMorphEvent>(OnDisguiseShutdown);
+
+        SubscribeLocalEvent<MorphDisguiseComponent, ExaminedEvent>(AddMorphExamine);
     }
 
     private void OnMapInit(EntityUid uid, MorphComponent component, MapInitEvent args)
@@ -112,6 +119,7 @@ public sealed partial class MorphSystem : EntitySystem
 
         Spawn(component.MorphPrototype, MorphSpawnCoords);
         _audio.PlayPvs(component.ReplicateSound, uid, null);
+        MorphComponent.Children += 1;
     }
 
     public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
@@ -142,5 +150,11 @@ public sealed partial class MorphSystem : EntitySystem
         _action.AddAction(ent, MorphComponent.MorphReplicate);
         _action.AddAction(ent, MorphComponent.Morph);
     }
+
+    private void AddMorphExamine(EntityUid uid, MorphDisguiseComponent component, ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString(component.ExamineMessage), component.Priority);
+    }
+
 }
 

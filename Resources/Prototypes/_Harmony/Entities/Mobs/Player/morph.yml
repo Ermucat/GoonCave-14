@@ -102,7 +102,7 @@
         - MindContainer
         - Pda
         - NukeDisk
-    disguiseProto: ChameleonDisguise
+    disguiseProto: ChameleonDisguiseMorph
   - type: Butcherable
     spawned:
     - id: FoodMeatDragon
@@ -168,13 +168,19 @@
     icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
     event: !type:UnMorphEvent
 
-
 - type: entity
-  id: ClownDummy
-  parent: MarkerBase
-  name: yummy clown
+  categories: [ HideSpawnMenu ]
+  id: ChameleonDisguiseMorph
+  name: Urist McKleiner
   components:
+  # this and the name/desc get replaced, this is just placeholder incase something goes wrong
   - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-    - state: clown
+    sprite: /Textures/Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Transform
+    noRot: true # players rotation and anchor is used instead
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
+  - type: ChameleonDisguise
+  - type: MorphDisguise
