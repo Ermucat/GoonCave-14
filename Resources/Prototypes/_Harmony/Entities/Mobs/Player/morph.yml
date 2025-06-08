@@ -184,3 +184,15 @@
   - type: Damageable
   - type: ChameleonDisguise
   - type: MorphDisguise
+
+
+# guidebook dummy
+
+- type: entity
+  id: ClownDummy
+  categories: [ HideSpawnMenu ]
+  name: Yummy Clown
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: clown

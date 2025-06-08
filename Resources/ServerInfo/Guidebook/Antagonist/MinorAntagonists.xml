@@ -63,7 +63,7 @@
 
   # Morph
   <Box>
-    <GuideEntityEmbed Entity="MobMorph" Caption="Morph ^"/>
+    <GuideEntityEmbed Entity="MobMorph" />
     <GuideEntityEmbed Entity="MobMorph" Caption=""/>
     <GuideEntityEmbed Entity="ClownDummy" Caption=""/>
     <GuideEntityEmbed Entity="MobMorph" Caption=""/>
@@ -72,7 +72,7 @@
     [color=#999999][italic]A scene of morphs eating a delicious clown[/italic][/color]
   </Box>
 
-  Morphs are interdimensional terrors, traveling to your station to expand and conquer
+  Morphs are interdimensional terrors from the netherworld, traveling to your station during mating season to breed and destroy.c
   - Morphs gain biomass by eating other creatures such as mice, monkeys, and crew.
   - Morphs can use biomass to divide, creating a copy of themselves
   - Morphs can eat anything, allowing you to eat valuable gear and weapons if you get the chance

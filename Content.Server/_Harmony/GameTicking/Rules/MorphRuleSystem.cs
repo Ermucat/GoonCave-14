@@ -17,7 +17,9 @@ public sealed class MorphRuleSystem : GameRuleSystem<MorphRuleComponent>
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
-
+    /// <summary>
+    /// Checks for "prime morphs" and looks how many times they replicated, would do all morphs but that would clog the end of round brief a bit.
+    /// </summary>
     protected override void AppendRoundEndText(EntityUid uid, MorphRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
     {
         base.AppendRoundEndText(uid, component, gameRule, ref args);
