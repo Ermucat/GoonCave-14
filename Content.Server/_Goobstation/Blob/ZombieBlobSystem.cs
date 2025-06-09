@@ -140,20 +140,15 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 
         var mindComp = EnsureComp<MindContainerComponent>(uid);
         var mind = CompOrNull<MindComponent>(mindComp.Mind);
-        if (mindComp.Mind != null)
+        if (mind!.UserId != null)
         {
-            /*
-            if (!_roleSystem.MindHasRole<BlobRoleComponent>(mindComp.Mind.Value))
+            if (_playerManager.TryGetSessionById(mind.UserId, out var session));
             {
-                _roleSystem.MindAddRole(mindComp.Mind.Value, new BlobRoleComponent
+                if (session != null)
                 {
-                    PrototypeId = "Blob"
-                });
-            }*/
-            if (_playerManager.TryGetSessionById(mind.UserId, out var session))
-            {
-                _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
-                _audio.PlayGlobal(component.GreetSoundNotification, session);
+                    _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
+                    _audio.PlayGlobal(component.GreetSoundNotification, session);
+                }
             }
         }
         else
