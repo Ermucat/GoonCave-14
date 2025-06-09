@@ -13,7 +13,7 @@
   - type: RoleRequirement
     roles:
       mindRoles:
-      - BlobRole
+      - MindRoleBlob
 
 - type: entity
   categories: [ HideSpawnMenu ]
