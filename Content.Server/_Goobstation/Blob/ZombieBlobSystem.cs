@@ -148,7 +148,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
                     PrototypeId = "Blob"
                 });
             }*/
-            if (_playerManager.TryGetSessionById(mindComp.Mind, out var session))
+            if (_playerManager.TryGetSessionById(uid, out var session))
             {
                 _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
                 _audio.PlayGlobal(component.GreetSoundNotification, session);
