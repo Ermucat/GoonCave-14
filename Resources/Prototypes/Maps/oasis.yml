@@ -61,12 +61,12 @@
             Passenger: [ -1, -1 ] #infinite, not counted
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
+            #silicon (3)
+            Borg: [ 2, 2 ]
+            StationAi: [ 1, 1 ]
       # Goobstation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
           stageTheEnd: 900
       # backmen blob-config-end
-            #silicon (3)
-            Borg: [ 2, 2 ]
-            StationAi: [ 1, 1 ]
