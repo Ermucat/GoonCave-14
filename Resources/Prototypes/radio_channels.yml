@@ -104,6 +104,7 @@
   color: "#6f730f"
   longRange: true
 
+- type: radioChannel
   id: Xenoborg
   name: chat-radio-xenoborg
   keycode: 'x'
