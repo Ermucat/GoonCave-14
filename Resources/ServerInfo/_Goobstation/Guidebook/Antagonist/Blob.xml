@@ -1,7 +1,7 @@
 <Document>
 # Blob
 
-[color=#ff0000]A level five biological threat was detected at the station, and the isolation of the station was announced.[/color]
+[color=#ff0000]Confirmed level 5 biohazard aboard the station. All personnel must contain the outbreak.[/color]
 
 A blob is a fast-growing dangerous organism whose main goal is to take over the station.
   <Box>
@@ -26,7 +26,7 @@ There are 2 steps you can do with the kernel: [color=#a4885c]transfer[/color] an
 Your ordinary unity is a [bold]regular tile[/bold]. Normal cells are extremely vulnerable to burns or even mechanical damage.
 They can also be upgraded to reinforced versions, or turned into special blob Tiles.
 
-## Special cages
+  ## Special tiles
 
   <Box>
     <GuideEntityEmbed Entity="ResourceBlobTile" Caption="Resource Blob"/>
