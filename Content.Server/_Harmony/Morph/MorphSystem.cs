@@ -43,7 +43,7 @@ public sealed partial class MorphSystem : EntitySystem
         SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
         SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
 
-        SubscribeLocalEvent<ChameleonDisguiseComponent, UnMorphEvent>(OnDisguiseShutdown);
+        SubscribeLocalEvent<MorphDisguiseComponent, ComponentShutdown>(OnDisguiseShutdown, after: [ typeof(SharedChameleonProjectorSystem)]);
 
         SubscribeLocalEvent<MorphDisguiseComponent, ExaminedEvent>(AddMorphExamine);
     }
@@ -143,7 +143,7 @@ public sealed partial class MorphSystem : EntitySystem
         _action.AddAction(ent, MorphComponent.Morph);
     }
 
-    private void OnDisguiseShutdown(Entity<ChameleonDisguiseComponent> ent, ref UnMorphEvent args)
+    private void OnDisguiseShutdown(Entity<MorphDisguiseComponent> ent, ref ComponentShutdown args)
     {
         _action.AddAction(ent, MorphComponent.MorphCombatMode);
         _action.AddAction(ent, MorphComponent.MorphDevour);
