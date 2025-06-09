@@ -12,6 +12,7 @@ using Content.Shared.Atmos;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.NPC.Components;
@@ -138,6 +139,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         }
 
         var mindComp = EnsureComp<MindContainerComponent>(uid);
+        var mind = CompOrNull<MindComponent>(mindComp.Mind);
         if (mindComp.Mind != null)
         {
             /*
@@ -148,7 +150,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
                     PrototypeId = "Blob"
                 });
             }*/
-            if (_playerManager.TryGetSessionById(uid, out var session))
+            if (_playerManager.TryGetSessionById(mind.UserId, out var session))
             {
                 _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
                 _audio.PlayGlobal(component.GreetSoundNotification, session);
