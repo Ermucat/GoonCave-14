@@ -142,7 +142,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         var mind = CompOrNull<MindComponent>(mindComp.Mind);
         if (mind!.UserId != null)
         {
-            if (_playerManager.TryGetSessionById(mind.UserId, out var session));
+            if (_playerManager.TryGetSessionById(mind.UserId!, out var session));
             {
                 if (session != null)
                 {
