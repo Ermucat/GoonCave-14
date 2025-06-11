@@ -24,3 +24,6 @@ uplink-shotgun-drum-slug-desc = Shotgun drum with eight slug shells. Compatible 
 
 uplink-hushpup-name = Hushpup
 uplink-hushpup-desc = Contains a Hushpup, a powerful silenced shotgun with a low magazine capacity, as well as a spare box of buckshot. Uses .50 shotgun ammo.
+
+uplink-kick-boots-name = Kick Boots
+uplink-kick-boots-desc = Powerful hydraulic boots that can send your targets flying, although doing so will slow the kicker on kick.

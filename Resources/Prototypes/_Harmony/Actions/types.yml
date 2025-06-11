@@ -10,3 +10,23 @@
       state: icon
     itemIconStyle: NoItem
     event: !type:ToggleActionEvent {}
+
+- type: entity
+  id: ActionKick
+  name: Kick
+  description: Kicks a target a fair distance, stuns you and the target
+  components:
+  - type: EntityTargetAction
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/hit_kick.ogg
+    icon:
+      sprite: Clothing/Shoes/Boots/combatboots.rsi
+      state: icon
+    event: !type:KickingEvent

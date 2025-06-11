@@ -146,6 +146,21 @@
       tags:
         - NukeOpsUplink
 
+- type: listing
+  id: UplinkClothingKickBoots
+  name: uplink-kick-boots-name
+  description: uplink-kick-boots-desc
+  productEntity: ClothingShoesKick
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 # Pointless
 
 - type: listing
