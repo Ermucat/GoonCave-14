@@ -56,6 +56,8 @@ public sealed partial class MorphSystem : EntitySystem
         _alerts.ShowAlert(uid, component.BiomassAlert);
     }
 
+    # region Actions
+
     public void ChangeBiomassAmount(FixedPoint2 amount, EntityUid uid, MorphComponent? component = null)
     {
         if (component != null)
@@ -122,7 +124,9 @@ public sealed partial class MorphSystem : EntitySystem
         _audio.PlayPvs(component.ReplicateSound, uid, null);
         MorphComponent.Children += 1;
     }
+    # endregion
 
+    # region Morph Disguise
     public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
     {
         _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
@@ -137,6 +141,7 @@ public sealed partial class MorphSystem : EntitySystem
     {
         args.PushMarkup(Loc.GetString(component.ExamineMessage), component.Priority);
     }
+    # endregion
 
 }
 
