@@ -43,15 +43,15 @@ public sealed partial class MorphSystem : EntitySystem
         SubscribeLocalEvent<ChameleonProjectorComponent, MorphEvent>(TryMorph);
         SubscribeLocalEvent<ChameleonDisguisedComponent, UnMorphEvent>(TryUnMorph);
 
-        SubscribeLocalEvent<MorphDisguiseComponent, ComponentShutdown>(OnDisguiseShutdown, after: [ typeof(SharedChameleonProjectorSystem)]);
 
         SubscribeLocalEvent<MorphDisguiseComponent, ExaminedEvent>(AddMorphExamine);
     }
 
     private void OnMapInit(EntityUid uid, MorphComponent component, MapInitEvent args)
     {
-        _action.AddAction(uid, MorphComponent.Morph);
-        _action.AddAction(uid, MorphComponent.MorphReplicate);
+        _action.AddAction(uid, component.MorphReplicate);
+        _action.AddAction(uid, component.Morph);
+        _action.AddAction(uid, component.UnMorph);
         _alerts.ShowAlert(uid, component.BiomassAlert);
     }
 
@@ -125,30 +125,11 @@ public sealed partial class MorphSystem : EntitySystem
     public void TryMorph(Entity<ChameleonProjectorComponent> ent, ref MorphEvent arg)
     {
         _chamleon.TryDisguise(ent, arg.Performer, arg.Target);
-
-        string Unmorph = "ActionUnmorph";
-
-        _action.AddAction(ent, Unmorph);
-
     }
 
     public void TryUnMorph(Entity<ChameleonDisguisedComponent> ent, ref UnMorphEvent arg)
     {
         _chamleon.TryReveal(ent!);
-
-        // This is very messy, but it works
-        _action.AddAction(ent, MorphComponent.MorphCombatMode);
-        _action.AddAction(ent, MorphComponent.MorphDevour);
-        _action.AddAction(ent, MorphComponent.MorphReplicate);
-        _action.AddAction(ent, MorphComponent.Morph);
-    }
-
-    private void OnDisguiseShutdown(Entity<MorphDisguiseComponent> ent, ref ComponentShutdown args)
-    {
-        _action.AddAction(ent, MorphComponent.MorphCombatMode);
-        _action.AddAction(ent, MorphComponent.MorphDevour);
-        _action.AddAction(ent, MorphComponent.MorphReplicate);
-        _action.AddAction(ent, MorphComponent.Morph);
     }
 
     private void AddMorphExamine(EntityUid uid, MorphDisguiseComponent component, ExaminedEvent args)

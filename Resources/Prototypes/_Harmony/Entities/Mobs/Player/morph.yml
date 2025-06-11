@@ -183,6 +183,7 @@
   - type: Clickable
   - type: Damageable
   - type: ChameleonDisguise
+    removeActions: false
   - type: MorphDisguise
 
 

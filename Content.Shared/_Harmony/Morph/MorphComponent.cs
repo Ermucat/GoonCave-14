@@ -41,16 +41,13 @@ public sealed partial class MorphComponent : Component
 
     // Morph Actions
     [DataField]
-    public static string MorphReplicate = "ActionMorphReplicate";
+    public string MorphReplicate = "ActionMorphReplicate";
 
     [DataField]
-    public static string Morph = "ActionMorph";
+    public string Morph = "ActionMorph";
 
     [DataField]
-    public static string MorphCombatMode = "ActionCombatModeToggle";
-
-    [DataField]
-    public static string MorphDevour = "ActionDevour";
+    public string UnMorph = "ActionUnMorph";
 
     // Morph Sounds
     [DataField]

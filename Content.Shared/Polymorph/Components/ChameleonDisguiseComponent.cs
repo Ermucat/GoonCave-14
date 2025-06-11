@@ -36,4 +36,13 @@ public sealed partial class ChameleonDisguiseComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntProtoId? SourceProto;
+
+    // Harmony Start
+    /// <summary>
+    /// Decides whether all actions should be removed or chameleon disguise actions
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RemoveActions = true;
+    // Harmony end
+
 }
