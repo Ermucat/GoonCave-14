@@ -160,12 +160,12 @@
     event: !type:MorphEvent
 
 - type: entity
-  id: ActionUnmorph
+  id: ActionUnMorph
   name: UnMorph
-  description: Go back to your orignal form
+  description: Tries to revert you to your original form if you are morphed.
   components:
   - type: InstantAction
-    icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
+    icon: { sprite : Objects/Devices/chameleon_projector.rsi, state: icon}
     event: !type:UnMorphEvent
 
 - type: entity

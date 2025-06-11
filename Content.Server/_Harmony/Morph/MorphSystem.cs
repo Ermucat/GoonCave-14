@@ -52,6 +52,7 @@ public sealed partial class MorphSystem : EntitySystem
         _action.AddAction(uid, component.MorphReplicate);
         _action.AddAction(uid, component.Morph);
         _action.AddAction(uid, component.UnMorph);
+
         _alerts.ShowAlert(uid, component.BiomassAlert);
     }
 
