@@ -12,7 +12,7 @@
     event: !type:ToggleActionEvent {}
 
 - type: entity
-  id: DividingGoose
+  id: ActionDividingGoose
   name: Divide
   description: Divde your cells.
   components:
