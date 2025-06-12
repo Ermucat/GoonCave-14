@@ -1,7 +1,7 @@
 ﻿- type: entity
-  name: dividing goose
   parent: MobGoose
   id: MobDividingGoose
+  name: dividing goose
   components:
   - type: ActionGrant
     actions:
