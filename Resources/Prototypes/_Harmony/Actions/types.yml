@@ -14,7 +14,7 @@
 - type: entity
   id: ActionDividingGoose
   name: Divide
-  description: Divde your cells.
+  description: Divide your cells.
   components:
   - type: InstantAction
     useDelay: 15
