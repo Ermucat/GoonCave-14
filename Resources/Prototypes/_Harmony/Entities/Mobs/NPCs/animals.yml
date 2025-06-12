@@ -5,7 +5,7 @@
   components:
   - type: ActionGrant
     actions:
-      - DividingGoose
+    - DividingGoose
   - type: GhostRole
     name: ghost-role-information-dividing-goose-name
     description: ghost-role-information-dividing-goose-description
