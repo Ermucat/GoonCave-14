@@ -99,14 +99,20 @@
   - type: Armor
     modifiers:
       coefficients:
+# Start of Harmony Change: Updates Spationaut Hardsuit Armor and Speed Values
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
-        Radiation: 0.3 #salv is supposed to have radiation hazards in the future
-        Caustic: 0.8
+#        Radiation: 0.3 #salv is supposed to have radiation hazards in the future
+#        Caustic: 0.8
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.8
+#    walkModifier: 0.9
+#    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.85
+# End of Harmony Change
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
@@ -136,19 +142,29 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.7
+#Start of Harmony Change: Lowers the Mining Hardsuit Explosion Resistance
+#    damageCoefficient: 0.7
+    damageCoefficient: 0.6
+# End of Harmony Change
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
+# Start of Harmony Change: Updates Mining Hardsuit Armor and Speed Values
+#        Blunt: 0.7
+#        Piercing: 0.7
+#        Radiation: 0.3
+#        Caustic: 0.7
+        Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.7
-        Heat: 0.7
-        Radiation: 0.3
-        Caustic: 0.7
+        Piercing: 0.8
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+#    walkModifier: 0.75
+#    sprintModifier: 0.75
+    walkModifier: 0.70
+    sprintModifier: 0.70
+# End of Harmony Change
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
@@ -173,19 +189,32 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+#Start of Harmony Change: Lowers the Goliath Hardsuit Explosion Resistance
+#    damageCoefficient: 0.3
+    damageCoefficient: 0.5
+# End of Harmony Change
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Heat: 0.7 #Goliath hide gets grilled instead of you
-        Radiation: 0.3
-        Caustic: 0.8
+# Start of Harmony Change: Updates Goliath Hardsuit Armor and Speed Values
+#        Blunt: 0.7
+#        Slash: 0.7
+#        Piercing: 0.5
+#        Heat: 0.7 #Goliath hide gets grilled instead of you
+#        Radiation: 0.3
+#        Caustic: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+#    walkModifier: 0.8
+#    sprintModifier: 0.8
+    walkModifier: 0.85
+    sprintModifier: 0.85
+# End of Harmony Change
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitGoliath
@@ -524,19 +553,27 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+# Start of Harmony Change: Updates the Luxury Mining Hardsuit Explosion Resistance Values
+#    damageCoefficient: 0.5
+    damageCoefficient: 0.8
+# End of Harmony Change
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
+# Start of Harmony Change: Updates Luxury Mining Hardsuit Armor and Speed Values
+#        Blunt: 0.9
+        Blunt: 0.8
         Slash: 0.8
         Piercing: 0.9
-        Heat: 0.9
+#        Heat: 0.9
         Radiation: 0.5
-        Caustic: 0.8
+#        Caustic: 0.8
+        Caustic: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
+#    walkModifier: 0.85
+    walkModifier: 0.9
     sprintModifier: 0.9
+# End of Harmony Change
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
