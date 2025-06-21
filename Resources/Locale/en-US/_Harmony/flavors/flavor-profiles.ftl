@@ -6,3 +6,6 @@ flavor-complex-explosive = explosive
 
 #Thirst Trap flavor
 flavor-complex-regret = like salty, dry regret
+
+# Glorp
+flavor-base-glorp = glorpy
