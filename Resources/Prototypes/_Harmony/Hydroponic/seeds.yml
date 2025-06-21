@@ -7,7 +7,7 @@
   plantRsi: _Harmony/Objects/Specific/Hydroponics/Firelemon.rsi
   packetPrototype: LemonCombustibleSeeds
   productPrototypes:
-  - Firelemon
+  - FoodLemonCombustible
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
