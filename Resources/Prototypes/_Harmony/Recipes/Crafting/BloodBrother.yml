@@ -1,0 +1,11 @@
+﻿
+- type: construction
+  id: MakeshiftCuffsMV
+  graph: makeshifthandcuffsMV
+  startNode: start
+  targetNode: cuffs
+  category: construction-category-tools
+  objectType: Item
+  entityWhitelist:
+    tags:
+     - BloodBrother

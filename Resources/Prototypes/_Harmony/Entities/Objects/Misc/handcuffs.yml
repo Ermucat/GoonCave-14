@@ -1,0 +1,40 @@
+﻿- type: entity
+  parent: Cablecuffs
+  name: makeshift handcuffs
+  description: Homemade handcuffs crafted from spare cables.
+  id: CablecuffsMV
+  components:
+  - type: Handcuff
+    breakoutTime: 5
+    color: yellow
+    brokenPrototype: CablecuffsBrokenMV
+  - type: Construction
+    graph: MakeshiftCuffsMV
+    node: cuffs
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: yellow
+      right:
+      - state: inhand-left
+        color: yellow
+  - type: Sprite
+    color: yellow
+
+- type: entity
+  name: broken cables
+  description: These cables are broken in several places and don't seem very useful.
+  id: CablecuffsBrokenMV
+  parent: CablecuffsBroken
+  components:
+  - type: Sprite
+    color: yellow
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: yellow
+      right:
+      - state: inhand-left
+        color: yellow

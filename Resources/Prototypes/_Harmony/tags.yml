@@ -18,3 +18,7 @@
 # Tag used for pride mantles.
 - type: Tag
   id: WhitelistChameleonPrideMantle
+
+# Tag used for blood brothers
+- type: Tag
+  id: BloodBrother

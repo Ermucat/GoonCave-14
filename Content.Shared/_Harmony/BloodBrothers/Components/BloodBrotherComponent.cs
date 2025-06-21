@@ -1,4 +1,5 @@
 ﻿using Content.Shared.StatusIcon;
+using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -15,4 +16,10 @@ public sealed partial class BloodBrotherComponent : Component
     public ProtoId<FactionIconPrototype> BloodBrotherIcon = "BloodBrotherFaction";
 
     public override bool SessionSpecific => true;
+
+    /// <summary>
+    /// Tag added on component startup
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype> BloodBrotherTag = "BloodBrother";
 }

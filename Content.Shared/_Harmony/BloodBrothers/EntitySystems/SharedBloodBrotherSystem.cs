@@ -1,5 +1,6 @@
 ﻿using Content.Shared._Harmony.BloodBrothers.Components;
 using Content.Shared.Actions;
+using Content.Shared.Tag;
 using Content.Shared.Antag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
@@ -9,6 +10,7 @@ namespace Content.Shared._Harmony.BloodBrothers.EntitySystems;
 public abstract class SharedBloodBrotherSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -17,12 +19,24 @@ public abstract class SharedBloodBrotherSystem : EntitySystem
         SubscribeLocalEvent<InitialBloodBrotherComponent, MapInitEvent>(OnInitialBloodBrotherMapInit);
         SubscribeLocalEvent<InitialBloodBrotherComponent, ComponentShutdown>(OnInitialBloodBrotherShutdown);
         SubscribeLocalEvent<BloodBrotherComponent, ComponentGetStateAttemptEvent>(OnBloodBrotherAttemptGetState);
+
+        SubscribeLocalEvent<BloodBrotherComponent, MapInitEvent>(OnBloodBrotherMapInit);
     }
 
     private void OnInitialBloodBrotherMapInit(Entity<InitialBloodBrotherComponent> entity, ref MapInitEvent args)
     {
         _actionsSystem.AddAction(entity, ref entity.Comp.ConvertActionEntity, entity.Comp.ConvertAction);
         _actionsSystem.AddAction(entity, ref entity.Comp.CheckConvertActionEntity, entity.Comp.CheckConvertAction);
+
+        _tag.AddTag(entity, entity.Comp.BloodBrotherTag);
+
+        Dirty(entity);
+    }
+
+    private void OnBloodBrotherMapInit(Entity<BloodBrotherComponent> entity, ref MapInitEvent args)
+    {
+        _tag.AddTag(entity, entity.Comp.BloodBrotherTag);
+
         Dirty(entity);
     }
 
