@@ -1,9 +1,9 @@
 ﻿- type: entity
+  parent: BaseAction
   id: ActionLesserSummonGun
   name: Lesser Summon Gun
   description: Summons a rifle with one round in it
   components:
-  - type: InstantAction
     useDelay: 2
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
@@ -11,7 +11,8 @@
     icon:
       sprite: Objects/Weapons/Guns/Snipers/musket.rsi
       state: base
+  - type: InstantAction
     event: !type:SpawnInHandSpellEvent
       prototype: WeaponSniperMagic
   - type: SpeakOnAction
-    sentence:   action-speech-spell-lesser-gun
+    sentence: action-speech-spell-lesser-gun
