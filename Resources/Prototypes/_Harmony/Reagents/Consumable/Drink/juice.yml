@@ -2,7 +2,7 @@
   id: JuiceCombustibleLemon
   name: reagent-name-juice-combustible-lemon
   parent: BaseJuice
-  desc: reagent-dsec-juice-combustible-lemon
+  desc: reagent-desc-juice-combustible-lemon
   physicalDesc: reagent-physical-desc-citric
   flavor: explosive
   color: "#ff2f00"
