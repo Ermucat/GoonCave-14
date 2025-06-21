@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent: SeedBase
+  id: LemonCombustibleSeeds
   name: packet of combustible lemon seeds
   description: A very sensitive lemon filled with volatile juices, watch where you throw this things
-  id: LemonCombustibleSeeds
   components:
   - type: Seed
     seedId: combustibleLemon
