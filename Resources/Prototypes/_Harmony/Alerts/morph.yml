@@ -17,8 +17,8 @@
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
     - map: [ "enum.MorphVisualLayers.Digit1" ]
-      offset: 0.15, 0.25
+      offset: 0.1, 0.2
     - map: [ "enum.MorphVisualLayers.Digit2" ]
-      offset: 0.3, 0.25
+      offset: 0.3, 0.2
     - map: [ "enum.MorphVisualLayers.Digit3" ]
-      offset: 0.45, 0.25
+      offset: 0.5, 0.2
