@@ -206,10 +206,7 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
     - Snout
-    - HeadTop
-    - HeadSide
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -222,10 +219,7 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
     - Snout
-    - HeadTop
-    - HeadSide
 
 - type: entity
   parent: ClothingMaskClown
@@ -689,10 +683,10 @@
   description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/welding-gas.rsi
+    sprite: _Harmony/Clothing/Mask/welding-gas.rsi # Harmony - changed sprite path
     state: icon
   - type: Clothing
-    sprite: Clothing/Mask/welding-gas.rsi
+    sprite: _Harmony/Clothing/Mask/welding-gas.rsi # Harmony - changed sprite path
   - type: FlashImmunity
   - type: EyeProtection
   - type: PhysicalComposition

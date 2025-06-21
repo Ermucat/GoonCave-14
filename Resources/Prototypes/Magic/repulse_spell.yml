@@ -1,24 +1,26 @@
-﻿- type: entity
+- type: entity
+  parent: BaseAction
   id: ActionRepulse
   name: Repulse
   description: Pushes entities away from the user.
   components:
   - type: RepulseAttract
-    speed: 10
-    range: 5
     # Harmony Start - adds stun to Repulse spell
     doStun: true
     stun: 2
     # Harmony End
+    speed: 25 # Harmony change - 10 -> 25
+    range: 10 # Harmony change - 5 -> 10
     whitelist:
       components:
       - MobMover
       - Item
-  - type: InstantAction
+  - type: Action
     useDelay: 25 # Harmmony Change - 40 secs -> 25 secs
     raiseOnAction: true
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: repulse
+  - type: InstantAction
     event: !type:RepulseAttractActionEvent
