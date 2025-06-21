@@ -1,9 +1,9 @@
 ﻿# Todo, make lemon explosion scale on potency, through a chemical reaction or dreaded C#
 - type: entity
+  parent: [GrenadeBase, FoodLemon]
+  id: FoodLemonCombustible
   name: combustible lemon
   description: Grenade that creates a small but devastating explosion.
-  parent: [GrenadeBase, FoodLemon]
-  id: Firelemon
   components:
   - type: Sprite
     sprite: _Harmony/Objects/Specific/Hydroponics/Firelemon.rsi
@@ -39,7 +39,7 @@
     delay: 6
     beepInterval: 1
   - type: Produce
-    seedId: ambrosiaHorribilis
+    seedId: combustibleLemon
   - type: Extractable
     juiceSolution:
       reagents:
