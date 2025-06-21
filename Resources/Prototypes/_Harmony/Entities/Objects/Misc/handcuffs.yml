@@ -9,7 +9,7 @@
     color: yellow
     brokenPrototype: CablecuffsBrokenMV
   - type: Construction
-    graph: MakeshiftCuffsMV
+    graph: makeshifthandcuffsMV
     node: cuffs
   - type: Item
     inhandVisuals:
