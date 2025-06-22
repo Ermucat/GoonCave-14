@@ -2,7 +2,8 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateX4Bundle
   name: syndicate X-4 bundle
-  description: "Contains a lot of X-4 charges."
+  suffix: Harmony
+  description: Contains a lot of X-4 charges.
   components:
   - type: StorageFill
     contents:
