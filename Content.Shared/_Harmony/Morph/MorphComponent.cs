@@ -34,7 +34,7 @@ public sealed partial class MorphComponent : Component
     /// Amount of morphs this morph has produced, used for end round text
     /// </summary>
     [DataField]
-    public static int Children;
+    public static int Children = 0;
 
     /// <summary>
     /// What mob to spawn on replicate, could be used for some sort of sac to spawn morphs on, just uses morph prototype for now
@@ -72,5 +72,5 @@ public sealed partial class MorphComponent : Component
 
     // Morph Sounds
     [DataField]
-    public SoundSpecifier ReplicateSound = new SoundPathSpecifier("/Audio/_Harmony/Misc/Mutate.ogg");
+    public SoundSpecifier ReplicateSound = new SoundPathSpecifier("/Audio/_Harmony/Misc/mutate.ogg");
 }

@@ -56,7 +56,6 @@ public sealed partial class MorphSystem : EntitySystem
 
         _alerts.ShowAlert(uid, component.BiomassAlert);
 
-        MorphComponent.Children = 0;
     }
 
     # region Actions
