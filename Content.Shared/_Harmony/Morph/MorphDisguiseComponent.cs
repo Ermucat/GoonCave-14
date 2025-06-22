@@ -6,6 +6,9 @@ namespace Content.Shared._Harmony.Morph;
 //[AutoGenerateComponentState]
 public sealed partial class MorphDisguiseComponent : Component
 {
+    /// <summary>
+    /// Examine message shown when morphed
+    /// </summary>
     public string ExamineMessage = "morph-examine";
 
     public int Priority = 15;

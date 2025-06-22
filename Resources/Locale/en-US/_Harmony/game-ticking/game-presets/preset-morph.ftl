@@ -9,3 +9,4 @@ morph-reproduce-start = you start to reproduce.
 morph-examine = [color=#79b037]it looks strange...[/color]
 
 morph-name-user = [color=#79b037]{$name}[/color]([color=gray]{$username}[/color]) was a [color=#79b037]prime morph[/color] that had {$count} children.
+morph-name-user-lone = [color=#79b037]{$name}[/color]([color=gray]{$username}[/color]) was a [color=#79b037]prime morph[/color] that had {$count} child.

@@ -80,6 +80,7 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Devourer
+    devourAction: ActionMorphDevour
     soundStructureDevour: /Audio/Effects/sizzle.ogg
     foodPreference: All
     shouldStoreDevoured: true
@@ -89,7 +90,6 @@
       components:
       - MobState
       - Item
-      - Bot
   - type: Morph
   - type: ChameleonProjector
     whitelist:
@@ -131,32 +131,36 @@
       task: SimpleHostileCompound
 
 - type: entity
+  parent: BaseAction
   id: ActionMorphReplicate
   name: Replicate
   description: Copies your cells to create replica of yourself, costs 50 biomass.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite : _Harmony/Mobs/Animals/morph.rsi, state: morph }
+  - type: InstantAction
     event: !type:MorphReplicateEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionMorph
   name: Morph
   description: Warps you to become the item.
   components:
-  - type: EntityTargetAction
+  - type: Action
     itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Consumable/Drinks/mug_one.rsi
+      state: icon-0
+  - type: TargetAction
+    interactOnMiss: false
+  - type: EntityTargetAction
     whitelist:
       components:
       - Anchorable
       - Item
       tags:
       - Bot
-    canTargetSelf: false
-    interactOnMiss: false
-    icon:
-      sprite: Objects/Consumable/Drinks/mug_one.rsi
-      state: icon-0
     event: !type:MorphEvent
 
 - type: entity
@@ -164,9 +168,31 @@
   name: UnMorph
   description: Tries to revert you to your original form if you are morphed.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite : Objects/Devices/chameleon_projector.rsi, state: icon}
+  - type: InstantAction
     event: !type:UnMorphEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionMorphDevour
+  name: "[color=red]Devour[/color]"
+  description: Attempt to eat an item or creature.
+  components:
+  - type: Action
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
+    itemIconStyle: BigAction
+    priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+      - Item
+    event: !type:DevourActionEvent
+
 
 - type: entity
   categories: [ HideSpawnMenu ]
