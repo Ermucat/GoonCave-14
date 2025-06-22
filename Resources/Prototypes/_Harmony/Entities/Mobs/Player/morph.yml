@@ -93,7 +93,7 @@
   - type: Morph
   - type: ChameleonProjector
     whitelist:
-    components:
+      components:
         - Anchorable
         - Item
     blacklist:
