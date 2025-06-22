@@ -53,7 +53,7 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
-    conditions:
+conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
