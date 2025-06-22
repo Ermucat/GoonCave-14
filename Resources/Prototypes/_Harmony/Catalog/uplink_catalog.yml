@@ -53,7 +53,12 @@
     Telecrystal: 4
   categories:
   - UplinkExplosives
-
+    conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  
 # The Pizzabomb is visually identical to the non-bomb version to avoid (more) accidents it comes in an informative
 # packaging when acquired from a surplus crate.
 - type: listing
