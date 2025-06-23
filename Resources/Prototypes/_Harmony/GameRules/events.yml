@@ -5,7 +5,7 @@
   - type: StationEvent
     earliestStart: 30
     minimumPlayers: 15
-    weight: 10
+    weight: 2
   - type: MeteorSwarm
     announcement: station-event-carp-migration-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
