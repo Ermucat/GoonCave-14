@@ -1,4 +1,5 @@
-﻿- type: listing
+# Offensive
+- type: listing
   id: SpellbookPitbull
   name: spellbook-pitbull-name
   description: spellbook-pitbull-desc
@@ -31,3 +32,19 @@
     - SpellbookPitbull
   - !type:ListingLimitedStockCondition
     stock: 1
+# Defensive
+# Utility
+# Equipment
+- type: listing
+  id: SpellbookStaffSlipping
+  name: spellbook-staff-slipping-name
+  description: spellbook-staff-slipping-desc
+  productEntity: WeaponStaffSlipping
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+# Event
