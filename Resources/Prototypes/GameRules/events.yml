@@ -23,6 +23,7 @@
     - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
+    - id: CarpMigration # Harmony Change
     - id: VentClog
 
 - type: entityTable
