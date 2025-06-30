@@ -123,7 +123,7 @@
   id: SpellbookBlink
   name: spellbook-blink-name
   description: spellbook-blink-desc
-  productAction: ActionBlink
+  productAction: ActionSticksToSnakes
   cost:
     WizCoin: 1
   categories:

@@ -1,0 +1,10 @@
+﻿- type: polymorph
+  id: SnakeMorph
+  configuration:
+    entity: MobSnake
+    transferDamage: false
+    inventory: None
+    duration: 120
+    forced: true
+    revertOnCrit: true
+    revertOnDeath: true

@@ -1,0 +1,22 @@
+﻿- type: entity
+  parent: BaseSmiteAction
+  id: ActionSticksToSnakes
+  name: Sticks to Snakes
+  description: Instantly gibs a target.
+  components:
+  - type: Action
+    useDelay: 10
+    icon:
+      sprite: Mobs/Animals/snake.rsi
+      state: icon
+  - type: EntityTargetAction
+    event: !type:PolymorphItemEvent
+      polymorph: SnakeMorph
+    whitelist:
+      components:
+      - Hands
+      - Item
+  - type: SpeakOnAction
+    sentence: action-speech-spell-smite
+  - type: Magic
+    requiresClothes: true
