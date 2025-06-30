@@ -4,6 +4,7 @@
   components:
   - type: GameRule
     minPlayers: 10
+    cancelPresetOnTooFewPlayers: false
     delay:
       min: 240
       max: 420
@@ -17,14 +18,13 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ BloodBrother ]
-      max: 2
-      playerRatio: 20 # if I counted right this should be about 40 players for 2 BBs
+      max: 1
+      playerRatio: 1
       allowNonHumans: true
-      multiAntagSetting: NotExclusive
       briefing:
         text: blood-brother-initial-role-greeting
         color: MediumVioletRed
-        sound: /Audio/Ambience/Antag/traitor_start.ogg
+        sound: /Audio/_Harmony/Misc/blood_brother_greeting.ogg
       components:
       - type: BloodBrother
       - type: InitialBloodBrother
