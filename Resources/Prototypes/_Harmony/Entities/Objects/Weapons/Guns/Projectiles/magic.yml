@@ -1,0 +1,27 @@
+﻿- type: entity
+  id: ProjectileRandomPolyBoltBase
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: '#00FF00'
+  - type: Projectile
+    damage:
+      types:
+        Poison: 5
+  - type: TriggerOnCollide
+    fixtureID: projectile
+
+- type: entity
+  id: ProjectileRandomPolyBoltChange
+  parent: ProjectilePolyboltBase
+  name: carp polybolt
+  description: Nooo, I don't wanna be fish!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomPolymorphOnTrigger
+    polymorphs:
+    - WizardForcedCarp
