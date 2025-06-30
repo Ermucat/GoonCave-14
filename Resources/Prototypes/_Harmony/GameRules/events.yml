@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: MorphSpawn
   parent: BaseStationEventShortDelay
   components:
@@ -21,3 +21,20 @@
         sound: /Audio/_Harmony/Misc/mutate.ogg
       mindRoles:
       - MindRoleGhostRoleTeamAntagonist
+
+- type: entity
+  parent: BaseStationEventShortDelay
+  id: CarpMigration
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    minimumPlayers: 15
+    weight: 2
+  - type: MeteorSwarm
+    announcement: station-event-carp-migration-start-announcement
+    announcementSound: /Audio/Announcements/attention.ogg
+    meteorVelocity: 45
+    meteors:
+      MobCarp: 10
+      MobCarpRainbow: 1
+
