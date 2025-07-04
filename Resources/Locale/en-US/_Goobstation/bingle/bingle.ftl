@@ -21,3 +21,5 @@ bingle-upgrade-success = You feel stronger
 bingle-pit-grow =  The pit grows larger
 
 bingle-pit-end-of-round = The Binglepit near {$location} grew to level [color=teal]{$level}[/color] and collected [color=teal]{$points}[/color] Bingle points
+
+tiles-bingle-floor = bingle floor
