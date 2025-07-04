@@ -1,0 +1,67 @@
+﻿- type: entity
+  id: BorgChassisCola
+  parent: BaseBorgChassisNT
+  name: cola borg
+  description: Drink cola!
+  components:
+  - type: BorgTransponder
+    sprite:
+      sprite: _Harmony/Mobs/Silicon/Chassis.rsi
+      state: colaborg
+    name: cyborg
+  - type: Sprite
+    sprite: _Harmony/Mobs/Silicon/Chassis.rsi
+    layers:
+    - state: colaborg
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: colaborg_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: colaborg_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 3
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleService
+    hasMindState: colaborg_e
+    noMindState: colaborg_e_r
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Service
+
+- type: entity
+  id: PlayerBorgColaBattery
+  parent: BorgChassisCola
+  suffix: Battery, Module, Ghostrole
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleCola
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: GhostRole
+    name: ghost-role-information-security-borg-name
+    description: ghost-role-information-security-borg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

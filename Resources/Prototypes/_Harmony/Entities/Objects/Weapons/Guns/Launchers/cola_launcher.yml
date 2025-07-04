@@ -1,0 +1,33 @@
+﻿- type: entity
+  id: WeaponColaLauncher
+  parent: BaseItem
+  name: Cola Launcher
+  description: launching dem' nets
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Item
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    size: Normal
+  - type: Gun
+    projectileSpeed: 5
+    fireRate: 0.2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+  - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/m41_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: DrinkColaCan
+    capacity: 1
+    count: 1
+  - type: UseDelay
+    delay: 1

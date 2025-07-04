@@ -8,10 +8,20 @@
     layers:
     - state: green
     - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-    - MobAlexander
-    - MobKoboldPoquito # Harmony Pet
+ # - type: ConditionalSpawner
+  #  prototypes:
+   # - MobAlexander
+    #- MobKoboldPoquito # Harmony Pet
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobAlexander
+        weight: 49
+      - id: MobKoboldPoquito # Harmony Pet
+        weight: 10
+      - id: PlayerBorgColaBattery
+        weight: 1
+
 
 - type: entity
   parent: MarkerBase

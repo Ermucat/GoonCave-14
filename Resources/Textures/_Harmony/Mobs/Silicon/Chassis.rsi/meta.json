@@ -1,0 +1,28 @@
+﻿{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from yogstation at https://github.com/yogstation13/Yogstation/commit/f67540416a483820e6c982cab8292722b9066f34",
+    "states": [
+        {
+            "name": "colaborg",
+            "directions": 4
+        },
+        {
+            "name": "colaborg_e",
+            "directions": 4
+        },
+        {
+            "name": "colaborg_e_r",
+            "directions": 4
+        },
+        {
+            "name": "colaborg_l",
+            "directions": 4
+        }
+
+    ]
+}

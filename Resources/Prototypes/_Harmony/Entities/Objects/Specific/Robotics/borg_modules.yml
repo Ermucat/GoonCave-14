@@ -1,0 +1,14 @@
+﻿- type: entity
+  id: BorgModuleCola
+  parent: [BaseBorgModuleService, BaseProviderBorgModule]
+  name: Cola dispensing module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-clown
+  - type: ItemBorgModule
+    items:
+    - WeaponColaLauncher
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Melee/stunbaton.rsi, state: stunbaton_off }
