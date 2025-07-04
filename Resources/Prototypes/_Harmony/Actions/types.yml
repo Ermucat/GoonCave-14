@@ -14,21 +14,23 @@
     event: !type:ToggleActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionKick
   name: Kick
   description: Kicks a target a fair distance, stuns you and the target
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 15
     itemIconStyle: BigAction
-    whitelist:
-      components:
-      - Body
-    canTargetSelf: false
-    interactOnMiss: false
     sound: !type:SoundPathSpecifier
       path: /Audio/Effects/hit_kick.ogg
     icon:
       sprite: Clothing/Shoes/Boots/combatboots.rsi
       state: icon
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
     event: !type:KickingEvent
