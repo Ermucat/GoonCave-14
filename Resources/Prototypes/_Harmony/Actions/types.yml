@@ -10,7 +10,8 @@
       sprite: _Harmony/Clothing/Hands/Gloves/mantis_activated.rsi
       state: icon
     itemIconStyle: NoItem
-    event: !type:ToggleActionEvent {}
+  - type: InstantAction
+    event: !type:ToggleActionEvent
 
 - type: entity
   id: ActionDividingGoose
