@@ -1,5 +1,6 @@
 - type: entity
   id: BinglePit
+  categories: [ Spawner ] # needed so tests don't sus
   name: binglepit
   description: Looks Hungry
   placement:
@@ -59,3 +60,11 @@
     unitsDestroyedPerSecond: 10
   - type: SpawnOnDespawn
     prototype: CrateFunBingleLoot
+
+- type: entity
+  id: BinglePitBingleless
+  parent: BinglePit
+  suffix: no starting
+  components:
+  - type: BinglePit
+    startingBingles: 0
