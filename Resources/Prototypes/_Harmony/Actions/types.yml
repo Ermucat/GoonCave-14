@@ -13,14 +13,16 @@
 
 - type: entity
   id: ActionDividingGoose
+  parent: BaseAction
   name: Divide
   description: Divide your cells.
   components:
-  - type: InstantAction
+  - type: Actopm
     useDelay: 15
     itemIconStyle: BigAction
     icon:
       sprite: Mobs/Animals/goose.rsi
       state: goose
+  - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: MobDividingGoose
