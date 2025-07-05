@@ -231,7 +231,8 @@ uplink-meds-bundle-name = Interdyne Medical Bundle
 uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equipment to cover for every possible situation. Contains an elite compact defibrillator that can be used as a weapon.
 
 uplink-ammo-bundle-name = Ammo Bundle
-uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, and 2 ammo boxes for the L6 SAW.
+uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 magazines for the Bandit.
+## Harmony change - changes ammo bundle uplink description
 
 uplink-sniper-bundle-name = Sniper Bundle
 uplink-sniper-bundle-desc = An inconspicuous briefcase that contains a Hristov, 10 spare bullets and a convenient disguise.

@@ -116,7 +116,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, and 2 ammo boxes for the L6 SAW."
+  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 magazines for the Bandit." # Harmony change - changes ammo bundle description
   components:
   - type: StorageFill
     contents:
@@ -128,6 +128,10 @@
         amount: 1
       - id: MagazineLightRifleBox
         amount: 2
+      # Begin harmony change - adds bandit mags to ammo bundle
+      - id: MagazineLightRifleCaseless
+        amount: 3
+      # End harmony change
 
 - type: entity
   parent: ClothingBackpackDuffelClown
