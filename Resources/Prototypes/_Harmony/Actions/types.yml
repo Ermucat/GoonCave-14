@@ -33,3 +33,5 @@
       - Body
     canTargetSelf: false
     event: !type:KickingEvent
+  - type: TargetAction
+    interactOnMiss: false

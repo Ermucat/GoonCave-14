@@ -30,6 +30,6 @@ public sealed class KickingSystem : EntitySystem
         _physics.ApplyLinearImpulse(ev.Target, impulseVector);
 
         _stun.TrySlowdown(ev.Performer, ev.Slowtime, refresh: false, ev.SlowdownMultiplier, ev.SlowdownMultiplier);
-        _stun.TryParalyze(ev.Target, ev.Stuntime, refresh: false);
+        _stun.TryParalyze(ev.Target, ev.Stuntime, refresh: true);
     }
 }
