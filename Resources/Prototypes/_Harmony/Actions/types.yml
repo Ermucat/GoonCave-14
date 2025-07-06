@@ -32,5 +32,4 @@
       components:
       - Body
     canTargetSelf: false
-    interactOnMiss: false
     event: !type:KickingEvent
