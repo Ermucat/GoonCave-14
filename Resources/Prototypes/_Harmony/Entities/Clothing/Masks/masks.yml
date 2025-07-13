@@ -51,12 +51,13 @@
     - Snout
 
 - type: entity
-  parent: BaseSecurityContraband
+  parent: [BaseSecurityContraband, ClothingMaskBase]
   id: ClothingMaskPrisionerMask
   name: prisoner mask
   description: A mask to humiliate the prisoner while keeping them supplied to oxygen.
   suffix: Harmony
   components:
+  - type: BreathMask
   - type: Sprite
     sprite: _Harmony/Clothing/Mask/prisonergasmask.rsi
   - type: Clothing
