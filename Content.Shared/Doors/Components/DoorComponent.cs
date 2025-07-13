@@ -275,7 +275,7 @@ public sealed partial class DoorComponent : Component
     /// Can this door be emagged
     /// </summary>
     [DataField]
-    public bool CanEmag = true;
+    public bool EmagPanelLock = false;
     // Harmony End
 
     /// <summary>

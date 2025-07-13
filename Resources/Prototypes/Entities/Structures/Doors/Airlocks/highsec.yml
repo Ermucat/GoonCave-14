@@ -57,7 +57,7 @@
     containers:
       board: !type:Container
   - type: Door
-    canEmag: false # Harmony Change
+    emagPanelLock: true # Harmony Change
     crushDamage:
       types:
         Blunt: 50

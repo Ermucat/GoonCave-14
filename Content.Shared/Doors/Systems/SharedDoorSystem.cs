@@ -15,6 +15,7 @@ using Content.Shared.Prying.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Wires;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -119,7 +120,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     private void OnEmagged(EntityUid uid, DoorComponent door, ref GotEmaggedEvent args)
     {
         // Harmony Start
-        if (door.CanEmag == false)
+        if (TryComp<WiresPanelSecurityComponent>(uid, out var wires) && !wires.WiresAccessible && door.EmagPanelLock)
             return;
         // Harmony End
 
