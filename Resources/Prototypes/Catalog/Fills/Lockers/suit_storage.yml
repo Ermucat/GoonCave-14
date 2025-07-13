@@ -48,7 +48,8 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitEVAPrisoner
         - id: ClothingHeadHelmetEVALarge
-        - id: ClothingMaskBreath
+        #- id: ClothingMaskBreath
+        - id: ClothingMaskPrisionerMask # Harmony change - replaces breath mask with prisioner mask
 
 #Syndicate EVA
 - type: entity
