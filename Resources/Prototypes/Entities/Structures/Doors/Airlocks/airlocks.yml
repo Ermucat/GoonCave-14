@@ -125,6 +125,10 @@
     department: Security
   - type: Wires
     layoutId: AirlockSecurity
+  # Harmony Start
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  # Harmony End
 
 - type: entity
   parent: Airlock
@@ -302,6 +306,10 @@
     department: Security
   - type: Wires
     layoutId: AirlockSecurity
+  # Harmony Start
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  # Harmony End
 
 - type: entity
   parent: AirlockSecurityGlass # see standard
