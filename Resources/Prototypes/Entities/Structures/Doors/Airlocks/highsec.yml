@@ -57,6 +57,7 @@
     containers:
       board: !type:Container
   - type: Door
+    canEmag: false # Harmony Change
     crushDamage:
       types:
         Blunt: 50
@@ -74,6 +75,7 @@
   - type: DoorBolt
   - type: AccessReader
     containerAccessProvider: board
+    breakOnAccessBreaker: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:

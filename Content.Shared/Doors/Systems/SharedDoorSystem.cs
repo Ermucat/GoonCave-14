@@ -118,6 +118,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, DoorComponent door, ref GotEmaggedEvent args)
     {
+        // Harmony Start
+        if (door.CanEmag == false)
+            return;
+        // Harmony End
+
         if (!_emag.CompareFlag(args.Type, EmagType.Access))
             return;
 

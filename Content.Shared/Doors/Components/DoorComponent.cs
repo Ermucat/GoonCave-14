@@ -270,6 +270,14 @@ public sealed partial class DoorComponent : Component
     [DataField]
     public bool ChangeAirtight = true;
 
+    // Harmony Start
+    /// <summary>
+    /// Can this door be emagged
+    /// </summary>
+    [DataField]
+    public bool CanEmag = true;
+    // Harmony End
+
     /// <summary>
     /// Whether the door blocks light.
     /// </summary>
