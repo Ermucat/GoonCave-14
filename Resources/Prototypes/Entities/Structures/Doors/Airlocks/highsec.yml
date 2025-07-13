@@ -75,7 +75,7 @@
   - type: DoorBolt
   - type: AccessReader
     containerAccessProvider: board
-    breakOnAccessBreaker: false # Harmony Change
+    emagPanelLock: true # Harmony Change
   - type: Appearance
   - type: GenericVisualizer
     visuals:

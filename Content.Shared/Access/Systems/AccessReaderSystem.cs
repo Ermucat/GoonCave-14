@@ -11,6 +11,7 @@ using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.StationRecords;
 using Content.Shared.Tag;
+using Content.Shared.Wires; // Harmony Change
 using Robust.Shared.Containers;
 using Robust.Shared.Collections;
 using Robust.Shared.GameStates;
@@ -81,6 +82,11 @@ public sealed class AccessReaderSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
     {
+        // Harmony Start
+        if (TryComp<WiresPanelSecurityComponent>(uid, out var wires) && !wires.WiresAccessible && reader.EmagPanelLock)
+            return;
+        // Harmony End
+
         if (!_emag.CompareFlag(args.Type, EmagType.Access))
             return;
 

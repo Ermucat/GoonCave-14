@@ -76,6 +76,14 @@ public sealed partial class AccessReaderComponent : Component
     /// </summary>
     [DataField]
     public bool BreakOnAccessBreaker = true;
+
+    // Harmony Start
+    /// <summary>
+    /// Wont let you emag it if the panel is locked
+    /// </summary>
+    [DataField]
+    public bool EmagPanelLock = false;
+    // Harmony End
 }
 
 [DataDefinition, Serializable, NetSerializable]
