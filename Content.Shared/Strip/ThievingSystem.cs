@@ -10,7 +10,6 @@ namespace Content.Shared.Strip;
 public sealed partial class ThievingSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
