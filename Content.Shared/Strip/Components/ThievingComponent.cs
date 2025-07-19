@@ -35,13 +35,6 @@ public sealed partial class ThievingComponent : Component
     /// Get mogged.
     /// </summary>
     public override bool SendOnlyToOwner => true;
-
-    // Harmmony Start
-    /// <summary>
-    /// Will the thieving ability be deactivated on mindshielded?
-    /// </summary>
-    public bool MindshieldBlock = true;
-    // Harmony End
 }
 
 /// <summary>
