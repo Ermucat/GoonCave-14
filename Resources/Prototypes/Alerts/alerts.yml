@@ -447,10 +447,14 @@
     state: stealthy-off
   - sprite: /Textures/Interface/Alerts/stealthy.rsi
     state: stealthy-on
+  # Harmony Start
+  - sprite: Markers/cross.rsi
+    state: red
+  # Harmony End
   name: alerts-stealthy-name
   description: alerts-stealthy-desc
   minSeverity: 0
-  maxSeverity: 1
+  maxSeverity: 2 # Harmony Change
 
 - type: alert
   id: Adrenaline

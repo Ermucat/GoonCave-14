@@ -10,6 +10,7 @@ namespace Content.Shared.Strip;
 public sealed partial class ThievingSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -22,7 +23,10 @@ public sealed partial class ThievingSystem : EntitySystem
         SubscribeLocalEvent<ThievingComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<ThievingComponent, ComponentRemove>(OnCompRemoved);
 
-        SubscribeLocalEvent<MindShieldComponent, ComponentInit>(MindShieldImplanted); // Harmony Change
+        // Harmony Start
+        SubscribeLocalEvent<MindShieldComponent, ComponentInit>(MindShieldImplanted);
+        SubscribeLocalEvent<MindShieldComponent, ComponentShutdown>(MindRemoved);
+        // Harmony End
     }
 
     private void OnBeforeStrip(EntityUid uid, ThievingComponent component, BeforeStripEvent args)
@@ -56,7 +60,7 @@ public sealed partial class ThievingSystem : EntitySystem
                 return;
 
             ent.Comp.Stealthy = false;
-            _alertsSystem.ShowAlert(ent.Owner, ent.Comp.StealthyAlertProtoId, (short)(ent.Comp.Stealthy ? 1 : 0));
+            _alertsSystem.ShowAlert(ent.Owner, ent.Comp.StealthyAlertProtoId, 2);
             return;
         }
         // Harmony End
@@ -79,6 +83,15 @@ public sealed partial class ThievingSystem : EntitySystem
             return;
 
         thiefcomp!.Stealthy = false;
+        _alertsSystem.ShowAlert(uid, thiefcomp.StealthyAlertProtoId, 2);
+    }
+
+    // So this should probably just be moved to mindshield system for general effects in the future, but this is what revolutionary system does so Im just gonna go off those guidelines
+    private void MindRemoved(EntityUid uid, MindShieldComponent comp, ComponentShutdown init)
+    {
+        if (!TryComp<ThievingComponent>(uid, out var thiefcomp))
+            return;
+
         _alertsSystem.ShowAlert(uid, thiefcomp.StealthyAlertProtoId, (short)(thiefcomp.Stealthy ? 1 : 0));
     }
     // Harmony End
