@@ -96,6 +96,7 @@ namespace Content.Server.Explosion.EntitySystems
             InitializeVoice();
             InitializeMobstate();
             InitializeOnUiOpen(); // Harmony edit
+            InitializeOnIgnite(); // Harmony Change
 
             SubscribeLocalEvent<TriggerOnSpawnComponent, MapInitEvent>(OnSpawnTriggered);
             SubscribeLocalEvent<TriggerOnCollideComponent, StartCollideEvent>(OnTriggerCollide);

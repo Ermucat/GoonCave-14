@@ -1,0 +1,10 @@
+﻿- type: entity
+  id: CigPackRedExploding
+  parent: CigPackRed
+  name: DromedaryCo packet
+  suffix: Exploding Cigarettes
+  components:
+  - type: StorageFill
+    contents:
+    - id: CigaretteExplosive
+      amount: 10

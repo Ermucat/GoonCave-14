@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: CigaretteExplosive
+  parent: Cigarette
+  name: cigarette
+  suffix: exploding
+  components:
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 10
+  - type: TriggerOnIgnite
+  - type: ExplodeOnTrigger
