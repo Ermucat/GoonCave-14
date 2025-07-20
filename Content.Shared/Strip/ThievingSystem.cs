@@ -10,6 +10,7 @@ namespace Content.Shared.Strip;
 public sealed partial class ThievingSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Harmony Start
 
     public override void Initialize()
     {
@@ -60,6 +61,7 @@ public sealed partial class ThievingSystem : EntitySystem
 
             ent.Comp.Stealthy = false;
             _alertsSystem.ShowAlert(ent.Owner, ent.Comp.StealthyAlertProtoId, 2);
+            _popup.PopupEntity(Loc.GetString("alerts-thieving-blocked"), ent, ent.Owner, PopupType.Medium);
             return;
         }
         // Harmony End

@@ -448,8 +448,8 @@
   - sprite: /Textures/Interface/Alerts/stealthy.rsi
     state: stealthy-on
   # Harmony Start
-  - sprite: Markers/cross.rsi
-    state: red
+  - sprite: /Textures/_Harmony/Interface/Alerts/stealthy.rsi
+    state: stealthy-blocked
   # Harmony End
   name: alerts-stealthy-name
   description: alerts-stealthy-desc
