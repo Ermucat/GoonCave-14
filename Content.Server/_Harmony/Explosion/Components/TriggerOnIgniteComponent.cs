@@ -1,7 +1,7 @@
 ﻿namespace Content.Server.Explosion.Components;
 
 /// <summary>
-/// Triggers when a Bound User Interface is opened
+/// Triggers when the item is ignited
 /// </summary>
 [RegisterComponent]
 public sealed partial class TriggerOnIgniteComponent : Component;
