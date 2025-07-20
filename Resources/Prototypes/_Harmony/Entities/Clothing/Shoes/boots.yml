@@ -5,9 +5,13 @@
   description: Hydraulic Boots that allow you to administer powerful kicks
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    sprite: _Harmony/Clothing/Shoes/Boots/kickboots.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    sprite: _Harmony/Clothing/Shoes/Boots/kickboots.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        offset: "0, -0.035"
   - type: ActionGrant
     actions:
     - ActionKick
