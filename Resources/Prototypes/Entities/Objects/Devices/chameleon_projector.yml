@@ -22,6 +22,7 @@
     disguiseProto: ChameleonDisguise
   - type: StaticPrice
     price: 5000
+  - type: LightBreaker
 
 - type: entity
   categories: [ HideSpawnMenu ]
