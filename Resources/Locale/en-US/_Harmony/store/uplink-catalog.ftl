@@ -47,6 +47,10 @@ uplink-defib-desc = A compact defibrillator. It can be used to revive your fello
 uplink-syndicate-id-name = Syndicate ID card
 uplink-syndicate-id-desc = A sleek black-and-red ID card with embossed Syndicate logo and syndicate access. Does not possess any Nanotrasen access. Limited to one ID per agent.
 
+uplink-lightbreaker-name = Light Breaker
+uplink-lightbreaker-desc = A specialized microphone that emits sound at a frequency that causes lights to break around you, has 4 charges.
+
+
 # Allies
 
 uplink-reinforcement-radio-cyborg-support-name = Syndicate Support Cyborg Teleporter

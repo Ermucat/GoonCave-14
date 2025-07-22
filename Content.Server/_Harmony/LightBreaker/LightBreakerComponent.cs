@@ -4,6 +4,7 @@
 [RegisterComponent]
 public sealed partial class LightBreakerComponent : Component
 {
-    [AutoNetworkedField]
-    public float Radius = 10;
+    [DataField]
+    public float Radius = 20;
 }
+

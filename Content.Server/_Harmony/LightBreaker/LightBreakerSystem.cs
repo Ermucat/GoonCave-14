@@ -4,6 +4,7 @@ using Content.Server.Light.EntitySystems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Light.Components;
+using Content.Shared.Timing;
 
 namespace Content.Server._Harmony.LightBreaker;
 
@@ -13,6 +14,7 @@ public sealed class LightBreakerSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly ChargesSystem _charges = default!;
+    [Dependency] private readonly UseDelaySystem _usedelay = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -23,11 +25,11 @@ public sealed class LightBreakerSystem : EntitySystem
     {
         var lookup = _lookup.GetEntitiesInRange(uid, comp.Radius, LookupFlags.Approximate | LookupFlags.Static);
 
-        if (TryComp<LimitedChargesComponent>(uid, out var limitedCharges))
-        {
+        if (_usedelay.IsDelayed(uid))
+            return;
 
-            _charges.TryUseCharge(uid);
-        }
+        if (_charges.IsEmpty(uid))
+            return;
 
         foreach (var ent in lookup)
         {
@@ -36,6 +38,17 @@ public sealed class LightBreakerSystem : EntitySystem
             {
                 _light.TryDestroyBulb(ent);
             }
+
+
+
+            args.Handled = true;
         }
+
+        if (args.Handled)
+        {
+            _charges.TryUseCharge(uid);
+            _usedelay.TryResetDelay(uid);
+        }
+
     }
 }

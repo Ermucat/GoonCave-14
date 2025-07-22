@@ -1,0 +1,19 @@
+﻿- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: LightBreaker
+  name: light breaker
+  description: Breaks lights like a boss.
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Tools/spy_device.rsi
+    state: icon
+  - type: StaticPrice
+    price: 5000
+  - type: LightBreaker
+  -  type: LimitedCharges
+     maxCharges: 4
+  - type: UseDelay
+    delay: 5
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/flash_bang.ogg
