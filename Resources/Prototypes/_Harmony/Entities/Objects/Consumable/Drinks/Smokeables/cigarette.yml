@@ -2,7 +2,7 @@
   id: CigaretteExplosive
   parent: Cigarette
   name: cigarette
-  suffix: exploding
+  suffix: Explosive
   components:
   - type: Explosive
     explosionType: Default
