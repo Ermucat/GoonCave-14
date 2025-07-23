@@ -1,7 +1,5 @@
 ﻿- type: entity
   parent: Cablecuffs
-  name: makeshift handcuffs
-  description: Homemade handcuffs crafted from spare cables.
   id: CablecuffsMV
   components:
   - type: Handcuff
