@@ -20,13 +20,13 @@
 - type: Tag
   id: WhitelistChameleonPrideMantle
 
-# Tag used for blood brothers
-- type: Tag
-  id: BloodBrother
-
 #used in _Harmony/Entities/Objects/Weapons/Guns/Ammunition/Magazines/light_rifle.yml and _Harmony/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/light_rifle.yml
 - type: Tag
   id: MagazineLightRifleCaseless
 
 - type: Tag
   id: CartridgeLightRifleCaseless
+
+# Tag used for blood brothers
+- type: Tag
+  id: BloodBrother
