@@ -454,7 +454,7 @@
   name: alerts-stealthy-name
   description: alerts-stealthy-desc
   minSeverity: 0
-  maxSeverity: 2 # Harmony Change
+  maxSeverity: 2 # Harmony Change 1 -> 2
 
 - type: alert
   id: Adrenaline
