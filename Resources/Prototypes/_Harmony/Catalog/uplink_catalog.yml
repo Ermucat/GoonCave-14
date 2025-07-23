@@ -215,9 +215,6 @@
   name: uplink-lightbreaker-name
   description: uplink-lightbreaker-desc
   productEntity: LightBreaker
-  discountCategory: commonDiscounts
-  discountDownTo:
-    Telecrystal: 2
   cost:
     Telecrystal: 3
   categories:
