@@ -107,7 +107,7 @@
   components:
   - type: RaginMagesRule
   - type: GameRule
-    minPlayers: 25 # Harmony specific change. 10 -> 25
+    minPlayers: 25
   - type: AntagObjectives
     objectives:
     - WizardSurviveObjective
