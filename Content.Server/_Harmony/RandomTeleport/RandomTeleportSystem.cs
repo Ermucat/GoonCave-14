@@ -1,6 +1,5 @@
 ﻿using System.Numerics;
 using Content.Shared._Harmony.RandomTeleport;
-using Content.Shared.Administration.Logs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
@@ -10,9 +9,7 @@ namespace Content.Server._Harmony.RandomTeleport;
 public sealed class RandomTeleportSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     public override void Initialize()
