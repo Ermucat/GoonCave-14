@@ -6,7 +6,7 @@ namespace Content.Shared._Harmony.RandomTeleport;
 public sealed partial class RandomTeleportEvent : InstantActionEvent
 {
     [DataField]
-    public float Radius = 7;
+    public float Radius = 4;
 
     [DataField]
     public string Effect = "Smoke";
