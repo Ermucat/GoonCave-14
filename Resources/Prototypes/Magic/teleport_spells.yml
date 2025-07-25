@@ -2,23 +2,27 @@
   parent: BaseAction
   id: ActionBlink
   name: Blink
-  description: Teleport to the clicked location.
+  description: Randomly teleports you # Harmony Change
   components:
   - type: Action
-    useDelay: 10
+    useDelay: 1 # Harmony Change 10 -> 1
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: blink
-  - type: TargetAction
-    range: 16 # default examine-range.
+  # Harmony Start
+  #- type: TargetAction
+    #range: 16 # default examine-range.
     # ^ should probably add better validation that the clicked location is on the users screen somewhere,
-    repeat: false
-    checkCanAccess: false
-  - type: WorldTargetAction
-    event: !type:TeleportSpellEvent
+    #repeat: false
+    #checkCanAccess: false
+  #- type: WorldTargetAction
+    #event: !type:TeleportSpellEvent
+  - type: InstantAction
+    event: !type:RandomTeleportEvent # Harmony Change - changes blink from controlled teleport to uncontrolled teleport
+  # Harmony End
 
 # TODO: Second level upgrade sometime that allows swapping with all objects
 - type: entity
