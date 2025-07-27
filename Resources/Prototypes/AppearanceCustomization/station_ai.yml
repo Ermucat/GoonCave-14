@@ -15,6 +15,7 @@
   - StationAiIconHouse
   - StationAiIconLizard
   - StationAiIconXenoQueen
+  - StationAiIconHal9000
 # Harmony Addition Ends
 
 - type: stationAiCustomizationGroup

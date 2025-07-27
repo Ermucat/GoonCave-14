@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from ParadiseSS13 at https://github.com/ParadiseSS13/Paradise/blob/222f9ae8009515d557dd8e693662666dc3c8e3b1/icons/mob/ai.dmi.",
+    "copyright": "Taken from ParadiseSS13 at https://github.com/ParadiseSS13/Paradise/blob/222f9ae8009515d557dd8e693662666dc3c8e3b1/icons/mob/ai.dmi, ai-hal-9000 made by Jordie0608 at https://github.com/tgstation/tgstation/pull/48495/commits/85f12250a9d0c5916e469e595c4f9789e6addef6",
     "size": {
         "x": 32,
         "y": 32
@@ -62,6 +62,9 @@
                     0.4
                 ]
             ]
+        },
+        {
+            "name": "ai_hal_9000"
         }
     ]
 }
