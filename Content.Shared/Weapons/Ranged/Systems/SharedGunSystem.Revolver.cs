@@ -223,6 +223,21 @@ public partial class SharedGunSystem
             // Category = VerbCategory.G,
             Act = () => SpinRevolver(uid, component, args.User)
         });
+
+        // Harmony start - adds new cycle verb
+        args.Verbs.Add(new AlternativeVerb()
+        {
+            Text = Loc.GetString("gun-revolver-cycle"),
+            // Category = VerbCategory.G,
+            Act = () =>
+            {
+                Cycle(component);
+                Popup(Loc.GetString("gun-revolver-cycled"), uid, args.User);
+                UpdateAmmoCount(uid, prediction: false);
+                Dirty(uid, component);
+            }
+        });
+        // Harmony End
     }
 
     private bool AnyRevolverCartridges(RevolverAmmoProviderComponent component)
