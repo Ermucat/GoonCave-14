@@ -23,4 +23,8 @@
     delay: 1
     delays:
       TeleportDelay: !type:UseDelayInfo
-        length: 300
+        length: 5 # Harmony change 300 -> 5
+  # Harmony start - adds charges
+  - type: LimitedCharges
+    maxCharges: 4
+  # Harmony end

@@ -1,4 +1,5 @@
-﻿using Content.Shared.Teleportation.Components;
+﻿using Content.Shared.Charges.Systems; // Harmony Change
+using Content.Shared.Teleportation.Components;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Warps;
@@ -14,6 +15,7 @@ public abstract partial class SharedTeleportLocationsSystem : EntitySystem
 
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly SharedChargesSystem _charges = default!; // Harmony Change
 
     protected const string TeleportDelay = "TeleportDelay";
 
@@ -27,7 +29,7 @@ public abstract partial class SharedTeleportLocationsSystem : EntitySystem
 
     private void OnUiOpenAttempt(Entity<TeleportLocationsComponent> ent, ref ActivatableUIOpenAttemptEvent args)
     {
-        if (!Delay.IsDelayed(ent.Owner, TeleportDelay))
+        if (!Delay.IsDelayed(ent.Owner, TeleportDelay) && !_charges.IsEmpty(ent.Owner)) // Harmony Change - checks to see if it still has charges
             return;
 
         args.Cancel();
@@ -37,6 +39,11 @@ public abstract partial class SharedTeleportLocationsSystem : EntitySystem
     {
         if (!TryGetEntity(args.NetEnt, out var telePointEnt) || TerminatingOrDeleted(telePointEnt) || !HasComp<WarpPointComponent>(telePointEnt) || Delay.IsDelayed(ent.Owner, TeleportDelay))
             return;
+
+        // Harmony start - checks if item still has charges
+        if (_charges.IsEmpty(ent.Owner))
+            return;
+        // Harmony End
 
         var comp = ent.Comp;
         var originEnt = args.Actor;
@@ -49,6 +56,8 @@ public abstract partial class SharedTeleportLocationsSystem : EntitySystem
         SpawnAtPosition(comp.TeleportEffect, telePointXForm.Coordinates);
 
         Delay.TryResetDelay(ent.Owner, true, id: TeleportDelay);
+
+        _charges.TryUseCharge(ent.Owner); // Harmony Change
 
         if (!ent.Comp.CloseAfterTeleport)
             return;
