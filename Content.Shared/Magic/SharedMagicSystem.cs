@@ -17,6 +17,7 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect; // Harmony change
+using Content.Shared._Harmony.Magic.Events; // Harmony Changfe
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;

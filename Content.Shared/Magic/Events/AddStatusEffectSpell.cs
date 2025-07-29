@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Shared._Harmony.Magic.Events;
 
 public sealed partial class AddStatusEffectSpell : EntityTargetActionEvent
 {
