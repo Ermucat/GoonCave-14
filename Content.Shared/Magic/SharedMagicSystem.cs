@@ -16,6 +16,7 @@ using Content.Shared.Mind;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
+using Content.Shared.StatusEffect; // Harmony change
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -62,6 +63,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!; // Harmony Change
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -81,6 +83,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
+        SubscribeLocalEvent<AddStatusEffectSpell>(OnStatusEffectAdd); // Harmony change
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -514,6 +517,22 @@ public abstract class SharedMagicSystem : EntitySystem
     }
 
     #endregion
+    // Harmony start
+    #region Status Effects Spells
+    private void OnStatusEffectAdd(AddStatusEffectSpell ev) // This is pretty simple but I couldnt find aynthing else like this, I've looked.
+    {
+        if (ev.Handled)
+            return;
+
+        if (!TryComp<StatusEffectsComponent>(ev.Target, out var statusEffectComp))
+            return;
+
+        _statusEffectsSystem.TryAddStatusEffect(ev.Target, ev.Key, ev.Duration, refresh: true, ev.Component);
+
+        ev.Handled = true;
+    }
+    # endregion
+    // Harmony End
     // End Spells
     #endregion
 

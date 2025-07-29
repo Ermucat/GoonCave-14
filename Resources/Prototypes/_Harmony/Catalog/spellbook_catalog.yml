@@ -1,5 +1,17 @@
 # Offensive
 # Defensive
+- type: listing
+  id: SpellbookMute
+  name: spellbook-mute-name
+  description: spellbook-mute-desc
+  productAction: Muted
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 # Utility
 - type: listing
   id: SpellbookItemCurse

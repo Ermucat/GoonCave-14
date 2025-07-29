@@ -1,0 +1,19 @@
+﻿- type: entity
+  parent: BaseEntitySpellAction
+  id: Muted
+  components:
+  - type: SpeakOnAction
+    sentence: action-speech-spell-slip
+  - type: Action
+    useDelay: 20
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Harmony/Misc/shhh.ogg
+    icon:
+      sprite: Clothing/Mask/mime.rsi
+      state: icon
+  - type: EntityTargetAction
+    event: !type:AddStatusEffectSpell
+      key: Muted
+      component: Muted
+      duration: 15
+    canTargetSelf: true
