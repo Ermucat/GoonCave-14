@@ -97,6 +97,10 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
   - type: ShowJobIcons
+  # Harmony start
+  - type: StealTarget
+    stealGroup: Telecard
+  # Harmony End
 
 # Ai
 - type: entity

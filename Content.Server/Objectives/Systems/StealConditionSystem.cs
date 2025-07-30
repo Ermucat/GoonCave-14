@@ -1,5 +1,6 @@
 using Content.Server.Objectives.Components;
 using Content.Shared.CartridgeLoader;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -11,6 +12,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Stacks;
 
 namespace Content.Server.Objectives.Systems;
@@ -24,6 +26,7 @@ public sealed class StealConditionSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
 
     private EntityQuery<ContainerManagerComponent> _containerQuery;
 
@@ -189,6 +192,9 @@ public sealed class StealConditionSystem : EntitySystem
         // check if cartridge is installed
         if (TryComp<CartridgeComponent>(entity, out var cartridge) &&
             cartridge.InstallationStatus is not InstallationStatus.Cartridge)
+            return 0;
+
+        if (TryComp<StationAiHolderComponent>(entity, out var ai) && !_slots.CanEject(entity, condition.Owner, ai.Slot))
             return 0;
 
         // check if needed target alive
