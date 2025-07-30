@@ -11,3 +11,10 @@
   sprite:
     sprite: _Harmony/Clothing/Eyes/Glasses/cmo.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: AISteal
+  name: steal-target-groups-AI
+  sprite:
+    sprite: Objects/Devices/ai_card.rsi
+    state: base

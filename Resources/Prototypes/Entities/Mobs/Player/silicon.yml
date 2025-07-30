@@ -99,7 +99,7 @@
   - type: ShowJobIcons
   # Harmony start
   - type: StealTarget
-    stealGroup: Telecard
+    stealGroup: AISteal
   # Harmony End
 
 # Ai

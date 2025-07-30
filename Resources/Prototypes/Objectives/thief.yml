@@ -64,15 +64,6 @@
     difficulty: 1.5
 
 - type: entity
-  parent:  BaseThiefStealObjective
-  id: IntellicardPluh
-  components:
-  - type: StealCondition
-    stealGroup: Telecard
-  - type: Objective
-    difficulty: 1.5
-
-- type: entity
   parent: BaseThiefStealCollectionObjective
   id: HeadBedsheetStealCollectionObjective
   components:

@@ -406,11 +406,3 @@
   sprite:
     sprite: Mobs/Animals/crab.rsi
     state: crab
-
-# Theif
-- type: stealTargetGroup
-  id: Telecard
-  name: steal-target-groups-lawboard-crewsimov
-  sprite:
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
