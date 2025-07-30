@@ -2,6 +2,8 @@
   parent: BaseEntitySpellAction
   id: Muted
   components:
+  - type: SpeakOnAction
+    sentence: action-speech-spell-slip
   - type: Action
     useDelay: 20
     sound: !type:SoundPathSpecifier

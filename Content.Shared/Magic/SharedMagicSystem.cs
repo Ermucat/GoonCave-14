@@ -16,9 +16,8 @@ using Content.Shared.Mind;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
-using Content.Shared.StatusEffectNew; // Harmony change
-using Content.Shared.StatusEffect; // Harmony Change
-using Content.Shared._Harmony.Magic.Events; // Harmony Changge
+using Content.Shared.StatusEffect; // Harmony change
+using Content.Shared._Harmony.Magic.Events; // Harmony Changfe
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -65,10 +64,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    // Harmony Change - temporarily have to use both until status effect is fully transferred
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _statusEffectsSystem = default!;
-    [Dependency] private readonly StatusEffect.StatusEffectsSystem _statusEffectsSystemOld = default!;
-    // Harmony Change
+    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!; // Harmony Change
     [Dependency] private readonly TurfSystem _turf = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
@@ -533,9 +529,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (!TryComp<StatusEffectsComponent>(ev.Target, out var statusEffectComp))
             return;
 
-        _statusEffectsSystemOld.TryAddStatusEffect(ev.Target, ev.Key, ev.Duration, refresh: true, ev.Component);
-
-        _statusEffectsSystem.TryAddStatusEffectDuration(ev.Target, ev.Effect, ev.Duration);
+        _statusEffectsSystem.TryAddStatusEffect(ev.Target, ev.Key, ev.Duration, refresh: true, ev.Component);
 
         ev.Handled = true;
     }
