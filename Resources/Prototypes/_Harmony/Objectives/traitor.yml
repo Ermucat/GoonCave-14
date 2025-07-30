@@ -15,3 +15,16 @@
       - EscapeShuttleCondition
       - DieCondition
   - type: SurviveCondition
+
+# stealing
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: AIStealObjective
+  components:
+  - type: Objective
+    difficulty: 3
+  - type: ObjectiveLimit
+    limit: 1
+  - type: StealCondition
+    stealGroup: AISteal

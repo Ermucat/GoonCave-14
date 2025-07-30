@@ -22,6 +22,7 @@
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     EnergyShotgunStealObjective: 0.5
+    AIStealObjective: 0.3 # Harmony Change
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
