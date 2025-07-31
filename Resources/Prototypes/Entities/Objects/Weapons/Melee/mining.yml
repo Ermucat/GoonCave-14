@@ -161,7 +161,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-      # Harmony change, reverts mining changes 1 -> 1.5
+      # Harmony change start, reverts mining changes blunt 6 -> 2.5, slash 2->2.5
         Blunt: 2.5
         Slash: 2.5
       # Harmony end
