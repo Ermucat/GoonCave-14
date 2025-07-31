@@ -39,23 +39,6 @@ public sealed class RoboticsConsoleDisableMessage : BoundUserInterfaceMessage
     }
 }
 
-// Harmony Start
-/// <summary>
-/// Syncs laws with AI if there is one
-/// </summary>
-[Serializable, NetSerializable]
-public sealed class RoboticsConsoleSyncMessage : BoundUserInterfaceMessage
- {
-    public readonly string Address;
-
-    public RoboticsConsoleSyncMessage(string address)
-    {
-        Address = address;
-    }
-}
-// Harmony End
-
-
 /// <summary>
 /// Message to destroy the selected cyborg.
 /// </summary>
@@ -148,5 +131,4 @@ public static class RoboticsConsoleConstants
     // sent by robotics console to cyborgs on Cyborg Control frequency
     public const string NET_DISABLE_COMMAND = "cyborg-disable";
     public const string NET_DESTROY_COMMAND = "cyborg-destroy";
-    public const string NET_SYNC_COMMAND = "cyborg-sync"; // Harmony Change
 }

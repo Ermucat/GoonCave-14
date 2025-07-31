@@ -262,10 +262,6 @@
   id: BaseBorgTransponder
   components:
   - type: BorgTransponder
-    # Harmony change - adds stuff for AI law sync
-    component:
-    - type: StationAiHeld
-    # Harmony End
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CyborgControl

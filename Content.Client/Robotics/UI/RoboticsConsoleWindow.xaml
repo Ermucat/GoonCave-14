@@ -31,7 +31,6 @@
             <controls:StripeBack>
                 <BoxContainer Name="DangerZone" Margin="5" Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Center" Visible="False">
                     <Button Name="DisableButton" Text="{Loc 'robotics-console-disable'}" StyleClasses="OpenRight"/>
-                    <Button Name="SyncButton" Text="{Loc 'robotics-console-sync'}" StyleClasses="OpenMiddle"/>
                     <Button Name="DestroyButton" Text="{Loc 'robotics-console-destroy'}" StyleClasses="OpenLeft"/>
                 </BoxContainer>
                 <Label Name="LockedMessage" Text="{Loc 'robotics-console-locked-message'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
