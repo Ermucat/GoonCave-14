@@ -41,11 +41,12 @@ public sealed class RepulseAttractSystem : EntitySystem
 
         TryRepulseAttract(ent, args.User);
     }
+    
     private void OnRepulseAttractAction(Entity<RepulseAttractComponent> ent, ref RepulseAttractActionEvent args)
     {
         if (args.Handled)
             return;
-
+        
         var position = _xForm.GetMapCoordinates(args.Performer);
         args.Handled = TryRepulseAttract(position, args.Performer, ent.Comp.Speed, ent.Comp.Range,  ent.Comp.Stun, ent.Comp.DoStun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.comp.stun and ent.comp.stunnable
     }
