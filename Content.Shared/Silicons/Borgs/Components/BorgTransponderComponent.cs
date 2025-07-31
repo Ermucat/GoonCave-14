@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes; // Harmony Change
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
@@ -77,4 +78,12 @@ public sealed partial class BorgTransponderComponent : Component
     /// </summary>
     [DataField]
     public bool FakeDisabled;
+
+    // Harmony Start
+    /// <summary>
+    /// Entities to get from
+    /// </summary>
+    [DataField]
+    public ComponentRegistry Component;
+    // Harmony End
 }

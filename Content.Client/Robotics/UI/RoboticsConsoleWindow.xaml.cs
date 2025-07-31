@@ -21,6 +21,7 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
     private readonly SpriteSystem _sprite;
 
     public Action<string>? OnDisablePressed;
+    public Action<string>? OnSyncPressed; // Harmony change
     public Action<string>? OnDestroyPressed;
 
     private string? _selected;
@@ -59,6 +60,12 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         {
             OnDestroyPressed?.Invoke(_selected!);
         };
+        // Harmony Start
+        SyncButton.OnPressed += _ =>
+        {
+            OnSyncPressed?.Invoke(_selected!);
+        };
+        // Harmony End
 
         // cant put multiple styles in xaml for some reason
         DestroyButton.StyleClasses.Add(StyleBase.ButtonCaution);
