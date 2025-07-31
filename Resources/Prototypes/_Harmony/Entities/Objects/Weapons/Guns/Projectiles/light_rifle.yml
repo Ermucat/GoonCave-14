@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: BulletLightMagic
-  name: bullet (.20 rifle)
+  name: bullet (.30 rifle magic)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
