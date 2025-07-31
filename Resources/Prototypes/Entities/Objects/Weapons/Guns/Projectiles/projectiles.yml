@@ -496,7 +496,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 15
+        Blunt: 25 # Harmony Change, reverts salvage weapon changes 15 -> 25
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
@@ -553,8 +553,10 @@
         - MobState
     damage:
       types:
-        Blunt: 18
-        Slash: 4
+      # Harmony Change - reverts salvage weapon changes
+        Blunt: 20 # 18 -> 20
+        Slash: 5 # 4 -> 5
+      # Harmony end
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
