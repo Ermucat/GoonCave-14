@@ -14,7 +14,6 @@
       state: fireball
   - type: TargetAction
     checkCanAccess: false
-    raiseOnUser: true
     range: 60
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
