@@ -28,3 +28,7 @@
     limit: 1
   - type: StealCondition
     stealGroup: AISteal
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - EscapeShuttleCondition
