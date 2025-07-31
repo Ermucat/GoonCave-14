@@ -39,6 +39,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
             subs.Event<BoundUIOpenedEvent>(OnOpened);
             subs.Event<RoboticsConsoleDisableMessage>(OnDisable);
             subs.Event<RoboticsConsoleDestroyMessage>(OnDestroy);
+            subs.Event<RoboticsConsoleSyncMessage>(OnSync); // Harmony Change
             // TODO: camera stuff
         });
     }
@@ -136,6 +137,25 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         ent.Comp.NextDestroy = now + ent.Comp.DestroyCooldown;
         Dirty(ent, ent.Comp);
     }
+
+    // Harmony start
+    private void OnSync(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleSyncMessage args)
+    {
+        if (_lock.IsLocked(ent.Owner))
+            return;
+
+        if (!ent.Comp.Cyborgs.TryGetValue(args.Address, out var data))
+            return;
+
+        var payload = new NetworkPayload()
+        {
+            [DeviceNetworkConstants.Command] = RoboticsConsoleConstants.NET_SYNC_COMMAND
+        };
+
+        _deviceNetwork.QueuePacket(ent, args.Address, payload);
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} synced borg {data.Name} with address {args.Address}");
+    }
+    // Harmony end
 
     private void UpdateUserInterface(Entity<RoboticsConsoleComponent> ent)
     {

@@ -7,6 +7,7 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.PowerCell;
+using Content.Server.Silicons.Laws; // Harmony Change
 using Content.Shared.Alert;
 using Content.Shared.Body.Events;
 using Content.Shared.Database;
@@ -61,6 +62,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SiliconLawSystem _law = default!; // Harmony Change - adds for law syncing
 
     public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 

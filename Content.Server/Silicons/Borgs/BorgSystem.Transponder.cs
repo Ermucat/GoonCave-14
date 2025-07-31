@@ -6,6 +6,7 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Silicons.Laws.Components; // Harmony Change
 using Robust.Shared.Utility;
 
 namespace Content.Server.Silicons.Borgs;
@@ -84,6 +85,11 @@ public sealed partial class BorgSystem
         if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
             return;
 
+        // HarmonyStart
+        if (command == RoboticsConsoleConstants.NET_SYNC_COMMAND)
+            Sync(ent);
+        // Harmony End
+
         if (command == RoboticsConsoleConstants.NET_DISABLE_COMMAND)
             Disable(ent);
         else if (command == RoboticsConsoleConstants.NET_DESTROY_COMMAND)
@@ -124,6 +130,29 @@ public sealed partial class BorgSystem
         // prevent a shitter borg running into people
         RemComp<InputMoverComponent>(ent);
     }
+
+    // Harmony Start
+    private void Sync(Entity<BorgTransponderComponent> ent)
+    {
+        if (CheckEmagged(ent, "synced"))
+            return;
+
+        if (TryComp<SiliconLawProviderComponent>(ent, out var provider) && provider.Subverted == true)
+            return;
+
+        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Component);
+
+        while (query.MoveNext(out var update))
+        {
+            var laws = _law.GetLaws(update).Laws;
+
+            if (laws == null)
+                continue;
+
+            _law.SetLaws(laws, ent.Owner);
+        }
+    }
+    // Harmony End
 
     private bool CheckEmagged(EntityUid uid, string name)
     {

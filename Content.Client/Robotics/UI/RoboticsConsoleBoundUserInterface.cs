@@ -28,6 +28,12 @@ public sealed class RoboticsConsoleBoundUserInterface : BoundUserInterface
         {
             SendMessage(new RoboticsConsoleDestroyMessage(address));
         };
+        // Harmony Start
+        _window.OnSyncPressed += address =>
+        {
+            SendMessage(new RoboticsConsoleSyncMessage(address));
+        };
+        // Harmony End
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
