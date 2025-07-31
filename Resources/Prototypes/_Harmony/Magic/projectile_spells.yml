@@ -16,8 +16,8 @@
     checkCanAccess: false
     raiseOnUser: true
     range: 60
-    - type: WorldTargetAction
-      event: !type:ProjectileSpellEvent
-        prototype: ProjectileLesserFireball
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileLesserFireball
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball
