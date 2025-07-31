@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: ActionLesserFireball
   name: Fireball
-  description: Fires an explosive fireball towards the clicked location.
+  description: Fires an explosive fireball towards the targeted location.
   components:
   - type: Magic
   - type: Action
@@ -17,7 +17,7 @@
       raiseOnUser: true
       range: 60
     - type: WorldTargetAction
-    event: !type:ProjectileSpellEvent
-      prototype: ProjectileLesserFireball
+      event: !type:ProjectileSpellEvent
+        prototype: ProjectileLesserFireball
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball
