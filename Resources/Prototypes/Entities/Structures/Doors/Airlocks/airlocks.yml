@@ -113,10 +113,6 @@
     sprite: Structures/Doors/Airlocks/Standard/security.rsi
   - type: Wires
     layoutId: AirlockSecurity
-  # Harmony Start
-  - type: WiresPanelSecurity
-    securityLevel: medSecurity
-  # Harmony End
 
 - type: entity
   parent: Airlock
@@ -288,10 +284,6 @@
     sprite: Structures/Doors/Airlocks/Glass/security.rsi
   - type: Wires
     layoutId: AirlockSecurity
-  # Harmony Start
-  - type: WiresPanelSecurity
-    securityLevel: medSecurity
-  # Harmony End
 
 - type: entity
   parent: AirlockSecurityGlass # see standard
