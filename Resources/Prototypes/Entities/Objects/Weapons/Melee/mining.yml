@@ -151,7 +151,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-      # Harmony change, reverts mining changes 1 -> 1.5
+      # Harmony change start, reverts mining changes blunt 6 -> 10, slash 4->5
         Blunt: 10
         Slash: 5
       # Harmony End
