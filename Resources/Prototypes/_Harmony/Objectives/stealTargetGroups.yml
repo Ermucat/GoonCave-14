@@ -16,5 +16,5 @@
   id: AISteal
   name: steal-target-groups-AI
   sprite:
-    sprite: Objects/Devices/ai_card.rsi
-    state: base
+    sprite: Mobs/Silicon/holograms.rsi
+    state: ai_male

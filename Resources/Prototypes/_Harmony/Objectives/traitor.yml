@@ -23,7 +23,7 @@
   id: AIStealObjective
   components:
   - type: Objective
-    difficulty: 3
+    difficulty: 4
   - type: ObjectiveLimit
     limit: 1
   - type: StealCondition
