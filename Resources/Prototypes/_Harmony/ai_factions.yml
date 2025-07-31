@@ -1,4 +1,4 @@
-﻿- type: npcFaction
+- type: npcFaction
   id: Clown
   hostile:
   - NanoTrasen
@@ -9,6 +9,14 @@
   - Revolutionary
   - Dragon
   - Xeno
+
+- type: npcFaction
+  id: BloodBrother
+  hostile:
+  - NanoTrasen
+  - Zombie
+  - SimpleHostile
+  - Dragon
   - AllHostile
   - Wizard
   - Xenoborg
