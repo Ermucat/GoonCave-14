@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: [ClothingShoesBase, BaseSyndicateContraband]
   id: ClothingShoesKick
-  name: Kick boots
+  name: kick boots
   description: Hydraulic boots that allow you to administer powerful kicks.
   components:
   - type: Sprite
