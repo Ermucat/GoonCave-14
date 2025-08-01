@@ -17,7 +17,7 @@
   parent: BaseAction
   id: ActionKick
   name: Kick
-  description: Kicks a target a fair distance, stuns you and the target
+  description: Kicks a target a fair distance, stuns you and the target.
   components:
   - type: Action
     useDelay: 15
