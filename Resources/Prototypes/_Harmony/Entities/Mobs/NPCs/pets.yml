@@ -77,3 +77,37 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalGlorp
+
+- type: entity
+  name: Arnold
+  parent: MobCorgiBase
+  id: Arnold
+  description: What pizza is made of.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Harmony/Mobs/Pets/arnold.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: arnold
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: ArnoldJr
+      amount: 2
+
+- type: entity
+  name: Arnold Jr.
+  parent: Arnold
+  id: ArnoldJr
+  description: Baby Arnold
+  components:
+  - type: Sprite
+    scale: 0.4, 0.4
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: Telecrystal5
+      amount: 1
