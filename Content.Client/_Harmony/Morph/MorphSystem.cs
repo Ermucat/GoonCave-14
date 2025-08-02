@@ -1,5 +1,6 @@
 using Content.Client.Alerts;
 using Content.Shared._Harmony.Morph;
+using Content.Shared.Alert.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Harmony.Morph;
@@ -16,18 +17,18 @@ public sealed class MorphSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MorphComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<MorphComponent, GetGenericAlertCounterAmountEvent>(OnUpdateAlert);
     }
 
 
-    private void OnUpdateAlert(Entity<MorphComponent> ent, ref UpdateAlertSpriteEvent args)
+    private void OnUpdateAlert(Entity<MorphComponent> ent, ref GetGenericAlertCounterAmountEvent args)
     {
-        if (args.Alert.ID != ent.Comp.BiomassAlert)
+        if (args.Handled)
             return;
 
-        var biomass = Math.Clamp(ent.Comp.Biomass.Int(), 0, 999);
-        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), MorphComponent.MorphVisualLayers.Digit1, $"{(biomass / 100) % 10}");
-        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), MorphComponent.MorphVisualLayers.Digit2, $"{(biomass / 10) % 10}");
-        _sprite.LayerSetRsiState(args.SpriteViewEnt.AsNullable(), MorphComponent.MorphVisualLayers.Digit3, $"{biomass % 10}");
+        if (ent.Comp.BiomassAlert != args.Alert)
+            return;
+
+        args.Amount = ent.Comp.Biomass.Int();
     }
 }
