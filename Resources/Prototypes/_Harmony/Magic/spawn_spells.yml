@@ -21,8 +21,8 @@
     sentence: action-speech-spell-pitbull
 
 - type: entity
-  id: ActionPitbullSmashedSummon
   parent: ActionPitbullSummon
+  id: ActionPitbullSmashedSummon
   name: summon smashed pitbull
   description: Summons three SMASHED pitbulls.
   components:
