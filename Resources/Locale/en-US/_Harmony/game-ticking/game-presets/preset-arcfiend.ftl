@@ -5,6 +5,6 @@ arcfiend-role-greeting =
     Absorb power from electronics to grow your power.
 
 
-arcfiend-briefing = You are an arcfiend, absorb power from elctronics to grow your power
+arcfiend-briefing = You are an arcfiend, absorb power from electronics to grow your strength.
 
 objective-issuer-arcfiend = [color=yellow]The Arcfiend[/color]
