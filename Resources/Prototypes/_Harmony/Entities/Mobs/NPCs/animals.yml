@@ -72,7 +72,6 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: toadline_pitbull
-  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
