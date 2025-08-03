@@ -23,7 +23,7 @@
 - type: entity
   parent: ActionPitbullSummon
   id: ActionPitbullSmashedSummon
-  name: summon smashed pitbull
+  name: Summon Smashed Pitbulls
   description: Summons three SMASHED pitbulls.
   components:
   - type: Action
