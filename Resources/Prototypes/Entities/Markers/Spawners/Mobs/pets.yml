@@ -155,17 +155,9 @@
     layers:
     - state: green
     - state: ai
-  # Harmony Start
-  # type: ConditionalSpawner
-    #prototypes:
-    #- MobFoxRenault
-  - type: RandomSpawner
+  - type: ConditionalSpawner
     prototypes:
     - MobFoxRenault
-    rarePrototypes:
-    - Arnold # Harmony Change
-    rareChance: 0.1
-  # Harmony End
 
 - type: entity
   parent: MarkerBase
