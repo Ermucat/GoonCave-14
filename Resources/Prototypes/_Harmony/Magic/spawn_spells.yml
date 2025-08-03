@@ -34,5 +34,3 @@
     event: !type:InstantSpawnSpellEvent
       prototype: MobSmashedPitbullWizard
       posData: !type:TargetInFront
-  - type: SpeakOnAction
-    sentence: action-speech-spell-pitbull
