@@ -14,7 +14,7 @@
 - type: entity
   parent: [BaseArcfiendObjective, EscapeShuttleObjective]
   id: ArcfiendEscapeShuttleObjective
-  name: Escape to centcomm unharmed.
+  name: Escape to Centcomm alive and unrestrained.
   description: Make it to centcomm, so that we may be able to continue with our plans.
   components:
   - type: Objective
