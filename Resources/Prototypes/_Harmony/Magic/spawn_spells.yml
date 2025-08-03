@@ -1,7 +1,7 @@
 ﻿- type: entity
   parent: BaseAction
   id: ActionPitbullSummon
-  name: summon pitbull
+  name: Summon Pitbulls
   description: Summons three pitbulls.
   components:
   - type: Action
