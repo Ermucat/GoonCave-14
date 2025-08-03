@@ -54,7 +54,7 @@
 - type: entity
   parent: MobPitbull
   id: MobPitbullWizard
-  suffix: AI, Wizard
+  suffix: Harmony, AI, Wizard
   components:
   - type: NpcFactionMember
     factions:
