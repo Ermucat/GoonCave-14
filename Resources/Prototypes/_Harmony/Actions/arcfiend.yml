@@ -60,7 +60,7 @@
   parent: BaseAction
   id: ActionArcfiendLightning
   name: Arc Bolt
-  description: Sents down a bolt of lightning. Costs 250 power
+  description: Sends down a bolt of lightning. Costs 250 Power.
   components:
   - type: Action
     useDelay: 12
