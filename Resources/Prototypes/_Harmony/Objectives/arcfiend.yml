@@ -15,7 +15,7 @@
   parent: [BaseArcfiendObjective, EscapeShuttleObjective]
   id: ArcfiendEscapeShuttleObjective
   name: Escape to Centcomm alive and unrestrained.
-  description: Make it to centcomm, so that we may be able to continue with our plans.
+  description: Make it to Centcomm without being caught, so that we may be able to continue with our plans.
   components:
   - type: Objective
     icon:
