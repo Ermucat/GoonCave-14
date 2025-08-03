@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from goonstation at commit https://github.com/goonstation/goonstation/pull/6206/commits/0c957335928624233ce93fa63cdc1642102809e",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "drainer-off"
+        },
+        {
+            "name": "drainer-on"
+        }
+    ]
+}

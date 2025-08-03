@@ -1,11 +1,13 @@
 using Content.Server.Ninja.Events;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Alert; // Harmony
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Strip.Components; // Harmony
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
@@ -20,6 +22,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!; // Harmony start
 
     public override void Initialize()
     {
@@ -27,6 +30,11 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
 
         SubscribeLocalEvent<BatteryDrainerComponent, BeforeInteractHandEvent>(OnBeforeInteractHand);
         SubscribeLocalEvent<BatteryDrainerComponent, NinjaBatteryChangedEvent>(OnBatteryChanged);
+        // Harmony Start
+        SubscribeLocalEvent<BatteryDrainerComponent, ToggleDrainingEvent>(OnToggleDraining);
+        SubscribeLocalEvent<BatteryDrainerComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<BatteryDrainerComponent, ComponentRemove>(OnCompRemoved);
+        // Harmony End
     }
 
     /// <summary>
@@ -35,6 +43,11 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     /// </summary>
     private void OnBeforeInteractHand(Entity<BatteryDrainerComponent> ent, ref BeforeInteractHandEvent args)
     {
+        // Harmony Start
+        if (ent.Comp.Draining == false)
+            return;
+        // Harmony End
+
         var (uid, comp) = ent;
         var target = args.Target;
         if (args.Handled || comp.BatteryUid is not {} battery || !HasComp<PowerNetworkBatteryComponent>(target))
@@ -113,6 +126,32 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         // repeat the doafter until battery is full
         return !_battery.IsFull(comp.BatteryUid.Value, battery);
     }
+
+    // Harmony start - adds support for alerts
+    private void OnCompInit(Entity<BatteryDrainerComponent> entity, ref ComponentInit args)
+    {
+        if (entity.Comp.UseAlert)
+            _alertsSystem.ShowAlert(entity, entity.Comp.DrainerAlertProtoId, 1);
+    }
+
+    private void OnCompRemoved(Entity<BatteryDrainerComponent> entity, ref ComponentRemove args)
+    {
+        if (entity.Comp.UseAlert)
+            _alertsSystem.ClearAlert(entity, entity.Comp.DrainerAlertProtoId);
+    }
+
+    private void OnToggleDraining(Entity<BatteryDrainerComponent> ent, ref ToggleDrainingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        ent.Comp.Draining = !ent.Comp.Draining;
+        _alertsSystem.ShowAlert(ent.Owner, ent.Comp.DrainerAlertProtoId, (short)(ent.Comp.Draining ? 1 : 0));
+        //DirtyField(ent.AsNullable(), nameof(ent.Comp.Draining), null);
+
+        args.Handled = true;
+    }
+    // Harmony End
 }
 
 // Harmony Start

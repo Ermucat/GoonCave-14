@@ -13,6 +13,7 @@
       state: arcfiend_discharge
     itemIconStyle: BigAction
   - type: TargetAction
+    range: 2
   - type: EntityTargetAction
     event: !type:ArcfiendDischargeEvent
     canTargetSelf: false
@@ -70,6 +71,7 @@
       state: arcfiend_lightning
     itemIconStyle: BigAction
   - type: TargetAction
+    range: 15
   - type: EntityTargetAction
     event: !type:ArcfiendArcBoltEvent
     canTargetSelf: false

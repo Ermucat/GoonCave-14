@@ -27,3 +27,17 @@
     - map: [ "1000" ]
     #- map: [ "10000" ]
       #offset: 0.525, 0
+
+
+- type: alert
+  id: Drainer
+  clickEvent: !type:ToggleDrainingEvent
+  icons:
+  - sprite: /Textures/_Harmony/Interface/Alerts/drainer.rsi
+    state: drainer-off
+  - sprite: /Textures/_Harmony/Interface/Alerts/drainer.rsi
+    state: drainer-on
+  name: alerts-stealthy-name
+  description: alerts-stealthy-desc
+  minSeverity: 0
+  maxSeverity: 1

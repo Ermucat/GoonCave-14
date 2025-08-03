@@ -7,7 +7,7 @@
   <Box>
 
   </Box>
-  Arcfiends are a inter-galatic being that possesses sentient beings and uses them as organic batteries, commanding them to forwards their own goals
+  Arcfiends are higher beings who possess sentient beings and force them to do their bidding, while granting them enormous power
 
   They can suck power through power storage devices such as [color=#e0e036]APCs[/color], [color=#999999]Substations[/color], [color=#e0e036]SMESes[/color]
 
@@ -17,15 +17,29 @@
 
   DISCHARGE
 
-  COST: 50
+  COST: 100
 
-  This ability allows you to administer a small shock to people on use, stunning them, as well as forcing airlocks open if you use it on them
+  This ability allows you to administer a small shock to people on use, stunning them, as well as unpowering airlocks if used on them
 
   FLASH
 
-  COST: 100
+  COST: 150
 
-  This ability creates a force that pushes s
+  This ability creates a force that pushes all entities away, as well as flashing and draining stamina from any humanoids in your range
+
+  Jammer
+
+  COST: 200
+
+  This ability gives you the jamming effect for 30 seconds, which blocks all outgoing signals
+
+  Arc Bolt
+
+  COST: 200
+
+  This ability sends a bolt of lightning at your foes, burning them and stunning them
+
+
 
 
 </Document>

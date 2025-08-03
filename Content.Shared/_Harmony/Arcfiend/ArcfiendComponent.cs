@@ -16,6 +16,12 @@ public sealed partial class ArcfiendComponent : Component
     public ProtoId<AlertPrototype> PowerAlert = "Power";
 
     /// <summary>
+    /// The alert to add on MapInit for draining
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> DrainerAlert = "Drainer";
+
+    /// <summary>
     /// The alert to add on MapInit
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]

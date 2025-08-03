@@ -1,6 +1,8 @@
+using Content.Shared.Alert;
 using Content.Shared.Ninja.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Ninja.Components;
 
@@ -37,4 +39,31 @@ public sealed partial class BatteryDrainerComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks");
+
+    // Harmony Start
+    /// <summary>
+    /// Variable pointing at the Alert modal
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> DrainerAlertProtoId = "Drainer";
+
+    /// <summary>
+    /// Do we use alert?
+    /// </summary>
+    [DataField]
+    public bool UseAlert = false;
+
+    /// <summary>
+    /// Is draining active?
+    /// </summary>
+    [DataField]
+    public bool Draining = true;
+    // Harmony Start
 }
+
+// Harmony Start
+/// <summary>
+/// Event raised to toggle the draining component.
+/// </summary>
+public sealed partial class ToggleDrainingEvent : BaseAlertEvent;
+// Harmony End
