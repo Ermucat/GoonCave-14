@@ -25,7 +25,7 @@
 - type: entity
   parent: [BaseArcfiendObjective, TraitorSurviveObjective]
   id: ArcfiendSurviveObjective
-  description: We need your body, so dont lose it.
+  description: We need your body, so don't lose it.
   components:
   - type: Objective
     icon:
