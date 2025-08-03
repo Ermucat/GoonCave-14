@@ -105,7 +105,20 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         _audio.PlayPvs(comp.SparkSound, target);
         _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
 
+        // Harmony start
+        var ev = new OnBatteryDrained();
+        RaiseLocalEvent(uid, ref ev);
+        // Harmony End
+
         // repeat the doafter until battery is full
         return !_battery.IsFull(comp.BatteryUid.Value, battery);
     }
 }
+
+// Harmony Start
+/// <summary>
+/// Event raised on Battery drained.
+/// </summary>
+[ByRefEvent]
+public record struct OnBatteryDrained;
+// Harmony End

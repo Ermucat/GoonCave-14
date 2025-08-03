@@ -1,10 +1,12 @@
 ﻿using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Harmony.Arcfiend;
+namespace Content.Shared._Harmony.Arcfiend;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class ArcfiendComponent : Component
 {
     /// <summary>
@@ -16,6 +18,31 @@ public sealed partial class ArcfiendComponent : Component
     /// <summary>
     /// The alert to add on MapInit
     /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public FixedPoint2 Charge = 10;
+
+    /// <summary>
+    /// The alert to add on MapInit
+    /// </summary>
     [DataField]
-    public FixedPoint2 Charge = 0;
+    public float MaxCharge = 1000;
+
+    /// <summary>
+    /// The
+    /// </summary>
+    [DataField]
+    public TimeSpan Stuntime = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// The
+    /// </summary>
+    [DataField]
+    public TimeSpan Flashtime = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// The
+    /// </summary>
+    [DataField]
+    public string BoltPrototype = "ArcfiendLightning";
 }

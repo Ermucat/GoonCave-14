@@ -30,3 +30,37 @@
       - type: InitialBloodBrother
       mindRoles:
       - MindRoleBloodBrother
+
+- type: entity
+  parent: BaseGameRule
+  id: Arcfiend
+  components:
+  - type: GameRule
+    minPlayers: 10
+    cancelPresetOnTooFewPlayers: false
+  - type: AntagSelection
+    agentName: arcfiend-round-end-agent-name
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Arcfiend ]
+      max: 3
+      playerRatio: 1
+      allowNonHumans: true
+      briefing:
+        text: arcfiend-role-greeting
+        color: "#e0e036"
+      components:
+      - type: Arcfiend
+      - type: ActionGrant
+        actions:
+        - ActionArcfiendDischarge
+        - ActionArcfiendFlash
+        - ActionArcfiendJammer
+        - ActionArcfiendLightning
+      - type: Insulated
+      mindRoles:
+      - MindRoleArcFiend
+  - type: AntagRandomObjectives
+    sets:
+      - groups: ArcfiendObjectiveGroups
+    maxDifficulty: 7.5

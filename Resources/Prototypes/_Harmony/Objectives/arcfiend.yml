@@ -1,0 +1,100 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseArcfiendObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-blood-brother
+  - type: RoleRequirement
+    roles:
+    - ArcfiendRole
+
+# State
+
+- type: entity
+  parent: [BaseArcfiendObjective, EscapeShuttleObjective]
+  id: ArcfiendEscapeShuttleObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, TraitorSurviveObjective]
+  id: ArcfiendSurviveObjective
+
+# Evil
+
+# kill
+
+- type: entity
+  parent: [BaseArcfiendObjective, KillRandomPersonObjective]
+  id: ArcfiendKillRandomPersonObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, KillRandomHeadObjective]
+  id: ArcfiendKillRandomHeadObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, TeachLessonRandomPersonObjective]
+  id: ArcfiendTeachLessonRandomPersonObjective
+
+# steal
+
+## cmo
+
+- type: entity
+  parent: [BaseArcfiendObjective, CMOHyposprayStealObjective]
+  id: ArcfiendCMOHyposprayStealObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, CMOCrewMonitorStealObjective]
+  id: ArcfiendCMOCrewMonitorStealObjective
+
+## rd
+
+- type: entity
+  parent: [BaseArcfiendObjective, RDHardsuitStealObjective]
+  id: ArcfiendRDHardsuitStealObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, HandTeleporterStealObjective]
+  id: ArcfiendHandTeleporterStealObjective
+
+## hos
+
+- type: entity
+  parent: [BaseArcfiendObjective, EnergyShotgunStealObjective]
+  id: ArcfiendEnergyShotgunStealObjective
+
+## ce
+
+- type: entity
+  parent: [BaseArcfiendObjective, MagbootsStealObjective]
+  id: ArcfiendMagbootsStealObjective
+
+## qm
+
+- type: entity
+  parent: [BaseArcfiendObjective, ClipboardStealObjective]
+  id: ArcfiendClipboardStealObjective
+
+## hop
+
+- type: entity
+  parent: [BaseArcfiendObjective, CorgiMeatStealObjective]
+  id: ArcfiendCorgiMeatStealObjective
+
+## cap
+
+- type: entity
+  parent: [BaseArcfiendObjective, CaptainIDStealObjective]
+  id: ArcfiendCaptainIDStealObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, CaptainJetpackStealObjective]
+  id: ArcfiendCaptainJetpackStealObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, CaptainGunStealObjective]
+  id: ArcfiendCaptainGunStealObjective
+
+- type: entity
+  parent: [BaseArcfiendObjective, NukeDiskStealObjective]
+  id: ArcfiendNukeDiskStealObjective

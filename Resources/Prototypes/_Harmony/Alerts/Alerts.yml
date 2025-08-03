@@ -1,9 +1,8 @@
 ﻿- type: alert
   id: Power
-  category: Health #it's like ghostie health
   icons:
-  - sprite: /Textures/Interface/Alerts/essence_counter.rsi
-    state: essence0
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina5
   alertViewEntity: AlertPowereSpriteView
   name: alerts-revenant-essence-name
   description: alerts-revenant-essence-desc
@@ -20,7 +19,11 @@
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
     - map: [ "1" ]
-      offset: 0.25, 0
+      offset: 0.380, 0
     - map: [ "10" ]
-      offset: 0.125, 0
+      offset: 0.25, 0
     - map: [ "100" ]
+      offset: 0.125, 0
+    - map: [ "1000" ]
+    #- map: [ "10000" ]
+      #offset: 0.525, 0

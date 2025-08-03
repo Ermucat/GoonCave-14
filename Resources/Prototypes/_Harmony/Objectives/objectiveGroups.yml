@@ -36,3 +36,46 @@
     BloodBrotherKillRandomPersonObjective: 0.85
     BloodBrotherKillRandomHeadObjective: 0.25
     BloodBrotherTeachLessonRandomPersonObjective: 1
+
+- type: weightedRandom
+  id: ArcfiendObjectiveGroups
+  weights:
+    ArcfiendObjectiveGroupState: 1
+    ArcfiendObjectiveGroupKill: 0.5
+    ArcfiendObjectiveGroupSteal: 0.5
+
+
+- type: weightedRandom
+  id: ArcfiendObjectiveGroupState
+  weights:
+    ArcfiendEscapeShuttleObjective: 0.80
+    ArcfiendSurviveObjective: 0.20
+
+- type: weightedRandom
+  id: ArcfiendObjectiveGroupEvil
+  weights:
+    ArcfiendObjectiveGroupSteal: 1
+    ArcfiendObjectiveGroupKill: 1
+
+- type: weightedRandom
+  id: ArcfiendObjectiveGroupSteal
+  weights:
+    ArcfiendCaptainIDStealObjective: 1
+    ArcfiendCMOHyposprayStealObjective: 1
+    ArcfiendCMOCrewMonitorStealObjective: 1
+    ArcfiendRDHardsuitStealObjective: 1
+    ArcfiendNukeDiskStealObjective: 1
+    ArcfiendMagbootsStealObjective: 1
+    ArcfiendCorgiMeatStealObjective: 1
+    ArcfiendClipboardStealObjective: 1
+    ArcfiendCaptainGunStealObjective: 0.5
+    ArcfiendCaptainJetpackStealObjective: 0.5
+    ArcfiendHandTeleporterStealObjective: 0.5
+    ArcfiendEnergyShotgunStealObjective: 0.5
+
+- type: weightedRandom
+  id: ArcfiendObjectiveGroupKill
+  weights:
+    ArcfiendKillRandomPersonObjective: 0.85
+    ArcfiendKillRandomHeadObjective: 0.25
+    ArcfiendTeachLessonRandomPersonObjective: 1

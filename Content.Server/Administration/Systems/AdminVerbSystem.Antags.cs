@@ -29,6 +29,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
     private static readonly EntProtoId DefaultThiefRule = "Thief";
     private static readonly EntProtoId DefaultBloodBrotherRule = "BloodBrothers"; // Harmony
+    private static readonly EntProtoId DefaultArcfiendRule = "Arcfiend"; // Harmony
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
@@ -194,6 +195,21 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", bloodBrotherName, Loc.GetString("admin-verb-make-blood-brother")),
         };
         args.Verbs.Add(bloodBrother);
+
+        var ArcfiendName = Loc.GetString("admin-verb-make-arcfiend");
+        Verb arcFiend = new()
+        {
+            Text = ArcfiendName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Effects/lightning.rsi"), "blue_lightning"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<BloodBrotherRuleComponent>(targetPlayer, DefaultArcfiendRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", bloodBrotherName, Loc.GetString("admin-verb-make-arcfiend")),
+        };
+        args.Verbs.Add(arcFiend);
         // Harmony end
     }
 }

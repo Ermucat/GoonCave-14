@@ -1,0 +1,9 @@
+﻿- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectJammingField
+  name: JammingField
+  components:
+  - type: RadioBlocker
+  - type: Sprite
+    sprite: /Textures/_Harmony/Interface/Actions/arcfiend.rsi
+    state: archfiend_jammer

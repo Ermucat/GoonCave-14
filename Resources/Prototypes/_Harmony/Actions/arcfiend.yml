@@ -1,0 +1,76 @@
+﻿- type: entity
+  parent: BaseAction
+  id: ActionArcfiendDischarge
+  name: Discharge
+  description: Stuns and damages. Costs 100 Power
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+    useDelay: 15
+    icon:
+      sprite: /Textures/_Harmony/Interface/Actions/arcfiend.rsi
+      state: arcfiend_discharge
+    itemIconStyle: BigAction
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:ArcfiendDischargeEvent
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Damageable
+      - Airlock
+
+- type: entity
+  parent: BaseAction
+  id: ActionArcfiendFlash
+  name: Flash
+  description: Launches everything away from you and flashes non-arcfiends. Cost 150 Power
+  components:
+  - type: Action
+    useDelay: 10
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+    icon:
+      sprite: /Textures/_Harmony/Interface/Actions/arcfiend.rsi
+      state: arcfiend_flash
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:ArcfiendFlashEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionArcfiendJammer
+  name: Jammer
+  description: Jams all signals around you for 30 seconds. Costs 200 power
+  components:
+  - type: Action
+    useDelay: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+    icon:
+      sprite: /Textures/_Harmony/Interface/Actions/arcfiend.rsi
+      state: archfiend_jammer
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:ArcfiendJammerEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionArcfiendLightning
+  name: Arc Bolt
+  description: Sents down a bolt of lightning. Costs 250 power
+  components:
+  - type: Action
+    useDelay: 12
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+    icon:
+      sprite: /Textures/_Harmony/Interface/Actions/arcfiend.rsi
+      state: arcfiend_lightning
+    itemIconStyle: BigAction
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:ArcfiendArcBoltEvent
+    canTargetSelf: false
+

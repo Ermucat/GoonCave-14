@@ -1,4 +1,4 @@
-﻿using Content.Server._Harmony.Arcfiend;
+﻿using Content.Shared._Harmony.Arcfiend;
 using Content.Shared.Alert.Components;
 
 namespace Content.Client._Harmony.Arcfiend;
@@ -12,7 +12,7 @@ public sealed class ArcfiendSystem : EntitySystem
         SubscribeLocalEvent<ArcfiendComponent, GetGenericAlertCounterAmountEvent>(OnGetCounterAmount);
     }
 
-    private void OnGetCounterAmount(Entity<ArcfiendComponent> ent,ref GetGenericAlertCounterAmountEvent args)
+    private void OnGetCounterAmount(Entity<ArcfiendComponent> ent, ref GetGenericAlertCounterAmountEvent args)
     {
         if (args.Handled)
             return;
