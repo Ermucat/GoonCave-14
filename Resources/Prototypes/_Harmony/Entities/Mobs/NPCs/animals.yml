@@ -2,6 +2,7 @@
   parent: MobCorgiNarsi
   id: MobPitbull
   name: pitbull
+  suffix: Harmony, AI
   description: Great with kids.
   components:
   - type: Sprite
