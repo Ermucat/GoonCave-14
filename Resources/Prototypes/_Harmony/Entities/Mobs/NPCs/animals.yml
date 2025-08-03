@@ -30,7 +30,6 @@
     damageModifierSet: Scale
   - type: Temperature
     heatDamageThreshold: 325
-  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
