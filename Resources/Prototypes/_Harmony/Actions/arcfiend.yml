@@ -2,7 +2,7 @@
   parent: BaseAction
   id: ActionArcfiendDischarge
   name: Discharge
-  description: Stuns and damages. Costs 100 Power
+  description: Stuns and damages. Costs 100 Power.
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
