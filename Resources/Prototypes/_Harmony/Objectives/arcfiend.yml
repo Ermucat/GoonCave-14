@@ -4,7 +4,7 @@
   id: BaseArcfiendObjective
   components:
   - type: Objective
-    issuer: objective-issuer-blood-brother
+    issuer: objective-issuer-arcfiend
   - type: RoleRequirement
     roles:
     - ArcfiendRole
@@ -14,10 +14,23 @@
 - type: entity
   parent: [BaseArcfiendObjective, EscapeShuttleObjective]
   id: ArcfiendEscapeShuttleObjective
+  name: Escape to centcomm unharmed.
+  description: Make it to centcomm, so that we may be able to continue with our plans.
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/Effects/lightning.rsi
+      state: blue_lightning
 
 - type: entity
   parent: [BaseArcfiendObjective, TraitorSurviveObjective]
   id: ArcfiendSurviveObjective
+  description: We need your body, so dont lose it.
+  components:
+  - type: Objective
+    icon:
+      sprite: /Textures/Effects/lightning.rsi
+      state: blue_lightning
 
 # Evil
 

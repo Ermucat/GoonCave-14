@@ -18,6 +18,6 @@
   - type: MindRole
     antagPrototype: Arcfiend
     exclusiveAntag: true
-    roleType: TeamAntagonist
-    subtype: role-subtype-blood-brother
+    roleType: SoloAntagonist
+    subtype: role-subtype-arcfiend
   - type: ArcfiendRole

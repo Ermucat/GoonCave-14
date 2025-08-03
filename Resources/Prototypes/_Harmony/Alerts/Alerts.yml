@@ -4,8 +4,8 @@
   - sprite: /Textures/Interface/Alerts/stamina.rsi
     state: stamina5
   alertViewEntity: AlertPowereSpriteView
-  name: alerts-revenant-essence-name
-  description: alerts-revenant-essence-desc
+  name: alerts-power-name
+  description: alerts-power-desc
 
 - type: entity
   id: AlertPowereSpriteView
@@ -37,7 +37,7 @@
     state: drainer-off
   - sprite: /Textures/_Harmony/Interface/Alerts/drainer.rsi
     state: drainer-on
-  name: alerts-stealthy-name
-  description: alerts-stealthy-desc
+  name: alerts-drainer-name
+  description: alerts-drainer-desc
   minSeverity: 0
   maxSeverity: 1

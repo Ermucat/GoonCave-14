@@ -6,3 +6,5 @@ arcfiend-role-greeting =
 
 
 arcfiend-briefing = You are an arcfiend, absorb power from elctronics to grow your power
+
+objective-issuer-arcfiend = [color=yellow]The Arcfiend[/color]

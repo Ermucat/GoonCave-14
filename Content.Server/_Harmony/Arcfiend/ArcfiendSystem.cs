@@ -73,15 +73,13 @@ public sealed class ArcfiendSystem : EntitySystem
     {
         _alerts.ShowAlert(uid, component.PowerAlert);
 
-        _alerts.ShowAlert(uid, component.DrainerAlert, 1);
-
-
         if (!EnsureComp<BatteryComponent>(uid, out var battery))
             _battery.SetMaxCharge(uid, component.MaxCharge);
 
         if (!EnsureComp<BatteryDrainerComponent>(uid, out var drainer))
         {
             _batteryDrainer.SetBattery(uid, uid);
+            _alerts.ShowAlert(uid, component.DrainerAlert, 1);
         }
 
 
@@ -134,6 +132,7 @@ public sealed class ArcfiendSystem : EntitySystem
             return;
         }
 
+        args.Handled = true;
 
         if (HasComp<DamageableComponent>(args.Target))
         {
@@ -143,14 +142,12 @@ public sealed class ArcfiendSystem : EntitySystem
         if (TryComp<AirlockComponent>(args.Target, out var airlock))
         {
             _power.SetPowerDisabled(args.Target, true);
-            _popup.PopupEntity("Fryed the door open!", args.Performer, args.Performer);
+            _popup.PopupEntity("Fryed the doors power!", args.Performer, args.Performer);
         }
 
         _battery.UseCharge(args.Performer, args.Cost, battery);
 
         UpdatePower(args.Performer);
-
-        args.Handled = true;
     }
 
     private void OnFlash(ArcfiendFlashEvent args)
@@ -166,6 +163,8 @@ public sealed class ArcfiendSystem : EntitySystem
             _popup.PopupEntity("Not enough energy to discharge", args.Performer, args.Performer);
             return;
         }
+
+        args.Handled = true;
 
         var coordinates = _xForm.GetMapCoordinates(args.Performer);
 
@@ -192,7 +191,6 @@ public sealed class ArcfiendSystem : EntitySystem
         _battery.UseCharge(args.Performer, args.Cost, battery);
 
         UpdatePower(args.Performer);
-        args.Handled = true;
     }
 
     private void OnJammer(ArcfiendJammerEvent ev)
@@ -209,13 +207,13 @@ public sealed class ArcfiendSystem : EntitySystem
             return;
         }
 
+        ev.Handled = true;
+
         _statusEffects.TryAddStatusEffectDuration(ev.Performer, ev.JammerEffect, ev.EffectTime);
 
         _battery.UseCharge(ev.Performer, ev.Cost, battery);
 
         UpdatePower(ev.Performer);
-
-        ev.Handled = true;
     }
 
     private void OnRadioBlockAttempt(ref RadioSendAttemptEvent args)
@@ -255,13 +253,12 @@ public sealed class ArcfiendSystem : EntitySystem
             _popup.PopupEntity("Not enough energy to discharge", ev.Performer, ev.Performer);
             return;
         }
+        ev.Handled = true;
 
         _lightningArc.ShootLightning(ev.Performer, ev.Target, ev.BoltPrototype);
 
         _battery.UseCharge(ev.Performer, ev.Cost, battery);
 
         UpdatePower(ev.Performer);
-
-        ev.Handled = true;
     }
 }
