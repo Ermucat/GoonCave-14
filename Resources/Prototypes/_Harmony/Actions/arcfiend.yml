@@ -43,7 +43,7 @@
   parent: BaseAction
   id: ActionArcfiendJammer
   name: Jammer
-  description: Jams all signals around you for 30 seconds. Costs 200 power
+  description: Jams all signals around you for 30 seconds. Costs 200 Power.
   components:
   - type: Action
     useDelay: 60
