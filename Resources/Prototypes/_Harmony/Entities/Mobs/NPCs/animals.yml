@@ -49,7 +49,7 @@
     altDisarm: false
   - type: NpcFactionMember
     factions:
-      - SimpleHostile
+    - SimpleHostile
   - type: GhostRole
     name: ghost-role-information-clowngoblin-name
     description: ghost-role-information-clowngoblin-description
