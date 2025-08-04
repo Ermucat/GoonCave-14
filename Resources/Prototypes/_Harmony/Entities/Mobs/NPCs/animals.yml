@@ -86,7 +86,7 @@
   name: clown goblin
   parent: MobClownGoblin
   id: MobClownGoblinClown
-  description: honk honk!
+  description: Honk honk!
   suffix: Clown
   components:
   - type: NpcFactionMember
