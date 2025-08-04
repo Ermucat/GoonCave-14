@@ -58,7 +58,7 @@ public sealed partial class BatteryDrainerComponent : Component
     /// </summary>
     [DataField]
     public bool Draining = true;
-    // Harmony Start
+    // Harmony End
 }
 
 // Harmony Start
