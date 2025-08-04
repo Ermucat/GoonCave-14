@@ -18,7 +18,7 @@ public sealed partial class RandomTeleportEvent : InstantActionEvent
     /// Effect spawned at teleportation site
     /// </summary>
     [DataField]
-    public string Effect = "Smoke";
+    public EntProtoId Effect = "Smoke";
 
     /// <summary>
     /// Audio played at teleportation site
