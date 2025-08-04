@@ -55,7 +55,7 @@
     description: ghost-role-information-clowngoblin-description
     rules: ghost-role-information-clowngoblin-rules
     mindRoles:
-      - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleTeamAntagonist
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
