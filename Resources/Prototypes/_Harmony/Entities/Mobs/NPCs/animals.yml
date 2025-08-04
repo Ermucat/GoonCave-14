@@ -38,7 +38,7 @@
       25: Critical
       50: Dead
   - type: MovementSpeedModifier
-    baseSprintSpeed : 5
+    baseSprintSpeed: 5
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:
