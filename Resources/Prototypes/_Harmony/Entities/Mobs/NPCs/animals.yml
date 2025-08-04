@@ -39,7 +39,6 @@
       50: Dead
   - type: MovementSpeedModifier
     baseSprintSpeed: 5
-  - type: CombatMode
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
