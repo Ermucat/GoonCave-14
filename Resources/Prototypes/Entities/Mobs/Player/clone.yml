@@ -16,12 +16,15 @@
   - NpcFactionMember
   # traits
   # - LegsParalyzed (you get healed)
+  - BlackAndWhiteOverlay
   - LightweightDrunk
+  - Muted
   - Narcolepsy
   - Pacified
   - PainNumbness
   - Paracusia
   - PermanentBlindness
+  - Snoring
   - Unrevivable
   - Uncloneable # Harmony
   # job specific
@@ -31,6 +34,7 @@
   - MindShield
   - MimePowers
   - SpaceNinja
+  - Thieving
   # accents
   - Accentless
   - BackwardsAccent
@@ -38,6 +42,7 @@
   - BleatingAccent
   - DamagedSiliconAccent
   - FrenchAccent
+  - FrontalLisp
   - GermanAccent
   - LizardAccent
   - MobsterAccent
@@ -58,6 +63,15 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  # Hamrony addons start
+  - IrishAccent
+  - ScandinavianAccent
+  - ScottishAccent
+  - StreetpunkAccent
+  - Hypophonia
+  - IlleismAccent
+  - Speech # For raisedBy traits
+  # Hamrony addons end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

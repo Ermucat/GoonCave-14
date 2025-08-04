@@ -1,5 +1,5 @@
-﻿ghost-role-information-Poquito-name = Poquito
- ghost-role-information-Poquito-description = The chef's goon, here to help with their evil schemes.
+ghost-role-information-Poquito-name = Poquito
+ghost-role-information-Poquito-description = The chef's goon, here to help with their evil schemes.
 
 ghost-role-steel-golem-name = Steel Golem
 ghost-role-adamantium-golem-name = Adamantium Golem
@@ -15,3 +15,6 @@ ghost-role-golem-desc = The result of someone playing god, serve your masters ev
 
 
 
+
+
+ghost-role-information-syndicate-cyborg-support-name = Syndicate Support Cyborg

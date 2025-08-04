@@ -20,16 +20,17 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable;
 
-public abstract class SharedStunSystem : EntitySystem
+public abstract partial class SharedStunSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
+    [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
@@ -50,9 +51,8 @@ public abstract class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<SlowedDownComponent, ComponentShutdown>(OnSlowRemove);
 
         SubscribeLocalEvent<StunnedComponent, ComponentStartup>(UpdateCanMove);
-        SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(UpdateCanMove);
+        SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(OnStunShutdown);
 
-        SubscribeLocalEvent<StunOnContactComponent, ComponentStartup>(OnStunOnContactStartup);
         SubscribeLocalEvent<StunOnContactComponent, StartCollideEvent>(OnStunOnContactCollide);
 
         // helping people up if they're knocked down
@@ -73,6 +73,9 @@ public abstract class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<StunnedComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
         SubscribeLocalEvent<MobStateComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        // Stun Appearance Data
+        InitializeAppearance();
     }
 
     private void OnAttemptInteract(Entity<StunnedComponent> ent, ref InteractionAttemptEvent args)
@@ -109,15 +112,16 @@ public abstract class SharedStunSystem : EntitySystem
 
     }
 
-    private void UpdateCanMove(EntityUid uid, StunnedComponent component, EntityEventArgs args)
+    private void OnStunShutdown(Entity<StunnedComponent> ent, ref ComponentShutdown args)
     {
-        _blocker.UpdateCanMove(uid);
+        // This exists so the client can end their funny animation if they're playing one.
+        UpdateCanMove(ent, ent.Comp, args);
+        Appearance.RemoveData(ent, StunVisuals.SeeingStars);
     }
 
-    private void OnStunOnContactStartup(Entity<StunOnContactComponent> ent, ref ComponentStartup args)
+    private void UpdateCanMove(EntityUid uid, StunnedComponent component, EntityEventArgs args)
     {
-        if (TryComp<PhysicsComponent>(ent, out var body))
-            _broadphase.RegenerateContacts((ent, body));
+        Blocker.UpdateCanMove(uid);
     }
 
     private void OnStunOnContactCollide(Entity<StunOnContactComponent> ent, ref StartCollideEvent args)
