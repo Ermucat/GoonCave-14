@@ -43,8 +43,6 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
-    angle: 0
-    animation: WeaponArcBite
     damage:
       types:
         Slash: 5
