@@ -25,7 +25,6 @@
   components:
   - type: Sprite
     color: "#aaaaaa"
-    colorHex: "#aaaaaa"
   - type: GhostRole
     name: ghost-role-steel-golem-name
     description: ghost-role-golem-desc
@@ -46,7 +45,6 @@
   components:
   - type: Sprite
     color: "#77ff00"
-    colorHex: "#77ff00"
   - type: GhostRole
     name: ghost-role-uranium-golem-name
     description: ghost-role-golem-desc
@@ -67,7 +65,6 @@
   components:
   - type: Sprite
     color: "#aa33dd"
-    colorHex: "#aa33dd"
   - type: GhostRole
     name: ghost-role-plasma-golem-name
     description: ghost-role-golem-desc
@@ -88,7 +85,6 @@
   components:
   - type: Sprite
     color: "#44eedd"
-    colorHex: "##44eedd"
   - type: GhostRole
     name: ghost-role-adamantium-golem-name
     description: ghost-role-golem-desc
@@ -109,7 +105,6 @@
   components:
   - type: Sprite
     color: "#5a96b4BF"
-    colorHex: "#5a96b4BF"
   - type: GhostRole
     name: ghost-role-glass-golem-name
     description: ghost-role-golem-desc
@@ -130,7 +125,6 @@
   components:
   - type: Sprite
     color: "#cccc00"
-    colorHex: "#cccc00"
   - type: GhostRole
     name: ghost-role-gold-golem-name
     description: ghost-role-golem-desc
@@ -151,7 +145,6 @@
   components:
   - type: Sprite
     color: "#dddddd"
-    colorHex: "#dddddd"
   - type: GhostRole
     name: ghost-role-silver-golem-name
     description: ghost-role-golem-desc
@@ -172,7 +165,6 @@
   components:
   - type: Sprite
     color: "#00ffff"
-    colorHex: "#00ffff"
   - type: GhostRole
     name: ghost-role-diamond-golem-name
     description: ghost-role-golem-desc
@@ -193,7 +185,6 @@
   components:
   - type: Sprite
     color: "#ffff00"
-    colorHex: "#ffff00"
   - type: GhostRole
     name: ghost-role-bananium-golem-name
     description: ghost-role-golem-desc
@@ -214,7 +205,6 @@
   components:
   - type: Sprite
     color: "#bbbbbb"
-    colorHex: "#bbbbbb"
   - type: GhostRole
     name: ghost-role-plassteel-golem-name
     description: ghost-role-golem-desc
