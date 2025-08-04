@@ -81,7 +81,7 @@
   parent: MobClownGoblin
   id: MobClownGoblinClown
   description: Honk honk!
-  suffix: Clown
+  suffix: Harmony, AI, Clown
   components:
   - type: NpcFactionMember
     factions:
