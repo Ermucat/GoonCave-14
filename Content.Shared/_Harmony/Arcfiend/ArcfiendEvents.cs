@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Actions;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Harmony.Arcfiend;
@@ -19,6 +20,13 @@ public sealed partial class ArcfiendFlashEvent : InstantActionEvent
     /// </summary>
     [DataField]
     public string FlashPrototype = "GrenadeFlashEffect";
+
+    /// <summary>
+    ///     What kind of entities get pushed
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityWhitelist? PushWhitelist;
+
 }
 
 public sealed partial class ArcfiendJammerEvent : InstantActionEvent

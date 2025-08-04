@@ -5,5 +5,5 @@
   components:
   - type: RadioBlocker
   - type: Sprite
-    sprite: /Textures/_Harmony/Interface/Actions/arcfiend.rsi
-    state: archfiend_jammer
+    sprite: /Textures/Effects/atmospherics.rsi
+    state: miasma_old

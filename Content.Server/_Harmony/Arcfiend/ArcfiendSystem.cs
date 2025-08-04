@@ -22,6 +22,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Ninja.Components;
+using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.RepulseAttract;
 using Content.Shared.Stunnable;
@@ -119,6 +120,8 @@ public sealed class ArcfiendSystem : EntitySystem
 
     private void OnDischarge(ArcfiendDischargeEvent args)
     {
+        if (args.Handled)
+            return;
 
         if (!TryComp<ArcfiendComponent>(args.Performer, out var arcfiend))
             return;
@@ -152,6 +155,9 @@ public sealed class ArcfiendSystem : EntitySystem
 
     private void OnFlash(ArcfiendFlashEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!TryComp<ArcfiendComponent>(args.Performer, out var arcfiend))
             return;
 
@@ -186,7 +192,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         Spawn(args.FlashPrototype, coordinates);
 
-        _repulseAttract.TryRepulseAttract(coordinates, args.Performer, 10, 5);
+        _repulseAttract.TryRepulseAttract(coordinates, args.Performer, 1000, 5, args.PushWhitelist, CollisionGroup.GhostImpassable);
 
         _battery.UseCharge(args.Performer, args.Cost, battery);
 
@@ -195,6 +201,9 @@ public sealed class ArcfiendSystem : EntitySystem
 
     private void OnJammer(ArcfiendJammerEvent ev)
     {
+        if (ev.Handled)
+            return;
+
         if (!TryComp<ArcfiendComponent>(ev.Performer, out var arcfiend))
             return;
 
@@ -242,6 +251,9 @@ public sealed class ArcfiendSystem : EntitySystem
 
     private void OnArcBolt(ArcfiendArcBoltEvent ev)
     {
+        if (ev.Handled)
+            return;
+
         if (!TryComp<ArcfiendComponent>(ev.Performer, out var arcfiend))
             return;
 
