@@ -1,8 +1,8 @@
-using Content.Shared.Alert;
+using Content.Shared.Alert; // Harmony
 using Content.Shared.Ninja.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes; // Harmony
 
 namespace Content.Shared.Ninja.Components;
 
