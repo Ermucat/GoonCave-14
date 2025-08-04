@@ -212,7 +212,6 @@
     faction: Clown
  # Harmony End
 
-
 - type: entity
   parent: ClothingMaskClownBase
   id: ClothingMaskClown
