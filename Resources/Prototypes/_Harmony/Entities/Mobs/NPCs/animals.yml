@@ -21,7 +21,6 @@
     noMovementLayers:
       movement:
         state: clowngoblin
-  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
