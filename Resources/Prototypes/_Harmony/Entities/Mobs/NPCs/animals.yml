@@ -1,9 +1,9 @@
 ﻿- type: entity
-  name: clown goblin
   parent: SimpleMobBase
   id: MobClownGoblin
-  description: honk honk!
+  name: clown goblin
   suffix: Hostile
+  description: honk honk!
   components:
   - type: Body
     prototype: Mouse
