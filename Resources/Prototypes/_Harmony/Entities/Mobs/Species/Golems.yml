@@ -13,7 +13,6 @@
     state: full
   - type: Sprite
     color: "#aaaaaa"
-    colorHex: "#aaaaaa"
   - type: ActiveRadio
     channels:
     - Golem
