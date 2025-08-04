@@ -76,7 +76,6 @@
     node: clowngoblin
     deconstructionTarget: clowngoblin
 
-
 - type: entity
   name: clown goblin
   parent: MobClownGoblin
