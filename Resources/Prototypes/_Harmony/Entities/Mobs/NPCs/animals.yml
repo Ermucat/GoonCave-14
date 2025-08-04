@@ -71,10 +71,6 @@
     bloodReagent: Laughter
   - type: ReplacementAccent
     accent: xeno
-  - type: Construction
-    graph: ClownGoblinGraph
-    node: clowngoblin
-    deconstructionTarget: clowngoblin
 
 - type: entity
   name: clown goblin
@@ -88,3 +84,7 @@
       - Clown
   - type: GhostRole
     rules: ghost-role-information-freeagent-rules
+  - type: Construction
+    graph: ClownGoblinGraph
+    node: clowngoblin
+    deconstructionTarget: clowngoblin
