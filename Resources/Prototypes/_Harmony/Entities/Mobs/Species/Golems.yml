@@ -81,7 +81,6 @@
     - Golem
   - type: Sprite
     color: "#44eedd"
-    colorHex: "##44eedd"
 
 
 - type: entity
@@ -92,7 +91,6 @@
   components:
   - type: Sprite
     color: "#77ff00"
-    colorHex: "#77ff00"
   - type: RadiationSource
     intensity: 2
   - type: MeleeWeapon
@@ -111,7 +109,6 @@
   components:
   - type: Sprite
     color: "#aa33dd"
-    colorHex: "#aa33dd"
   - type: Flammable
     fireSpread: true
     alwaysCombustible: true
@@ -129,7 +126,6 @@
   components:
   - type: Sprite
     color: "#5a96b4BF"
-    colorHex: "#5a96b4BF"
   - type: Reflect
     reflectProb: 1
     reflects: Energy
@@ -165,7 +161,6 @@
   components:
   - type: Sprite
     color: "#cccc00"
-    colorHex: "#cccc00"
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.98
     baseSprintSpeed: 0.98
@@ -181,7 +176,6 @@
   components:
   - type: Sprite
     color: "#fffcfc"
-    colorHex: "#fffcfc"
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -199,7 +193,6 @@
   components:
   - type: Sprite
     color: "#00ffff"
-    colorHex: "#00ffff"
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: DiamondGolem
@@ -212,7 +205,6 @@
   components:
   - type: Sprite
     color: "#ffff00"
-    colorHex: "#ffff00"
   - type: Speech
     speechSounds: Clown
     speechVerb:   DefaultExclamation
@@ -231,7 +223,6 @@
   components:
   - type: Sprite
     color: "#bbbbbb"
-    colorHex: "#bbbbbb"
   - type: MovementSpeedModifier
     baseWalkSpeed: 0.75
     baseSprintSpeed: 0.75
