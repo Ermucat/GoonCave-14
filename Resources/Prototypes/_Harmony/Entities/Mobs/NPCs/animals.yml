@@ -3,7 +3,7 @@
   id: MobClownGoblin
   name: clown goblin
   suffix: Harmony, AI
-  description: honk honk!
+  description: Honk honk!
   components:
   - type: Body
     prototype: Mouse
