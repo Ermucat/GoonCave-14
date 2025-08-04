@@ -8,6 +8,12 @@ public sealed partial class ArcfiendDischargeEvent : EntityTargetActionEvent
 {
     [DataField]
     public float Cost = 100;
+
+    /// <summary>
+    /// The time you stun the opponent
+    /// </summary>
+    [DataField]
+    public TimeSpan Stuntime = TimeSpan.FromSeconds(4);
 }
 
 public sealed partial class ArcfiendFlashEvent : InstantActionEvent
@@ -16,7 +22,7 @@ public sealed partial class ArcfiendFlashEvent : InstantActionEvent
     public float Cost = 150;
 
     /// <summary>
-    /// The
+    /// The effect to spawn on use
     /// </summary>
     [DataField]
     public string FlashPrototype = "GrenadeFlashEffect";
@@ -38,7 +44,7 @@ public sealed partial class ArcfiendJammerEvent : InstantActionEvent
     public EntProtoId JammerEffect = "StatusEffectJammingField";
 
     /// <summary>
-    /// The
+    /// The time the ffect last
     /// </summary>
     [DataField]
     public TimeSpan EffectTime = TimeSpan.FromSeconds(30);
@@ -50,7 +56,7 @@ public sealed partial class ArcfiendArcBoltEvent : EntityTargetActionEvent
     public float Cost = 250;
 
     /// <summary>
-    /// The
+    /// The bolt to spawn
     /// </summary>
     [DataField]
     public string BoltPrototype = "ArcfiendLightning";

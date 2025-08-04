@@ -8,4 +8,6 @@ namespace Content.Shared._Harmony.Arcfiend;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RadioBlockerComponent : Component
 {
+    [DataField]
+    public float Range = 6;
 }

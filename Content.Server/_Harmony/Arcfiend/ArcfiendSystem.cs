@@ -139,7 +139,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         if (HasComp<DamageableComponent>(args.Target))
         {
-            _electrocution.TryDoElectrocution(args.Target, args.Performer, 15, arcfiend.Stuntime, refresh: false, ignoreInsulation: true);
+            _electrocution.TryDoElectrocution(args.Target, args.Performer, 15, args.Stuntime, refresh: false, ignoreInsulation: true);
         }
 
         if (TryComp<AirlockComponent>(args.Target, out var airlock))
@@ -240,7 +240,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var blocker, out var transform))
         {
-            if (_xForm.InRange(source, transform.Coordinates, 6))
+            if (_xForm.InRange(source, transform.Coordinates, blocker.Range))
             {
                 return true;
             }
