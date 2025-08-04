@@ -2,7 +2,7 @@
   parent: SimpleMobBase
   id: MobClownGoblin
   name: clown goblin
-  suffix: Hostile
+  suffix: Harmony, AI
   description: honk honk!
   components:
   - type: Body
