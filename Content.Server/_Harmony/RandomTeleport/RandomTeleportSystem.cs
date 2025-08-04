@@ -33,7 +33,6 @@ public sealed class RandomTeleportSystem : EntitySystem
         var pos = new Vector2(randomX, randomY);
 
         _xform.SetWorldPosition(args.Performer, pos);
-
         MapCoordinates coords = _xform.GetMapCoordinates(args.Performer);
 
         Spawn(args.Effect, coords);
