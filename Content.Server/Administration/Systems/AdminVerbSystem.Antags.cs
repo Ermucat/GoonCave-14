@@ -196,7 +196,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(bloodBrother);
 
-        var ArcfiendName = Loc.GetString("admin-verb-make-arcfiend");
+        var ArcfiendName = Loc.GetString("admin-verb-text-make-arcfiend");
         Verb arcFiend = new()
         {
             Text = ArcfiendName,
@@ -207,7 +207,7 @@ public sealed partial class AdminVerbSystem
                 _antag.ForceMakeAntag<BloodBrotherRuleComponent>(targetPlayer, DefaultArcfiendRule);
             },
             Impact = LogImpact.High,
-            Message = string.Join(": ", bloodBrotherName, Loc.GetString("admin-verb-make-arcfiend")),
+            Message = string.Join(": ", ArcfiendName, Loc.GetString("admin-verb-make-arcfiend")),
         };
         args.Verbs.Add(arcFiend);
         // Harmony end
