@@ -18,6 +18,9 @@
     GroundTobacco: 3
     CigarGold: 2
     Igniter: 1
+  # Harmony Start
   emaggedInventory:
     CigPackSyndicate: 1
-    CigPackRedExploding: 1 # Harmony Change
+    CigPackRedExploding: 1
+  # Harmony end
+  
