@@ -29,8 +29,6 @@
   - type: Sprite
     layers:
     - state: nothing
-  - type: Item
-    heldPrefix: staff
   - type: Gun
     fireRate: 0.7
     soundGunshot:
