@@ -27,7 +27,6 @@
   description: Freezing foes like a boss.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/staves.rsi
     layers:
     - state: nothing
   - type: Item
