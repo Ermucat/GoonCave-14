@@ -23,14 +23,7 @@ public sealed partial class RepulseAttractComponent : Component
     [DataField, AutoNetworkedField]
     public float Range = 5.0f;
 
-    // Harmony Start - adds Stun and Stunnable timespan and bool for RepulseAttractSystem
-    /// <summary>
-    ///    Do we stun people when attracting or repulsing
-    /// </summary>
-    [DataField]
-    public bool DoStun = false;
-
-
+    // Harmony Start
     /// <summary>
     ///   Time to stun pushed targets
     /// </summary>

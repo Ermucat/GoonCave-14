@@ -46,18 +46,18 @@ public sealed class RepulseAttractSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        
+
         var position = _xForm.GetMapCoordinates(args.Performer);
-        args.Handled = TryRepulseAttract(position, args.Performer, ent.Comp.Speed, ent.Comp.Range,  ent.Comp.Stun, ent.Comp.DoStun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.comp.stun and ent.comp.stunnable
+        args.Handled = TryRepulseAttract(position, args.Performer, ent.Comp.Speed, ent.Comp.Range,  ent.Comp.Stun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.comp.Knockdown
     }
 
     public bool TryRepulseAttract(Entity<RepulseAttractComponent> ent, EntityUid user)
     {
         var position = _xForm.GetMapCoordinates(ent.Owner);
-        return TryRepulseAttract(position, user, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Stun, ent.Comp.DoStun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.Comp.Stun and Ent.Comp.Stunnable
+        return TryRepulseAttract(position, user, ent.Comp.Speed, ent.Comp.Range, ent.Comp.Stun, ent.Comp.Whitelist, ent.Comp.CollisionMask); // Harmony Change - adds ent.Comp.Knockdown
     }
 
-    public bool TryRepulseAttract(MapCoordinates position, EntityUid? user, float speed, float range, TimeSpan stun, bool stunnable  ,EntityWhitelist? whitelist = null, CollisionGroup layer = CollisionGroup.SingularityLayer) // Harmony Change - adds Timespan stun and bool stunnable
+    public bool TryRepulseAttract(MapCoordinates position, EntityUid? user, float speed, float range, TimeSpan knockdown ,EntityWhitelist? whitelist = null, CollisionGroup layer = CollisionGroup.SingularityLayer) // Harmony Change - adds Timespan stun
     {
         _entSet.Clear();
         var epicenter = position.Position;
@@ -86,8 +86,8 @@ public sealed class RepulseAttractSystem : EntitySystem
 
             _throw.TryThrow(target, throwDirection, Math.Abs(speed), user, recoil: false, compensateFriction: true);
             // Harmony Start - adds stun to RepulseAttract
-            if (stunnable == true)
-            _stun.TryParalyze(target, stun, refresh: false);
+            if (knockdown != null)
+                _stun.TryKnockdown(target, knockdown, refresh: false);
             // Harmony End - adds stun to RepulseAttract
 
         }

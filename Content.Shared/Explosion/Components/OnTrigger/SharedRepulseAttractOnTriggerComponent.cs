@@ -28,14 +28,7 @@ public sealed partial class SharedRepulseAttractOnTriggerComponent : Component
     [DataField]
     public EntityWhitelist? Whitelist;
 
-    // Harmony Start - adds stunnable and stun component for SharedRepulseAtrractOnTriggerSystem
-    /// <summary>
-    ///     How close do the entities need to be?
-    /// </summary>
-    [DataField]
-    public bool DoStun = false;
-
-
+    // Harmony start
     /// <summary>
     ///     How close do the entities need to be?
     /// </summary>

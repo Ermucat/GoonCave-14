@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseAction
   id: ActionRepulse
   name: Repulse
@@ -6,8 +6,7 @@
   components:
   - type: RepulseAttract
     # Harmony Start - adds stun to Repulse spell
-    doStun: true
-    stun: 2
+    stun: 5
     # Harmony End
     speed: 25 # Harmony change - 10 -> 25
     range: 10 # Harmony change - 5 -> 10
