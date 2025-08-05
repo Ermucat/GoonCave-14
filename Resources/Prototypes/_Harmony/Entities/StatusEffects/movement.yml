@@ -6,3 +6,6 @@
   - type: MovementModStatusEffect
     walkSpeedModifier: 0
     sprintSpeedModifier: 0
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Effects/statis.rsi
+    state: effect
