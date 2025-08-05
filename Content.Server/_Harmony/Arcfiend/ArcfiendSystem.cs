@@ -45,7 +45,6 @@ public sealed class ArcfiendSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
-    [Dependency] private readonly DoorSystem _door = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly LightningSystem _lightningArc = default!;
     [Dependency] private readonly StunSystem _stun = default!;
@@ -109,7 +108,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
     private void OnEMP(EntityUid uid, ArcfiendComponent component, EmpPulseEvent args)
     {
-        _stun.TryParalyze(uid, component.Stuntime, refresh: false);
+        _stun.TryAddParalyzeDuration(uid, component.Stuntime);
 
         var BoltCount = (component.Charge.Int() / 100);
 
