@@ -24,7 +24,7 @@
   parent: WeaponStaffBase
   id: WeaponStaffFreezing
   name: staff of freezing
-  description: freezing foes like a boss
+  description: Freezing foes like a boss.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
