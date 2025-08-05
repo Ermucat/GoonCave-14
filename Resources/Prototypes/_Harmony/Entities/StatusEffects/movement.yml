@@ -1,0 +1,8 @@
+﻿- type: entity
+  parent: StatusEffectSlowdown
+  id: FrozenStatusEffect
+  name: frozen
+  components:
+  - type: MovementModStatusEffect
+    walkSpeedModifier: 0
+    sprintSpeedModifier: 0
