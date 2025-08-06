@@ -5,3 +5,7 @@ ghost-role-information-morph-name = Morph
 ghost-role-information-morph-description = An alien lifeform from the netherworld, here to reproduce by consuming people and items.
 
 ghost-role-information-syndicate-cyborg-support-name = Syndicate Support Cyborg
+
+ghost-role-information-bingle-name = Bingle
+ghost-role-information-bingle-description = The pit is love. The pit is life. The pit must grow.
+ghost-role-information-bingle-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-team-antagonist-name}[/bold][/color] with other bingles.
