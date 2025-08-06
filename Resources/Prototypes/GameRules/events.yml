@@ -23,6 +23,7 @@
     - id: SnakeSpawn
     - id: SpiderClownSpawn
     - id: SpiderSpawn
+    - id: CarpMigration # Harmony Change
     - id: VentClog
 
 - type: entityTable
@@ -41,9 +42,10 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
-    - id: BlobSpawn #Goobstation - Blob 
     - id: WizardSpawn
-    
+    - id: BlobSpawn #Goobstation - Blob
+    - id: BingleSpawn # Harmony
+
 - type: entity
   id: BaseStationEvent
   parent: BaseGameRule

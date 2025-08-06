@@ -1,6 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Server._Harmony.GameTicking.Rules.Components;
 using Content.Server._Harmony.Roles;
+using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
@@ -15,6 +16,7 @@ using Content.Server.Stunnable;
 using Content.Shared._Harmony.BloodBrothers.Components;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
@@ -30,8 +32,10 @@ namespace Content.Server._Harmony.GameTicking.Rules;
 public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComponent>
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
+    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AntagSelectionSystem _antagSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
@@ -95,7 +99,13 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
 
         if (!CanConvert(entity, args.Target, out var failureMessage))
         {
-            _popupSystem.PopupEntity(Loc.GetString(failureMessage, ("converter", entity), ("converted", args.Target)), args.Target, entity, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(
+                Loc.GetString(failureMessage,
+                    ("converter", Identity.Entity(entity, _entityManager)),
+                    ("converted", Identity.Entity(args.Target, _entityManager))),
+                args.Target,
+                entity,
+                PopupType.MediumCaution);
             return;
         }
 
@@ -147,16 +157,21 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
             entity.Comp.BriefingSound);
 
         _popupSystem.PopupEntity(
-            Loc.GetString(entity.Comp.ConvertPopupText, ("converter", entity), ("converted", args.Target)),
+            Loc.GetString(
+                entity.Comp.ConvertPopupText,
+                ("converter", Identity.Entity(entity, _entityManager)),
+                ("converted", Identity.Entity(args.Target, _entityManager))),
             args.Target,
             PopupType.LargeCaution);
 
         if (entity.Comp.ConvertStunTime != null)
-            _stunSystem.TryParalyze(args.Target, entity.Comp.ConvertStunTime.Value, true);
+            _stunSystem.TryUpdateParalyzeDuration(args.Target, entity.Comp.ConvertStunTime);
 
-        // Cleanup the data
-        RemCompDeferred<InitialBloodBrotherComponent>(entity);
+        // Remove the conversion actions
+        _actionsSystem.RemoveAction(entity.Comp.ConvertActionEntity);
+        _actionsSystem.RemoveAction(entity.Comp.CheckConvertActionEntity);
 
+        // Make sure the components are sent correctly
         Dirty(entity, originalComponent);
         Dirty(args.Target, convertedComp);
     }
@@ -166,11 +181,23 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
     {
         if (!CanConvert(entity, args.Target, out var failureMessage))
         {
-            _popupSystem.PopupEntity(Loc.GetString(failureMessage, ("converter", entity), ("converted", args.Target)), args.Target, entity, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(
+                Loc.GetString(failureMessage,
+                    ("converter", Identity.Entity(entity, _entityManager)),
+                    ("converted", Identity.Entity(args.Target, _entityManager))),
+                args.Target,
+                entity,
+                PopupType.MediumCaution);
             return;
         }
 
-        _popupSystem.PopupEntity(Loc.GetString("blood-brother-convert-convertible", ("converter", entity), ("converted", args.Target)), args.Target, entity, PopupType.Medium);
+        _popupSystem.PopupEntity(
+            Loc.GetString("blood-brother-convert-convertible",
+                ("converter", Identity.Entity(entity, _entityManager)),
+                ("converted", Identity.Entity(args.Target, _entityManager))),
+            args.Target,
+            entity,
+            PopupType.Medium);
     }
 
     private bool CanConvert(
@@ -226,10 +253,24 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
             return false;
         }
 
-        if (HasComp<MindShieldComponent>(target))
+        if (targetMind.UserId == null)
         {
-            errorMessage = "blood-brother-convert-failed-shielded";
+            errorMessage = "blood-brother-convert-failed-no-mind";
             return false;
+        }
+
+        // Check antag preference
+        if (entity.Comp.RequiredAntagPreference != null &&
+            _preferencesManager.TryGetCachedPreferences(targetMind.UserId.Value, out var preferences))
+        {
+
+            var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
+
+            if (profile.AntagPreferences.Contains(entity.Comp.RequiredAntagPreference!.Value) != true)
+            {
+                errorMessage = "blood-brother-convert-failed-preference";
+                return false;
+            }
         }
 
         if (!_mobStateSystem.IsAlive(target))
@@ -238,22 +279,9 @@ public sealed class BloodBrotherRuleSystem : GameRuleSystem<BloodBrotherRuleComp
             return false;
         }
 
-        if (targetMind.UserId == null)
+        if (HasComp<MindShieldComponent>(target))
         {
-            errorMessage = "blood-brother-convert-failed-no-mind";
-            return false;
-        }
-
-        // Check antag preference
-        if (entity.Comp.RequiredAntagPreference == null ||
-            !_preferencesManager.TryGetCachedPreferences(targetMind.UserId.Value, out var preferences))
-            return true;
-
-        var profile = (HumanoidCharacterProfile)preferences.SelectedCharacter;
-
-        if (profile.AntagPreferences.Contains(entity.Comp.RequiredAntagPreference.Value) != true)
-        {
-            errorMessage = "blood-brother-convert-failed-preference";
+            errorMessage = "blood-brother-convert-failed-shielded";
             return false;
         }
 
