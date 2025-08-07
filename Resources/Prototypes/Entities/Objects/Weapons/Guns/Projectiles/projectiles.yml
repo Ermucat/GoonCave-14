@@ -496,7 +496,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 25 # Harmony Change, reverts salvage weapon changes 15 -> 25
+        Blunt: 15
         Structural: 30
   # Short lifespan
   - type: TimedDespawn
