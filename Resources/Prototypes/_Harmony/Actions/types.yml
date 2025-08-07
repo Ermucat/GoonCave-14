@@ -12,3 +12,16 @@
     itemIconStyle: NoItem
   - type: InstantAction
     event: !type:ToggleActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionJump
+  name: Jump
+  description: do a little jump
+  components:
+  - type: Action
+    icon: _Harmony/Interface/Emotes/jump.png
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:EmoteActionEvent
+      emote: Jump

@@ -88,6 +88,9 @@
         Burn: -0.5
   - type: FlashImmunity
   - type: Bingle
+  - type: ActionGrant
+    actions:
+    - ActionJump
 
 - type: entity
   parent: MobBingle
