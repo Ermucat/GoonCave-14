@@ -50,6 +50,9 @@
         color: "#e0e036"
       components:
       - type: Arcfiend
+        drainDamage:
+          types:
+            Shock: 3
       - type: ActionGrant
         actions:
         - ActionArcfiendDischarge

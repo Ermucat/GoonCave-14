@@ -1,6 +1,9 @@
 ﻿using Content.Shared.Actions;
+using Content.Shared.DoAfter;
+using Content.Shared.Ninja.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Harmony.Arcfiend;
 
@@ -61,3 +64,9 @@ public sealed partial class ArcfiendArcBoltEvent : EntityTargetActionEvent
     [DataField]
     public string BoltPrototype = "ArcfiendLightning";
 }
+
+/// <summary>
+/// DoAfter event for Arcfiend
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class DrainDoAfterEvent : SimpleDoAfterEvent;

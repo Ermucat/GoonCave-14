@@ -1,5 +1,7 @@
 ﻿using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -35,20 +37,32 @@ public sealed partial class ArcfiendComponent : Component
     public float MaxCharge = 1000;
 
     /// <summary>
-    /// The
+    /// The time you are stunned on emp
     /// </summary>
     [DataField]
     public TimeSpan Stuntime = TimeSpan.FromSeconds(4);
 
     /// <summary>
-    /// The
-    /// </summary>
-    [DataField]
-    public TimeSpan Flashtime = TimeSpan.FromSeconds(5);
-
-    /// <summary>
-    /// The
+    /// The bolt thats shot out on emp
     /// </summary>
     [DataField]
     public string BoltPrototype = "ArcfiendLightning";
+
+    /// <summary>
+    /// Time that the do after takes to drain charge from a lifeform, in seconds.
+    /// </summary>
+    [DataField]
+    public float DrainTime = 1f;
+
+    /// <summary>
+    /// Time that the do after takes to drain charge from a lifeform, in seconds.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier DrainDamage;
+
+    /// <summary>
+    /// Sound played after the doafter ends.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier SparkSound = new SoundCollectionSpecifier("sparks");
 }

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Content.Server.Actions;
 using Content.Server.Damage.Systems;
+using Content.Server.Destructible.Thresholds;
 using Content.Server.Doors.Systems;
 using Content.Server.Electrocution;
 using Content.Server.Emp;
@@ -21,6 +22,10 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
@@ -28,6 +33,7 @@ using Content.Shared.RepulseAttract;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Throwing;
+using Robust.Server.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
@@ -36,6 +42,7 @@ namespace Content.Server._Harmony.Arcfiend;
 public sealed class ArcfiendSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly BatteryDrainerSystem _batteryDrainer = default!;
@@ -49,11 +56,19 @@ public sealed class ArcfiendSystem : EntitySystem
     [Dependency] private readonly LightningSystem _lightningArc = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+
 
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<ArcfiendComponent, BeforeInteractHandEvent>(OnBeforeInteractHand);
+        SubscribeLocalEvent<ArcfiendComponent, DoAfterAttemptEvent<DrainDoAfterEvent>>(OnDoAfterAttempt);
+        SubscribeLocalEvent<ArcfiendComponent, DrainDoAfterEvent>(OnDoAfter);
 
         SubscribeLocalEvent<ArcfiendComponent, ComponentInit>(OnComponentInit);
 
@@ -68,6 +83,65 @@ public sealed class ArcfiendSystem : EntitySystem
 
         SubscribeLocalEvent<RadioSendAttemptEvent>(OnRadioBlockAttempt);
     }
+
+    private void OnBeforeInteractHand(Entity<ArcfiendComponent> ent, ref BeforeInteractHandEvent args)
+    {
+        // Harmony Start
+        if (!TryComp<BatteryDrainerComponent>(ent, out var batteryDrainer))
+            return;
+
+        if (batteryDrainer.Draining == false)
+            return;
+
+        if (!_mobState.IsIncapacitated(args.Target))
+            return;
+
+        if (!HasComp<HumanoidAppearanceComponent>(args.Target))
+            return;
+
+        if (!TryComp<DamageableComponent>(args.Target, out var damageable))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.DrainTime, new DrainDoAfterEvent(), target: args.Target, eventTarget: ent)
+        {
+            MovementThreshold = 0.5f,
+            BreakOnMove = true,
+            CancelDuplicate = false,
+            AttemptFrequency = AttemptFrequency.StartAndEnd
+        };
+
+        _doafter.TryStartDoAfter(doAfterArgs);
+    }
+
+    protected void OnDoAfterAttempt(Entity<ArcfiendComponent> ent, ref DoAfterAttemptEvent<DrainDoAfterEvent> args)
+    {
+        if (!TryComp<BatteryComponent>(args.Event.User, out var batteryComponent))
+            return;
+
+        if (_battery.IsFull(args.Event.User, batteryComponent))
+        {
+            _popup.PopupEntity("Battery Full", args.Event.User);
+            args.Cancel();
+            return;
+        }
+
+        _audio.PlayPvs(ent.Comp.SparkSound, ent);
+
+        _damage.TryChangeDamage(args.Event.Target, ent.Comp.DrainDamage, ignoreResistances: true);
+        _battery.ChangeCharge(args.Event.User, 19, batteryComponent);
+
+        UpdatePower(args.Event.User);
+    }
+
+    private void OnDoAfter(Entity<ArcfiendComponent> ent, ref DrainDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled || args.Target is not { } target)
+            return;
+
+        // repeat if there is still power to drain
+        args.Repeat = true;
+    }
+
 
     private void OnComponentInit(EntityUid uid, ArcfiendComponent component, ComponentInit args)
     {
