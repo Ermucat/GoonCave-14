@@ -2,7 +2,7 @@
   parent: BaseAction
   id: ActionBlink
   name: Blink
-  description: Randomly teleports you # Harmony Change
+  description: Randomly teleports you. # Harmony Change
   components:
   - type: Action
     useDelay: 1 # Harmony Change 10 -> 1
