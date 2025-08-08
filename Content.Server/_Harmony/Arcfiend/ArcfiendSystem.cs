@@ -99,8 +99,6 @@ public sealed class ArcfiendSystem : EntitySystem
         if (!HasComp<HumanoidAppearanceComponent>(args.Target))
             return;
 
-        if (!TryComp<DamageableComponent>(args.Target, out var damageable))
-            return;
 
         var doAfterArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.DrainTime, new DrainDoAfterEvent(), target: args.Target, eventTarget: ent)
         {
@@ -120,15 +118,25 @@ public sealed class ArcfiendSystem : EntitySystem
 
         if (_battery.IsFull(args.Event.User, batteryComponent))
         {
-            _popup.PopupEntity("Battery Full", args.Event.User);
+            _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-full"), args.Event.User);
             args.Cancel();
             return;
         }
 
-        _audio.PlayPvs(ent.Comp.SparkSound, ent);
+        if (!TryComp<DamageableComponent>(args.Event.Target, out var damageable))
+            return;
+
+        if (damageable.TotalDamage > 300)
+        {
+            _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-damaged"), args.Event.User);
+            args.Cancel();
+            return;
+        }
 
         _damage.TryChangeDamage(args.Event.Target, ent.Comp.DrainDamage, ignoreResistances: true);
-        _battery.ChangeCharge(args.Event.User, 19, batteryComponent);
+        _battery.ChangeCharge(args.Event.User, 10, batteryComponent);
+        _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-success"), args.Event.User);
+        _audio.PlayPvs(ent.Comp.SparkSound, ent);
 
         UpdatePower(args.Event.User);
     }

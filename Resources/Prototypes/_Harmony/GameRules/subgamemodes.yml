@@ -52,7 +52,7 @@
       - type: Arcfiend
         drainDamage:
           types:
-            Shock: 3
+            Shock: 10
       - type: ActionGrant
         actions:
         - ActionArcfiendDischarge
