@@ -10,7 +10,7 @@ namespace Content.Shared.Strip;
 public sealed partial class ThievingSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // Harmony Start
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Harmony
 
     public override void Initialize()
     {
@@ -24,8 +24,8 @@ public sealed partial class ThievingSystem : EntitySystem
         SubscribeLocalEvent<ThievingComponent, ComponentRemove>(OnCompRemoved);
 
         // Harmony Start
-        SubscribeLocalEvent<MindShieldComponent, ComponentInit>(MindShieldImplanted);
-        SubscribeLocalEvent<MindShieldComponent, ComponentShutdown>(MindRemoved);
+        SubscribeLocalEvent<MindShieldComponent, ComponentInit>(OnMindShieldImplanted);
+        SubscribeLocalEvent<MindShieldComponent, ComponentShutdown>(OnMindRemoved);
         // Harmony End
     }
 
@@ -54,10 +54,8 @@ public sealed partial class ThievingSystem : EntitySystem
             return;
 
         // Harmony Start - doesnt allow you to reactivate thieving is mindshielded
-        if (HasComp<MindShieldComponent>(ent))
+        if (HasComp<MindShieldComponent>(ent) && ent.Comp.MindshieldBlock)
         {
-            if (!ent.Comp.MindshieldBlock)
-                return;
 
             ent.Comp.Stealthy = false;
             _alertsSystem.ShowAlert(ent.Owner, ent.Comp.StealthyAlertProtoId, 2);
@@ -75,7 +73,7 @@ public sealed partial class ThievingSystem : EntitySystem
     }
 
     // Harmony Start - so I wanted to use mapInit but revolutionary system already uses it and it would be awkward if I just hid it in there
-    private void MindShieldImplanted(EntityUid uid, MindShieldComponent comp, ComponentInit init)
+    private void OnMindShieldImplanted(EntityUid uid, MindShieldComponent comp, ComponentInit init)
     {
         if (!TryComp<ThievingComponent>(uid, out var thiefcomp))
             return;
@@ -88,7 +86,7 @@ public sealed partial class ThievingSystem : EntitySystem
     }
 
     // So this should probably just be moved to mindshield system for general effects in the future, but this is what revolutionary system does so Im just gonna go off those guidelines
-    private void MindRemoved(EntityUid uid, MindShieldComponent comp, ComponentShutdown init)
+    private void OnMindRemoved(EntityUid uid, MindShieldComponent comp, ComponentShutdown init)
     {
         if (!TryComp<ThievingComponent>(uid, out var thiefcomp))
             return;
