@@ -43,6 +43,15 @@
     Occupied:
       sprite: _Harmony/Mobs/Silicon/station_ai.rsi
       state: ai_hal_9000
+
+- type: stationAiCustomization
+  parent: StationAiIconBase
+  id: StationAiIconBlob
+  name: station-ai-icon-blob
+  layerData:
+    Occupied:
+      sprite: _Harmony/Mobs/Silicon/station_ai.rsi
+      state: ai_blob
     Dead:
       sprite: Mobs/Silicon/station_ai.rsi
       state: ai_dead
