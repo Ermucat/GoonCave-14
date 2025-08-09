@@ -54,6 +54,6 @@ uplink-cluster-weh-desc = Scatters 10 lizard plushies in a circle after a short 
 uplink-hyposhell-name = Box of hyposhells
 uplink-hyposhell-desc = A box containing four hyposhells, shotgun shells that can hold 7u of any chemical.
 
-uplink-energized-axe-name = Energized fireaxe
+uplink-energized-axe-name = Energized Fireaxe
 uplink-energized-axe-desc = A fire axe with a massive energy charge built into it. Upon striking someone while charged it will throw them backwards while stunning them briefly, but will take some time to charge up again.
 
