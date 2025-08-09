@@ -4,6 +4,14 @@
   id: FireAxeEnergized
   description: Energy seems to be coming off it.
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
+    quickEquip: false
+    slots:
+    - back
   - type: UseDelay
     delay: 15
   - type: UseDelayOnMeleeHit
