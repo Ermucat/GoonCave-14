@@ -12,7 +12,7 @@
   cost:
     Telecrystal: 3
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryStealthy # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkRevolverPython
@@ -25,7 +25,7 @@
   cost:
     Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -39,7 +39,7 @@
   cost:
     Telecrystal: 4
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryStealthy # Harmony change - moves weapon category to stealth and loud
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -50,7 +50,7 @@
   cost:
     Telecrystal: 1
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkEsword
@@ -64,7 +64,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkEnergyDagger
@@ -78,7 +78,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryStealthy # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -96,7 +96,7 @@
     Telecrystal: 4
 # End of Harmony Change
   categories:
-    - UplinkWeaponry
+    - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -109,7 +109,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkGlovesKnuckleDusters
@@ -127,7 +127,7 @@
     Telecrystal: 3
 # End of Harmony Change
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkDisposableTurret
@@ -140,7 +140,7 @@
   cost:
     Telecrystal: 6
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryStealthy # Harmony change - moves weapon category to stealth and loud
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -159,7 +159,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -178,7 +178,7 @@
   cost:
     Telecrystal: 12
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkC20RBundle
@@ -196,7 +196,7 @@
     Telecrystal: 16
 # End of Harmony Change
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkEstocBundle
@@ -210,7 +210,7 @@
   cost:
     Telecrystal: 18
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkBulldogBundle
@@ -228,7 +228,7 @@
     Telecrystal: 18
 # End of Harmony Change
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -246,7 +246,7 @@
     Telecrystal: 30
 # End of Harmony Change
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 - type: listing
   id: UplinkL6SawBundle
@@ -264,7 +264,7 @@
     Telecrystal: 25
 # End of Harmony Change
   categories:
-  - UplinkWeaponry
+  - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
 # Explosives
 

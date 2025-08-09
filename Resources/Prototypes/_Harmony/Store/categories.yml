@@ -1,0 +1,10 @@
+﻿# Uplink
+- type: storeCategory
+  id: UplinkWeaponryStealthy
+  name: store-category-weapons-stealth
+  priority: 0
+
+- type: storeCategory
+  id: UplinkWeaponryLoud
+  name: store-category-weapons-loud
+  priority: 0

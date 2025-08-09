@@ -5,7 +5,11 @@
   - type: Store
     name: store-preset-name-uplink
     categories:
-    - UplinkWeaponry
+    # Harmony start - splits uplink into stealthy and loud
+    #- UplinkWeaponry
+    - UplinkWeaponryStealthy
+    - UplinkWeaponryLoud
+    # Harmony end
     - UplinkAmmo
     - UplinkExplosives
     - UplinkChemicals
