@@ -17,7 +17,7 @@
   parent: BaseAction
   id: ActionJump
   name: Jump
-  description: do a little jump
+  description: Do a little jump.
   components:
   - type: Action
     icon: _Harmony/Interface/Emotes/jump.png
