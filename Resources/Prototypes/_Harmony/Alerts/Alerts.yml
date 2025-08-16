@@ -41,3 +41,11 @@
   description: alerts-drainer-desc
   minSeverity: 0
   maxSeverity: 1
+
+- type: alert
+  id: RadioBlocker
+  icons:
+  - sprite: /Textures/Objects/Devices/jammer.rsi
+    state: jammer
+  name: alerts-radio-blocker-name
+  description: alerts-radio-blocker-desc

@@ -7,3 +7,5 @@
   - type: Sprite
     sprite: /Textures/Effects/atmospherics.rsi
     state: miasma_old
+  - type: StatusEffectAlert
+    alert: RadioBlocker
