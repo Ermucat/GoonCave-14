@@ -25,7 +25,7 @@ public sealed partial class ThievingSystem : EntitySystem
 
         // Harmony Start
         SubscribeLocalEvent<MindShieldComponent, ComponentInit>(OnMindShieldImplanted);
-        SubscribeLocalEvent<MindShieldComponent, ComponentShutdown>(OnMindRemoved);
+        SubscribeLocalEvent<MindShieldComponent, ComponentShutdown>(OnMindShieldRemoved);
         // Harmony End
     }
 
@@ -86,7 +86,7 @@ public sealed partial class ThievingSystem : EntitySystem
     }
 
     // So this should probably just be moved to mindshield system for general effects in the future, but this is what revolutionary system does so Im just gonna go off those guidelines
-    private void OnMindRemoved(EntityUid uid, MindShieldComponent comp, ComponentShutdown init)
+    private void OnMindShieldRemoved(EntityUid uid, MindShieldComponent comp, ComponentShutdown init)
     {
         if (!TryComp<ThievingComponent>(uid, out var thiefcomp))
             return;
