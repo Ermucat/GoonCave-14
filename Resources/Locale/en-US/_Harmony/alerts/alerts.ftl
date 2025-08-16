@@ -1,1 +1,1 @@
-﻿alerts-thieving-blocked = You cant activate your thieving while mindshielded!
+alerts-thieving-blocked = You can't activate your thieving while mindshielded!
