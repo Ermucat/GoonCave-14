@@ -198,7 +198,6 @@
   categories:
   - UplinkWeaponryLoud # Harmony change - moves weapon category to stealth and loud
 
-
 # Start Harmony Change : removes Estoc DMR from uplink
 #- type: listing
 #  id: UplinkEstocBundle
