@@ -9,7 +9,6 @@
     state: icon
   - type: SecretStash
     maxItemSize: Normal
-    name: secret-stash-briefcase
   - type: ToolOpenable
     showExamine: false
     openToolQualityNeeded: Screwing
