@@ -50,6 +50,9 @@ uplink-defib-desc = A compact defibrillator. It can be used to revive your fello
 uplink-syndicate-id-name = Syndicate ID card
 uplink-syndicate-id-desc = A sleek black-and-red ID card with embossed Syndicate logo and syndicate access. Does not possess any Nanotrasen access. Limited to one ID per agent.
 
+uplink-storage-briefcase-name = False Bottomed Briefcase
+uplink-storage-briefcase-desc = A briefcase with a hidden compartment that can store anything normal-sized or smaller. To use the hidden compartment, use a screwdriver on the briefcase and then place the desired item inside before closing the compartment by using the screwdriver again. Be warned that anyone can use this briefcase's hidden function or open the compartment if they have the tools!
+
 # Allies
 
 uplink-reinforcement-radio-cyborg-support-name = Syndicate Support Cyborg Teleporter

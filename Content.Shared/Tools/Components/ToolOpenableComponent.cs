@@ -55,6 +55,14 @@ namespace Content.Shared.Tools.Components
         [DataField, AutoNetworkedField]
         public bool VerbOnly;
 
+        // Harmony Start
+        /// <summary>
+        /// If false, will now show examine when examined
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public bool ShowExamine;
+        // Harmony End
+
         /// <summary>
         ///     The name of what is being open and closed.
         ///     E.g toilet lid, pannel, compartment.

@@ -227,6 +227,16 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: UplinkStorageBriefCase
+  name: uplink-storage-briefcase-name
+  description: uplink-storage-briefcase-desc
+  productEntity: BriefcaseBrownFake
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception
+
 # Disruption
 
 # Allies
