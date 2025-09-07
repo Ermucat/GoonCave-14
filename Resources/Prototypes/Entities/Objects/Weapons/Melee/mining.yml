@@ -236,10 +236,12 @@
     - suitStorage
   - type: UseDelay
     delay: 1.9
-  - type: BasicEntityAmmoProvider
-    proto: BulletChargeGlaive
-    capacity: 1
-    count: 1
+  # Harmony Start
+  #- type: BasicEntityAmmoProvider
+    #proto: BulletChargeGlaive
+    #capacity: 1
+    #count: 1
+  # Harmony End
   - type: LeechOnMarker
     leech:
       groups:
@@ -248,15 +250,17 @@
     tags:
       - Pickaxe
   - type: MeleeWeapon
-    attackRate: 1
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 3
-        Slash: 7
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2
-        Slash: 6
-        Structural: 20
+  # Harmony Start
+    #attackRate: 1
+   # wideAnimationRotation: -135
+    #damage:
+     # types:
+      #  Blunt: 3
+       # Slash: 7
+  #- type: IncreaseDamageOnWield
+   # damage:
+    #  types:
+     #   Blunt: 2
+      #  Slash: 6
+       # Structural: 20
+  # Harmony End
