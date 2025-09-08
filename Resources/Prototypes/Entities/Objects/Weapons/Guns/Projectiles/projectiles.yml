@@ -586,8 +586,10 @@
         - MobState
     damage:
       types:
-        Blunt: 18
-        Slash: 4
+      # Harmony Change - reverts salvage weapon changes
+        Blunt: 20 # 18 -> 20
+        Slash: 5 # 4 -> 5
+      # Harmony end
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -597,20 +599,22 @@
   - type: TimedDespawn
     lifetime: 0.4
 
+# Harmony Start - removes leech bolt
   # Deals less damage, glaive has better HP recovery
-- type: entity
-  id: BulletChargeGlaive
-  name: leech bolt
-  parent: BulletCharge
-  components:
-  - type: DamageMarkerOnCollide
-    whitelist:
-      components:
-        - MobState
-    damage:
-      types:
-        Blunt: 1
-        Slash: 5
+#- type: entity
+  #id: BulletChargeGlaive
+  #name: leech bolt
+  #parent: BulletCharge
+  #components:
+  #- type: DamageMarkerOnCollide
+    #whitelist:
+      #components:
+        #- MobState
+    #damage:
+      #types:
+        #Blunt: 1
+        #Slash: 5
+# Harmony End
 
 - type: entity
   parent: BaseBullet
@@ -879,8 +883,6 @@
     range: 7
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.3
   - type: DeleteOnTrigger
 
 - type: entity
@@ -917,8 +919,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: cleanade
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.3
   - type: SmokeOnTrigger
     duration: 3.5
     spreadAmount: 30
@@ -927,8 +927,9 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
+    positional: true
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
