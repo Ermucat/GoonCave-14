@@ -1,10 +1,12 @@
 using Content.Server.Explosion.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Trigger.Systems;
 
-namespace Content.Server.Explosion.EntitySystems;
+namespace Content.Shared._Harmony.Trigger.Systems;
 
-public sealed partial class TriggerSystem
+public sealed class TriggerOnIgniteOpenSystem : EntitySystem
 {
+    [Dependency] private readonly TriggerSystem _trigger = default!;
     private void InitializeOnIgnite()
     {
         SubscribeLocalEvent<TriggerOnIgniteComponent, IgnitedEvent>(OnIgnited);
@@ -12,6 +14,6 @@ public sealed partial class TriggerSystem
 
     private void OnIgnited(Entity<TriggerOnIgniteComponent> ent, ref IgnitedEvent args)
     {
-        Trigger(ent.Owner);
+        _trigger.Trigger(ent.Owner);
     }
 }
