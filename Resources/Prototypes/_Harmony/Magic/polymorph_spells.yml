@@ -1,0 +1,18 @@
+﻿- type: entity
+  parent: BaseSmiteAction
+  id: ActionGoatiaIncantation
+  name: Goatia Incantation
+  description: Turns someone into a Cluwne!
+  components:
+  - type: Action
+    useDelay: 15
+    icon:
+      sprite: Mobs/Animals/goat.rsi
+      state: goat
+  - type: EntityTargetAction
+    event: !type:PolymorphTargetActionEvent
+      protoId: GoatPolymorph
+  - type: SpeakOnAction
+    sentence: action-speech-spell-goatia-incantation
+  - type: Magic
+    requiresClothes: true

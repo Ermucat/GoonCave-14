@@ -19,3 +19,14 @@
     inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
+
+- type: polymorph
+  id: GoatPolymorph
+  configuration:
+    entity: MobGoat
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false
