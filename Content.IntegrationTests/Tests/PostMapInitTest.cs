@@ -57,6 +57,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
             "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
+            "/Maps/_Harmony/Shuttles/ShuttleEvent/ERPSmall.yml", // Harmony map - who cares
         };
 
         private static readonly string[] GameMaps =
@@ -69,6 +70,8 @@ namespace Content.IntegrationTests.Tests
             "Eclipse", //Harmony, Developed by Lachryphage
             "Prime", // Harmony, developed/revived by luckyshotpictures
             "Spire", // Harmony, Developed by Dogbone10, PenguinCodest, Jack_the_Dragon
+            "Athena", // Harmony, Developed by whythelettuce
+            "Omega", // Harmony, updated from Spanky's version by OrnamentalFreak and CrimsonJupiter
             "Dev",
             "TestTeg",
             "Fland",
@@ -88,6 +91,8 @@ namespace Content.IntegrationTests.Tests
             "dm01-entryway",
             "Exo",
         };
+
+        private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
 
         /// <summary>
         /// Asserts that specific files have been saved as grids and not maps.
@@ -266,7 +271,7 @@ namespace Content.IntegrationTests.Tests
                 return;
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+            if (!protoManager.TryIndex(DoNotMapCategory, out var dnmCategory))
                 return;
 
             Assert.Multiple(() =>

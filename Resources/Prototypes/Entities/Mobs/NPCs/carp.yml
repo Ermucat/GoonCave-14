@@ -76,6 +76,7 @@
       tags:
         - Carp
         - DoorBumpOpener
+        - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -163,6 +164,12 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
+    # Harmony Start - removes threshold
+    #- type: MobThresholds
+      #thresholds:
+        #0: Alive
+        #30: Dead
+    # Harmony end
 
 - type: entity
   name: space carp
@@ -229,7 +236,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        150: Dead
+        150: Dead # Harmony Change, reverts salvage mob health changes, 82 -> 150
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals
