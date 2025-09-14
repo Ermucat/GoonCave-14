@@ -3,3 +3,9 @@
   name: Sunbeamstress/Lauren Loveless - Phoron Will Make Us Rich
   path:
     path: /Audio/_Harmony/Jukebox/Phoron.ogg
+
+- type: jukebox
+  id: absconditus
+  name: Zhaytee - Absconditus
+  path:
+    path: /Audio/_Harmony/Jukebox/absconditus.ogg
