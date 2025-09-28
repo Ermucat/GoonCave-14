@@ -1,6 +1,8 @@
 using Content.Client.Alerts;
 using Content.Shared._Harmony.Morph;
 using Content.Shared.Alert.Components;
+using Content.Shared.Polymorph.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Harmony.Morph;
@@ -18,6 +20,7 @@ public sealed class MorphSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MorphComponent, GetGenericAlertCounterAmountEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<MorphComponent, AttemptMeleeEvent>(OnAtack);
     }
 
 
@@ -30,5 +33,12 @@ public sealed class MorphSystem : EntitySystem
             return;
 
         args.Amount = ent.Comp.Biomass.Int();
+    }
+
+    private void OnAtack(EntityUid uid, MorphComponent component, ref AttemptMeleeEvent args)
+    {
+        //abort atack if morphed
+        if (HasComp<ChameleonDisguisedComponent>(uid))
+            args.Cancelled = true;
     }
 }
