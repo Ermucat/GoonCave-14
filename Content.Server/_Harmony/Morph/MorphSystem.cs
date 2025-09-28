@@ -141,6 +141,9 @@ public sealed partial class MorphSystem : EntitySystem
 
     private void AddMorphExamine(EntityUid uid, MorphDisguiseComponent component, ExaminedEvent args)
     {
+        if (!args.IsInDetailsRange) 
+            return;
+        
         args.PushMarkup(Loc.GetString(component.ExamineMessage), component.Priority);
     }
     # endregion
