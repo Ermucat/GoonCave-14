@@ -21,7 +21,7 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-fireball
 
-- id: entity
+- type: entity
   parent: BaseAction
   id: ActionWehball
   name: Weball
