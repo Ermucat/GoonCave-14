@@ -335,7 +335,7 @@ public sealed class ArcfiendSystem : EntitySystem
         if (ev.Handled)
             return;
 
-        if (!TryComp<ArcfiendComponent>(ev.Performer, out var arcfiend))
+        if (!HasComp<ArcfiendComponent>(ev.Performer))
             return;
 
         if (!TryComp<BatteryComponent>(ev.Performer, out var battery))
@@ -350,7 +350,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         _lightningArc.ShootLightning(ev.Performer, ev.Target, ev.BoltPrototype);
 
-        _battery.UseCharge(ev.Performer, ev.Cost, battery);
+        _battery.TryUseCharge(ev.Performer, ev.Cost, battery);
 
         UpdatePower(ev.Performer);
     }
