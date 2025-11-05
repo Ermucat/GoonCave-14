@@ -31,8 +31,10 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
-    - WeaponPistolMk58
+    # Harmony Change, Remove roundstart Mk-58 and ammo
+    #- MagazinePistol
+    #- WeaponPistolMk58
+    # Harmony End
 
 - type: chameleonOutfit
   id: SecurityOfficerChameleonOutfit
