@@ -40,7 +40,18 @@ public sealed partial class ThievingSystem : EntitySystem
 
     private void OnCompInit(Entity<ThievingComponent> entity, ref ComponentInit args)
     {
-        _alertsSystem.ShowAlert(entity.Owner, entity.Comp.StealthyAlertProtoId, 1);
+        // Harmony Start - checks for mindshield on compoennt being added
+        if (HasComp<MindShieldComponent>(entity) && entity.Comp.BlockedByMindShield)
+        {
+
+            entity.Comp.Stealthy = false;
+            _alertsSystem.ShowAlert(entity.Owner, entity.Comp.StealthyAlertProtoId, 2);
+        }
+        else
+        {
+            _alertsSystem.ShowAlert(entity.Owner, entity.Comp.StealthyAlertProtoId, 1);
+        }
+        // Harmony End
     }
 
     private void OnCompRemoved(Entity<ThievingComponent> entity, ref ComponentRemove args)
@@ -54,12 +65,12 @@ public sealed partial class ThievingSystem : EntitySystem
             return;
 
         // Harmony Start - doesnt allow you to reactivate thieving is mindshielded
-        if (HasComp<MindShieldComponent>(ent) && ent.Comp.MindshieldBlock)
+        if (HasComp<MindShieldComponent>(ent) && ent.Comp.BlockedByMindShield)
         {
 
             ent.Comp.Stealthy = false;
             _alertsSystem.ShowAlert(ent.Owner, ent.Comp.StealthyAlertProtoId, 2);
-            _popup.PopupEntity(Loc.GetString("alerts-thieving-blocked"), ent, ent.Owner, PopupType.Medium);
+            _popup.PopupPredicted(Loc.GetString("alerts-thieving-blocked"), ent, ent.Owner, PopupType.Medium);
             return;
         }
         // Harmony End
@@ -78,7 +89,7 @@ public sealed partial class ThievingSystem : EntitySystem
         if (!TryComp<ThievingComponent>(uid, out var thiefcomp))
             return;
 
-        if (!thiefcomp.MindshieldBlock)
+        if (!thiefcomp.BlockedByMindShield)
             return;
 
         thiefcomp!.Stealthy = false;

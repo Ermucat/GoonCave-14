@@ -40,7 +40,7 @@ public sealed partial class ThievingComponent : Component
     /// <summary>
     /// Will the thieving ability be deactivated on mindshielded?
     /// </summary>
-    public bool MindshieldBlock = true;
+    public bool BlockedByMindShield = true;
     // Harmony End
 }
 
