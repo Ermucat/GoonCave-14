@@ -2,7 +2,7 @@
   parent: BaseAction
   id: ActionLesserSummonGun
   name: Lesser Summon Gun
-  description: Summons a rifle with one round in it
+  description: Summons a rifle with one round in it.
   components:
   - type: Action
     useDelay: 2
