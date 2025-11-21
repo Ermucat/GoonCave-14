@@ -23,6 +23,8 @@
   - SpellbookOffensive
   conditions:
   - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookPitbullSmashed
   productUpgradeId: SpellbookPitbullSmashed
@@ -41,6 +43,7 @@
     - SpellbookPitbull
   - !type:ListingLimitedStockCondition
     stock: 1
+
 # Defensive
 # Utility
 - type: listing
