@@ -132,13 +132,13 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     private void OnCompInit(Entity<BatteryDrainerComponent> entity, ref ComponentInit args)
     {
         if (entity.Comp.UseAlert)
-            _alertsSystem.ShowAlert(entity, entity.Comp.DrainerAlertProtoId, 1);
+            _alertsSystem.ShowAlert(entity.Owner, entity.Comp.DrainerAlertProtoId, 1);
     }
 
     private void OnCompRemoved(Entity<BatteryDrainerComponent> entity, ref ComponentRemove args)
     {
         if (entity.Comp.UseAlert)
-            _alertsSystem.ClearAlert(entity, entity.Comp.DrainerAlertProtoId);
+            _alertsSystem.ClearAlert(entity.Owner, entity.Comp.DrainerAlertProtoId);
     }
 
     private void OnToggleDraining(Entity<BatteryDrainerComponent> ent, ref ToggleDrainingEvent args)
