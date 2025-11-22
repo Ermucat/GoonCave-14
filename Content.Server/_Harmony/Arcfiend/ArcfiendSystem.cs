@@ -21,8 +21,10 @@ using Content.Shared.Alert;
 using Content.Shared.Alert.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Emp;
 using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
@@ -31,6 +33,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
 using Content.Shared.RepulseAttract;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffectNew;
@@ -119,7 +122,7 @@ public sealed class ArcfiendSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<Shared.Damage.DamageableComponent>(args.Event.Target, out var damageable))
+        if (!TryComp<DamageableComponent>(args.Event.Target, out var damageable))
             return;
 
         if (damageable.TotalDamage > ent.Comp.TargetAbsorbsionLimit)
@@ -129,7 +132,7 @@ public sealed class ArcfiendSystem : EntitySystem
             return;
         }
 
-        _damage.TryChangeDamage(args.Event.Target, ent.Comp.DrainDamage, ignoreResistances: true);
+        _damage.TryChangeDamage((Entity<DamageableComponent?>)args.Event.Target, ent.Comp.DrainDamage, ignoreResistances: true);
         _battery.ChangeCharge(args.Event.User, ent.Comp.TargetAbsorbsionGain);
         _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-success"), args.Event.User);
         _audio.PlayPvs(ent.Comp.SparkSound, ent);
@@ -209,7 +212,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         args.Handled = true;
 
-        if (HasComp<Shared.Damage.DamageableComponent>(args.Target))
+        if (HasComp<DamageableComponent>(args.Target))
         {
             _electrocution.TryDoElectrocution(args.Target, args.Performer, 15, args.Stuntime, refresh: false, ignoreInsulation: true);
         }
