@@ -9,6 +9,7 @@ using Content.Shared.Ninja.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Strip.Components; // Harmony
 using Robust.Shared.Audio;
+using Content.Shared.Power.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Ninja.Systems;
