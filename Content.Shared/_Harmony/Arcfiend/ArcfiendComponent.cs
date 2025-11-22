@@ -26,15 +26,27 @@ public sealed partial class ArcfiendComponent : Component
     /// <summary>
     /// The alert to add on MapInit
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     [AutoNetworkedField]
     public FixedPoint2 Charge = 10;
 
     /// <summary>
-    /// The alert to add on MapInit
-    /// </summary>
+    /// How damaged can a target be before their no longer able to be drained
+    /// <summar>
     [DataField]
-    public float MaxCharge = 1000;
+    public float TargetAbsorbsionLimit = 300;
+
+    /// <summary>
+    /// How much charge you get every time you absorb a body
+    /// <summar>
+    [DataField]
+    public float TargetAbsorbsionGain = 10;
+
+    /// <summary>
+    /// The range of the lightning that is produced when you are EMP'd
+    /// <summar>
+    [DataField]
+    public float EMPDischargeRange = 10;
 
     /// <summary>
     /// The time you are stunned on emp
@@ -52,12 +64,12 @@ public sealed partial class ArcfiendComponent : Component
     /// Time that the do after takes to drain charge from a lifeform, in seconds.
     /// </summary>
     [DataField]
-    public float DrainTime = 1f;
+    public TimeSpan DrainTime = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// Time that the do after takes to drain charge from a lifeform, in seconds.
     /// </summary>
-    [DataField]
+    [DataField(required: true)]
     public DamageSpecifier DrainDamage;
 
     /// <summary>

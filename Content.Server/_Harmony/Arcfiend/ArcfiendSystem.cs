@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Content.Server.Actions;
 using Content.Server.Damage.Systems;
+using Content.Server.Damage.Components;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Doors.Systems;
 using Content.Server.Electrocution;
@@ -22,6 +23,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Flash.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -60,8 +62,6 @@ public sealed class ArcfiendSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
 
-
-
     public override void Initialize()
     {
         base.Initialize();
@@ -86,7 +86,6 @@ public sealed class ArcfiendSystem : EntitySystem
 
     private void OnBeforeInteractHand(Entity<ArcfiendComponent> ent, ref BeforeInteractHandEvent args)
     {
-        // Harmony Start
         if (!TryComp<BatteryDrainerComponent>(ent, out var batteryDrainer))
             return;
 
@@ -99,7 +98,6 @@ public sealed class ArcfiendSystem : EntitySystem
         if (!HasComp<HumanoidAppearanceComponent>(args.Target))
             return;
 
-
         var doAfterArgs = new DoAfterArgs(EntityManager, ent, ent.Comp.DrainTime, new DrainDoAfterEvent(), target: args.Target, eventTarget: ent)
         {
             MovementThreshold = 0.5f,
@@ -111,22 +109,20 @@ public sealed class ArcfiendSystem : EntitySystem
         _doafter.TryStartDoAfter(doAfterArgs);
     }
 
-    protected void OnDoAfterAttempt(Entity<ArcfiendComponent> ent, ref DoAfterAttemptEvent<DrainDoAfterEvent> args)
+    private void OnDoAfterAttempt(Entity<ArcfiendComponent> ent, ref DoAfterAttemptEvent<DrainDoAfterEvent> args)
     {
-        if (!TryComp<BatteryComponent>(args.Event.User, out var batteryComponent))
-            return;
 
-        if (_battery.IsFull(args.Event.User, batteryComponent))
+        if (_battery.IsFull(args.Event.User))
         {
             _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-full"), args.Event.User);
             args.Cancel();
             return;
         }
 
-        if (!TryComp<DamageableComponent>(args.Event.Target, out var damageable))
+        if (!TryComp<Shared.Damage.DamageableComponent>(args.Event.Target, out var damageable))
             return;
 
-        if (damageable.TotalDamage > 300)
+        if (damageable.TotalDamage > ent.Comp.TargetAbsorbsionLimit)
         {
             _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-damaged"), args.Event.User);
             args.Cancel();
@@ -134,7 +130,7 @@ public sealed class ArcfiendSystem : EntitySystem
         }
 
         _damage.TryChangeDamage(args.Event.Target, ent.Comp.DrainDamage, ignoreResistances: true);
-        _battery.ChangeCharge(args.Event.User, 10, batteryComponent);
+        _battery.ChangeCharge(args.Event.User, ent.Comp.TargetAbsorbsionGain);
         _popup.PopupEntity(Loc.GetString("arcfiend-energy-drain-success"), args.Event.User);
         _audio.PlayPvs(ent.Comp.SparkSound, ent);
 
@@ -150,24 +146,19 @@ public sealed class ArcfiendSystem : EntitySystem
         args.Repeat = true;
     }
 
-
     private void OnComponentInit(EntityUid uid, ArcfiendComponent component, ComponentInit args)
     {
         _alerts.ShowAlert(uid, component.PowerAlert);
 
-        if (!EnsureComp<BatteryComponent>(uid, out var battery))
-            _battery.SetMaxCharge(uid, component.MaxCharge);
-
+        // For some reason Battery Drained ceases to work unless I do this
         if (!EnsureComp<BatteryDrainerComponent>(uid, out var drainer))
         {
             _batteryDrainer.SetBattery(uid, uid);
             _alerts.ShowAlert(uid, component.DrainerAlert, 1);
         }
 
-
         UpdatePower(uid);
     }
-
     private void OnBatteryDrained(EntityUid uid, ArcfiendComponent component, OnBatteryDrained args)
     {
         UpdatePower(uid);
@@ -194,7 +185,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         var BoltCount = (component.Charge.Int() / 100);
 
-        _lightningArc.ShootRandomLightnings(uid, 10, BoltCount, lightningPrototype: component.BoltPrototype , triggerLightningEvents: false);
+        _lightningArc.ShootRandomLightnings(uid, component.EMPDischargeRange, BoltCount, lightningPrototype: component.BoltPrototype , triggerLightningEvents: false);
 
         UpdatePower(uid);
     }
@@ -204,7 +195,7 @@ public sealed class ArcfiendSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<ArcfiendComponent>(args.Performer, out var arcfiend))
+        if (!HasComp<ArcfiendComponent>(args.Performer))
             return;
 
         if (!TryComp<BatteryComponent>(args.Performer, out var battery))
@@ -212,13 +203,13 @@ public sealed class ArcfiendSystem : EntitySystem
 
         if (battery.CurrentCharge < args.Cost)
         {
-            _popup.PopupEntity("Not enough energy to discharge", args.Performer, args.Performer);
+            _popup.PopupEntity(Loc.GetString("arcfiend-not-enough-energy-discharge"), args.Performer, args.Performer);
             return;
         }
 
         args.Handled = true;
 
-        if (HasComp<DamageableComponent>(args.Target))
+        if (HasComp<Shared.Damage.DamageableComponent>(args.Target))
         {
             _electrocution.TryDoElectrocution(args.Target, args.Performer, 15, args.Stuntime, refresh: false, ignoreInsulation: true);
         }
@@ -226,10 +217,10 @@ public sealed class ArcfiendSystem : EntitySystem
         if (TryComp<AirlockComponent>(args.Target, out var airlock))
         {
             _power.SetPowerDisabled(args.Target, true);
-            _popup.PopupEntity("Fryed the doors power!", args.Performer, args.Performer);
+            _popup.PopupEntity(Loc.GetString("arcfiend-fried-door"), args.Performer, args.Performer);
         }
 
-        _battery.UseCharge(args.Performer, args.Cost, battery);
+        _battery.TryUseCharge(args.Performer, args.Cost, battery);
 
         UpdatePower(args.Performer);
     }
@@ -247,7 +238,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         if (battery.CurrentCharge < args.Cost)
         {
-            _popup.PopupEntity("Not enough energy to discharge", args.Performer, args.Performer);
+            _popup.PopupEntity(Loc.GetString("arcfiend-not-enough-energy-discharge"), args.Performer, args.Performer);
             return;
         }
 
@@ -261,21 +252,19 @@ public sealed class ArcfiendSystem : EntitySystem
         {
             if (!HasComp<ArcfiendComponent>(target))
             {
-
-                if (TryComp<StaminaComponent>(target, out var stamina))
-                {
-                    _stamina.TryTakeStamina(target, 50, stamina);
-                }
+                if (!HasComp<FlashImmunityComponent>(target))
+                    _stamina.TryTakeStamina(target, args.StaminaDamage);
 
                 _flash.Flash(target, args.Performer, args.Performer, arcfiend.Stuntime, 0.5f);
             }
+
         }
 
         Spawn(args.FlashPrototype, coordinates);
 
         _repulseAttract.TryRepulseAttract(coordinates, args.Performer, 1000, 5, args.PushWhitelist, CollisionGroup.GhostImpassable);
 
-        _battery.UseCharge(args.Performer, args.Cost, battery);
+        _battery.TryUseCharge(args.Performer, args.Cost, battery);
 
         UpdatePower(args.Performer);
     }
@@ -293,7 +282,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         if (battery.CurrentCharge < ev.Cost)
         {
-            _popup.PopupEntity("Not enough energy", ev.Performer, ev.Performer);
+            _popup.PopupEntity(Loc.GetString("arcfiend-not-enough-energy"), ev.Performer, ev.Performer);
             return;
         }
 
@@ -301,7 +290,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         _statusEffects.TryAddStatusEffectDuration(ev.Performer, ev.JammerEffect, ev.EffectTime);
 
-        _battery.UseCharge(ev.Performer, ev.Cost, battery);
+        _battery.TryUseCharge(ev.Performer, ev.Cost, battery);
 
         UpdatePower(ev.Performer);
     }
@@ -343,7 +332,7 @@ public sealed class ArcfiendSystem : EntitySystem
 
         if (battery.CurrentCharge < ev.Cost)
         {
-            _popup.PopupEntity("Not enough energy to discharge", ev.Performer, ev.Performer);
+            _popup.PopupEntity(Loc.GetString("arcfiend-not-enough-energy-discharge"), ev.Performer, ev.Performer);
             return;
         }
         ev.Handled = true;

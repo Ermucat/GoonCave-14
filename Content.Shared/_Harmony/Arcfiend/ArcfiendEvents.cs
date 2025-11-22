@@ -24,6 +24,9 @@ public sealed partial class ArcfiendFlashEvent : InstantActionEvent
     [DataField]
     public float Cost = 150;
 
+    [DataField]
+    public float StaminaDamage = 50;
+
     /// <summary>
     /// The effect to spawn on use
     /// </summary>
@@ -35,7 +38,6 @@ public sealed partial class ArcfiendFlashEvent : InstantActionEvent
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityWhitelist? PushWhitelist;
-
 }
 
 public sealed partial class ArcfiendJammerEvent : InstantActionEvent
@@ -62,7 +64,7 @@ public sealed partial class ArcfiendArcBoltEvent : EntityTargetActionEvent
     /// The bolt to spawn
     /// </summary>
     [DataField]
-    public string BoltPrototype = "ArcfiendLightning";
+    public EntProtoId BoltPrototype = "ArcfiendLightning";
 }
 
 /// <summary>
