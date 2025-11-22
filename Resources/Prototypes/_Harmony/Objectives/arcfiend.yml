@@ -70,12 +70,6 @@
   parent: [BaseArcfiendObjective, HandTeleporterStealObjective]
   id: ArcfiendHandTeleporterStealObjective
 
-## hos
-
-- type: entity
-  parent: [BaseArcfiendObjective, EnergyShotgunStealObjective]
-  id: ArcfiendEnergyShotgunStealObjective
-
 ## ce
 
 - type: entity
