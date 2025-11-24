@@ -1,0 +1,8 @@
+﻿- type: entity
+  parent: PonderingOrb
+  id: ScryingOrb
+  name: scrying orb
+  description: Scryous, man... Really scryous.
+  components:
+  - type: ScryingOrb
+  - type: Wieldable

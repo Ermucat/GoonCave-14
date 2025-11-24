@@ -6,3 +6,6 @@ spellbook-smashed-pitbull-desc = Warps your beloved pitbulls to be more bulky an
 
 spellbook-staff-slipping-name = staff of slipping
 spellbook-staff-slipping-desc = Shoots slipping projectiles en masse, good for destroying security morale.
+
+spellbook-scrying-orb-name = Scrying Orb
+spellbook-scrying-orb-desc = This watchful orb allows you to see through walls when held, and when wielded puts you in a ghastly spirit to observe the station.

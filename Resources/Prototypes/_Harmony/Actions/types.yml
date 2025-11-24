@@ -12,3 +12,18 @@
     itemIconStyle: NoItem
   - type: InstantAction
     event: !type:ToggleActionEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionReturnToBody
+  name: ReturnToBody
+  description: a
+  components:
+  - type: Action
+    useDelay: 1.0
+    icon:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: bluespace
+    itemIconStyle: NoItem
+  - type: InstantAction
+    event: !type:ReturnToOwnerEvent

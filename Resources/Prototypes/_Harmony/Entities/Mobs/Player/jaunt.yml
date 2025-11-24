@@ -1,0 +1,29 @@
+- type: entity
+  parent: [Incorporeal, BaseMob]
+  id: MobScryingSpirit
+  name: scrying spirit
+  description: The infamous spying sighing scrying spirit
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: bluespace
+      shader: unshaded
+    noRot: true
+    overrideContainerOcclusion: true
+    drawdepth: Ghosts
+  - type: ContentEye
+    maxZoom: 1.44,1.44
+  - type: Input
+    context: "ghost"
+  - type: Examiner
+    skipChecks: true
+  - type: ScryingOrbSpirit
+  - type: Spectral
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: Visibility
+    layer: 2 #ghost vis layer

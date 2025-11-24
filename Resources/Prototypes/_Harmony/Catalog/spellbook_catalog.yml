@@ -59,4 +59,17 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookScryingOrb
+  name: spellbook-scrying-orb-name
+  description: spellbook-scrying-orb-desc
+  productEntity: ScryingOrb
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 # Event
