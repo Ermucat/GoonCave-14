@@ -2,6 +2,7 @@
   parent: PonderingOrb
   id: ScryingOrb
   name: scrying orb
+  suffix: Harmony
   description: Scryous, man... Really scryous.
   components:
   - type: ScryingOrb
