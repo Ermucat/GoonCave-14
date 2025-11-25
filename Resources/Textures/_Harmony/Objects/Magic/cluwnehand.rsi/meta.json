@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Taken at TGStation at https://github.com/tgstation/tgstation/commits/fd9f50c552ff117b5f1ee4f431fa2f2d9a418280/icons/mob/inhands/misc/touchspell_righthand.dmi?browsing_rename_history=true&new_path=icons/mob/inhands/items/touchspell_righthand.dmi&original_branch=master, https://github.com/tgstation/tgstation/commits/fd9f50c552ff117b5f1ee4f431fa2f2d9a418280/icons/mob/inhands/misc/touchspell_lefthand.dmi?browsing_rename_history=true&new_path=icons/mob/inhands/items/touchspell_lefthand.dmi&original_branch=master, and https://github.com/ParadiseSS13/Paradise/pull/4925/commits/52e6df894eb19d1f13dda011d702880d58299f85",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}
+

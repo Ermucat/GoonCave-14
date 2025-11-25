@@ -99,6 +99,14 @@ public sealed class ActionOnInteractSystem : EntitySystem
                 var (actionId, action, _) = _random.Pick(entOptions);
                 _actions.SetEventTarget(actionId, target);
                 _actions.PerformAction(args.User, (actionId, action), predicted: false);
+
+                // Harmony End
+                if (component.DeleteOnUse)
+                {
+                    EntityManager.DeleteEntity(uid);
+                }
+                // Harmony Start
+
                 args.Handled = true;
                 return;
             }
@@ -126,6 +134,14 @@ public sealed class ActionOnInteractSystem : EntitySystem
         }
 
         _actions.PerformAction(args.User, (actId, comp), world.Event, predicted: false);
+
+        // Harmony End
+        if (component.DeleteOnUse)
+        {
+            EntityManager.DeleteEntity(uid);
+        }
+        // Harmony Start
+
         args.Handled = true;
     }
 

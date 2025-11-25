@@ -30,7 +30,7 @@
   id: SpellbookSmite
   name: spellbook-smite-name
   description: spellbook-smite-desc
-  productAction: ActionSmite
+  productAction: ActionSmiteMagicHand # Harmony change - switches touch spell to magic hand system
   cost:
     WizCoin: 3
   categories:
@@ -43,7 +43,7 @@
   id: SpellbookCluwne
   name: spellbook-cluwne-name
   description: spellbook-cluwne-desc
-  productAction: ActionCluwne
+  productAction: ActionCluwneMagicHand # Harmony change - switches touch spell to magic hand system
   cost:
     WizCoin: 3
   categories:
@@ -56,7 +56,7 @@
   id: SpellbookSlip
   name: spellbook-slip-name
   description: spellbook-slip-desc
-  productAction: ActionSlippery
+  productAction: ActionSlipperyMagicHand # Harmony change - switches touch spell to magic hand system
   cost:
     WizCoin: 2
   categories:

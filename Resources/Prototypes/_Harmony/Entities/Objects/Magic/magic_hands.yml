@@ -1,0 +1,73 @@
+- type: entity
+  id: BaseMagicHand
+  parent: [ BaseItem, BaseMagicalContraband ]
+  name: Mage hand
+  description: oooh spooky
+  suffix: Magic Hand
+  abstact: true
+  components:
+  - type: ActionOnInteract
+    deleteOnUse: true
+    actions:
+    - ActionCluwne
+  - type: Item
+    size: Ginormous
+  - type: PointLight
+    radius: 2
+    energy: 20
+    color: "#d1ca04"
+    castShadows: false
+
+- type: entity
+  id: CluwneCurse
+  parent: BaseMagicHand
+  name: cluwne curse
+  description: henk henk!
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/cluwnehand.rsi
+    layers:
+    - state: icon
+  - type: ActionOnInteract
+    actions:
+    - ActionCluwne
+  - type: PointLight
+    color: "#17d90d"
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  id: SmiteHand
+  parent: BaseMagicHand
+  name: Smite
+  description: I SMITE THEE DOWN.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/disintegrate.rsi
+    layers:
+    - state: icon
+  - type: ActionOnInteract
+    actions:
+    - ActionSmite
+  - type: PointLight
+    color: "#d18073"
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  id: SlipperySlopeHand
+  parent: BaseMagicHand
+  name: Slippery Slope
+  description: The slippery slide of life.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Objects/Magic/slipperyslope.rsi
+    layers:
+    - state: icon
+  - type: ActionOnInteract
+    actions:
+    - ActionSlippery
+  - type: PointLight
+    color: "#1f2eb8"
+  - type: TimedDespawn
+    lifetime: 15
