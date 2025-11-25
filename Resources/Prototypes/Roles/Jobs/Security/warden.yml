@@ -4,14 +4,11 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
-    # Harmony start
-    # - !type:RoleTimeRequirement
-    #   role: JobSecurityOfficer
-    #   time: 18000 #5 hrs
-    # Harmony end
+# Harmony Change
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 4h # Harmony: 10h -> 4h
+      time: 14400 # 4 hrs
+# End Harmony
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
@@ -26,8 +23,6 @@
   - External
   - Detective
   - Cryogenics
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -37,7 +32,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
-    ears: ClothingHeadsetWarden # Harmony
+    ears: ClothingHeadsetSecurity
     pocket1: WeaponDisabler # Harmony
   storage:
     back:

@@ -80,6 +80,10 @@
             "directions": 4
         },
         {
+            "name": "split",
+            "directions": 4
+        },
+        {
             "name": "spots",
             "directions": 4
         },

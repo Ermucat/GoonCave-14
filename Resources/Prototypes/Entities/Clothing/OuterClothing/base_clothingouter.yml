@@ -115,7 +115,7 @@
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
   - type: ClothingSpeedModifier
-    walkModifier: 0.6
+    walkModifier: 0.4
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: Item
@@ -145,11 +145,6 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-# Harmony change begins - Unhides the lizard tail
-#  - type: HideLayerClothing
-#    slots:
-#    - Tail
-# Harmony change ends
 
 - type: entity
   abstract: true
@@ -179,11 +174,7 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-# Harmony change begins - Unhides the lizard tail
-#  - type: HideLayerClothing
-#    slots:
-#    - Tail
-# Harmony change ends
+
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterBaseToggleable

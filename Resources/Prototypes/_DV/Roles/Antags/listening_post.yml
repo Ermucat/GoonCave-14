@@ -3,6 +3,5 @@
   name: roles-antag-listening-post-name
   antagonist: true
   objective: roles-antag-listening-post-objective
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 36000 # 10 hours
+  # keep these in sync with the spawner
+

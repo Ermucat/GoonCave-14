@@ -17,24 +17,12 @@
         damage: 10
       behaviors:
       - !type:TriggerBehavior
-        keyOut: timer # explode immediately
   - type: ScatteringGrenade
-  - type: TriggerOnUse
-  - type: TimerTrigger
+  - type: OnUseTimerTrigger
     delay: 3
   - type: Tag
     tags:
     - HandGrenade
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeCircle
-          radius: 0.2
-        density: 20 # derived from base_item
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
 
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSecurityContraband]
@@ -83,11 +71,8 @@
           Primed: { state: primed }
           Unprimed: { state: icon }
   - type: EmitSoundOnTrigger
-    keysIn:
-    - timer
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
-    positional: true
 
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
@@ -103,7 +88,7 @@
   - type: ScatteringGrenade
     fillPrototype: ExGrenade
     distance: 4
-  - type: TimerTrigger
+  - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
@@ -111,13 +96,8 @@
     initialBeepDelay: 0
     beepInterval: 0.5
   - type: EmitSoundOnTrigger
-    keysIn:
-    - timer
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
-    positional: true
-  - type: StaticPrice
-    price: 2500
 
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
@@ -138,11 +118,8 @@
       types:
         Blunt: 10
   - type: EmitSoundOnTrigger
-    keysIn:
-    - timer
     sound:
       path: "/Audio/Items/bikehorn.ogg"
-    positional: true
 
 - type: entity
   parent: [SoapSyndie, ScatteringGrenadeBase, BaseSyndicateContraband]
@@ -166,13 +143,8 @@
       types:
         Blunt: 10
   - type: EmitSoundOnTrigger
-    keysIn:
-    - timer
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
-    positional: true
-  - type: StaticPrice
-    price: 1000
 
 - type: entity
   parent: ScatteringGrenadeBase
@@ -181,7 +153,7 @@
   description: Releases a bothersome spray of foam darts that cause severe welching.
   components:
   - type: Sprite
-    sprite: Objects/Fun/Foam/foam_grenade.rsi
+    sprite: Objects/Weapons/Grenades/foamdart.rsi
     layers:
     - state: icon
       map: ["Base"]
@@ -191,7 +163,7 @@
     fillPrototype: BulletFoam
     capacity: 30
     velocity: 30
-  - type: TimerTrigger
+  - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
@@ -199,8 +171,5 @@
     initialBeepDelay: 0
     beepInterval: 2
   - type: EmitSoundOnTrigger
-    keysIn:
-    - timer
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
-    positional: true

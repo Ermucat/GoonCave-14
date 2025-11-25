@@ -1,111 +1,262 @@
-## ERP Leader
+## Death Squad Timer
 
 - type: entity
-  id: RandomHumanoidSpawnerERPLeader
-  name: ERP leader
-  suffix: Harmony, ERPRole, Basic
+  parent: RandomHumanoidSpawnerDeathSquad
+  id: RandomHumanoidSpawnerDeathSquadTime
+  suffix: ERTRole, Death Squad, Time
   components:
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    state: clown
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstLeader
-    - NamesClown
-    nameFormat: name-format-standard
-  - type: RandomHumanoidSpawner
-    settings: ERPLeader
+    - type: RandomHumanoidSpawner
+      settings: DeathSquadTime
 
 - type: randomHumanoidSettings
-  parent: EventHumanoidCentcomm
-  id: ERPLeader
+  id: DeathSquadTime
+  parent: DeathSquad
   components:
-  - type: GhostRole
-    name: ghost-role-information-erp-leader-name
-    description: ghost-role-information-erp-leader-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERPLeader
-  - type: Loadout
-    prototypes: [ ERPLeaderGear ]
-    roleLoadout: [ RoleSurvivalClown ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstLeader
-    - NamesClown
-    nameFormat: name-format-standard
+    - type: GhostRole
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 14400 #4 hrs
 
-## ERP Clown
+## ERT Leader Timer
+
+# Basic
 
 - type: entity
-  id: RandomHumanoidSpawnerERPClown
-  name: ERP clown
-  suffix: Harmony, ERPRole, Basic
+  parent: RandomHumanoidSpawnerERTLeader
+  id: RandomHumanoidSpawnerERTLeaderTime
+  suffix: ERTRole, Basic, Time
   components:
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    state: clown
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirst
-    - NamesClown
-    nameFormat: name-format-standard
-  - type: RandomHumanoidSpawner
-    settings: ERPClown
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderTime
 
 - type: randomHumanoidSettings
-  parent: EventHumanoidCentcomm
-  id: ERPClown
+  id: ERTLeaderTime
+  parent: ERTLeader
   components:
-  - type: GhostRole
-    name: ghost-role-information-erp-clown-name
-    description: ghost-role-information-erp-clown-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: ERPClown
-  - type: Loadout
-    prototypes: [ ERPClownGear ]
-    roleLoadout: [ RoleSurvivalClown ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirst
-    - NamesClown
-    nameFormat: name-format-standard
+    - type: GhostRole
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 21600 #6 hours
 
-## CentComm Inspector
+# Eva
 
 - type: entity
-  id: RandomHumanoidSpawnerCentCommInspector
-  name: CentComm Inspector
-  suffix: Harmony
+  parent: RandomHumanoidSpawnerERTLeaderEVA
+  id: RandomHumanoidSpawnerERTLeaderEVATime
+  suffix: ERTRole, Armored EVA, Time
   components:
-  - type: Sprite
-    sprite: _Harmony/Markers/jobs.rsi
-    state: inspector
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryLast
-    nameFormat: name-format-centcomm-inspector
-  - type: RandomHumanoidSpawner
-    settings: CentCommInspector
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderEVATime
 
 - type: randomHumanoidSettings
-  parent: EventHumanoidCentcomm
-  id: CentCommInspector
+  id: ERTLeaderEVATime
+  parent: ERTLeaderEVA
   components:
-  - type: GhostRole
-    name: ghost-role-information-centcomm-inspector-name
-    description: ghost-role-information-centcomm-inspector-description
-    rules: ghost-role-information-nonantagonist-rules
-    raffle:
-      settings: short
-    job: CentCommInspector
-  - type: Loadout
-    prototypes: [ CentCommInspectorGear ]
-    roleLoadout: [ RoleSurvivalExtended ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryLast
-    nameFormat: name-format-centcomm-inspector
+    - type: GhostRole
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 21600 #6 hours
+
+# Lecter
+
+- type: entity
+  parent: RandomHumanoidSpawnerERTLeaderEVALecter
+  id: RandomHumanoidSpawnerERTLeaderEVALecterTime
+  suffix: ERTRole, Lecter, EVA, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTLeaderEVALecterTime
+
+- type: randomHumanoidSettings
+  id: ERTLeaderEVALecterTime
+  parent: ERTLeaderEVALecter
+  components:
+    - type: GhostRole
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 21600 #6 hours
+
+## ERT Engineer Timer
+
+# Basic
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerTime
+  parent: RandomHumanoidSpawnerERTEngineer
+  suffix: ERTRole, Basic, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerTime
+
+- type: randomHumanoidSettings
+  id: ERTEngineerTime
+  parent: ERTEngineer
+  components:
+    - type: GhostRole
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 10800 # 3 hrs
+
+# EVA
+
+- type: entity
+  id: RandomHumanoidSpawnerERTEngineerEVATime
+  parent: RandomHumanoidSpawnerERTEngineerEVA
+  suffix: ERTRole, Enviro EVA, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTEngineerEVATime
+
+- type: randomHumanoidSettings
+  id: ERTEngineerEVATime
+  parent: ERTEngineerEVA
+  components:
+    - type: GhostRole
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 10800 # 3 hrs
+
+## ERT Security Timer
+
+# Basic
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityTime
+  parent: RandomHumanoidSpawnerERTSecurity
+  suffix: ERTRole, Basic, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityTime
+
+- type: randomHumanoidSettings
+  id: ERTSecurityTime
+  parent: ERTSecurity
+  components:
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 14400 #4 hrs
+
+# EVA
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityEVATime
+  parent: RandomHumanoidSpawnerERTSecurityEVA
+  suffix: ERTRole, Armored EVA, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityEVATime
+
+- type: randomHumanoidSettings
+  id: ERTSecurityEVATime
+  parent: ERTSecurityEVA
+  components:
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 14400 #4 hrs
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityEVALecterTime
+  parent: RandomHumanoidSpawnerERTSecurityEVALecter
+  suffix: ERTRole, Lecter, EVA, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityEVALecterTime
+
+- type: randomHumanoidSettings
+  id: ERTSecurityEVALecterTime
+  parent: ERTSecurityEVALecter
+  components:
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 36000 #10 hrs
+
+## ERT Medic Timer
+
+# Basic
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicalTime
+  parent: RandomHumanoidSpawnerERTMedical
+  suffix: ERTRole, Basic, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalTime
+
+- type: randomHumanoidSettings
+  id: ERTMedicalTime
+  parent: ERTMedical
+  components:
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 10800 #3 hrs
+
+# EVA
+
+- type: entity
+  id: RandomHumanoidSpawnerERTMedicalEVATime
+  parent: RandomHumanoidSpawnerERTMedicalEVA
+  suffix: ERTRole, Armored EVA, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTMedicalEVATime
+
+- type: randomHumanoidSettings
+  id: ERTMedicalEVATime
+  parent: ERTMedicalEVA
+  components:
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 10800 #3 hrs
+
+## CBURN Timer
+
+- type: entity
+  id: RandomHumanoidSpawnerCBURNUnitTime
+  parent: RandomHumanoidSpawnerCBURNUnit
+  suffix: ERTRole, Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: CBURNAgentTime
+
+- type: randomHumanoidSettings
+  id: CBURNAgentTime
+  parent: CBURNAgent
+  components:
+    - type: GhostRole
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 10800 #3 hrs
+
+## Central Command Timer
+
+- type: entity
+  id: RandomHumanoidSpawnerCentcomOfficialTime
+  parent: RandomHumanoidSpawnerCentcomOfficial
+  suffix: Time
+  components:
+    - type: RandomHumanoidSpawner
+      settings: CentcomOfficial
+
+- type: randomHumanoidSettings
+  id: CentcomOfficialTime
+  parent: CentcomOfficial
+  components:
+    - type: GhostRole
+      requirements:
+      - !type:OverallPlaytimeRequirement
+        time: 21600 # 6 hrs

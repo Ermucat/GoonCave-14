@@ -15,8 +15,7 @@
     randomDistance: true
     randomThrowDistanceMax: 3
   - type: LandAtCursor
-  - type: TriggerOnUse
-  - type: TimerTrigger
+  - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
       params:
@@ -27,8 +26,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Items/Toys/weh.ogg"
-    keysIn:
-    - timer
   - type: TriggerOnSignal
   - type: DeviceLinkSink
     ports:

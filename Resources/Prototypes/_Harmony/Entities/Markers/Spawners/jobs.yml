@@ -1,16 +1,13 @@
-# SPECIAL
-# CENTCOMM
+# Security
 
 - type: entity
-  id: SpawnPointCentCommInspector
   parent: SpawnPointJobBase
-  name: CentCommInspector
-  suffix: Harmony
+  id: SpawnPointPermaPrisoner
+  name: permaprisoner
   components:
   - type: SpawnPoint
-    job_id: CentCommInspector
+    job_id: PermaPrisoner
   - type: Sprite
     layers:
-      - state: green
-      - sprite: _Harmony/Markers/jobs.rsi
-        state: inspector
+    - state: green
+    - state: prisoner

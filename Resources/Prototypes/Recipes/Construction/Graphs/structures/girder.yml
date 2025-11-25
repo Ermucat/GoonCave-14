@@ -146,7 +146,7 @@
             - tool: Welding
               doAfter: 10
 
-    - node: wallChitin
+    - node: wallChitin # Xeno playtest
       entity: WallSolidChitin
       edges:
         - to: girder
@@ -161,14 +161,14 @@
     - node: woodWall
       entity: WallWood
       edges:
-      - to: girder
-        completed:
-        - !type:GivePrototype
-          prototype: MaterialWoodPlank1
-          amount: 2
-        steps:
-        - tool: Prying
-          doAfter: 10
+        - to: girder
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 10
 
     - node: uraniumWall
       entity: WallUranium
@@ -372,7 +372,7 @@
             - tool: Cutting
               doAfter: 1
 
-    - node: reinforcedWallChitin
+    - node: reinforcedWallChitin # Xeno playtest
       entity: WallReinforcedChitin
       edges:
         - to: reinforcedGirder
@@ -522,10 +522,6 @@
           steps:
             - tool: Welding
               doAfter: 5
-        - to: wall
-          steps:
-            - tool: Brushing
-              doAfter: 12
 
     - node: reinforcedWallRust
       entity: WallReinforcedRust
@@ -534,7 +530,3 @@
           steps:
             - tool: Welding
               doAfter: 5
-        - to: reinforcedWall
-          steps:
-            - tool: Brushing
-              doAfter: 12

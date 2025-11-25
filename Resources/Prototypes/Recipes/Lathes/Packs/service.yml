@@ -25,7 +25,6 @@
   - MopItem
   - Holoprojector
   - WetFloorSign
-  - WireBrush
   - CassetteTape # DeltaV
   - TapeRecorder # DeltaV
 
@@ -39,7 +38,6 @@
   - ElectricGrillMachineCircuitboard
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
-  - SmartFridgeCircuitboard
 
 ## Dynamic
 

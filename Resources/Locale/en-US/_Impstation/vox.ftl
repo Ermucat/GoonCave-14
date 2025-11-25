@@ -82,6 +82,8 @@ marking-VoxBeakSplit-split2 = Bottom
 marking-VoxBeakTipped = Tipped Beak
 marking-VoxBeakTipped-tipped = Tipped Beak
 
+marking-VoxBeak = Default Beak [DO NOT USE]
+
 # Eyes
 
 # RArm
@@ -152,6 +154,17 @@ marking-UnderwearStrappy-strappy3 = Underwear
 
 marking-UnderwearTangaV = Tanga
 marking-UnderwearTangaV-tanga_vox = Underwear
+
+marking-UndergarmentBottomBoxersVox-boxers_vox = Underwear
+marking-UndergarmentBottomBriefsVox-briefs_vox = Underwear
+marking-UndergarmentBottomSatinVox-satin_vox = Underwear
+
+# UndergarmentTop
+
+marking-UndergarmentTopTanktopVox-tanktop_vox = Tanktop
+marking-UndergarmentTopBinderVox-binder_vox = Binder
+marking-UndergarmentTopBraVox-classic_vox = Bra
+marking-UndergarmentTopSportsbraVox-sports_vox = Bra
 
 # LFoot
 
@@ -293,7 +306,12 @@ marking-VoxTailSmallPlume-smallplume = Small Plume
 marking-VoxTailSpines = Tail Spines
 marking-VoxTailSpines-spines = Tail Spines
 
+marking-VoxTailSplit = Twinned
+marking-VoxTailSplit-split = Twinned
+
 marking-VoxSunAndMoon = Sun and Moon
 marking-VoxSunAndMoon-sunandmoon = Sun and Moon
+
+marking-VoxTail = Default Tail [DO NOT USE]
 
 # RArmExtension

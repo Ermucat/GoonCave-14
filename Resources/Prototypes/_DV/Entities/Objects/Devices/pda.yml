@@ -13,6 +13,7 @@
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
        !type:String
-       pda-syndi-corpsman
+       pda-syndi-agent
   - type: Icon
-    state: pda-syndi-corpsman
+    state: pda-syndi-agent
+

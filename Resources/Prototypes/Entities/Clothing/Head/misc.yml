@@ -198,7 +198,7 @@
     sprite: Clothing/Head/Misc/fancycrown.rsi
   - type: TypingIndicatorClothing
     proto: regal
-  - type: StaticPrice
+  - type: MobPrice
     price: 3000
   - type: AddAccentClothing
     accent: MobsterAccent
@@ -218,8 +218,6 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: AddAccentClothing
     accent: OwOAccent
-  - type: StaticPrice
-    price: 15000
 
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]
@@ -315,17 +313,15 @@
   - type: Clothing
     slots:
     - HEAD
-  - type: Edible
-    edible: Drink
+  - type: Food
     solution: drink
+    useSound: /Audio/Items/drink.ogg
+    eatMessage: drink-component-try-use-drink-success-slurp
     delay: 0.5
     forceFeedDelay: 1.5
-    utensil: Spoon
   - type: FlavorProfile
     flavors:
       - water
-  - type: DrainableSolution
-    solution: drink
   - type: SolutionContainerManager
     solutions:
       drink:

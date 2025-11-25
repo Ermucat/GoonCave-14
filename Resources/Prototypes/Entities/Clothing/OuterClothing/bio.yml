@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothingGasTanks]
+  parent: ClothingOuterBaseLarge
   id: ClothingOuterBioGeneral
   name: bio suit
   suffix: Generic
@@ -9,11 +9,6 @@
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/general.rsi
-# Harmony change begins - Unhides the lizard tail
-#  - type: HideLayerClothing
-#    slots:
-#    - Tail
-# Harmony change ends
   - type: Armor
     modifiers:
       coefficients:
@@ -22,7 +17,7 @@
     zombificationResistanceCoefficient: 0.35
   - type: GroupExamine
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
+    walkModifier: 1
     sprintModifier: 0.95
 
 - type: entity
@@ -66,7 +61,7 @@
     sprite: Clothing/OuterClothing/Bio/scientist.rsi
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecurityContraband]
+  parent: [ClothingOuterBioGeneral, BaseSecurityContraband]
   id: ClothingOuterBioSecurity
   name: bio suit
   suffix: Security
@@ -84,11 +79,7 @@
         Piercing: 0.8
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
-  - type: GroupExamine
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
-    
+
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterBioVirology

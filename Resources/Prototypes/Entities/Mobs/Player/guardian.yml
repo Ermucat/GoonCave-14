@@ -239,10 +239,8 @@
         types:
           Blunt: 5
           Piercing: 4
-          Heat: 3
-      catchingFailDamage:
-        types:
-          Blunt: 1
+        groups:
+          Burn: 3
     - type: MeleeWeapon
       angle: 30
       animation: WeaponArcFist

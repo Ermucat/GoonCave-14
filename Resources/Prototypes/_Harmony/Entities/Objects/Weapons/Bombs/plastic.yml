@@ -11,11 +11,12 @@
     layers:
     - state: icon
       map: ["base"]
+    quickEquip: false
   - type: Explosive
     explosionType: DemolitionCharge
     totalIntensity: 60
     intensitySlope: 5
     maxIntensity: 30
     canCreateVacuum: false
-  - type: TimerTrigger
+  - type: OnUseTimerTrigger
     beepSound: /Audio/Machines/Nuke/angry_beep.ogg

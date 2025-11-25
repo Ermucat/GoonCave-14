@@ -4,9 +4,9 @@
   description: job-description-detective
   playTimeTracker: JobDetective
   requirements:
-  - !type:RoleTimeRequirement
-    role: JobSecurityOfficer
-    time: 2h # Harmony: 5h -> 2h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 # 2 hours
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
@@ -19,8 +19,6 @@
   - Detective
   - Cryogenics
   - External
-  - GenpopEnter
-  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

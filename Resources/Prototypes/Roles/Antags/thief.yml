@@ -7,7 +7,7 @@
   guides: [ Thieves ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 3600 # 1h
 
 - type: startingGear
   id: ThiefGear
@@ -15,3 +15,4 @@
     back:
     - ThiefBeacon
     - SatchelThief
+    - ClothingHandsChameleonThief

@@ -6,20 +6,15 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 3h # Harmony: 1h -> 3h
-    # Harmony start
-    # - !type:RoleTimeRequirement
-    #   role: JobDetective
-    #   time: 3600 #1 hr, knowing how to use the tools is important
-    # - !type:RoleTimeRequirement
-    #   role: JobSecurityOfficer
-    #   time: 18000 #5 hrs
-    # Harmony end
+      time: 10800 # Harmony: 3hrs
+    - !type:RoleTimeRequirement
+      role: JobSecurityOfficer
+      time: 0 # Harmony: 0 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      time: 36000 # Harmony: 10 hrs
     - !type:OverallPlaytimeRequirement
-      time: 12h # Harmony: 10h -> 12h
+      time: 43200 # Harmony: 12 hrs
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

@@ -11,5 +11,10 @@
     name: ghost-role-information-listeningop-name
     description: ghost-role-information-listeningop-description
     rules: ghost-role-information-listeningop-rules
-    mindRoles:
-    - MindRolePostOperator
+    requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 18000 # 5 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 # 5 hours

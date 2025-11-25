@@ -1,26 +1,4 @@
-- type: polymorph
-  id: BinglePolymorph
-  configuration:
-    entity: MobBingleUpgraded
-    forced: true
-    transferName: false
-    transferHumanoidAppearance: false
-    inventory: Drop
-    revertOnDeath: false
-    revertOnCrit: false
-
-- type: polymorph
-  id: BinglePrimePolymorph
-  configuration:
-    entity: MobBinglePrimeUpgraded
-    forced: true
-    transferName: false
-    transferHumanoidAppearance: false
-    inventory: Drop
-    revertOnDeath: false
-    revertOnCrit: false
-
-- type: polymorph
+﻿- type: polymorph
   id: SnakeMorph
   configuration:
     entity: MobSnake

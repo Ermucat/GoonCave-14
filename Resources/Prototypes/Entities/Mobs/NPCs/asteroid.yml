@@ -19,9 +19,13 @@
     group: GenericNumber
   - type: StatusEffects
     allowed:
+    - SlowedDown
+    - Stutter
+    - Stun
     - Electrocution
     - TemporaryBlindness
     - RadiationProtection
+    - Drowsiness
     - Adrenaline
   - type: StandingState
   - type: Tag
@@ -54,7 +58,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      250: Dead # Harmony Chnage - reverts salv mob changes, 150 -> 250
+      250: Dead
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -64,10 +68,7 @@
     damage:
       types:
         Slash: 10
-        #Harmony Change Start - Pierce --> Blunt
-        #Piercing: 10
-        Blunt: 10
-        #Harmony Change End - Pierce --> Blunt
+        Piercing: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -373,12 +374,12 @@
       Dead:
         Base: basilisk_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2
-    baseSprintSpeed : 3
+    baseWalkSpeed : 3
+    baseSprintSpeed : 3.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead # Harmony Change, reverts salvage mob health changes, 45 -> 75
+      80: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -387,13 +388,9 @@
     damage:
       types:
         Slash: 7
-        #Harmony Change Start - Pierce --> Blunt
-        #Piercing: 5
-        Blunt: 5
-        #Harmony Change End - Pierce --> Blunt
+        Piercing: 5
   - type: Gun
     fireRate: 0.75
-    projectileSpeed: 10.0 # When we get predicted guns and projectiles this should be raised to like 15, 15 mis-predicts too much right now unfortunately.
     selectedMode: SemiAuto
     showExamineText: false
     availableModes: [ SemiAuto ]

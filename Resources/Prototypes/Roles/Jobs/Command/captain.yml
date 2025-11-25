@@ -6,19 +6,16 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 2h # Harmony: 4h -> 2h
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 2h # Harmony: 4h -> 2h
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 2h # Harmony: 4h -> 2h
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 2h # Harmony: 4h -> 2h
+      time: 7200 # 2 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 6h # Harmony: 4h -> 6h
+      time: 21600 # 6 hours
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -38,7 +35,7 @@
   id: CaptainGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesCommand
+    eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand

@@ -76,7 +76,6 @@
       tags:
         - Carp
         - DoorBumpOpener
-        - CannotSuicide
     - type: ReplacementAccent
       accent: genericAggressive
     - type: Speech
@@ -164,12 +163,6 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
-    # Harmony Start - removes threshold
-    #- type: MobThresholds
-      #thresholds:
-        #0: Alive
-        #30: Dead
-    # Harmony end
 
 - type: entity
   name: space carp
@@ -186,15 +179,15 @@
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
       - MindRoleGhostRoleTeamAntagonistFlock
+      # harmony start: remove ghost role raffle from carps
+      # raffle:
+      #   settings: short
+      # harmony end
     - type: GhostTakeoverAvailable
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-    - type: Flammable
-      damage:
-       types: {}
-    - type: Temperature
-      heatDamageThreshold: 1200
+
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp
@@ -240,7 +233,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        150: Dead # Harmony Change, reverts salvage mob health changes, 82 -> 150
+        150: Dead
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals

@@ -107,7 +107,7 @@
   - type: Machine
     board: AutolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist: &StandardMaterialWhitelist
+    whitelist:
       tags:
         - Sheet
         - RawMaterial
@@ -123,8 +123,6 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
-    - PaperworkStatic
-    - TowelsStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -138,7 +136,6 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
-    - SyndicateAmmoStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -185,7 +182,11 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
@@ -209,6 +210,7 @@
     - Janitor
     - Instruments
     - Equipment
+    - FauxTiles
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -256,6 +258,7 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
+    - CircuitFloorsStatic
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -269,7 +272,11 @@
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
   - type: RequireProjectileTarget
 
@@ -314,7 +321,11 @@
     - MechParts
     - MechEquipment
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
   - type: OreSiloClient
   - type: GuideHelp
     guides:
@@ -399,11 +410,12 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - SyndicateAmmoStatic
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -435,11 +447,12 @@
       staticPacks:
       - SecurityAmmoStatic
       - HarmonySecurityAmmoStatic # Harmony
-    - type: EmagLatheRecipes
-      emagStaticPacks:
-      - SyndicateAmmoStatic
     - type: MaterialStorage
-      whitelist: *StandardMaterialWhitelist
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
     - type: OreSiloClient
 
 - type: entity
@@ -504,7 +517,6 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
@@ -524,7 +536,11 @@
     - ClothingCentComm
     - ClothingSyndie
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
   - type: OreSiloClient
 
 - type: entity
@@ -569,10 +585,6 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - BioGenEmagStatic
-    - HostileCubesStatic
 
 - type: entity
   parent: BaseLathe
@@ -682,17 +694,14 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - FloorDarkTilesStatic
-    - FloorSteelTilesStatic
-    - FloorWhiteTilesStatic
-    - FloorMaintsTilesStatic
-    - FloorWoodTilesStatic
-    - FloorConcreteTilesStatic
-    - CircuitFloorsStatic
-    - FloorMarbleTilesStatic
+    - FloorTilesStatic
     - HarmonyFloorTilesStatic # Harmony
-    dynamicPacks:
-    - FauxTiles
   - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+    whitelist:
+      tags:
+        - Sheet
+        - Metal
+        - Wooden
+        - RawMaterial
+        - Plastic
   - type: OreSiloClient

@@ -7,7 +7,7 @@
   name: trait-accentless-name
   description: trait-accentless-desc
   category: SpeechTraits
-  cost: 0 #Harmony change-Changed from 2 to 0, should just be free
+  cost: 2
   components:
   - type: Accentless
     removes:

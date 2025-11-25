@@ -33,42 +33,16 @@
     - !type:NestedSelector # DeltaV
       tableId: BasicAntagEventsTableDeltaV
     - id: ClosetSkeleton
-    - id: KingRatMigration
-    - id: RevenantSpawn
-    - !type:NestedSelector
-      tableId: DerelictBorgEventTable
-
-- type: entityTable
-  id: ModerateAntagEventsTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
-    children:
     - id: DragonSpawn
+    - id: KingRatMigration
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
+    - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    # - id: WizardSpawn - Harmony Change, disables wizard midround
-    - id: BingleSpawn # Harmony
-    - !type:NestedSelector
-      tableId: DerelictBorgEventTable
-
-- type: entityTable
-  id: DerelictBorgEventTable #For Derelict Borg spawns
-  table: !type:GroupSelector
-    children:
-    - !type:GroupSelector # Standard NT Borgs
-      weight: 85
-      children:
-        - id: DerelictEngineerCyborgSpawn
-        - id: DerelictGenericCyborgSpawn
-        - id: DerelictJanitorCyborgSpawn
-        - id: DerelictMedicalCyborgSpawn
-        - id: DerelictMiningCyborgSpawn
-    - !type:GroupSelector # Other Borgs
-      weight: 15
-      children:
-        - id: DerelictSyndicateAssaultCyborgSpawn
+    - id: DerelictCyborgSpawn
+    - id: WizardSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -161,10 +135,6 @@
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
-    - ResearchAssistant
-    - MedicalIntern
-    - SecurityCadet
-    - TechnicalAssistant
 
 - type: entity
   id: ClericalError
@@ -193,10 +163,10 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 3.5 # Harmony 6.5 -> 3.5
+    weight: 3.5
     earliestStart: 40
-    reoccurrenceDelay: 40 # Harmony 20 -> 40
-    minimumPlayers: 35 # Harmony 20 -> 35
+    reoccurrenceDelay: 40
+    minimumPlayers: 35
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -216,19 +186,17 @@
       pickPlayer: false
       mindRoles:
       - MindRoleDragon
-  - type: DynamicRuleCost
-    cost: 75
 
 - type: entity
   parent: BaseGameRule
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 3 # Harmony 6 -> 3
+    weight: 3
     duration: null
     earliestStart: 30
-    reoccurrenceDelay: 40 # Harmony 20 -> 40
-    minimumPlayers: 35 # Harmony 30 -> 35
+    reoccurrenceDelay: 40
+    minimumPlayers: 35
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -268,8 +236,6 @@
         nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
-  - type: DynamicRuleCost
-    cost: 75
 
 - type: entity
   parent: BaseGameRule
@@ -306,8 +272,6 @@
         sound: /Audio/Misc/paradox_clone_greeting.ogg
       mindRoles:
       - MindRoleParadoxClone
-  - type: DynamicRuleCost
-    cost: 50
 
 - type: entity
   parent: BaseGameRule
@@ -330,7 +294,7 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 30
+    minimumPlayers: 25 # Harmony specific change. 10 -> 25
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -553,18 +517,16 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
-  - type: DynamicRuleCost
-    cost: 200
 
 - type: entity
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 60 # Harmony 35 -> 60
-    weight: 2 # Harmony 5.5 -> 2
-    minimumPlayers: 35 # Harmony 20 -> 35
-    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+    earliestStart: 60
+    weight: 2
+    minimumPlayers: 35
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -590,9 +552,7 @@
         factions:
         - Syndicate
       mindRoles:
-      - MindRoleLoneops
-  - type: DynamicRuleCost
-    cost: 75
+      - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
@@ -695,10 +655,10 @@
 
 - type: entity
   parent: BaseGameRule
-  id: DerelictEngineerCyborgSpawn
+  id: DerelictCyborgSpawn
   components:
   - type: StationEvent
-    weight: 2.5
+    weight: 5
     earliestStart: 15
     reoccurrenceDelay: 20
     minimumPlayers: 4
@@ -706,115 +666,10 @@
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
-    prototype: PlayerEngineeringBorgDerelictGhostRole
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictEngineeringCyborg
-      min: 1
-      max: 1
-      pickPlayer: false
-
-- type: entity
-  parent: BaseGameRule
-  id: DerelictGenericCyborgSpawn
-  components:
-  - type: StationEvent
-    weight: 2.5
-    earliestStart: 15
-    reoccurrenceDelay: 20
-    minimumPlayers: 4
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerBorgDerelictGhostRole
+    prototype: PlayerBorgDerelict
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointGhostDerelictCyborg
-      min: 1
-      max: 1
-      pickPlayer: false
-
-- type: entity
-  parent: BaseGameRule
-  id: DerelictJanitorCyborgSpawn
-  components:
-  - type: StationEvent
-    weight: 2.5
-    earliestStart: 15
-    reoccurrenceDelay: 20
-    minimumPlayers: 4
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerJanitorBorgDerelictGhostRole
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictJanitorCyborg
-      min: 1
-      max: 1
-      pickPlayer: false
-
-- type: entity
-  parent: BaseGameRule
-  id: DerelictMedicalCyborgSpawn
-  components:
-  - type: StationEvent
-    weight: 2.5
-    earliestStart: 15
-    reoccurrenceDelay: 20
-    minimumPlayers: 4
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerMedicalBorgDerelictGhostRole
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictMedicalCyborg
-      min: 1
-      max: 1
-      pickPlayer: false
-
-- type: entity
-  parent: BaseGameRule
-  id: DerelictMiningCyborgSpawn
-  components:
-  - type: StationEvent
-    weight: 2.5
-    earliestStart: 15
-    reoccurrenceDelay: 20
-    minimumPlayers: 4
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerMiningBorgDerelictGhostRole
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictMiningCyborg
-      min: 1
-      max: 1
-      pickPlayer: false
-
-- type: entity
-  parent: BaseGameRule
-  id: DerelictSyndicateAssaultCyborgSpawn
-  components:
-  - type: StationEvent
-    weight: 2.5
-    earliestStart: 25
-    reoccurrenceDelay: 20
-    minimumPlayers: 15
-    duration: null
-  - type: SpaceSpawnRule
-    spawnDistance: 0
-  - type: AntagSpawner
-    prototype: PlayerBorgSyndicateDerelictGhostRole
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointGhostDerelictSyndicateAssaultCyborg
       min: 1
       max: 1
       pickPlayer: false

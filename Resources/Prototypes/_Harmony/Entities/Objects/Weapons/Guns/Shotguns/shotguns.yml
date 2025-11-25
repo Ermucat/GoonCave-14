@@ -18,7 +18,5 @@
       path: /Audio/_Harmony/Weapons/Guns/Gunshots/hushpup_fire.ogg
       params:
         volume: -3
-    fireRate: 1.5
+    fireRate: 2
     selectedMode: SemiAuto
-  - type: GunSpreadModifier
-    spread: 1.4

@@ -10,7 +10,6 @@
   - type: Item
     size: Small
   - type: GunUpgrade
-  - type: GunUpgradeCost # DeltaV
   - type: StaticPrice
     price: 750
   - type: Tag
@@ -32,13 +31,13 @@
     - state: overlay-3
       color: "#eb4c13"
   - type: GunUpgrade
-    #tags: [ GunUpgradeDamage ] # DeltaV - allow multiple
+    tags: [ GunUpgradeDamage ]
     examineText: gun-upgrade-examine-text-damage
   - type: GunUpgradeDamage
     damage:
       types:
         Blunt: 10
-        #Structural: 15 # DeltaV - SS13 parity, 10 blunt per shot only
+        Structural: 15
 
 - type: entity
   id: PKAUpgradeRange
@@ -55,14 +54,10 @@
     - state: overlay-3
       color: "#1373eb"
   - type: GunUpgrade
-    #tags: [ GunUpgradeRange ] # DeltaV - allow multiple
+    tags: [ GunUpgradeRange ]
     examineText: gun-upgrade-examine-text-range
   - type: GunUpgradeSpeed
-    coefficient: 1.4 # Harmony - 1.5 > 1.4 - Prevents clipping at max stacks
-# Start harmony change - deltav PKA port
-  - type: GunUpgradeCost # DeltaV
-    cost: 25
-# End harmony change
+    coefficient: 1.5
 
 - type: entity
   id: PKAUpgradeFireRate
@@ -79,7 +74,7 @@
     - state: overlay-3
       color: "#9bf134"
   - type: GunUpgrade
-    #tags: [ GunUpgradeReloadSpeed ] # DeltaV - allow multiple
+    tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-reload
   - type: GunUpgradeFireRate
-    coefficient: 1.25 # DeltaV - was 1.5, SS13 parity (maths used is different but same result: 0.64s recharge time with 3 upgrades)
+    coefficient: 1.5

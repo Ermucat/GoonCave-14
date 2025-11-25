@@ -6,6 +6,14 @@
   - BrownShoes
   - HoPLeatherShoesHarmony
 
+# Security
+- type: loadoutGroup
+  id: PermaPrisonerJumpsuit
+  name: loadout-group-perma-prisoner-jumpsuit
+  loadouts:
+  - PermaPrisonerJumpsuit
+  - PermaPrisonerJumpskirt
+
 # Medical
 - type: loadoutGroup
   id: MedicalDoctorNeck

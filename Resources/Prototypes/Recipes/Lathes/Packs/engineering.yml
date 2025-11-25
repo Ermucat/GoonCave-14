@@ -3,7 +3,6 @@
 - type: latheRecipePack
   id: ToolsStatic
   recipes:
-  - VoiceSensor
   - Wirecutter
   - Screwdriver
   - Welder
@@ -13,7 +12,6 @@
   - NetworkConfigurator
   - Signaller
   - SprayPainter
-  - SprayPainterAmmo
   - FlashlightLantern
   - HandheldGPSBasic
   - TRayScanner

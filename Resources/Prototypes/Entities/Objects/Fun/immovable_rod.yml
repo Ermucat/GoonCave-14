@@ -6,19 +6,15 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MovementIgnoreGravity
-    weightless: true
   - type: Sprite
     sprite: Objects/Fun/immovable_rod.rsi
     state: icon
     noRot: false
   - type: ImmovableRod
-    # Harmony start
-    shouldGib: false
+    shouldGib: false # Harmony
     damage:
       types:
         Piercing: 400
-    # Harmony end
-  - type: GravityAffected
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
@@ -89,6 +85,8 @@
 #       Blunt: 190
         Piercing: 90
 # End harmony change
+  - type: MovementIgnoreGravity
+    gravityState: true
   - type: InputMover
   - type: MovementSpeedModifier
     baseWeightlessAcceleration: 5
@@ -128,7 +126,7 @@
   description: SHARK TORNADO!
   components:
   - type: Sprite
-    sprite: Objects/Fun/Plushies/shark.rsi
+    sprite: Objects/Fun/sharkplush.rsi
     state: blue
     rotation: 90
     noRot: false
@@ -199,6 +197,6 @@
   description: WEH!
   components:
   - type: Sprite
-    sprite: Objects/Fun/Plushies/lizard.rsi
-    state: icon
+    sprite: Objects/Fun/toys.rsi
+    state: plushie_lizard
     noRot: false

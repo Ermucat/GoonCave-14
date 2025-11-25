@@ -8,8 +8,8 @@
       size: Huge
     - type: MultiHandedItem
     - type: HeldSpeedModifier #verrryy heavy
-      walkModifier: 0.6
-      sprintModifier: 0.6
+      walkModifier: 0.60
+      sprintModifier: 0.60
     - type: NodeContainer
       examinable: true
       nodes:
@@ -40,8 +40,8 @@
           acts: [ "Destruction" ]
     - type: PowerSink
     - type: Battery
-      maxCharge: 250000000
-      pricePerJoule: 0.000009
+      maxCharge: 7500000
+      pricePerJoule: 0.0003
     - type: ExaminableBattery
     - type: PowerConsumer
       voltage: High
@@ -57,5 +57,3 @@
       blacklist:
         tags:
         - GhostOnlyWarp
-    - type: StaticPrice
-      price: 3000
