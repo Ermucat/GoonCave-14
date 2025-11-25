@@ -84,11 +84,6 @@ public sealed class MagicSystem : SharedMagicSystem
 
         _mind.Visit(mindID, Orb);
 
-        if (!TryComp<ScryingOrbSpiritComponent>(Orb, out var scryspirit));
-
-        if (scryspirit != null)
-            scryspirit.Parent = args.User;
-
         _actions.AddAction(Orb, spiritComponent.ScryingOrbReturnAction);
     }
 
