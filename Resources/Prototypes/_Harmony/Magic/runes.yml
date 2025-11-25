@@ -8,11 +8,13 @@
   - type: TriggerOnCollide
     fixtureID: rune
     maxTriggers: 1
-    whitelist:
-      components:
-      - WizardComponent
   - type: TimedDespawn
     lifetime: 300
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: '#FFFF0033'
 
 - type: entity
   parent: IgniteRune
@@ -25,6 +27,11 @@
     maxTriggers: 1
   - type: TimedDespawn
     lifetime: 300
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: '#FF000033'
 
 - type: entity
   parent: ExplosionRune
@@ -37,3 +44,8 @@
     maxTriggers: 1
   - type: TimedDespawn
     lifetime: 300
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: '#FF770033'

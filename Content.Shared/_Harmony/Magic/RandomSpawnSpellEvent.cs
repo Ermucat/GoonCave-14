@@ -12,10 +12,10 @@ public sealed partial class RandomSpawnSpellEvent : InstantActionEvent
     public List<EntProtoId> Prototypes = new();
 
     [DataField]
-    public int RangeMin = -3;
+    public int RangeMin = -4;
 
     [DataField]
-    public int RangeMax = 3;
+    public int RangeMax = 4;
 
     [DataField]
     public float TrapsToSpawn = 5;
