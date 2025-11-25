@@ -72,4 +72,5 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
 # Event
