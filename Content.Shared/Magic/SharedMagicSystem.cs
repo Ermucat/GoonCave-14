@@ -85,6 +85,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
+        SubscribeLocalEvent<_Harmony.Magic.RandomSpawnSpellEvent>(OnRandomSpawn); // Harmony Change
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -145,6 +146,31 @@ public abstract class SharedMagicSystem : EntitySystem
 
         args.Handled = true;
     }
+
+    // Harmony Start
+    private void OnRandomSpawn(_Harmony.Magic.RandomSpawnSpellEvent args)
+    {
+        if (!_net.IsServer || args.Handled || !PassesSpellPrerequisites(args.Action, args.Performer))
+            return;
+
+        args.Handled = true;
+
+        var transform = Transform(args.Performer);
+        var UserCoordinates = transform.Coordinates;
+
+        for (var i = args.TrapsToSpawn; i > 0; i--)
+        {
+            var positionY = (UserCoordinates.Y + _random.Next(args.RangeMin, args.RangeMax));
+            var positionX = (UserCoordinates.X + _random.Next(args.RangeMin, args.RangeMax));
+
+            var random = new Vector2(positionX, positionY);
+
+            var spawn = Spawn(_random.Pick(args.Prototypes), UserCoordinates);
+            _transform.SetLocalPosition(spawn, random);
+        }
+
+    }
+    // Harmony End
 
         /// <summary>
     ///     Gets spawn positions listed on <see cref="InstantSpawnSpellEvent"/>

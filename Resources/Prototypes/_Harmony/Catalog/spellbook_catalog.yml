@@ -33,6 +33,18 @@
     stock: 1
 
 # Defensive
+- type: listing
+  id: SpellbookAlltheTraps
+  name: spellbook-all-the-traps-name
+  description: spellbook-all-the-traps-desc
+  productAction: ActionAllTheTraps
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 # Utility
 - type: listing
   id: SpellbookItemCurse

@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseAction
+  id: ActionAllTheTraps
+  name: All the Traps
+  description: summmons a variety of traps
+  components:
+  - type: Action
+    useDelay: 25
+    raiseOnAction: true
+    itemIconStyle: BigAction
+    icon:
+      sprite: Structures/Magic/Cult/trap.rsi
+      state: trap
+  - type: InstantAction
+    event: !type:RandomSpawnSpellEvent
+      prototypes:
+      - ExplosionRuneAllTheTraps
+      - IgniteRuneAllTheTraps
+      - StunRuneAllTheTraps
+  - type: SpeakOnAction
+    sentence: action-speech-spell-all-the-traps

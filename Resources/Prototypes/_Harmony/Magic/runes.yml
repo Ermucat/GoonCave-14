@@ -1,0 +1,39 @@
+# TODO: Make traps not effect wizards, probably just add whitelist to OnCollide components
+- type: entity
+  parent: StunRune
+  id: StunRuneAllTheTraps
+  name: "stun rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+    whitelist:
+      components:
+      - WizardComponent
+  - type: TimedDespawn
+    lifetime: 300
+
+- type: entity
+  parent: IgniteRune
+  id: IgniteRuneAllTheTraps
+  name: "ignite rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: ignition
+    maxTriggers: 1
+  - type: TimedDespawn
+    lifetime: 300
+
+- type: entity
+  parent: ExplosionRune
+  id: ExplosionRuneAllTheTraps
+  name: "explosion rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: TimedDespawn
+    lifetime: 300
