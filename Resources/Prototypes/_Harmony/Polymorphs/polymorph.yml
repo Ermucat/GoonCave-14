@@ -2,6 +2,7 @@
   id: SnakeMorph
   configuration:
     entity: MobSnake
+    transferName: true
     transferDamage: false
     inventory: None
     duration: 120

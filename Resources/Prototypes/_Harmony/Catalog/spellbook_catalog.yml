@@ -1,9 +1,21 @@
 ﻿# Offensive
 # Defensive
+- type: listing
+  id: SpellbookSticksToSnakes
+  name: spellbook-sticks-to-snakes-name
+  description: spellbook-sticks-to-snakes-desc
+  productAction: ActionSticksToSnakes
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 # Utility
 # Equipment
 - type: listing
-  id: SpellbookStaffSlipping
+  id: SpellbookStaffOfSlipping
   name: spellbook-staff-slipping-name
   description: spellbook-staff-slipping-desc
   productEntity: WeaponStaffSlipping

@@ -20,8 +20,10 @@ public sealed class MagicSystem : SharedMagicSystem
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    // Harmony Start
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    // Harmony End
 
 
     private static readonly ProtoId<TagPrototype> InvalidForSurvivorAntagTag = "InvalidForSurvivorAntag";
@@ -30,7 +32,7 @@ public sealed class MagicSystem : SharedMagicSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PolymorphItemEvent>(OnPolymorphItem);
+        SubscribeLocalEvent<PolymorphItemEvent>(OnPolymorphItemInHand); // Harmony Change
     }
 
     public override void OnVoidApplause(VoidApplauseSpellEvent ev)
@@ -62,25 +64,18 @@ public sealed class MagicSystem : SharedMagicSystem
             _gameTicker.StartGameRule(survivorRule);
     }
 
-    public void OnPolymorphItem(PolymorphItemEvent ev)
+    // Harmony start
+    public void OnPolymorphItemInHand(PolymorphItemEvent ev)
     {
-        if (HasComp<HandsComponent>(ev.Target))
-        {
-
-            if (!_hands.TryGetActiveItem(ev.Target, out var item))
-                return;
-
-            ev.Target = (EntityUid)item!;
-
-            _polymorph.PolymorphEntity(ev.Target, ev.Polymorph);
-
-            ev.Handled = true;
-
+        if (!_hands.TryGetActiveItem(ev.Target, out var item))
             return;
-        }
 
-        _polymorph.PolymorphEntity(ev.Target, ev.Polymorph);
+       var Target = (EntityUid)item!;
+
+        _polymorph.PolymorphEntity(Target, ev.Polymorph);
 
         ev.Handled = true;
+
     }
+    // Harmony end
 }
