@@ -1,10 +1,10 @@
 - type: entity
   id: BaseMagicHand
+  abstract: true
   parent: [ BaseItem, BaseMagicalContraband ]
   name: Mage hand
   description: oooh spooky
   suffix: Magic Hand
-  abstact: true
   components:
   - type: ActionOnInteract
     deleteOnUse: true
