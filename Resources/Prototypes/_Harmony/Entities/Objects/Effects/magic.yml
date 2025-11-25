@@ -1,0 +1,17 @@
+- type: entity
+  id: EffectElectricity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - shader: unshaded
+      sprite: _Harmony/Effects/electricity.rsi
+      state: electricity
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer

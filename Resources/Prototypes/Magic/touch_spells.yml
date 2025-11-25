@@ -64,13 +64,9 @@
       sprite: Clothing/Mask/cluwne.rsi
       state: icon
   - type: EntityTargetAction
-    event: !type:ChangeComponentsSpellEvent
-      toAdd:
-      - type: Cluwne
+    event: !type:LightningBoltSpellEvent
   - type: SpeakOnAction
     sentence: action-speech-spell-cluwne
-  - type: Magic
-    requiresClothes: true
 
 - type: entity
   parent: BaseSmiteAction

@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Hands.Components;
@@ -63,6 +64,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -82,6 +84,8 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
+        SubscribeLocalEvent<LightningBoltSpellEvent>(OnLightningBolt);
+        SubscribeLocalEvent<LightningBoltDoAfterEvent>(OnLightningDoAfter);
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -280,6 +284,41 @@ public abstract class SharedMagicSystem : EntitySystem
         var direction = _transform.ToMapCoordinates(toCoords).Position -
                          fromMap.Position;
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+    }
+
+
+    protected void OnLightningBolt(LightningBoltSpellEvent ev)
+    {
+        var doafterArgs = new DoAfterArgs(EntityManager, ev.Performer, ev.ChargeUpTime, new LightningBoltDoAfterEvent(), ev.Target, used: ev.Performer)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            MovementThreshold = 0.5f,
+        };
+        _doafter.TryStartDoAfter(doafterArgs);
+
+        var coords = Transform(ev.Performer);
+
+        _audio.PlayPredicted(ev.SoundCharge, ev.Performer, ev.Performer);
+        var lightningeffect = PredictedSpawnAttachedTo(ev.Effect, coords.Coordinates);
+        _transform.SetParent(lightningeffect, ev.Performer);
+        AddComp<ActiveSpellUserComponent>(ev.Performer);
+    }
+
+
+    public void OnLightningDoAfter(LightningBoltDoAfterEvent args)
+    {
+        if (args.Cancelled)
+        {
+            _audio.Stop(args.User);
+        }
+
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        _body.GibBody(args.User);
     }
     // End Projectile Spells
     #endregion
