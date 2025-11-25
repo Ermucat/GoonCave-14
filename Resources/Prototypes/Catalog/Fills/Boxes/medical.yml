@@ -123,6 +123,7 @@
       - state: box_medical
 # End of Harmony Change
       - state: bodybags
+  - type: Storage # TODO cardboard boxes shouldn't have whitelisting
     whitelist:
       tags:
         - BodyBag
