@@ -23,7 +23,7 @@ public sealed class HyposprayStatusControl : Control
     {
         _parent = parent;
         _solutionContainers = solutionContainers;
-        _label = new RichTextLabel { StyleClasses = { StyleClass.ItemStatus } };
+        _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
         AddChild(_label);
     }
 

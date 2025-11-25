@@ -1,6 +1,8 @@
 using System.Text.RegularExpressions;
+using System.Text;
+using Content.Server.Speech;
+using Content.Server.Speech.EntitySystems;
 using Content.Server._Harmony.Speech.Components;
-using Content.Shared.Speech;
 
 namespace Content.Server._Harmony.Speech.EntitySystems;
 
@@ -38,6 +40,9 @@ public sealed class IlleismAccentSystem : EntitySystem
     // I'll do it -> NAME'll do it
     private static readonly Regex RegexIllUpper = new(@"\bI'LL\b");
     private static readonly Regex RegexIllLower = new(@"\bi'll\b", RegexOptions.IgnoreCase);
+
+
+    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
     {

@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking.Events;
@@ -143,11 +142,6 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         }
     }
 
-    public ProtoId<SourcePortPrototype>[] GetSourcePortIds(Entity<DeviceLinkSourceComponent> source)
-    {
-        return source.Comp.Ports.ToArray();
-    }
-
     /// <summary>
     /// Retrieves the available ports from a source
     /// </summary>
@@ -164,11 +158,6 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         }
 
         return sourcePorts;
-    }
-
-    public ProtoId<SinkPortPrototype>[] GetSinkPortIds(Entity<DeviceLinkSinkComponent> source)
-    {
-        return source.Comp.Ports.ToArray();
     }
 
     /// <summary>
@@ -212,17 +201,6 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return new HashSet<(ProtoId<SourcePortPrototype>, ProtoId<SinkPortPrototype>)>();
 
         return links;
-    }
-
-    /// <summary>
-    /// Gets the entities linked to a specific source port.
-    /// </summary>
-    public HashSet<EntityUid> GetLinkedSinks(Entity<DeviceLinkSourceComponent?> source, ProtoId<SourcePortPrototype> port)
-    {
-        if (!Resolve(source, ref source.Comp) || !source.Comp.Outputs.TryGetValue(port, out var linked))
-            return new HashSet<EntityUid>(); // not a source or not linked
-
-        return new HashSet<EntityUid>(linked); // clone to prevent modifying the original
     }
 
     /// <summary>

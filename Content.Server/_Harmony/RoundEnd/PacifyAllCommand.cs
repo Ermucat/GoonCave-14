@@ -11,7 +11,6 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Flash.Components;
 using Content.Shared.Store.Components;
-using Content.Shared.Trigger.Components;
 using Robust.Shared.Console;
 
 namespace Content.Server._Harmony.RoundEnd;
@@ -39,10 +38,10 @@ public sealed class PacifyAllCommand : IConsoleCommand
             _entityManager.RemoveComponent<ExplosiveComponent>(uid);
         }
 
-        var grenadeQuery = _entityManager.EntityQueryEnumerator<TimerTriggerComponent>();
+        var grenadeQuery = _entityManager.EntityQueryEnumerator<OnUseTimerTriggerComponent>();
         while (grenadeQuery.MoveNext(out var uid, out _))
         {
-            _entityManager.RemoveComponent<TimerTriggerComponent>(uid);
+            _entityManager.RemoveComponent<OnUseTimerTriggerComponent>(uid);
         }
 
         var flashQuery = _entityManager.EntityQueryEnumerator<FlashComponent>();

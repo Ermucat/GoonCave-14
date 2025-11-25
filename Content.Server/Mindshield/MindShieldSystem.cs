@@ -6,7 +6,6 @@ using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.Roles.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
@@ -27,13 +26,16 @@ public sealed class MindShieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MindShieldImplantComponent, ImplantImplantedEvent>(OnImplantImplanted);
-        SubscribeLocalEvent<MindShieldImplantComponent, ImplantRemovedEvent>(OnImplantRemoved);
+        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
     }
 
     private void OnImplantImplanted(Entity<MindShieldImplantComponent> ent, ref ImplantImplantedEvent ev)
     {
-        EnsureComp<MindShieldComponent>(ev.Implanted);
-        MindShieldRemovalCheck(ev.Implanted, ev.Implant);
+        if (ev.Implanted == null)
+            return;
+
+        EnsureComp<MindShieldComponent>(ev.Implanted.Value);
+        MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
     }
 
     /// <summary>
@@ -55,9 +57,9 @@ public sealed class MindShieldSystem : EntitySystem
         }
     }
 
-    private void OnImplantRemoved(Entity<MindShieldImplantComponent> ent, ref ImplantRemovedEvent args)
+    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        RemComp<MindShieldComponent>(args.Implanted);
+        RemComp<MindShieldComponent>(args.Container.Owner);
     }
 }
 

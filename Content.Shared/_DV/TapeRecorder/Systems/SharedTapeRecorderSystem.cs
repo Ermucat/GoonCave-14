@@ -18,7 +18,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._DV.TapeRecorder.Systems;
 

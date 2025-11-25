@@ -1,7 +1,7 @@
-using Content.Server._DV.StationEvents.Events;
+using Content.Server.StationEvents.Events;
 using Robust.Shared.Utility;
 
-namespace Content.Server._DV.StationEvents.Components;
+namespace Content.Server.StationEvents.Components;
 
 /// <summary>
 /// Loads a grid far away from a random station.

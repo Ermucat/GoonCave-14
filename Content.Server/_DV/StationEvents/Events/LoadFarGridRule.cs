@@ -1,20 +1,19 @@
-using Content.Server._DV.StationEvents.Components;
 using Content.Server.GameTicking.Rules;
-using Content.Server.StationEvents.Events;
+using Content.Server.Station.Components;
+using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Random;
 
-namespace Content.Server._DV.StationEvents.Events;
+namespace Content.Server.StationEvents.Events;
 
 public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponent>
 {
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
 
     protected override void Added(EntityUid uid, LoadFarGridRuleComponent comp, GameRuleComponent rule, GameRuleAddedEvent args)
     {
@@ -44,7 +43,7 @@ public sealed class LoadFarGridRule : StationEventSystem<LoadFarGridRuleComponen
                 map = Transform(gridId).MapID;
 
             var grid = Comp<MapGridComponent>(gridId);
-            var gridAabb = _transform.GetWorldMatrix(gridId).TransformBox(grid.LocalAABB);
+            var gridAabb = Transform(gridId).WorldMatrix.TransformBox(grid.LocalAABB);
             aabb = aabb.Union(gridAabb);
         }
 

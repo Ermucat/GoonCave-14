@@ -63,13 +63,13 @@ namespace Content.Server.Engineering.EntitySystems
             if (component.Deleted || !IsTileClear())
                 return;
 
-            if (TryComp<StackComponent>(uid, out var stackComp)
-                && component.RemoveOnInteract && !_stackSystem.TryUse((uid, stackComp), 1))
+            if (EntityManager.TryGetComponent(uid, out StackComponent? stackComp)
+                && component.RemoveOnInteract && !_stackSystem.Use(uid, 1, stackComp))
             {
                 return;
             }
 
-            Spawn(component.Prototype, args.ClickLocation.SnapToGrid(grid));
+            EntityManager.SpawnEntity(component.Prototype, args.ClickLocation.SnapToGrid(grid));
 
             if (component.RemoveOnInteract && stackComp == null)
                 TryQueueDel(uid);

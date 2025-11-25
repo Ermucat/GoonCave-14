@@ -1,6 +1,7 @@
+using Content.Server.Storage.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
@@ -47,7 +48,6 @@ public sealed class MagnetPickupSystem : EntitySystem
                 continue;
 
             comp.NextScan += ScanDelay;
-            Dirty(uid, comp);
 
             if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
                 continue;

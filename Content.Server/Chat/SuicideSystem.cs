@@ -1,9 +1,9 @@
 using Content.Server.Ghost;
-using Content.Server.Hands.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
-using Content.Shared.Damage.Components;
+using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
@@ -15,8 +15,9 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Configuration; // Harmony
-using Content.Shared._Harmony.CCVars; // Harmony
+// Harmony refs
+using Robust.Shared.Configuration;
+using Content.Shared._Harmony.CCVars;
 
 namespace Content.Server.Chat;
 
@@ -24,15 +25,15 @@ public sealed class SuicideSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly GhostSystem _ghostSystem = default!;
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!; // Harmony
+    // Harmony change. Add config manager and boolean to hold the CVar value
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
 
-    private bool _disable_suicide; // Harmony
+    private bool _disable_suicide;
 
     private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
 
@@ -43,7 +44,8 @@ public sealed class SuicideSystem : EntitySystem
         SubscribeLocalEvent<DamageableComponent, SuicideEvent>(OnDamageableSuicide);
         SubscribeLocalEvent<MobStateComponent, SuicideEvent>(OnEnvironmentalSuicide);
         SubscribeLocalEvent<MindContainerComponent, SuicideGhostEvent>(OnSuicideGhost);
-        Subs.CVar(_configuration, HCCVars.DisableSuicide, value => _disable_suicide = value, true); // Harmony
+        // Harmony change. Subscribe to DisableSuicide CVar
+        Subs.CVar(_configuration, HCCVars.DisableSuicide, value => _disable_suicide = value, true);
     }
 
     /// <summary>
@@ -57,7 +59,7 @@ public sealed class SuicideSystem : EntitySystem
         if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState))
             return false;
 
-        _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} is attempting to suicide");
+        _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} is attempting to suicide");
 
         ICommonSession? session = null;
 
@@ -77,9 +79,6 @@ public sealed class SuicideSystem : EntitySystem
         if (_disable_suicide)
             return true;
 
-        // TODO: fix this
-        // This is a handled event, but the result is never used
-        // It looks like TriggerOnMobstateChange is supposed to prevent you from suiciding
         var suicideEvent = new SuicideEvent(victim);
         RaiseLocalEvent(victim, suicideEvent);
 
@@ -90,7 +89,7 @@ public sealed class SuicideSystem : EntitySystem
         }
         else
         {
-            _adminLogger.Add(LogType.Mind, $"{ToPrettyString(victim):player} suicided.");
+            _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} suicided.");
         }
         return true;
     }
@@ -130,9 +129,10 @@ public sealed class SuicideSystem : EntitySystem
         var suicideByEnvironmentEvent = new SuicideByEnvironmentEvent(victim);
 
         // Try to suicide by raising an event on the held item
-        if (_hands.TryGetActiveItem(victim.Owner, out var item))
+        if (EntityManager.TryGetComponent(victim, out HandsComponent? handsComponent)
+            && handsComponent.ActiveHandEntity is { } item)
         {
-            RaiseLocalEvent(item.Value, suicideByEnvironmentEvent);
+            RaiseLocalEvent(item, suicideByEnvironmentEvent);
             if (suicideByEnvironmentEvent.Handled)
             {
                 args.Handled = suicideByEnvironmentEvent.Handled;

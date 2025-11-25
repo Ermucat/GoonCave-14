@@ -67,7 +67,6 @@ namespace Content.Shared.VendingMachines
 
         public string? NextItemToEject;
 
-        [DataField]
         public bool Broken;
 
         /// <summary>
@@ -140,12 +139,6 @@ namespace Content.Shared.VendingMachines
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextEmpEject = TimeSpan.Zero;
 
-        /// <summary>
-        /// Audio entity used during restock in case the doafter gets canceled.
-        /// </summary>
-        [DataField]
-        public EntityUid? RestockStream;
-
         #region Client Visuals
         /// <summary>
         /// RSI state for when the vending machine is unpowered.
@@ -200,18 +193,15 @@ namespace Content.Shared.VendingMachines
         #endregion
     }
 
-    [Serializable, NetSerializable, DataDefinition]
-    public sealed partial class VendingMachineInventoryEntry
+    [Serializable, NetSerializable]
+    public sealed class VendingMachineInventoryEntry
     {
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
         public InventoryType Type;
-
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
         public string ID;
-
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
         public uint Amount;
-
         public VendingMachineInventoryEntry(InventoryType type, string id, uint amount)
         {
             Type = type;
@@ -301,7 +291,5 @@ namespace Content.Shared.VendingMachines
         public TimeSpan? DenyEnd;
 
         public TimeSpan? DispenseOnHitEnd;
-
-        public bool Broken;
     }
 }
