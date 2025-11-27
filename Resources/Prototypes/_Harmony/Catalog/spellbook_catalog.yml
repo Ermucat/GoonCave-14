@@ -38,6 +38,7 @@
   name: spellbook-all-the-traps-name
   description: spellbook-all-the-traps-desc
   productAction: ActionAllTheTraps
+  productUpgradeId: SpellbookAllTheTrapsUpgrade
   cost:
     WizCoin: 1
   categories:
@@ -45,6 +46,26 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookAllTheTrapsUpgrade
+  productUpgradeId: SpellbookAllTheTrapsUpgrade
+  name: spellbook-all-the-traps-upgrade-name
+  description: spellbook-all-the-traps-upgrade-desc
+  icon:
+    sprite: Structures/Magic/Cult/trap.rsi
+    state: trap
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookAlltheTraps
+  # manual for now
+  - !type:ListingLimitedStockCondition
+    stock: 2
 # Utility
 - type: listing
   id: SpellbookItemCurse

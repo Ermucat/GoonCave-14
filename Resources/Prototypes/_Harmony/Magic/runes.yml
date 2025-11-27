@@ -14,7 +14,12 @@
     sprite: Structures/Magic/Cult/trap.rsi
     layers:
     - state: trap
-      color: '#FFFF0033'
+      color: '#FFFF0026'
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Machines/airlock_electrify_on.ogg
 
 - type: entity
   parent: IgniteRune
@@ -31,7 +36,12 @@
     sprite: Structures/Magic/Cult/trap.rsi
     layers:
     - state: trap
-      color: '#FF000033'
+      color: '#FF000026'
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Magic/fireball.ogg
 
 - type: entity
   parent: ExplosionRune
@@ -48,4 +58,187 @@
     sprite: Structures/Magic/Cult/trap.rsi
     layers:
     - state: trap
-      color: '#FF770033'
+      color: '#FF770026'
+
+- type: entity
+  parent: CollideRune
+  id: PolymorphRuneAllTheTraps
+  name: "polymorph rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: PolymorphOnTrigger
+    polymorph: Mouse
+    targetUser: true
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: '#3a057826'
+  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 300
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Magic/staff_change.ogg
+
+- type: entity
+  parent: CollideRune
+  id: ScramRuneAllTheTraps
+  name: "scram rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: ScramOnTrigger
+    targetUser: true
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: '#3e18d626'
+  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 300
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Magic/blink.ogg
+
+- type: entity
+  parent: CollideRune
+  id: RepulseRuneAllTheTraps
+  name: "repulse rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: RepulseAttractOnTrigger
+    speed: 15
+    range: 15
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: '#eff0c026'
+  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 300
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Magic/blink.ogg
+
+- type: entity
+  parent: CollideRune
+  id: OreCrabRuneAllTheTraps
+  name: "ore crab rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: SpawnOnTrigger
+    proto: SpawnMobOreCrab
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: "#38821426"
+  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 300
+
+- type: entity
+  parent: CollideRune
+  id: SmokeRuneAllTheTraps
+  name: "smoke rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: SmokeOnTrigger
+    smokeprototype: WizardSmoke
+    spreadAmount: 5
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: "#53575126"
+  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 300
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Effects/smoke.ogg
+
+- type: entity
+  parent: SmokeRuneAllTheTraps
+  id: LubeFoamRuneAllTheTraps
+  name: "lube rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 5
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 20
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: "#cbdb9e26"
+
+- type: entity
+  parent: SmokeRuneAllTheTraps
+  id: GlueFoamRuneAllTheTraps
+  name: "glue rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 5
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceGlue
+        Quantity: 20
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: "#e8e8e826"
+
+- type: entity
+  parent: SmokeRuneAllTheTraps
+  id: WehRuneAllTheTraps
+  name: "weh rune"
+  suffix: Harmony, All the Traps
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 5
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 30
+  - type: Sprite
+    sprite: Structures/Magic/Cult/trap.rsi
+    layers:
+    - state: trap
+      color: "#48ff0026"

@@ -17,5 +17,69 @@
       - ExplosionRuneAllTheTraps
       - IgniteRuneAllTheTraps
       - StunRuneAllTheTraps
+      - ScramRuneAllTheTraps
+      - PolymorphRuneAllTheTraps
+      - RepulseRuneAllTheTraps
+      - OreCrabRuneAllTheTraps
+      - SmokeRuneAllTheTraps
+      - LubeFoamRuneAllTheTraps
+      - GlueFoamRuneAllTheTraps
+      - WehRuneAllTheTraps
   - type: SpeakOnAction
     sentence: action-speech-spell-all-the-traps
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionAllTheTrapsII
+      3: ActionAllTheTrapsIII
+
+- type: entity
+  parent: ActionAllTheTraps
+  id: ActionAllTheTrapsII
+  name: All the Traps II
+  description: summmons a variety of traps
+  components:
+  - type: Action
+    useDelay: 20
+  - type: InstantAction
+    event: !type:RandomSpawnSpellEvent
+      prototypes:
+      - ExplosionRuneAllTheTraps
+      - IgniteRuneAllTheTraps
+      - StunRuneAllTheTraps
+      - ScramRuneAllTheTraps
+      - PolymorphRuneAllTheTraps
+      - RepulseRuneAllTheTraps
+      - OreCrabRuneAllTheTraps
+      - SmokeRuneAllTheTraps
+      - LubeFoamRuneAllTheTraps
+      - GlueFoamRuneAllTheTraps
+      - WehRuneAllTheTraps
+      rangeMin: -5
+      rangeMax: 5
+      trapsToSpawn: 8
+
+- type: entity
+  parent: ActionAllTheTraps
+  id: ActionAllTheTrapsIII
+  name: All the Traps III
+  description: summmons a variety of traps
+  components:
+  - type: Action
+    useDelay: 15
+  - type: InstantAction
+    event: !type:RandomSpawnSpellEvent
+      prototypes:
+      - ExplosionRuneAllTheTraps
+      - IgniteRuneAllTheTraps
+      - StunRuneAllTheTraps
+      - ScramRuneAllTheTraps
+      - PolymorphRuneAllTheTraps
+      - RepulseRuneAllTheTraps
+      - OreCrabRuneAllTheTraps
+      - SmokeRuneAllTheTraps
+      - LubeFoamRuneAllTheTraps
+      - GlueFoamRuneAllTheTraps
+      - WehRuneAllTheTraps
+      rangeMin: -5
+      rangeMax: 5
+      trapsToSpawn: 11
