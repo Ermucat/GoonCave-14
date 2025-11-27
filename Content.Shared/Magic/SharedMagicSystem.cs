@@ -16,6 +16,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Revenant.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
@@ -85,7 +86,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
         SubscribeLocalEvent<VoidApplauseSpellEvent>(OnVoidApplause);
         SubscribeLocalEvent<LightningBoltSpellEvent>(OnLightningBolt);
-        SubscribeLocalEvent<LightningBoltDoAfterEvent>(OnLightningDoAfter);
+        SubscribeLocalEvent<ActiveSpellUserComponent, LightningBoltDoAfterEvent>(OnLightningDoAfter);
     }
 
     private void OnBeforeCastSpell(Entity<MagicComponent> ent, ref BeforeCastSpellEvent args)
@@ -295,6 +296,9 @@ public abstract class SharedMagicSystem : EntitySystem
             BreakOnMove = true,
             MovementThreshold = 0.5f,
         };
+
+        AddComp<ActiveSpellUserComponent>(ev.Performer);
+
         _doafter.TryStartDoAfter(doafterArgs);
 
         var coords = Transform(ev.Performer);
@@ -302,21 +306,16 @@ public abstract class SharedMagicSystem : EntitySystem
         _audio.PlayPredicted(ev.SoundCharge, ev.Performer, ev.Performer);
         var lightningeffect = PredictedSpawnAttachedTo(ev.Effect, coords.Coordinates);
         _transform.SetParent(lightningeffect, ev.Performer);
-        AddComp<ActiveSpellUserComponent>(ev.Performer);
+
     }
 
 
-    public void OnLightningDoAfter(LightningBoltDoAfterEvent args)
+    private void OnLightningDoAfter(Entity<ActiveSpellUserComponent> ent, ref LightningBoltDoAfterEvent args)
     {
-        if (args.Cancelled)
-        {
-            _audio.Stop(args.User);
-        }
+        //if (args.Cancelled)
+            //return;
 
-        if (args.Handled)
-            return;
-
-        args.Handled = true;
+        RemComp<ActiveSpellUserComponent>(args.User);
 
         _body.GibBody(args.User);
     }
