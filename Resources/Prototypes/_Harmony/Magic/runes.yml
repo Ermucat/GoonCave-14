@@ -167,7 +167,7 @@
     fixtureID: rune
     maxTriggers: 1
   - type: SmokeOnTrigger
-    smokeprototype: WizardSmoke
+    smokePrototype: WizardSmoke
     spreadAmount: 5
   - type: Sprite
     sprite: Structures/Magic/Cult/trap.rsi
