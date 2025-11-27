@@ -100,12 +100,13 @@ public sealed class ActionOnInteractSystem : EntitySystem
                 _actions.SetEventTarget(actionId, target);
                 _actions.PerformAction(args.User, (actionId, action), predicted: false);
 
-                // Harmony End
-                if (component.DeleteOnUse)
+                // Harmony Start
+                var actionEvent = _actions.GetEvent(action.Owner);
+                if (component.DeleteOnUse && actionEvent!.Handled)
                 {
                     EntityManager.DeleteEntity(uid);
                 }
-                // Harmony Start
+                // Harmony End
 
                 args.Handled = true;
                 return;
@@ -135,12 +136,12 @@ public sealed class ActionOnInteractSystem : EntitySystem
 
         _actions.PerformAction(args.User, (actId, comp), world.Event, predicted: false);
 
-        // Harmony End
-        if (component.DeleteOnUse)
+        // Harmony Start
+        if (component.DeleteOnUse && world.Event!.Handled)
         {
             EntityManager.DeleteEntity(uid);
         }
-        // Harmony Start
+        // Harmony End
 
         args.Handled = true;
     }
