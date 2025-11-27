@@ -204,41 +204,28 @@
       color: "#cbdb9e26"
 
 - type: entity
-  parent: SmokeRuneAllTheTraps
-  id: GlueFoamRuneAllTheTraps
-  name: "glue rune"
+  parent: CollideRune
+  id: LightningRuneAllTheTraps
+  name: "lightning rune"
   suffix: Harmony, All the Traps
   components:
-  - type: SmokeOnTrigger
-    duration: 5
-    spreadAmount: 5
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: SpaceGlue
-        Quantity: 20
+  - type: TriggerOnCollide
+    fixtureID: rune
+    maxTriggers: 1
+  - type: RandomLightningOnTrigger
+    doLightningEvents: false
+    boltCount: 3
+    arcDepth: 5
   - type: Sprite
     sprite: Structures/Magic/Cult/trap.rsi
     layers:
     - state: trap
-      color: "#e8e8e826"
-
-- type: entity
-  parent: SmokeRuneAllTheTraps
-  id: WehRuneAllTheTraps
-  name: "weh rune"
-  suffix: Harmony, All the Traps
-  components:
-  - type: SmokeOnTrigger
-    duration: 5
-    spreadAmount: 5
-    smokePrototype: Foam
-    solution:
-      reagents:
-      - ReagentId: JuiceThatMakesYouWeh
-        Quantity: 30
-  - type: Sprite
-    sprite: Structures/Magic/Cult/trap.rsi
-    layers:
-    - state: trap
-      color: "#48ff0026"
+      color: "#ffff0026"
+  - type: DeleteOnTrigger
+  - type: TimedDespawn
+    lifetime: 300
+  - type: EmitSoundOnTrigger
+    positional: true
+    predicted: true
+    sound:
+      path: /Audio/Effects/smoke.ogg
