@@ -23,7 +23,6 @@
       - OreCrabRuneAllTheTraps
       - SmokeRuneAllTheTraps
       - LubeFoamRuneAllTheTraps
-      - LightningRuneAllTheTraps
   - type: SpeakOnAction
     sentence: action-speech-spell-all-the-traps
   - type: ActionUpgrade
@@ -51,7 +50,6 @@
       - OreCrabRuneAllTheTraps
       - SmokeRuneAllTheTraps
       - LubeFoamRuneAllTheTraps
-      - LightningRuneAllTheTraps
       rangeMin: -5
       rangeMax: 5
       trapsToSpawn: 8
@@ -76,7 +74,6 @@
       - OreCrabRuneAllTheTraps
       - SmokeRuneAllTheTraps
       - LubeFoamRuneAllTheTraps
-      - LightningRuneAllTheTraps
       rangeMin: -5
       rangeMax: 5
       trapsToSpawn: 11
