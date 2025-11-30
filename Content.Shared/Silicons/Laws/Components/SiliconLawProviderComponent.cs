@@ -22,6 +22,14 @@ public sealed partial class SiliconLawProviderComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SiliconLawset? Lawset;
 
+    // Harmony start
+    /// <summary>
+    /// List of lawsets that will be randomly chosen from if the List is filled
+    /// </summary>
+    [DataField]
+    public List<ProtoId<SiliconLawsetPrototype>>? Lawsets;
+    // Harmony end
+
     /// <summary>
     /// The sound that plays for the Silicon player
     /// when the law change is processed for the provider.

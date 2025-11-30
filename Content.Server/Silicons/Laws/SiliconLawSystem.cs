@@ -18,6 +18,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random; // Harmony change
 using Robust.Shared.Toolshed;
 
 namespace Content.Server.Silicons.Laws;
@@ -32,6 +33,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly IRobustRandom _random = default!; // Harmony change
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -119,6 +121,14 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     {
         if (args.Handled)
             return;
+
+        // Harmony start
+        if (component.Lawsets != null)
+        {
+            var chosenlawset = _random.Pick(component.Lawsets);
+            component.Lawset = GetLawset(chosenlawset);
+        }
+         // Harmony end
 
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);

@@ -412,6 +412,14 @@
     visible: false
   - type: SiliconLawProvider
     laws: Crewsimov
+    # Harmony start - adds random roundstart lawsets
+    lawsets:
+    - Crewsimov
+    - Corporate
+    - NTDefault
+    - EfficiencyLawset
+    - Paladin
+    # Harmony end
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
