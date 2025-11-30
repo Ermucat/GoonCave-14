@@ -418,7 +418,7 @@
     - Corporate
     - NTDefault
     - EfficiencyLawset
-    - Paladin
+    - PaladinLawset
     # Harmony end
   - type: SiliconLawBound
   - type: ActionGrant
