@@ -15,6 +15,11 @@ public sealed partial class AiVisionWireAction : ComponentWireAction<StationAiVi
     public override Color Color { get; set; } = Color.White;
     public override object StatusKey => AirlockWireStatus.AiVisionIndicator;
 
+    // Harmony Start
+    [DataField("timeout")]
+    private int _timeout = 10;
+    // Harmony End
+
     public override StatusLightState? GetLightState(Wire wire, StationAiVisionComponent component)
     {
         return component.Enabled ? StatusLightState.On : StatusLightState.Off;
@@ -36,5 +41,26 @@ public sealed partial class AiVisionWireAction : ComponentWireAction<StationAiVi
     {
         // TODO: This should turn it off for a bit
         // Need timer cleanup first out of scope.
+        // Harmony Start
+        EntityManager.System<SharedStationAiSystem>().SetVisionEnabled((wire.Owner, component), false);
+        WiresSystem.StartWireAction(wire.Owner, _timeout, PulseTimeoutKey.Key, new TimedWireEvent(AwaitPulseEnd, wire));
+        // Harmony End
     }
+
+    // Harmony Start
+
+    private void AwaitPulseEnd(Wire wire)
+    {
+        if (!wire.IsCut)
+        {
+            if (EntityManager.TryGetComponent<StationAiVisionComponent>(wire.Owner, out var stationAiVision))
+                EntityManager.System<SharedStationAiSystem>().SetVisionEnabled((wire.Owner, stationAiVision), true);
+        }
+    }
+
+    private enum PulseTimeoutKey : byte
+    {
+        Key
+    }
+    // Harmony End
 }
