@@ -28,6 +28,13 @@ public sealed partial class SurveillanceCameraComponent : Component
     [DataField]
     public bool Active = true;
 
+    // Harmony Start
+    // If the AI is near this camera
+    // Harmony End
+    [DataField]
+    public bool AIWatching;
+    // Harmony End
+
     // This one isn't easy to deal with. Will require a UI
     // to change/set this so mapping these in isn't
     // the most terrible thing possible.

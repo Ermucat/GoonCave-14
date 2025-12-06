@@ -10,6 +10,10 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.DeviceNetwork.Components;
+// Harmony Start
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
+// Harmony End
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -21,6 +25,9 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // Harmony Change
+
+    private EntityQuery<SurveillanceCameraActiveOnCollideComponent> _CameraQuery; // Harmony Change
 
 
     // Pings a surveillance camera subnet. All cameras will always respond
@@ -61,6 +68,16 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
+
+        // Harmony Start
+        _CameraQuery = GetEntityQuery<SurveillanceCameraActiveOnCollideComponent>();
+
+        SubscribeLocalEvent<SurveillanceCameraActiveOnCollideColliderComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<SurveillanceCameraActiveOnCollideColliderComponent, StartCollideEvent>(OnStart);
+        SubscribeLocalEvent<SurveillanceCameraActiveOnCollideColliderComponent, EndCollideEvent>(OnEnd);
+
+        SubscribeLocalEvent<SurveillanceCameraActiveOnCollideColliderComponent, ComponentShutdown>(OnCollideShutdown);
+        // Harmony End
     }
 
     private void OnPacketReceived(EntityUid uid, SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
@@ -177,6 +194,70 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         Dirty(uid, component);
         UpdateSetupInterface(uid, component);
     }
+
+    // Harmony Start
+    private void OnCollideShutdown(Entity<SurveillanceCameraActiveOnCollideColliderComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
+        var contacts = _physics.GetContacts(ent.Owner);
+
+        while (contacts.MoveNext(out var contact))
+        {
+            if (!contact.IsTouching)
+                continue;
+
+            var other = contact.OtherEnt(ent.Owner);
+
+            if (_CameraQuery.HasComp(other))
+            {
+                _physics.RegenerateContacts(other);
+            }
+        }
+    }
+
+    private void OnPreventCollide(Entity<SurveillanceCameraActiveOnCollideColliderComponent> ent, ref PreventCollideEvent args)
+    {
+        if (!_CameraQuery.HasComp(args.OtherEntity))
+        {
+            args.Cancelled = true;
+        }
+    }
+
+    private void OnEnd(Entity<SurveillanceCameraActiveOnCollideColliderComponent> ent, ref EndCollideEvent args)
+    {
+        if (!_CameraQuery.HasComp(args.OtherEntity))
+            return;
+
+        var contacts = _physics.GetTouchingContacts(args.OtherEntity) - 1;
+
+        if (contacts > 0)
+            return;
+
+        if (!TryComp<SurveillanceCameraComponent>(args.OtherEntity, out var component))
+            return;
+
+        if (component != null)
+            component.AIWatching = false;
+
+        UpdateVisuals(args.OtherEntity, component);
+    }
+
+    private void OnStart(Entity<SurveillanceCameraActiveOnCollideColliderComponent> ent, ref StartCollideEvent args)
+    {
+        if (!_CameraQuery.HasComp(args.OtherEntity))
+            return;
+
+        if (!TryComp<SurveillanceCameraComponent>(args.OtherEntity, out var component))
+            return;
+
+        if (component != null)
+            component.AIWatching = true;
+
+        UpdateVisuals(args.OtherEntity, component);
+    }
+    // Harmony End
 
     protected override void OpenSetupInterface(EntityUid uid, EntityUid player, SurveillanceCameraComponent? camera = null)
     {
@@ -387,6 +468,13 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         {
             key = SurveillanceCameraVisuals.Active;
         }
+
+        // Harmony Start
+        if (component.AIWatching)
+        {
+            key = SurveillanceCameraVisuals.AIWatching;
+        }
+        // Harmony End
 
         if (component.ActiveViewers.Count > 0 || component.ActiveMonitors.Count > 0)
         {

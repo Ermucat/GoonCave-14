@@ -28,6 +28,7 @@
   - type: PointLight
     enabled: false
     radius: 5
+  - type: SurveillanceCameraActiveOnCollide
   - type: SlimPoweredLight
     enabled: false
   - type: StationAiVision
@@ -67,6 +68,7 @@
       Active: camera
       Disabled: camera_off
       InUse: camera_in_use
+      AIWatching: xraycamera_in_use # Harmony Change
   - type: UserInterface
     interfaces:
       enum.SurveillanceCameraSetupUiKey.Camera:

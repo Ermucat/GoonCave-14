@@ -64,6 +64,7 @@ public enum SurveillanceCameraVisuals : byte
     Active,
     InUse,
     Disabled,
+    AIWatching, // Harmony change - adds AI Watching
     // Reserved for future use
     Xray,
     Emp

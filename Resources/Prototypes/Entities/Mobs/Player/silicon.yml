@@ -486,6 +486,7 @@
     - state: ai_camera
       shader: unshaded
       map: ["base"]
+  - type: SurveillanceCameraActiveOnCollideCollider # Harmony Change
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
