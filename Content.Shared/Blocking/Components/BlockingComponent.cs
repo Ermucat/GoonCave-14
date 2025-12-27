@@ -76,4 +76,18 @@ public sealed partial class BlockingComponent : Component
     /// </summary>
     [DataField]
     public float ActiveBlockFraction = 1.0f;
+
+    // Harmony start
+    /// <summary>
+    /// Draw energy from power cell on hit?
+    /// </summary>
+    [DataField]
+    public bool CellDrawOnHit = false;
+
+    /// <summary>
+    /// Multiplier of draw to battery on hit
+    /// </summary>
+    [DataField]
+    public float PoweerCellDrainMultiplier = 3;
+    // Harmony end
 }

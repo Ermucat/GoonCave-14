@@ -1,6 +1,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
@@ -10,7 +12,7 @@ public sealed partial class BlockingSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
+    [Dependency] private readonly PowerCellSystem _cell = default!;
     private void InitializeUser()
     {
         SubscribeLocalEvent<BlockingUserComponent, DamageModifyEvent>(OnUserDamageModified);
@@ -79,6 +81,17 @@ public sealed partial class BlockingSystem
         {
             return;
         }
+
+        // Harmony start - adds battery shield functionality
+        if (component.CellDrawOnHit)
+        {
+            if (_cell.TryGetBatteryFromSlot(uid, out var battery) && !_cell.TryUseCharge(uid,
+                    args.Damage.GetTotal().Float() * component.PoweerCellDrainMultiplier))
+            {
+                _cell.TryUseCharge(uid, battery.Value.Comp.LastCharge);
+            }
+        }
+        // Harmony end
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
     }

@@ -107,7 +107,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       state: icon
-      #state: riot_laser-icon 
+      #state: riot_laser-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-laser-shield.rsi
       size: Ginormous
@@ -138,7 +138,7 @@
     - type: Sprite
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       state: icon
-      #state: riot_bullet-icon 
+      #state: riot_bullet-icon
     - type: Item
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       size: Ginormous
@@ -147,7 +147,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/riot-bullet-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
 # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -287,7 +287,7 @@
   components:
 # Begin of Harmony Change: Shield Rework -- Suit Storage Slot
     - type: Sprite
-      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi 
+      sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       state: icon
       #state: makeshift-icon
     - type: Item
@@ -298,7 +298,7 @@
       sprite: _Harmony/Objects/Weapons/Melee/Shields/makeshift-shield.rsi
       quickEquip: false
       slots:
-      - suitStorage 
+      - suitStorage
   # End of Harmony Change
     - type: Blocking
       passiveBlockModifier:
@@ -532,6 +532,7 @@
       reflects:
         - Energy
     - type: Blocking
+      cellDrawOnHit: true # Harmony Change
       passiveBlockModifier:
         coefficients:
           Blunt: 1.0
@@ -550,28 +551,51 @@
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 180
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: GlassBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                BrokenEnergyShield:
-                  min: 1
-                  max: 1
+    # Harmony start - removes destruction functionality and cell draw function
+    #- type: Destructible
+      #thresholds:
+        #- trigger:
+            #!type:DamageTrigger
+            #damage: 180
+          #behaviors:
+            #- !type:DoActsBehavior
+              #acts: [ "Destruction" ]
+        #- trigger:
+            #!type:DamageTrigger
+            #damage: 100
+          #behaviors:
+           # - !type:DoActsBehavior
+            #  acts: [ "Destruction" ]
+            #- !type:PlaySoundBehavior
+             # sound:
+              #  collection: GlassBreak
+            # !type:SpawnEntitiesBehavior
+             # spawn:
+                #BrokenEnergyShield:
+              #    min: 1
+               #   max: 1
+    - type: PowerCellSlot
+      cellSlotId: cell_slot
+      fitsInCharger: false
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMedium
+          disableEject: true
+          insertOnInteract: false
+          whitelist:
+            tags:
+            - PowerCell
+    - type: ToggleCellDraw
+    - type: PowerCellDraw
+      drawRate: 0 # ToggleCellDraw requires this, and it also holds the toggle battery logic sooooo
+    - type: PredictedBatterySelfRecharger
+      autoRechargeRate: 5
+      # Harmony End
     - type: StaticPrice
       price: 350
 
