@@ -1,7 +1,8 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Power.EntitySystems;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems; // Harmony Change
 using Content.Shared.PowerCell;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -12,7 +13,10 @@ public sealed partial class BlockingSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    // Harmony start
     [Dependency] private readonly PowerCellSystem _cell = default!;
+    [Dependency] private readonly PredictedBatterySystem _battery = default!;
+    // Harmony End
     private void InitializeUser()
     {
         SubscribeLocalEvent<BlockingUserComponent, DamageModifyEvent>(OnUserDamageModified);
@@ -83,13 +87,10 @@ public sealed partial class BlockingSystem
         }
 
         // Harmony start - adds battery shield functionality
-        if (component.CellDrawOnHit)
+        if (component.CellDrawOnHit && (_cell.TryGetBatteryFromSlot(uid, out var battery)))
         {
-            if (_cell.TryGetBatteryFromSlot(uid, out var battery) && !_cell.TryUseCharge(uid,
-                    args.Damage.GetTotal().Float() * component.PoweerCellDrainMultiplier))
-            {
-                _cell.TryUseCharge(uid, battery.Value.Comp.LastCharge);
-            }
+            _battery.TrySetChargeCooldown(battery.Value.Owner);
+            _battery.UseCharge((Entity<PredictedBatteryComponent?>)battery!, args.Damage.GetTotal().Float() * component.PoweerCellDrainMultiplier);
         }
         // Harmony end
 

@@ -1,0 +1,9 @@
+﻿- type: entity
+  name: sheild cell
+  description: A rechargeable power cell. This is the popular and reliable version.
+  id: PowerCellMediumEergyShield
+  parent: PowerCellMedium
+  components:
+  - type: PredictedBatterySelfRecharger
+    autoRechargeRate: 10
+    autoRechargePauseTime: 5

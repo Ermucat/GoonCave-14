@@ -584,7 +584,7 @@
       slots:
         cell_slot:
           name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellMedium
+          startingItem: PowerCellMediumEergyShield
           disableEject: true
           insertOnInteract: false
           whitelist:
@@ -592,9 +592,7 @@
             - PowerCell
     - type: ToggleCellDraw
     - type: PowerCellDraw
-      drawRate: 0 # ToggleCellDraw requires this, and it also holds the toggle battery logic sooooo
-    - type: PredictedBatterySelfRecharger
-      autoRechargeRate: 5
+      drawRate: 1
       # Harmony End
     - type: StaticPrice
       price: 350
